@@ -40,6 +40,7 @@
 		959187A318E5F49C00538439 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959187A218E5F49C00538439 /* LoginViewController.m */; };
 		95DD929018E8B48900016E6B /* AddEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD928F18E8B48900016E6B /* AddEventTableViewController.m */; };
 		95DD929318E8B98200016E6B /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD929218E8B98200016E6B /* MapViewController.m */; };
+		AC2A4CFE18E8C71000A002DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		95DD928F18E8B48900016E6B /* AddEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventTableViewController.m; sourceTree = "<group>"; };
 		95DD929118E8B98200016E6B /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		95DD929218E8B98200016E6B /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC2A4CFE18E8C71000A002DE /* CoreLocation.framework in Frameworks */,
 				9505A86018E1C2A9006F1CA2 /* MapKit.framework in Frameworks */,
 				9505A81618E12CAD006F1CA2 /* CoreGraphics.framework in Frameworks */,
 				9505A81818E12CAD006F1CA2 /* UIKit.framework in Frameworks */,
@@ -147,6 +150,7 @@
 		9505A81218E12CAD006F1CA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */,
 				9505A85F18E1C2A9006F1CA2 /* MapKit.framework */,
 				9505A81318E12CAD006F1CA2 /* Foundation.framework */,
 				9505A81518E12CAD006F1CA2 /* CoreGraphics.framework */,
@@ -508,6 +512,8 @@
 				INFOPLIST_FILE = "demo/demo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -524,6 +530,8 @@
 				INFOPLIST_FILE = "demo/demo-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
