@@ -219,7 +219,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Map View" id="qsj-q9-hQn"/>
                     <connections>
-                        <outlet property="mapView" destination="OyN-es-DOf" id="MaR-Jb-GTa"/>
+                        <outlet property="mapView" destination="OyN-es-DOf" id="Rcj-x5-dXE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3d-r3-ZoR" userLabel="First Responder" sceneMemberID="firstResponder"/>
