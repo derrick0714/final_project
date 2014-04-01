@@ -1,26 +1,19 @@
 //
-//  EditProfileTableViewController.m
+//  MeTableViewController.m
 //  demo
 //
 //  Created by Xu Deng on 4/1/14.
 //  Copyright (c) 2014 Xu Deng. All rights reserved.
 //
 
-#import "EditProfileTableViewController.h"
-#import "GKImagePicker.h"
 #import "MeTableViewController.h"
+#import "EditProfileTableViewController.h"
 
-@interface EditProfileTableViewController()<GKImagePickerDelegate>{
-  GKImagePicker *picker;
-}
-@property (nonatomic, retain) GKImagePicker *picker;
-@property (weak, nonatomic) IBOutlet UIView *myPhoto;
-- (IBAction)backTo:(id)sender;
+@interface MeTableViewController ()
 
 @end
 
-@implementation EditProfileTableViewController
-@synthesize picker = _picker;
+@implementation MeTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -40,29 +33,12 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
-{
-	
-    if( indexPath.section == 0 && indexPath.row ==0 ){
-        self.picker = [[GKImagePicker alloc] init];
-        self.picker.delegate = self;
-        self.picker.cropper.cropSize = CGSizeMake(320.,320.);   // (Optional) Default: CGSizeMake(320., 320.)
-        self.picker.cropper.rescaleImage = YES;                // (Optional) Default: YES
-        self.picker.cropper.rescaleFactor = 2.0;               // (Optional) Default: 1.0
-        self.picker.cropper.dismissAnimated = YES;              // (Optional) Default: YES
-        self.picker.cropper.overlayColor = [UIColor colorWithRed:0/255. green:0/255. blue:0/255. alpha:0.7];  // (Optional) Default: [UIColor colorWithRed:0/255. green:0/255. blue:0/255. alpha:0.7]
-        self.picker.cropper.innerBorderColor = [UIColor colorWithRed:255./255. green:255./255. blue:255./255. alpha:0.7];   // (Optional) Default: [UIColor colorWithRed:0/255. green:0/255. blue:0/255. alpha:0.7]
-        [self.picker presentPicker];
-    }
-
 }
 
 #pragma mark - Table view data source
@@ -76,20 +52,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if( section == 0)
+    if(section ==0)
         return 1;
-    else
-        return 2;
+    return 2;
 }
 
-- (void)imagePickerDidFinish:(GKImagePicker *)imagePicker withImage:(UIImage *)image {
-   // myImageView.contentMode = UIViewContentModeCenter;
-    //myImageView.image = image;
-    NSIndexPath *a = [NSIndexPath indexPathForRow:0 inSection:0]; // I wanted to update this cell specifically
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:a];
-    cell.imageView.image =image;
-
-}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -148,17 +115,26 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"segueEditProfile"]) {
-        NSLog(@"1");
-    }
-    else{
+ 
         NSIndexPath *a = [NSIndexPath indexPathForRow:0 inSection:0]; // I wanted to update this cell specifically
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:a];
+        EditProfileTableViewController * detailViewController = [segue destinationViewController];
         
-        MeTableViewController * detailViewController = [segue destinationViewController];
         detailViewController.myphoto =  cell.imageView.image;
-
+        NSIndexPath *b = [NSIndexPath indexPathForRow:0 inSection:0]; // I wanted to update this cell specifically
+        UITableViewCell *cell2 = [detailViewController.tableView cellForRowAtIndexPath:b];
+        cell2.imageView.image = cell.imageView.image ;
+        
     }
 }
- 
+
+
+- (IBAction)unwindToMe:(UIStoryboardSegue*)sender
+{
+    NSIndexPath *a = [NSIndexPath indexPathForRow:0 inSection:0]; // I wanted to update this cell specifically
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:a];
+    cell.imageView.image =self.myphoto;
+}
+
 
 @end
