@@ -43,7 +43,8 @@
 	[self.section addObject:[Event initWithTitle:@"Guitar"
 										   notes:@"How to play scales"
 									   startTime:[NSDate dateWithTimeIntervalSinceNow:0]
-										 endTime:[NSDate dateWithTimeIntervalSinceNow:3600]]];
+										 endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
+										location:@"5 MetroTech Center, Brooklyn, NY 11201"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -118,14 +119,19 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if([segue.identifier isEqual: @"show_detail"]){
+    if([segue.identifier isEqual: @"segue_eventdetail"]) {
+		NSLog(@"%@", @"prepareForSegue");
         EventDetailTableViewController *destVC = [segue destinationViewController];
         UITableViewCell *cell = (UITableViewCell *) sender;
         destVC.eventTitle = cell.textLabel.text;
+		NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
+
+		Event *e = [self.section objectAtIndex:ip.row];
+		NSLog(@"%@", e.title);
+		destVC.event = [Event initWithEvent:e];
     }
 }
 
@@ -133,7 +139,8 @@
 	Event *e = [Event initWithTitle:@"Place holder"
 							  notes:@"Description"
 						  startTime:[NSDate dateWithTimeIntervalSinceNow:0]
-							endTime:[NSDate dateWithTimeIntervalSinceNow:3600]];
+							endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
+						   location:@"Somewhere"];
 	[self.section addObject:e];
 	[self.tableView reloadData];
 }

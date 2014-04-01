@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "../Event.h"
 
 @interface EventDetailTableViewController : UITableViewController
 @property NSString *eventTitle;
+@property Event *event;
 @end

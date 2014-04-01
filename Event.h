@@ -13,8 +13,11 @@
 @property NSString *notes;
 @property NSDate *startTime;
 @property NSDate *endTime;
+@property NSString *location;
 + (id) initWithTitle:(NSString *) title
 			   notes:(NSString *) notes
 		   startTime:(NSDate *) startTime
-			 endTime:(NSDate *) endTime;
+			 endTime:(NSDate *) endTime
+			location:(NSString *) location;
++ (id) initWithEvent:(Event *)event;
 @end

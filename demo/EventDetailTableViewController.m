@@ -10,6 +10,10 @@
 
 @interface EventDetailTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *titleCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *notesCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *startTimeCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *endTimeCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *locationCell;
 @end
 
 @implementation EventDetailTableViewController
@@ -33,7 +37,15 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.titleCell.detailTextLabel.text = self.eventTitle;
+    self.titleCell.detailTextLabel.text = self.event.title;
+	self.notesCell.detailTextLabel.text = self.event.notes;
+	self.startTimeCell.detailTextLabel.text = [NSDateFormatter localizedStringFromDate:self.event.startTime
+																			 dateStyle:NSDateFormatterShortStyle
+																			 timeStyle:NSDateFormatterShortStyle];
+	self.endTimeCell.detailTextLabel.text = [NSDateFormatter localizedStringFromDate:self.event.endTime
+																		   dateStyle:NSDateFormatterShortStyle
+																		   timeStyle:NSDateFormatterShortStyle];
+	self.locationCell.detailTextLabel.text = self.event.location;
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,14 +58,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     switch(section) {
         case 0: return 1;

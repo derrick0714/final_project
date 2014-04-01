@@ -587,6 +587,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Event Detail" id="qGU-Wu-0vJ"/>
                     <connections>
+                        <outlet property="endTimeCell" destination="4vT-xh-vqw" id="ngB-dY-BBi"/>
+                        <outlet property="locationCell" destination="4pr-rL-7Hb" id="hkd-Cr-gSi"/>
+                        <outlet property="notesCell" destination="i3m-ek-yij" id="Bsx-7a-Ilb"/>
+                        <outlet property="startTimeCell" destination="pxC-Ro-Gwh" id="IyZ-KD-k80"/>
                         <outlet property="titleCell" destination="cXS-la-krg" id="HBD-Lq-0r3"/>
                     </connections>
                 </tableViewController>
@@ -1240,6 +1244,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="swd-E5-gFf"/>
+        <segue reference="Ciq-po-D6o"/>
     </inferredMetricsTieBreakers>
 </document>
