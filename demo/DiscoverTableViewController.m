@@ -123,14 +123,9 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if([segue.identifier isEqual: @"segue_eventdetail"]) {
-		NSLog(@"%@", @"prepareForSegue");
         EventDetailTableViewController *destVC = [segue destinationViewController];
-        UITableViewCell *cell = (UITableViewCell *) sender;
-        destVC.eventTitle = cell.textLabel.text;
 		NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
-
 		Event *e = [self.section objectAtIndex:ip.row];
-		NSLog(@"%@", e.title);
 		destVC.event = [Event initWithEvent:e];
     } else if([segue.identifier isEqual:@"segue_filter"]) {
 		
