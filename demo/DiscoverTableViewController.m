@@ -8,6 +8,7 @@
 
 #import "DiscoverTableViewController.h"
 #import "EventDetailTableViewController.h"
+#import "Event.h"
 
 @interface DiscoverTableViewController ()
 @property NSMutableArray* section;
@@ -37,9 +38,12 @@
     
     //init data in section
     self.section = [[NSMutableArray alloc] init];
-    [self.section addObject:@"SSS"];
-    [self.section addObject:@"BBB"];
-
+//    [self.section addObject:@"SSS"];
+//    [self.section addObject:@"BBB"];
+	[self.section addObject:[Event initWithTitle:@"Guitar"
+										   notes:@"How to play scales"
+									   startTime:[NSDate dateWithTimeIntervalSinceNow:0]
+										 endTime:[NSDate dateWithTimeIntervalSinceNow:3600]]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,7 +71,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"discover_item_cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [self.section objectAtIndex: indexPath.row];
+	Event *e = [self.section objectAtIndex: indexPath.row];
+    cell.textLabel.text = e.title;
+	cell.detailTextLabel.text = e.notes;
     return cell;
 }
 
@@ -124,5 +130,11 @@
 }
 
 - (IBAction)refresh:(id)sender {
+	Event *e = [Event initWithTitle:@"Place holder"
+							  notes:@"Description"
+						  startTime:[NSDate dateWithTimeIntervalSinceNow:0]
+							endTime:[NSDate dateWithTimeIntervalSinceNow:3600]];
+	[self.section addObject:e];
+	[self.tableView reloadData];
 }
 @end
