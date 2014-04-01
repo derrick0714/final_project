@@ -1,5 +1,5 @@
 //
-//  EditProfileTableViewController.h
+//  MeTableViewController.h
 //  demo
 //
 //  Created by Xu Deng on 4/1/14.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-
-@class GKImagePicker;
-@interface EditProfileTableViewController : UITableViewController
+@interface MeTableViewController : UITableViewController
+- (IBAction)unwindToMe:(UIStoryboardSegue*)sender;
 @property UIImage *myphoto;
 @end

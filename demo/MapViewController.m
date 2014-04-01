@@ -17,6 +17,7 @@
 
 @implementation MapViewController
 
+/*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -25,15 +26,19 @@
     }
     return self;
 }
+*/
 
 - (void)viewDidLoad
 {
-    [self.mapView setDelegate:self];
     
+    //Set the delegate to self
+    [self.mapView setDelegate: self];
+    //annotate self location
     [self.mapView setShowsUserLocation:YES];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,6 +59,7 @@
 */
 
 //startup to the self location
+
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
     CLLocationCoordinate2D loc = [userLocation coordinate];
     //放大地图到自身的经纬度

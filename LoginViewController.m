@@ -9,7 +9,9 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController ()
-- (IBAction)register:(id)sender;
+- (IBAction)login:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *uname;
+@property (weak, nonatomic) IBOutlet UITextField *password;
 
 @end
 
@@ -47,7 +49,19 @@
 }
 */
 
-- (IBAction)register:(id)sender {
-    NSLog(@"%@", @"register");
+
+- (IBAction)login:(id)sender {
+    if([self.uname.text isEqualToString:@"test"] && [self.password.text isEqualToString:@"123456"]){
+        [self performSegueWithIdentifier:@"segue_login" sender:self];
+    }
+    else{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"user name or password dismatch"
+        message:@"You need to type your user name or password again."
+        delegate:nil
+        cancelButtonTitle:@"OK"
+        otherButtonTitles:nil];
+        [alert show];
+    }
+   // [alert release];
 }
 @end
