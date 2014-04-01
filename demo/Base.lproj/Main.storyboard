@@ -1027,10 +1027,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1259" y="1999"/>
         </scene>
-        <!--Table View Controller - Profile-->
+        <!--Edit Profile Table View Controller - Profile-->
         <scene sceneID="Dwz-Pf-igg">
             <objects>
-                <tableViewController id="S4g-PP-Fez" sceneMemberID="viewController">
+                <tableViewController id="S4g-PP-Fez" customClass="EditProfileTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="iof-3l-Qr2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1038,7 +1038,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <sections>
                             <tableViewSection id="Yf3-kF-RKZ">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xvX-XB-HAQ" imageView="gYu-iO-PUk" rowHeight="90" style="IBUITableViewCellStyleDefault" id="Lik-aM-vME">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" editingAccessoryType="disclosureIndicator" textLabel="xvX-XB-HAQ" imageView="gYu-iO-PUk" rowHeight="90" style="IBUITableViewCellStyleDefault" id="Lik-aM-vME">
                                         <rect key="frame" x="0.0" y="99" width="320" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lik-aM-vME" id="e60-IP-6iN">
@@ -1052,15 +1052,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="xu.png" id="gYu-iO-PUk">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="profile_images" image="xu.png" id="gYu-iO-PUk">
                                                     <rect key="frame" x="15" y="0.0" width="89" height="89"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="jPZ-Sf-PFf" kind="push" id="4i2-hk-Ur2"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1129,35 +1126,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="LOq-fT-38Z"/>
+                    <connections>
+                        <outlet property="myPhoto" destination="e60-IP-6iN" id="2jO-8t-D0M"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUZ-R6-gH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1707" y="1999"/>
-        </scene>
-        <!--View Controller - Select Photo-->
-        <scene sceneID="2Sl-iu-er9">
-            <objects>
-                <viewController id="jPZ-Sf-PFf" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="r0G-Oo-Udm"/>
-                        <viewControllerLayoutGuide type="bottom" id="MqL-6T-Hf7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pHb-xc-LPG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo.PNG" translatesAutoresizingMaskIntoConstraints="NO" id="WzJ-8H-EKz">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Select Photo" id="lLO-rS-FtP"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IbP-g5-3tL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2163" y="1320"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wI6-h6-h0Q">
@@ -1262,7 +1237,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="bar_me.png" width="24" height="24"/>
         <image name="facebook_blank_face3.png" width="1024" height="768"/>
         <image name="luming.png" width="460" height="460"/>
-        <image name="photo.PNG" width="359" height="568"/>
         <image name="tom.png" width="400" height="400"/>
         <image name="xu.png" width="600" height="600"/>
     </resources>

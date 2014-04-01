@@ -1,21 +1,25 @@
 //
-//  DiscoverTableViewController.m
+//  EditProfileTableViewController.m
 //  demo
 //
-//  Created by Xu Deng on 3/28/14.
+//  Created by Xu Deng on 4/1/14.
 //  Copyright (c) 2014 Xu Deng. All rights reserved.
 //
 
-#import "DiscoverTableViewController.h"
-#import "EventDetailTableViewController.h"
-#import "Event.h"
+#import "EditProfileTableViewController.h"
+#import "GKImagePicker.h"
 
-@interface DiscoverTableViewController ()
-@property NSMutableArray* section;
-- (IBAction)refresh:(id)sender;
+
+@interface EditProfileTableViewController()<GKImagePickerDelegate>{
+  GKImagePicker *picker;
+}
+@property (nonatomic, retain) GKImagePicker *picker;
+@property (weak, nonatomic) IBOutlet UIView *myPhoto;
+
 @end
 
-@implementation DiscoverTableViewController
+@implementation EditProfileTableViewController
+@synthesize picker = _picker;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,15 +39,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    //init data in section
-    self.section = [[NSMutableArray alloc] init];
-//    [self.section addObject:@"SSS"];
-//    [self.section addObject:@"BBB"];
-	[self.section addObject:[Event initWithTitle:@"Guitar"
-										   notes:@"How to play scales"
-									   startTime:[NSDate dateWithTimeIntervalSinceNow:0]
-										 endTime:[NSDate dateWithTimeIntervalSinceNow:3600]]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,31 +46,59 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
+{
+	
+    if( indexPath.section == 0 && indexPath.row ==0 ){
+        self.picker = [[GKImagePicker alloc] init];
+        self.picker.delegate = self;
+        self.picker.cropper.cropSize = CGSizeMake(320.,320.);   // (Optional) Default: CGSizeMake(320., 320.)
+        self.picker.cropper.rescaleImage = YES;                // (Optional) Default: YES
+        self.picker.cropper.rescaleFactor = 2.0;               // (Optional) Default: 1.0
+        self.picker.cropper.dismissAnimated = YES;              // (Optional) Default: YES
+        self.picker.cropper.overlayColor = [UIColor colorWithRed:0/255. green:0/255. blue:0/255. alpha:0.7];  // (Optional) Default: [UIColor colorWithRed:0/255. green:0/255. blue:0/255. alpha:0.7]
+        self.picker.cropper.innerBorderColor = [UIColor colorWithRed:255./255. green:255./255. blue:255./255. alpha:0.7];   // (Optional) Default: [UIColor colorWithRed:0/255. green:0/255. blue:0/255. alpha:0.7]
+        [self.picker presentPicker];
+    }
+
+}
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.section count];
+    if( section == 0)
+        return 1;
+    else
+        return 2;
 }
 
+- (void)imagePickerDidFinish:(GKImagePicker *)imagePicker withImage:(UIImage *)image {
+   // myImageView.contentMode = UIViewContentModeCenter;
+    //myImageView.image = image;
+    NSLog(@"1");
+    NSIndexPath *a = [NSIndexPath indexPathForRow:0 inSection:0]; // I wanted to update this cell specifically
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:a];
+    cell.imageView.image =image;
+
+}
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"discover_item_cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
     // Configure the cell...
-	Event *e = [self.section objectAtIndex: indexPath.row];
-    cell.textLabel.text = e.title;
-	cell.detailTextLabel.text = e.notes;
+    
     return cell;
 }
+*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -115,26 +138,16 @@
 }
 */
 
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"1");
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if([segue.identifier isEqual: @"show_detail"]){
-        EventDetailTableViewController *destVC = [segue destinationViewController];
-        UITableViewCell *cell = (UITableViewCell *) sender;
-        destVC.eventTitle = cell.textLabel.text;
-    }
 }
 
-- (IBAction)refresh:(id)sender {
-	Event *e = [Event initWithTitle:@"Place holder"
-							  notes:@"Description"
-						  startTime:[NSDate dateWithTimeIntervalSinceNow:0]
-							endTime:[NSDate dateWithTimeIntervalSinceNow:3600]];
-	[self.section addObject:e];
-	[self.tableView reloadData];
-}
+
 @end

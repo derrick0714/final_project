@@ -38,9 +38,19 @@
 		9591879A18E5EBDE00538439 /* EventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9591879918E5EBDE00538439 /* EventTableViewController.m */; };
 		9591879D18E5EED300538439 /* EventDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9591879C18E5EED300538439 /* EventDetailTableViewController.m */; };
 		959187A318E5F49C00538439 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959187A218E5F49C00538439 /* LoginViewController.m */; };
+		95AB12B818EB16F5009E583B /* GKImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12B518EB16F5009E583B /* GKImagePicker.m */; };
+		95AB12B918EB16F5009E583B /* GKImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12B718EB16F5009E583B /* GKImageCropper.m */; };
+		95AB12C418EB1710009E583B /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12BB18EB170F009E583B /* UIImage+Alpha.m */; };
+		95AB12C518EB1710009E583B /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12BD18EB170F009E583B /* UIImage+Resize.m */; };
+		95AB12C618EB1710009E583B /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12BF18EB170F009E583B /* UIImage+Rotate.m */; };
+		95AB12C718EB1710009E583B /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12C118EB1710009E583B /* UIImage+RoundedCorner.m */; };
+		95AB12C818EB1710009E583B /* UIImage+FixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12C318EB1710009E583B /* UIImage+FixOrientation.m */; };
+		95AB12CC18EB180F009E583B /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12CB18EB180F009E583B /* EditProfileViewController.m */; };
+		95AB12CF18EB18CD009E583B /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12CE18EB18CD009E583B /* EditProfileTableViewController.m */; };
 		95DD929018E8B48900016E6B /* AddEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD928F18E8B48900016E6B /* AddEventTableViewController.m */; };
 		95DD929318E8B98200016E6B /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD929218E8B98200016E6B /* MapViewController.m */; };
 		AC2A4CFE18E8C71000A002DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */; };
+		E27163C118EB3A890096C8AE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E27163C018EB3A890096C8AE /* Event.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,11 +105,31 @@
 		9591879C18E5EED300538439 /* EventDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailTableViewController.m; sourceTree = "<group>"; };
 		959187A118E5F49C00538439 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = ../LoginViewController.h; sourceTree = "<group>"; };
 		959187A218E5F49C00538439 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = ../LoginViewController.m; sourceTree = "<group>"; };
+		95AB12B418EB16F5009E583B /* GKImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKImagePicker.h; sourceTree = "<group>"; };
+		95AB12B518EB16F5009E583B /* GKImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKImagePicker.m; sourceTree = "<group>"; };
+		95AB12B618EB16F5009E583B /* GKImageCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKImageCropper.h; sourceTree = "<group>"; };
+		95AB12B718EB16F5009E583B /* GKImageCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKImageCropper.m; sourceTree = "<group>"; };
+		95AB12BA18EB170F009E583B /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		95AB12BB18EB170F009E583B /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		95AB12BC18EB170F009E583B /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		95AB12BD18EB170F009E583B /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		95AB12BE18EB170F009E583B /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
+		95AB12BF18EB170F009E583B /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
+		95AB12C018EB170F009E583B /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		95AB12C118EB1710009E583B /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		95AB12C218EB1710009E583B /* UIImage+FixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FixOrientation.h"; sourceTree = "<group>"; };
+		95AB12C318EB1710009E583B /* UIImage+FixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FixOrientation.m"; sourceTree = "<group>"; };
+		95AB12CA18EB180F009E583B /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		95AB12CB18EB180F009E583B /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
+		95AB12CD18EB18CD009E583B /* EditProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileTableViewController.h; sourceTree = "<group>"; };
+		95AB12CE18EB18CD009E583B /* EditProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileTableViewController.m; sourceTree = "<group>"; };
 		95DD928E18E8B48900016E6B /* AddEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventTableViewController.h; sourceTree = "<group>"; };
 		95DD928F18E8B48900016E6B /* AddEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventTableViewController.m; sourceTree = "<group>"; };
 		95DD929118E8B98200016E6B /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		95DD929218E8B98200016E6B /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E27163BF18EB3A890096C8AE /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
+		E27163C018EB3A890096C8AE /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +193,8 @@
 		9505A81918E12CAD006F1CA2 /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				E27163BF18EB3A890096C8AE /* Event.h */,
+				E27163C018EB3A890096C8AE /* Event.m */,
 				959187A118E5F49C00538439 /* LoginViewController.h */,
 				959187A218E5F49C00538439 /* LoginViewController.m */,
 				956B1C2D18E8A4F2003E782D /* Me */,
@@ -256,8 +288,34 @@
 		956B1C2D18E8A4F2003E782D /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				95AB12CD18EB18CD009E583B /* EditProfileTableViewController.h */,
+				95AB12CE18EB18CD009E583B /* EditProfileTableViewController.m */,
+				95AB12CA18EB180F009E583B /* EditProfileViewController.h */,
+				95AB12CB18EB180F009E583B /* EditProfileViewController.m */,
+				95AB12C918EB1778009E583B /* ImagePicker */,
 			);
 			name = Me;
+			sourceTree = "<group>";
+		};
+		95AB12C918EB1778009E583B /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				95AB12BA18EB170F009E583B /* UIImage+Alpha.h */,
+				95AB12BB18EB170F009E583B /* UIImage+Alpha.m */,
+				95AB12BC18EB170F009E583B /* UIImage+Resize.h */,
+				95AB12BD18EB170F009E583B /* UIImage+Resize.m */,
+				95AB12BE18EB170F009E583B /* UIImage+Rotate.h */,
+				95AB12BF18EB170F009E583B /* UIImage+Rotate.m */,
+				95AB12C018EB170F009E583B /* UIImage+RoundedCorner.h */,
+				95AB12C118EB1710009E583B /* UIImage+RoundedCorner.m */,
+				95AB12C218EB1710009E583B /* UIImage+FixOrientation.h */,
+				95AB12C318EB1710009E583B /* UIImage+FixOrientation.m */,
+				95AB12B418EB16F5009E583B /* GKImagePicker.h */,
+				95AB12B518EB16F5009E583B /* GKImagePicker.m */,
+				95AB12B618EB16F5009E583B /* GKImageCropper.h */,
+				95AB12B718EB16F5009E583B /* GKImageCropper.m */,
+			);
+			name = ImagePicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,13 +437,23 @@
 				9591879D18E5EED300538439 /* EventDetailTableViewController.m in Sources */,
 				9505A82A18E12CAD006F1CA2 /* ViewController.m in Sources */,
 				9591879A18E5EBDE00538439 /* EventTableViewController.m in Sources */,
+				95AB12B918EB16F5009E583B /* GKImageCropper.m in Sources */,
 				95DD929018E8B48900016E6B /* AddEventTableViewController.m in Sources */,
 				956B1C3018E8ACAD003E782D /* FilterTableViewController.m in Sources */,
 				9505A82418E12CAD006F1CA2 /* AppDelegate.m in Sources */,
+				95AB12CF18EB18CD009E583B /* EditProfileTableViewController.m in Sources */,
 				959187A318E5F49C00538439 /* LoginViewController.m in Sources */,
+				95AB12C718EB1710009E583B /* UIImage+RoundedCorner.m in Sources */,
+				95AB12C618EB1710009E583B /* UIImage+Rotate.m in Sources */,
 				95DD929318E8B98200016E6B /* MapViewController.m in Sources */,
+				E27163C118EB3A890096C8AE /* Event.m in Sources */,
+				95AB12C818EB1710009E583B /* UIImage+FixOrientation.m in Sources */,
 				9591879718E5E81200538439 /* DiscoverTableViewController.m in Sources */,
 				9505A82018E12CAD006F1CA2 /* main.m in Sources */,
+				95AB12CC18EB180F009E583B /* EditProfileViewController.m in Sources */,
+				95AB12B818EB16F5009E583B /* GKImagePicker.m in Sources */,
+				95AB12C418EB1710009E583B /* UIImage+Alpha.m in Sources */,
+				95AB12C518EB1710009E583B /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
