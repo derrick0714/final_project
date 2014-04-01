@@ -309,6 +309,11 @@
 				TargetAttributes = {
 					9505A80F18E12CAD006F1CA2 = {
 						DevelopmentTeam = DJ956UH6X5;
+						SystemCapabilities = {
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					9505A83018E12CAD006F1CA2 = {
 						TestTargetID = 9505A80F18E12CAD006F1CA2;

@@ -195,10 +195,10 @@
             </objects>
             <point key="canvasLocation" x="1438" y="-879"/>
         </scene>
-        <!--View Controller - Map View-->
+        <!--Map View Controller - Map View-->
         <scene sceneID="8iI-Io-z4u">
             <objects>
-                <viewController id="tWs-3f-Qh7" sceneMemberID="viewController">
+                <viewController id="tWs-3f-Qh7" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7cP-3Y-AM5"/>
                         <viewControllerLayoutGuide type="bottom" id="AR4-DI-dMR"/>
@@ -210,11 +210,17 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OyN-es-DOf">
                                 <rect key="frame" x="0.0" y="64" width="320" height="539"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="tWs-3f-Qh7" id="6NS-sP-6BY"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Map View" id="qsj-q9-hQn"/>
+                    <connections>
+                        <outlet property="mapView" destination="OyN-es-DOf" id="MaR-Jb-GTa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3d-r3-ZoR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
