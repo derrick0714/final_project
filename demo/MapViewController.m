@@ -8,6 +8,9 @@
 
 #import "MapViewController.h"
 
+#define METERS_PER_MILE 1609.344
+
+
 @interface MapViewController ()
 
 @end
@@ -25,6 +28,10 @@
 
 - (void)viewDidLoad
 {
+    [self.mapView setDelegate:self];
+    
+    [self.mapView setShowsUserLocation:YES];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
@@ -45,5 +52,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+//startup to the self location
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+    CLLocationCoordinate2D loc = [userLocation coordinate];
+    //放大地图到自身的经纬度
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
+    [self.mapView setRegion:region animated:YES];
+}
 
 @end
