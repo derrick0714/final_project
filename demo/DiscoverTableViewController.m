@@ -132,7 +132,9 @@
 		Event *e = [self.section objectAtIndex:ip.row];
 		NSLog(@"%@", e.title);
 		destVC.event = [Event initWithEvent:e];
-    }
+    } else if([segue.identifier isEqual:@"segue_filter"]) {
+		
+	}
 }
 
 - (IBAction)refresh:(id)sender {

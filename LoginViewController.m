@@ -49,7 +49,6 @@
 }
 */
 
-
 - (IBAction)login:(id)sender {
     if([self.uname.text isEqualToString:@"test"] && [self.password.text isEqualToString:@"123456"]){
         [self performSegueWithIdentifier:@"segue_login" sender:self];
