@@ -11,6 +11,8 @@
 @interface AddEventTableViewController : UITableViewController<UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *titleTextField;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveScheduleButton;
     
 
 @end

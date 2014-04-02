@@ -50,6 +50,7 @@
 		95DD929018E8B48900016E6B /* AddEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD928F18E8B48900016E6B /* AddEventTableViewController.m */; };
 		95DD929318E8B98200016E6B /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD929218E8B98200016E6B /* MapViewController.m */; };
 		AC2A4CFE18E8C71000A002DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */; };
+		ACF5AF5D18EBB22500DEA17E /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */; };
 		E27163C118EB3A890096C8AE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E27163C018EB3A890096C8AE /* Event.m */; };
 /* End PBXBuildFile section */
 
@@ -128,6 +129,7 @@
 		95DD929118E8B98200016E6B /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		95DD929218E8B98200016E6B /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		E27163BF18EB3A890096C8AE /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
 		E27163C018EB3A890096C8AE /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACF5AF5D18EBB22500DEA17E /* libsqlite3.0.dylib in Frameworks */,
 				AC2A4CFE18E8C71000A002DE /* CoreLocation.framework in Frameworks */,
 				9505A86018E1C2A9006F1CA2 /* MapKit.framework in Frameworks */,
 				9505A81618E12CAD006F1CA2 /* CoreGraphics.framework in Frameworks */,
@@ -180,6 +183,7 @@
 		9505A81218E12CAD006F1CA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */,
 				AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */,
 				9505A85F18E1C2A9006F1CA2 /* MapKit.framework */,
 				9505A81318E12CAD006F1CA2 /* Foundation.framework */,

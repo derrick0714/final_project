@@ -770,6 +770,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="saveScheduleButton" destination="Dpm-eg-M8p" id="fYs-Dg-HFg"/>
                         <outlet property="titleTextField" destination="ods-jv-oqr" id="HT9-Lt-XFX"/>
                     </connections>
                 </tableViewController>
