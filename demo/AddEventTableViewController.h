@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddEventTableViewController : UITableViewController
+@interface AddEventTableViewController : UITableViewController<UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet UITextField *titleTextField;
+    
 
 @end
