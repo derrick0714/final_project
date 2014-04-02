@@ -382,9 +382,6 @@
                     <navigationItem key="navigationItem" title="Filter" id="WaY-Ii-pl2">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="qTC-bG-fAN"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="qwe" destination="qTC-bG-fAN" id="Ui0-O7-K9a"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Tp-cH-9Ie" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
