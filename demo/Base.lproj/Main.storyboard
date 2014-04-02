@@ -821,7 +821,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Select Date" id="jQ0-YR-8QH"/>
+                    <navigationItem key="navigationItem" title="Select Date" id="jQ0-YR-8QH">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="0kr-kQ-vzg"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwn-58-pua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -909,7 +911,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZI-fi-8Zh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="759" y="383"/>
+            <point key="canvasLocation" x="753" y="435"/>
         </scene>
         <!--Me Table View Controller - Me-->
         <scene sceneID="fAG-gb-70b">
