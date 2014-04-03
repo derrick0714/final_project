@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MeetingScheduleData.h"
 
 @interface AddEventTableViewController : UITableViewController<UITextFieldDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *titleTextField;
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveScheduleButton;
+@property MeetingScheduleData *scheduleData;
     
 
 @end

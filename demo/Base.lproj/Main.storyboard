@@ -218,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3d-r3-ZoR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3001" y="-180"/>
+            <point key="canvasLocation" x="3527" y="-180"/>
         </scene>
         <!--Filter Table View Controller - Filter-->
         <scene sceneID="hws-BE-N7Q">
@@ -620,14 +620,11 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Click to input" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ods-jv-oqr">
-                                                    <rect key="frame" x="118" y="7" width="170" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Click to input" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vKJ-2U-F4e">
+                                                    <rect key="frame" x="112" y="7" width="170" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="3Pi-BP-cAq" id="glU-EI-jcU"/>
-                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -763,21 +760,26 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Schedule a Meeting" id="FWc-qn-P8y">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Dpm-eg-M8p">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="3XW-wa-gPU">
                             <connections>
-                                <segue destination="KwR-cR-hUL" kind="unwind" unwindAction="unwindToEventlist:" id="8Ih-Na-gp6"/>
+                                <segue destination="KwR-cR-hUL" kind="unwind" unwindAction="unwindEventTableView:" id="ir9-Zb-utz"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="rnk-Um-qsM">
+                            <connections>
+                                <segue destination="KwR-cR-hUL" kind="unwind" unwindAction="unwindEventTableView:" id="vsg-Jr-0CG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="saveScheduleButton" destination="Dpm-eg-M8p" id="fYs-Dg-HFg"/>
-                        <outlet property="titleTextField" destination="ods-jv-oqr" id="HT9-Lt-XFX"/>
+                        <outlet property="saveButton" destination="rnk-Um-qsM" id="xmI-GM-HgI"/>
+                        <outlet property="titleText" destination="vKJ-2U-F4e" id="aE7-MJ-42b"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htt-f4-e85" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KwR-cR-hUL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="435"/>
+            <point key="canvasLocation" x="2498" y="435"/>
         </scene>
         <!--View Controller - Select Date-->
         <scene sceneID="DPl-k0-9RK">
@@ -828,7 +830,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwn-58-pua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2718" y="605"/>
+            <point key="canvasLocation" x="3244" y="605"/>
         </scene>
         <!--Event Table View Controller-->
         <scene sceneID="L1V-Kb-Ms5">
@@ -839,7 +841,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="event_cell" textLabel="IYy-C4-qXj" detailTextLabel="M1u-KS-U4Q" imageView="FlD-zO-HCa" style="IBUITableViewCellStyleSubtitle" id="ZEx-DS-Bfg">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeetingScheduleData" textLabel="IYy-C4-qXj" detailTextLabel="M1u-KS-U4Q" imageView="FlD-zO-HCa" style="IBUITableViewCellStyleSubtitle" id="ZEx-DS-Bfg">
                                 <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZEx-DS-Bfg" id="VNk-CN-2r8">
@@ -889,10 +891,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MM9-aV-kDg">
                             <connections>
-                                <segue destination="3Pi-BP-cAq" kind="push" identifier="segue_addevent" id="emb-7d-Phs"/>
+                                <segue destination="B7g-51-aAf" kind="modal" id="Ssx-7f-MD1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="jGF-Q3-bAJ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqm-xY-g9p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1240,6 +1245,25 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJ8-9i-yNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="783" y="-882"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5up-fm-uUl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B7g-51-aAf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="5aD-oW-ZVS"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GgS-4y-TDO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3Pi-BP-cAq" kind="relationship" relationship="rootViewController" id="pqw-Ak-ure"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pI8-KK-ln8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1972" y="435"/>
         </scene>
     </scenes>
     <resources>

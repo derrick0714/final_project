@@ -7,9 +7,13 @@
 //
 
 #import "EventTableViewController.h"
+#import "AddEventTableViewController.h"
+#import "MeetingScheduleData.h"
 
 @interface EventTableViewController ()
-@property NSMutableArray* event_cell;
+
+@property NSMutableArray* MeetingScheduleDataObjects;
+
 @end
 
 @implementation EventTableViewController
@@ -32,10 +36,24 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.event_cell = [[NSMutableArray alloc] init];
-    [self.event_cell addObject: @"AAA"];
-    [self.event_cell addObject: @"BBB"];
+
+    self.MeetingScheduleDataObjects = [[NSMutableArray alloc] init];
+    
+    [self loadInitialData];
+    
 }
+
+//add initial data - this methods should be changed during after the sever is setted up and initial data is loaded from the sever.
+- (void)loadInitialData {
+        MeetingScheduleData *item1 = [[MeetingScheduleData alloc] init];
+        item1.Title = @"Discussing iOS Programming";
+        [self.MeetingScheduleDataObjects addObject:item1.Title];
+    
+        MeetingScheduleData *item2 = [[MeetingScheduleData alloc] init];
+        item2.Title = @"Discussing Algorithms";
+        [self.MeetingScheduleDataObjects addObject:item2.Title];
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -54,20 +72,33 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-   
-    return [self.event_cell count];
+
+    return [self.MeetingScheduleDataObjects count];
     
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"event_cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeetingScheduleData" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [self.event_cell objectAtIndex:indexPath.row];
+    cell.textLabel.text = [self.MeetingScheduleDataObjects objectAtIndex:indexPath.row];
     
     return cell;
+}
+
+- (IBAction)unwindEventTableView:(UIStoryboardSegue *) segue
+{
+    AddEventTableViewController *scheduleDataSource = [segue sourceViewController];
+    MeetingScheduleData *item = scheduleDataSource.scheduleData;
+    
+    
+    
+    if (item != nil) {
+        [self.MeetingScheduleDataObjects addObject:item.Title];
+        [self.tableView reloadData];
+    }
 }
 
 

@@ -9,6 +9,9 @@
 #import "AddEventTableViewController.h"
 
 @interface AddEventTableViewController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+@property (weak, nonatomic) IBOutlet UITextField *titleText;
+
 
 @end
 
@@ -106,7 +109,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -114,8 +117,14 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if (sender != self.saveButton) return;
+    if (self.titleText.text.length > 0) {
+        self.scheduleData = [[MeetingScheduleData alloc] init];
+        self.scheduleData.Title = self.titleText.text;
+        
+    }
 }
-*/
+
 
 -(IBAction)unwindToEventlist: (UIStoryboardSegue *)segue {
     
