@@ -14,9 +14,9 @@
 
 @property NSString *Notes;
 
-@property NSData *startTime;
+@property NSDate *startTime;
 
-@property NSData *endTime;
+@property NSDate *endTime;
 
 @property NSString *Location;
 

@@ -12,6 +12,14 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (weak, nonatomic) IBOutlet UITextField *titleText;
 
+//notesText will not be presented on the events table view, but will bu stored in database
+@property (weak, nonatomic) IBOutlet UITextField *notesText;
+@property (weak, nonatomic) IBOutlet UITextField *questionDetail;
+
+//start and end time
+@property (weak, nonatomic) IBOutlet UILabel *startTime;
+@property (weak, nonatomic) IBOutlet UILabel *endTime;
+
 
 @end
 
@@ -57,7 +65,7 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 5;
+    return 7;
 }
 
 /*
