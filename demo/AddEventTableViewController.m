@@ -16,9 +16,17 @@
 @property (weak, nonatomic) IBOutlet UITextField *notesText;
 @property (weak, nonatomic) IBOutlet UITextField *questionDetail;
 
+
+//date formatter for converting datepicker's time to formatted string
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
+
 //start and end time
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
 @property (weak, nonatomic) IBOutlet UILabel *endTime;
+//date and time values to be passed to the events table
+//add properties here:
+
+
 
 //date picker
 @property (weak, nonatomic) IBOutlet UIDatePicker *startDatePicker;
@@ -131,9 +139,42 @@
 */
 
 
+//create the date formatter
+- (void)createDateFormatter {
+    
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    
+    [self.dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    
+    [self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+}
+
+
 //below two functions are used to handle the change of date pickers
-//- (void)startPickerDateChanged:{}
-//- (void)startPickerDateChanged:{}
+
+- (IBAction)startDatePickerChanged:(UIDatePicker *)sender {
+    
+    [self createDateFormatter];
+
+    self.startTime.text =  [self.dateFormatter stringFromDate:sender.date];
+    
+    //storing the user picker's data
+    //self.selectedBirthday = sender.date;
+}
+
+- (IBAction)endDatePickerChanged:(UIDatePicker *)sender {
+    
+    [self createDateFormatter];
+    
+    self.endTime.text =  [self.dateFormatter stringFromDate:sender.date];
+
+    //storing the user picker's data
+    //self.selectedBirthday = sender.date;
+}
+
+
+
+
 
 
 //below code is used to hide the date pciker cell
