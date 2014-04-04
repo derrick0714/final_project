@@ -20,8 +20,18 @@
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
 @property (weak, nonatomic) IBOutlet UILabel *endTime;
 
+//date picker
+@property (weak, nonatomic) IBOutlet UIDatePicker *startDatePicker;
+@property (weak, nonatomic) IBOutlet UIDatePicker *endDatePicker;
+//date picker cell outlets used for hiding date picker cells
+@property (weak, nonatomic) IBOutlet UITableViewCell *startDatePickerCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *endDatePickerCell;
+//flags for controlling the showing and hiding of datepickercell
+@property BOOL startDatePickerIsShowing;
+@property BOOL endDatePickerIsShowing;
 
 @end
+
 
 @implementation AddEventTableViewController
 
@@ -43,7 +53,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,20 +62,24 @@
 }
 
 #pragma mark - Table view data source
+//because the table view cells are static, so there is no need to use the following two methods:
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 1;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 1;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//#warning Incomplete method implementation.
+//    // Return the number of rows in the section.
+//    return 7;
+//}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 7;
-}
+
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -118,8 +131,93 @@
 */
 
 
-#pragma mark - Navigation
+//below two functions are used to handle the change of date pickers
+//- (void)startPickerDateChanged:{}
+//- (void)startPickerDateChanged:{}
 
+
+//below code is used to hide the date pciker cell
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat height = self.tableView.rowHeight;
+    
+    if (indexPath.row == 2){
+        
+        height = self.startDatePickerIsShowing ? 164 : 0.0f;
+        
+    }
+    
+    return height;
+}
+
+
+
+//when datecell is selected show the datepicker cell
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.row == 1){
+        
+        if (self.startDatePickerIsShowing){
+            
+            [self hideStartDatePickerCell];
+            
+        }else {
+            
+            [self showStartDatePickerCell];
+        }
+    }
+    
+//    if (indexPath.row == 3){
+//        
+//        if (self.startDatePickerIsShowing){
+//            
+//            [self hideEndDatePickerCell];
+//            
+//        }else {
+//            
+//            [self showEndDatePickerCell];
+//        }
+//    }
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+//methods for showing and hiding date picker cells
+- (void)showStartDatePickerCell {
+    
+    self.startDatePickerIsShowing = YES;
+    
+    [self.tableView beginUpdates];
+    
+    [self.tableView endUpdates];
+    
+    self.startDatePicker.hidden = NO;
+    self.startDatePicker.alpha = 0.0f;
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        
+        self.startDatePicker.alpha = 1.0f;
+        
+    }];
+}
+
+- (void)hideStartDatePickerCell {
+    
+    self.startDatePickerIsShowing = NO;
+    
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         self.startDatePicker.alpha = 0.0f;
+                     }
+                     completion:^(BOOL finished){
+                         self.startDatePicker.hidden = YES;
+                     }];
+}
+
+
+#pragma mark - Navigation
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
