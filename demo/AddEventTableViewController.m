@@ -12,8 +12,9 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (weak, nonatomic) IBOutlet UITextField *titleText;
 
-//notesText will not be presented on the events table view, but will bu stored in database
-@property (weak, nonatomic) IBOutlet UITextField *notesText;
+//locationText will not be presented on the events table view, but will bu stored in database
+
+@property (weak, nonatomic) IBOutlet UITextField *locationText;
 @property (weak, nonatomic) IBOutlet UITextField *questionDetail;
 
 
@@ -25,7 +26,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *endTime;
 //date and time values to be passed to the events table
 //add properties here:
-
+@property NSDate *startTimeFromPicker;
+@property NSDate *endTimeFromPicker;
 
 
 //date picker
@@ -139,7 +141,7 @@
 */
 
 
-//create the date formatter
+//initialize and create the date formatter
 - (void)createDateFormatter {
     
     self.dateFormatter = [[NSDateFormatter alloc] init];
@@ -159,7 +161,7 @@
     self.startTime.text =  [self.dateFormatter stringFromDate:sender.date];
     
     //storing the user picker's data
-    //self.selectedBirthday = sender.date;
+    self.startTimeFromPicker = sender.date;
 }
 
 - (IBAction)endDatePickerChanged:(UIDatePicker *)sender {
@@ -169,7 +171,7 @@
     self.endTime.text =  [self.dateFormatter stringFromDate:sender.date];
 
     //storing the user picker's data
-    //self.selectedBirthday = sender.date;
+    self.endTimeFromPicker = sender.date;
 }
 
 
@@ -311,7 +313,10 @@
     if (self.titleText.text.length > 0) {
         self.scheduleData = [[MeetingScheduleData alloc] init];
         self.scheduleData.Title = self.titleText.text;
-        
+        self.scheduleData.startTime = self.startTimeFromPicker;
+        self.scheduleData.endTime = self.endTimeFromPicker;
+        self.scheduleData.Notes = self.locationText.text;
+        self.scheduleData.questionDetail = self.questionDetail.text;
     }
 }
 

@@ -53,6 +53,8 @@
 		AC93E5D718EDF25000510883 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC93E5D618EDF25000510883 /* DatePickerViewController.m */; };
 		AC99F65A18ED13C400E7D1FC /* MeetingScheduleData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC99F65918ED13C400E7D1FC /* MeetingScheduleData.m */; };
 		AC99F65D18ED259B00E7D1FC /* MeData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC99F65C18ED259B00E7D1FC /* MeData.m */; };
+		ACD0344518EE7B8900E4EE1A /* EventCustomCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD0344418EE7B8900E4EE1A /* EventCustomCellTableViewCell.m */; };
+		ACD0344B18EE90B300E4EE1A /* CustomEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD0344A18EE90B300E4EE1A /* CustomEventCell.xib */; };
 		ACF5AF5D18EBB22500DEA17E /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */; };
 		E27163C118EB3A890096C8AE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E27163C018EB3A890096C8AE /* Event.m */; };
 /* End PBXBuildFile section */
@@ -138,6 +140,9 @@
 		AC99F65918ED13C400E7D1FC /* MeetingScheduleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingScheduleData.m; sourceTree = "<group>"; };
 		AC99F65B18ED259B00E7D1FC /* MeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeData.h; sourceTree = "<group>"; };
 		AC99F65C18ED259B00E7D1FC /* MeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeData.m; sourceTree = "<group>"; };
+		ACD0344318EE7B8900E4EE1A /* EventCustomCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCustomCellTableViewCell.h; sourceTree = "<group>"; };
+		ACD0344418EE7B8900E4EE1A /* EventCustomCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCustomCellTableViewCell.m; sourceTree = "<group>"; };
+		ACD0344A18EE90B300E4EE1A /* CustomEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomEventCell.xib; path = ../CustomEventCell.xib; sourceTree = "<group>"; };
 		ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		E27163BF18EB3A890096C8AE /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
 		E27163C018EB3A890096C8AE /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
@@ -288,14 +293,14 @@
 		956B1C2C18E8A4E7003E782D /* Meeting */ = {
 			isa = PBXGroup;
 			children = (
+				ACD0344918EE819300E4EE1A /* CustomTableCellForEventsTable */,
+				ACD0344818EE816300E4EE1A /* MeetingScheduleDataClass */,
 				95DD929118E8B98200016E6B /* MapViewController.h */,
 				95DD929218E8B98200016E6B /* MapViewController.m */,
 				95DD928E18E8B48900016E6B /* AddEventTableViewController.h */,
 				95DD928F18E8B48900016E6B /* AddEventTableViewController.m */,
 				9591879818E5EBDE00538439 /* EventTableViewController.h */,
 				9591879918E5EBDE00538439 /* EventTableViewController.m */,
-				AC99F65818ED13C400E7D1FC /* MeetingScheduleData.h */,
-				AC99F65918ED13C400E7D1FC /* MeetingScheduleData.m */,
 				AC93E5D518EDF25000510883 /* DatePickerViewController.h */,
 				AC93E5D618EDF25000510883 /* DatePickerViewController.m */,
 			);
@@ -335,6 +340,25 @@
 				95AB12B718EB16F5009E583B /* GKImageCropper.m */,
 			);
 			name = ImagePicker;
+			sourceTree = "<group>";
+		};
+		ACD0344818EE816300E4EE1A /* MeetingScheduleDataClass */ = {
+			isa = PBXGroup;
+			children = (
+				AC99F65818ED13C400E7D1FC /* MeetingScheduleData.h */,
+				AC99F65918ED13C400E7D1FC /* MeetingScheduleData.m */,
+			);
+			name = MeetingScheduleDataClass;
+			sourceTree = "<group>";
+		};
+		ACD0344918EE819300E4EE1A /* CustomTableCellForEventsTable */ = {
+			isa = PBXGroup;
+			children = (
+				ACD0344A18EE90B300E4EE1A /* CustomEventCell.xib */,
+				ACD0344318EE7B8900E4EE1A /* EventCustomCellTableViewCell.h */,
+				ACD0344418EE7B8900E4EE1A /* EventCustomCellTableViewCell.m */,
+			);
+			name = CustomTableCellForEventsTable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,6 +445,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACD0344B18EE90B300E4EE1A /* CustomEventCell.xib in Resources */,
 				9505A82C18E12CAD006F1CA2 /* Images.xcassets in Resources */,
 				9505A81E18E12CAD006F1CA2 /* InfoPlist.strings in Resources */,
 				9505A84F18E12E5A006F1CA2 /* bar_event.png in Resources */,
@@ -470,6 +495,7 @@
 				AC99F65D18ED259B00E7D1FC /* MeData.m in Sources */,
 				E27163C118EB3A890096C8AE /* Event.m in Sources */,
 				95AB12C818EB1710009E583B /* UIImage+FixOrientation.m in Sources */,
+				ACD0344518EE7B8900E4EE1A /* EventCustomCellTableViewCell.m in Sources */,
 				9591879718E5E81200538439 /* DiscoverTableViewController.m in Sources */,
 				9505A82018E12CAD006F1CA2 /* main.m in Sources */,
 				AC99F65A18ED13C400E7D1FC /* MeetingScheduleData.m in Sources */,

@@ -18,6 +18,8 @@
 
 @property NSDate *endTime;
 
+@property NSString *questionDetail;
+
 @property NSString *Location;
 
 @property BOOL *Complete;

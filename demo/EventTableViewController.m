@@ -9,6 +9,10 @@
 #import "EventTableViewController.h"
 #import "AddEventTableViewController.h"
 #import "MeetingScheduleData.h"
+#import "EventCustomCellTableViewCell.h"
+
+//import custom tableview cell
+#import "EventCustomCellTableViewCell.h"
 
 @interface EventTableViewController ()
 
@@ -80,12 +84,27 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MeetingScheduleData" forIndexPath:indexPath];
+    EventCustomCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomEventTableCell"];
     
+    if (cell==nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomEventCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+//    if (cell == nil) {
+//        cell = [[EventCustomCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault   reuseIdentifier:@"CustomEventTableCell"];
+//    }
+
     // Configure the cell...
-    cell.textLabel.text = [self.MeetingScheduleDataObjects objectAtIndex:indexPath.row];
+    [[cell title] setText:[self.MeetingScheduleDataObjects objectAtIndex:indexPath.row]];
+    
+//    cell.title.text = [self.MeetingScheduleDataObjects objectAtIndex:indexPath.row];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70;
 }
 
 - (IBAction)unwindEventTableView:(UIStoryboardSegue *) segue
