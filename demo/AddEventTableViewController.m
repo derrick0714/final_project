@@ -146,6 +146,12 @@
         
     }
     
+    if (indexPath.row == 4){
+        
+        height = self.endDatePickerIsShowing ? 164 : 0.0f;
+        
+    }
+    
     return height;
 }
 
@@ -166,17 +172,17 @@
         }
     }
     
-//    if (indexPath.row == 3){
-//        
-//        if (self.startDatePickerIsShowing){
-//            
-//            [self hideEndDatePickerCell];
-//            
-//        }else {
-//            
-//            [self showEndDatePickerCell];
-//        }
-//    }
+    if (indexPath.row == 3){
+        
+        if (self.endDatePickerIsShowing){
+            
+            [self hideEndDatePickerCell];
+            
+        }else {
+            
+            [self showEndDatePickerCell];
+        }
+    }
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -215,6 +221,43 @@
                          self.startDatePicker.hidden = YES;
                      }];
 }
+
+
+- (void)showEndDatePickerCell {
+    
+    self.endDatePickerIsShowing = YES;
+    
+    [self.tableView beginUpdates];
+    
+    [self.tableView endUpdates];
+    
+    self.endDatePicker.hidden = NO;
+    self.endDatePicker.alpha = 0.0f;
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        
+        self.endDatePicker.alpha = 1.0f;
+        
+    }];
+}
+
+- (void)hideEndDatePickerCell {
+    
+    self.endDatePickerIsShowing = NO;
+    
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         self.endDatePicker.alpha = 0.0f;
+                     }
+                     completion:^(BOOL finished){
+                         self.endDatePicker.hidden = YES;
+                     }];
+}
+
+
 
 
 #pragma mark - Navigation
