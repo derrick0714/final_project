@@ -12,15 +12,13 @@
 
 @property NSString *Title;
 
-@property NSString *Notes;
-
 @property NSDate *startTime;
 
 @property NSDate *endTime;
 
-@property NSString *questionDetail;
-
 @property NSString *Location;
+
+@property NSString *questionDetail;
 
 @property BOOL *Complete;
 

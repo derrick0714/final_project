@@ -293,16 +293,14 @@
 		956B1C2C18E8A4E7003E782D /* Meeting */ = {
 			isa = PBXGroup;
 			children = (
+				AC2492A318EF428500F2EE6E /* MapViewController */,
+				AC2492A218EF426100F2EE6E /* InlineDatePicker */,
 				ACD0344918EE819300E4EE1A /* CustomTableCellForEventsTable */,
 				ACD0344818EE816300E4EE1A /* MeetingScheduleDataClass */,
-				95DD929118E8B98200016E6B /* MapViewController.h */,
-				95DD929218E8B98200016E6B /* MapViewController.m */,
 				95DD928E18E8B48900016E6B /* AddEventTableViewController.h */,
 				95DD928F18E8B48900016E6B /* AddEventTableViewController.m */,
 				9591879818E5EBDE00538439 /* EventTableViewController.h */,
 				9591879918E5EBDE00538439 /* EventTableViewController.m */,
-				AC93E5D518EDF25000510883 /* DatePickerViewController.h */,
-				AC93E5D618EDF25000510883 /* DatePickerViewController.m */,
 			);
 			name = Meeting;
 			sourceTree = "<group>";
@@ -310,8 +308,7 @@
 		956B1C2D18E8A4F2003E782D /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				AC99F65B18ED259B00E7D1FC /* MeData.h */,
-				AC99F65C18ED259B00E7D1FC /* MeData.m */,
+				AC2492A118EF423F00F2EE6E /* MeDataObject */,
 				956FA87818EB3700009A106E /* MeTableViewController.h */,
 				956FA87918EB3700009A106E /* MeTableViewController.m */,
 				95AB12CD18EB18CD009E583B /* EditProfileTableViewController.h */,
@@ -340,6 +337,33 @@
 				95AB12B718EB16F5009E583B /* GKImageCropper.m */,
 			);
 			name = ImagePicker;
+			sourceTree = "<group>";
+		};
+		AC2492A118EF423F00F2EE6E /* MeDataObject */ = {
+			isa = PBXGroup;
+			children = (
+				AC99F65B18ED259B00E7D1FC /* MeData.h */,
+				AC99F65C18ED259B00E7D1FC /* MeData.m */,
+			);
+			name = MeDataObject;
+			sourceTree = "<group>";
+		};
+		AC2492A218EF426100F2EE6E /* InlineDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				AC93E5D518EDF25000510883 /* DatePickerViewController.h */,
+				AC93E5D618EDF25000510883 /* DatePickerViewController.m */,
+			);
+			name = InlineDatePicker;
+			sourceTree = "<group>";
+		};
+		AC2492A318EF428500F2EE6E /* MapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				95DD929118E8B98200016E6B /* MapViewController.h */,
+				95DD929218E8B98200016E6B /* MapViewController.m */,
+			);
+			name = MapViewController;
 			sourceTree = "<group>";
 		};
 		ACD0344818EE816300E4EE1A /* MeetingScheduleDataClass */ = {

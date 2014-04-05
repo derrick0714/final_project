@@ -62,7 +62,7 @@
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
     CLLocationCoordinate2D loc = [userLocation coordinate];
-    //放大地图到自身的经纬度
+    //zoom to location
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
     [self.mapView setRegion:region animated:YES];
 }

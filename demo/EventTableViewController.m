@@ -17,6 +17,13 @@
 @interface EventTableViewController ()
 
 @property NSMutableArray* MeetingScheduleDataObjects;
+//properties for storing data and showing in customized table cell
+@property NSMutableArray* cellTitle;
+@property NSMutableArray* cellTime;
+@property NSMutableArray* cellLocation;
+
+//date formatter
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
 @end
 
@@ -42,20 +49,44 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
     self.MeetingScheduleDataObjects = [[NSMutableArray alloc] init];
+    self.cellTitle = [[NSMutableArray alloc] init];
+    self.cellTime = [[NSMutableArray alloc] init];
+    self.cellLocation = [[NSMutableArray alloc] init];
     
     [self loadInitialData];
     
 }
 
+
+//initialize and create the date formatter
+- (void)createDateFormatter {
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    //in the below form: "date, time"
+    [self.dateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+}
+
 //add initial data - this methods should be changed during after the sever is setted up and initial data is loaded from the sever.
 - (void)loadInitialData {
+    
         MeetingScheduleData *item1 = [[MeetingScheduleData alloc] init];
+        //[self createDateFormatter];
         item1.Title = @"Discussing iOS Programming";
-        [self.MeetingScheduleDataObjects addObject:item1.Title];
+        item1.Location = @"RH 715";
+        //item1.startTime = @"2014/04/05, 3:00pm";
+        [self.cellTitle addObject:item1.Title];
+        [self.cellLocation addObject:item1.Location];
+        [self.cellTime addObject:@"2014/04/05, 3:00pm"];
     
         MeetingScheduleData *item2 = [[MeetingScheduleData alloc] init];
+        //[self createDateFormatter];
         item2.Title = @"Discussing Algorithms";
-        [self.MeetingScheduleDataObjects addObject:item2.Title];
+        item2.Location = @"JB 213";
+        //item2.startTime = @"2014/04/05, 3:00pm";
+        [self.cellTitle addObject:item2.Title];
+        [self.cellLocation addObject:item2.Location];
+        [self.cellTime addObject:@"2014/04/05, 4:00pm"];
+
 }
 
 
@@ -76,8 +107,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-
-    return [self.MeetingScheduleDataObjects count];
+    
+    return [self.cellTitle count];
+    // return [self.MeetingScheduleDataObjects count];
     
 }
 
@@ -90,14 +122,11 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomEventCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-//    if (cell == nil) {
-//        cell = [[EventCustomCellTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault   reuseIdentifier:@"CustomEventTableCell"];
-//    }
 
     // Configure the cell...
-    [[cell title] setText:[self.MeetingScheduleDataObjects objectAtIndex:indexPath.row]];
-    
-//    cell.title.text = [self.MeetingScheduleDataObjects objectAtIndex:indexPath.row];
+    cell.title.text = [self.cellTitle objectAtIndex:indexPath.row];
+    cell.time.text = [self.cellTime objectAtIndex:indexPath.row];
+    cell.location.text = [self.cellLocation objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -112,10 +141,14 @@
     AddEventTableViewController *scheduleDataSource = [segue sourceViewController];
     MeetingScheduleData *item = scheduleDataSource.scheduleData;
     
-    
-    
     if (item != nil) {
         [self.MeetingScheduleDataObjects addObject:item.Title];
+        [self.cellTitle addObject: item.Title];
+        [self.cellLocation addObject: item.Location];
+        //use date formatter to convert NSDate value in item to string
+        [self createDateFormatter];
+        [self.cellTime addObject: [self.dateFormatter stringFromDate:item.startTime]];//@"Time"];
+
         [self.tableView reloadData];
     }
 }

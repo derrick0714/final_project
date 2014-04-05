@@ -17,18 +17,16 @@
 @property (weak, nonatomic) IBOutlet UITextField *locationText;
 @property (weak, nonatomic) IBOutlet UITextField *questionDetail;
 
-
 //date formatter for converting datepicker's time to formatted string
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
-
 //start and end time
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
 @property (weak, nonatomic) IBOutlet UILabel *endTime;
+
 //date and time values to be passed to the events table
 //add properties here:
 @property NSDate *startTimeFromPicker;
 @property NSDate *endTimeFromPicker;
-
 
 //date picker
 @property (weak, nonatomic) IBOutlet UIDatePicker *startDatePicker;
@@ -315,7 +313,7 @@
         self.scheduleData.Title = self.titleText.text;
         self.scheduleData.startTime = self.startTimeFromPicker;
         self.scheduleData.endTime = self.endTimeFromPicker;
-        self.scheduleData.Notes = self.locationText.text;
+        self.scheduleData.Location = self.locationText.text;
         self.scheduleData.questionDetail = self.questionDetail.text;
     }
 }
