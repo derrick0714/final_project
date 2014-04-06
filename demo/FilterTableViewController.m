@@ -9,7 +9,7 @@
 #import "FilterTableViewController.h"
 
 @interface FilterTableViewController ()
-
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @end
 
 @implementation FilterTableViewController
@@ -107,7 +107,28 @@
 }
 */
 
-/*
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	[tableView deselectRowAtIndexPath:indexPath animated:NO];
+//	for (int section = 0; section < [tableView numberOfSections]; section++) {
+	int section = indexPath.section;
+	for (int row = 0; row < [tableView numberOfRowsInSection:section]; row++) {
+		NSIndexPath *cellPath = [NSIndexPath indexPathForRow:row inSection:section];
+		UITableViewCell *cell = [tableView cellForRowAtIndexPath:cellPath];
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	}
+//	}
+	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+	cell.accessoryType = UITableViewCellAccessoryCheckmark;
+	switch(section) {
+		case 0: // sort by
+			self.sortBy = cell.textLabel.text;
+			break;
+		case 1: // subject
+			self.subject = cell.textLabel.text;
+			break;
+	}
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -115,7 +136,9 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+	if(sender == self.doneButton) {
+		NSLog(@"%@ %@", self.sortBy, self.subject);
+	}
 }
-*/
 
 @end

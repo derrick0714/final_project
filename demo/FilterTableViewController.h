@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FilterTableViewController : UITableViewController
-
+@property NSString *sortBy;
+@property NSString *subject;
 @end

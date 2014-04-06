@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DiscoverTableViewController : UITableViewController
-
+@property NSString *sortBy;
+@property NSString *subject;
 @end

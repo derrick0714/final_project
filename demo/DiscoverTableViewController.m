@@ -7,8 +7,9 @@
 //
 
 #import "DiscoverTableViewController.h"
-#import "EventDetailTableViewController.h"
 #import "Event.h"
+#import "EventDetailTableViewController.h"
+#import "FilterTableViewController.h"
 
 @interface DiscoverTableViewController ()
 @property NSMutableArray* section;
@@ -36,6 +37,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+	self.sortBy = @"Best Match";
+	self.subject = @"Math";
+	
     //init data in section
     self.section = [[NSMutableArray alloc] init];
 //    [self.section addObject:@"SSS"];
@@ -128,17 +132,30 @@
 		Event *e = [self.section objectAtIndex:ip.row];
 		destVC.event = [Event initWithEvent:e];
     } else if([segue.identifier isEqual:@"segue_filter"]) {
-		
+        FilterTableViewController *destVC = [segue destinationViewController];
+		destVC.sortBy = self.sortBy;
+		destVC.subject = self.subject;
 	}
 }
 
 - (IBAction)refresh:(id)sender {
-	Event *e = [Event initWithTitle:@"Place holder"
-							  notes:@"Description"
+	// Placeholder: add a placeholder event
+	// should use self.sortBy and self.subject as parameters to get data remotely
+	Event *e = [Event initWithTitle:[NSString stringWithFormat:@"A %@ Event",
+									 self.subject]
+							  notes:[NSString stringWithFormat:@"Sort by %@",
+									 self.sortBy]
 						  startTime:[NSDate dateWithTimeIntervalSinceNow:0]
 							endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
 						   location:@"Somewhere"];
 	[self.section addObject:e];
 	[self.tableView reloadData];
 }
+
+- (IBAction)unwindToDiscover	:(UIStoryboardSegue *)segue {
+	FilterTableViewController *filterVC = [segue sourceViewController];
+	self.sortBy = filterVC.sortBy;
+	self.subject = filterVC.subject;
+}
+
 @end

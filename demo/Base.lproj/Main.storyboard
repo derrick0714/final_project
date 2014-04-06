@@ -380,10 +380,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Filter" id="WaY-Ii-pl2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="qTC-bG-fAN"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="qTC-bG-fAN">
+                            <connections>
+                                <segue destination="LoG-P8-DKl" kind="unwind" unwindAction="unwindToDiscover:" id="GQn-JT-bxN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="qTC-bG-fAN" id="Wgw-TL-enx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Tp-cH-9Ie" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LoG-P8-DKl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1885" y="-882"/>
         </scene>
