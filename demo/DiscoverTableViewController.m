@@ -10,6 +10,7 @@
 #import "Event.h"
 #import "EventDetailTableViewController.h"
 #import "FilterTableViewController.h"
+#import "EventCustomCellTableViewCell.h"
 
 @interface DiscoverTableViewController ()
 @property NSMutableArray* section;
@@ -48,7 +49,7 @@
 										   notes:@"How to play scales"
 									   startTime:[NSDate dateWithTimeIntervalSinceNow:0]
 										 endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
-										location:@"5 MetroTech Center, Brooklyn, NY 11201"]];
+										location:@"333 Jay Street"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,13 +74,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"discover_item_cell" forIndexPath:indexPath];
-    
-    // Configure the cell...
 	Event *e = [self.section objectAtIndex: indexPath.row];
+
+	// Default cell
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"discover_item_cell" forIndexPath:indexPath];
+    // Configure the cell...
     cell.textLabel.text = e.title;
-	cell.detailTextLabel.text = e.notes;
-    return cell;
+	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",
+								 e.location,
+								 [NSDateFormatter localizedStringFromDate:e.startTime
+																dateStyle:NSDateFormatterShortStyle
+																timeStyle:NSDateFormatterShortStyle]];
+	return cell;
+
+	// Custom cell
+//	EventCustomCellTableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"discover_item_cell"
+//																			   forIndexPath:indexPath];
+//	customCell.title.text = e.title;
+//	customCell.location.text = e.location;
+//	customCell.time.text = [NSDateFormatter localizedStringFromDate:e.startTime
+//														  dateStyle:NSDateFormatterShortStyle
+//														  timeStyle:NSDateFormatterShortStyle];
+//	return customCell;
 }
 
 /*
