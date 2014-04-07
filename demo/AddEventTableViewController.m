@@ -182,13 +182,11 @@
     CGFloat height = self.tableView.rowHeight;
     
     if (indexPath.row == 2){
-        
         height = self.startDatePickerIsShowing ? 164 : 0.0f;
         
     }
     
     if (indexPath.row == 4){
-        
         height = self.endDatePickerIsShowing ? 164 : 0.0f;
         
     }

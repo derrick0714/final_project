@@ -39,7 +39,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="location" destination="rFa-Ge-417" id="yH9-bF-Bo1"/>
-                <outlet property="personalImage" destination="ysK-CJ-Egs" id="pTd-Qt-fZJ"/>
+                <outlet property="personalImage" destination="ysK-CJ-Egs" id="ZnQ-Gp-nXf"/>
                 <outlet property="time" destination="re8-QO-TgF" id="PyN-Qk-J5K"/>
                 <outlet property="title" destination="Igf-M0-qtM" id="HG6-KE-yzB"/>
             </connections>

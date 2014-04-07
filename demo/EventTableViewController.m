@@ -147,8 +147,8 @@
         [self.cellLocation addObject: item.Location];
         //use date formatter to convert NSDate value in item to string
         [self createDateFormatter];
-        [self.cellTime addObject: [self.dateFormatter stringFromDate:item.startTime]];//@"Time"];
-
+        [self.cellTime addObject: [self.dateFormatter stringFromDate:item.startTime]];
+        //[self.cellTime addObject: item.Location];
         [self.tableView reloadData];
     }
 }
