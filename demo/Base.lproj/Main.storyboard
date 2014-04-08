@@ -916,6 +916,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <segment title="Pending"/>
                                     <segment title="History"/>
                                 </segments>
+                                <connections>
+                                    <action selector="threeEventSelector" destination="ROn-Bw-q9E" eventType="valueChanged" id="Caj-Tn-AD3"/>
+                                </connections>
                             </segmentedControl>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="MM9-aV-kDg">
@@ -927,6 +930,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="jGF-Q3-bAJ">
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
+                    <connections>
+                        <outlet property="Segment" destination="GSl-4I-e9c" id="qUw-fO-WwZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqm-xY-g9p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
