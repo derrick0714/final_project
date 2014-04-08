@@ -105,7 +105,11 @@
 }
 
 
-
+-(IBAction)threeEventSelector{
+	if(Segment.selectedSegmentIndex == 0){
+		
+	}
+}
 
 
 - (void)didReceiveMemoryWarning
