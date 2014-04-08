@@ -24,8 +24,6 @@ typedef enum {
 } Subject;
 
 @interface FilterTableViewController : UITableViewController
-@property NSString *sortBy;
+@property SortBy sortBy;
 @property NSString *subject;
-@property SortBy sortByID;
-@property Subject subjectID;
 @end

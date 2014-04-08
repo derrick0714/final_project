@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FilterTableViewController.h"
 
 @interface DiscoverTableViewController : UITableViewController
-@property NSString *sortBy;
+@property SortBy sortBy;
 @property NSString *subject;
 @end
