@@ -13,6 +13,7 @@
 
 //import custom tableview cell
 #import "EventCustomCellTableViewCell.h"
+#import "NetWorkApi.h"
 
 @interface EventTableViewController ()
 
@@ -69,23 +70,30 @@
 //add initial data - this methods should be changed during after the sever is setted up and initial data is loaded from the sever.
 - (void)loadInitialData {
     
-        MeetingScheduleData *item1 = [[MeetingScheduleData alloc] init];
-        //[self createDateFormatter];
-        item1.Title = @"Discussing iOS Programming";
-        item1.Location = @"RH 715";
-        //item1.startTime = @"2014/04/05, 3:00pm";
-        [self.cellTitle addObject:item1.Title];
-        [self.cellLocation addObject:item1.Location];
-        [self.cellTime addObject:@"2014/04/05, 3:00pm"];
+//        MeetingScheduleData *item1 = [[MeetingScheduleData alloc] init];
+//        //[self createDateFormatter];
+//        item1.Title = @"Discussing iOS Programming";
+//        item1.Location = @"RH 715";
+//        //item1.startTime = @"2014/04/05, 3:00pm";
+//        [self.cellTitle addObject:item1.Title];
+//        [self.cellLocation addObject:item1.Location];
+//        [self.cellTime addObject:@"2014/04/05, 3:00pm"];
+//    
+//        MeetingScheduleData *item2 = [[MeetingScheduleData alloc] init];
+//        //[self createDateFormatter];
+//        item2.Title = @"Discussing Algorithms";
+//        item2.Location = @"JB 213";
+//        //item2.startTime = @"2014/04/05, 3:00pm";
+//        [self.cellTitle addObject:item2.Title];
+//        [self.cellLocation addObject:item2.Location];
+//        [self.cellTime addObject:@"2014/04/05, 4:00pm"];
     
-        MeetingScheduleData *item2 = [[MeetingScheduleData alloc] init];
-        //[self createDateFormatter];
-        item2.Title = @"Discussing Algorithms";
-        item2.Location = @"JB 213";
-        //item2.startTime = @"2014/04/05, 3:00pm";
-        [self.cellTitle addObject:item2.Title];
-        [self.cellLocation addObject:item2.Location];
-        [self.cellTime addObject:@"2014/04/05, 4:00pm"];
+    NSString* status = @"coming";
+    [NetWorkApi EventByStatus:status
+                            completion:^( NSMutableArray* events) {
+                                
+                        }];
+
 
 }
 
