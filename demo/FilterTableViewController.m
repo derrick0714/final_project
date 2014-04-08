@@ -33,6 +33,26 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	int section = 0;
+	for (int row = 0; row < [self.tableView numberOfRowsInSection:section]; row++) {
+		NSIndexPath *cellPath = [NSIndexPath indexPathForRow:row inSection:section];
+		UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:cellPath];
+		if (row == self.sortBy) {
+			cell.accessoryType = UITableViewCellAccessoryCheckmark;
+		} else {
+			cell.accessoryType = UITableViewCellAccessoryNone;
+		}
+	}
+	section = 1;
+	for (int row = 0; row < [self.tableView numberOfRowsInSection:section]; row++) {
+		NSIndexPath *cellPath = [NSIndexPath indexPathForRow:row inSection:section];
+		UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:cellPath];
+		if ([cell.textLabel.text isEqual:self.subject]) {
+			cell.accessoryType = UITableViewCellAccessoryCheckmark;
+		} else {
+			cell.accessoryType = UITableViewCellAccessoryNone;
+		}
+	}
 }
 
 - (void)didReceiveMemoryWarning

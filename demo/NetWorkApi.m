@@ -40,7 +40,7 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving data"
                                                             message:[error localizedDescription]
                                                            delegate:nil
                                                   cancelButtonTitle:@"Ok"
@@ -98,7 +98,7 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving data"
                                                             message:[error localizedDescription]
                                                            delegate:nil
                                                   cancelButtonTitle:@"Ok"
@@ -110,10 +110,10 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
     
 }
 
-+ (void)EventByStatus:(NSString *)status
++ (void)EventByStatus:(EventsSelector)status
            completion:(void (^)(NSMutableArray *events))completionBlock{
     
-    NSString *string = [NSString stringWithFormat:@"%@eventByStatus/%@/", BaseURLString, status];
+    NSString *string = [NSString stringWithFormat:@"%@eventByStatus/%d/", BaseURLString, status];
     NSURL *url = [NSURL URLWithString:string];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -153,7 +153,7 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving data"
                                                             message:[error localizedDescription]
                                                            delegate:nil
                                                   cancelButtonTitle:@"Ok"
@@ -183,7 +183,7 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
 //                                @"longitude":[NSNumber numberWithFloat:event.longitude]
 //                                };
 
-    NSString *string = [NSString stringWithFormat:@"%@createEvent/%@/%@/%@/%@/%@/%@/%@",
+    NSString *string = [NSString stringWithFormat:@"%@createEvent/%@/%@/%@/%@/%@/%@/%@/%@",
                                                                         BaseURLString,
                                                                         event.title,
                                                                         event.subject,
@@ -191,7 +191,8 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
                                                                         startTime,
                                                                         endTime,
                                                                         [NSNumber numberWithFloat:event.latitude],
-                                                                        [NSNumber numberWithFloat:event.longitude]];
+                                                                        [NSNumber numberWithFloat:event.longitude],
+                                                                        event.notes];
     NSURL *url = [NSURL URLWithString:string];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -200,12 +201,18 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         
-       // completionBlock();
+        NSDictionary *response = (NSDictionary *)responseObject;
+        if([[response objectForKey:@"result"]  isEqual: @"true"]){
+            completionBlock(true);
+        }else{
+            completionBlock(false);
+        }
+
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving data"
                                                             message:[error localizedDescription]
                                                            delegate:nil
                                                   cancelButtonTitle:@"Ok"
