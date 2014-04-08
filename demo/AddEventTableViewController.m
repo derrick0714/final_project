@@ -296,14 +296,30 @@
         //initialize the event object
 		self.event = [[Event alloc] init];
 		self.event.title = self.titleText.text;
-		self.event.startTime = self.startTimeFromPicker;
-		self.event.endTime = self.endTimeFromPicker;
+
+        if (self.startTimeFromPicker) {
+            self.event.startTime = self.startTimeFromPicker;
+        }
+        else
+            self.event.startTime = [NSDate date];
+        
+        if (self.endTimeFromPicker) {
+            self.event.endTime = self.endTimeFromPicker;
+        }
+        else
+            self.event.endTime = [NSDate date];
+
 		self.event.location = self.locationText.text;
 		self.event.notes = self.questionDetail.text;
         
         [NetWorkApi CreateEvent:self.event
                      completion:^(BOOL result){
-                         
+                         if (result) {
+                             
+                         }
+                         else {
+                             
+                         }
                          
                      }];
     }
