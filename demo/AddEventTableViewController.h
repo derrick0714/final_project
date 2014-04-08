@@ -12,4 +12,5 @@
 @interface AddEventTableViewController : UITableViewController<UITextFieldDelegate>
 @property MeetingScheduleData *scheduleData;
 @property Event *event;
+
 @end

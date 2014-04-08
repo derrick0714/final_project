@@ -44,6 +44,8 @@
 //date formatter for converting datepicker's time to formatted string
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
+
+
 @end
 
 
@@ -281,6 +283,22 @@
                      }];
 }
 
+//If there is not input to the title, segue will not be performed
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    
+    if (self.titleText.text.length > 0) {
+        return YES;
+    }
+    //alert information - this will be showed when adding event fails
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail To Add"
+                                                    message:@"Please Input Again."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    return NO;
+}
+
 
 #pragma mark - Navigation
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -314,12 +332,17 @@
         
         [NetWorkApi CreateEvent:self.event
                      completion:^(BOOL result){
-                         if (result) {
-                             
+                         if (!result) {
+                             //alert information - this will be showed when adding event fails
+                             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail To Add"
+                                                                             message:@"Please Input Again."
+                                                                            delegate:nil
+                                                                   cancelButtonTitle:@"OK"
+                                                                   otherButtonTitles:nil];
+                             [alert show];
                          }
-                         else {
-                             
-                         }
+                         
+                         
                          
                      }];
     }
