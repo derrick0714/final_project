@@ -78,21 +78,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	Event *e = [self.events objectAtIndex: indexPath.row];
-
+	
 	// Default cell
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"discover_item_cell" forIndexPath:indexPath];
-//    // Configure the cell...
-//    cell.textLabel.text = e.title;
-//	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",
-//								 e.location,
-//								 [NSDateFormatter localizedStringFromDate:e.startTime
-//																dateStyle:NSDateFormatterShortStyle
-//																timeStyle:NSDateFormatterShortStyle]];
-//	return cell;
-
+	//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"discover_item_cell" forIndexPath:indexPath];
+	//    // Configure the cell...
+	//    cell.textLabel.text = e.title;
+	//	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",
+	//								 e.location,
+	//								 [NSDateFormatter localizedStringFromDate:e.startTime
+	//																dateStyle:NSDateFormatterShortStyle
+	//																timeStyle:NSDateFormatterShortStyle]];
+	//	return cell;
+	
 	// Custom cell
 	EventCustomCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomEventTableCell"
-																			   forIndexPath:indexPath];
+																		 forIndexPath:indexPath];
 	if(!cell) {
 		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomEventTableCell" owner:self options:nil];
 		cell = [nib objectAtIndex:0];
@@ -101,8 +101,8 @@
 	cell.title.text = e.title;
 	cell.location.text = e.location;
 	cell.time.text = [NSDateFormatter localizedStringFromDate:e.startTime
-														  dateStyle:NSDateFormatterShortStyle
-														  timeStyle:NSDateFormatterShortStyle];
+													dateStyle:NSDateFormatterShortStyle
+													timeStyle:NSDateFormatterShortStyle];
 	return cell;
 }
 
