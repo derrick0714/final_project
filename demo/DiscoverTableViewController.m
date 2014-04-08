@@ -91,18 +91,19 @@
 //	return cell;
 
 	// Custom cell
-	EventCustomCellTableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"CustomEventTableCell"
+	EventCustomCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomEventTableCell"
 																			   forIndexPath:indexPath];
-	if(!customCell) {
+	if(!cell) {
 		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomEventTableCell" owner:self options:nil];
-		customCell = [nib objectAtIndex:0];
+		cell = [nib objectAtIndex:0];
 	}
-	customCell.title.text = e.title;
-	customCell.location.text = e.location;
-	customCell.time.text = [NSDateFormatter localizedStringFromDate:e.startTime
+	NSLog(@"%@ %d", e.title, [self.events count]);
+	cell.title.text = e.title;
+	cell.location.text = e.location;
+	cell.time.text = [NSDateFormatter localizedStringFromDate:e.startTime
 														  dateStyle:NSDateFormatterShortStyle
 														  timeStyle:NSDateFormatterShortStyle];
-	return customCell;
+	return cell;
 }
 
 /*
@@ -181,17 +182,20 @@
     [NetWorkApi discoverEventBySubject:self.subject
 								sortBy:self.sortBy
                             completion:^( NSMutableArray* events) {
-//                                Event * a = [events objectAtIndex:0];
-//                                NSLog(@"%@", a.title);
                                 self.events = [[NSMutableArray alloc] initWithArray:events];
+								[self.tableView reloadData];
                             }];
-	[self.tableView reloadData];
+}
+
+- (IBAction)refresh {
+	[self refresh:nil];
 }
 
 - (IBAction)unwindToDiscover	:(UIStoryboardSegue *)segue {
 	FilterTableViewController *filterVC = [segue sourceViewController];
 	self.sortBy = filterVC.sortBy;
 	self.subject = filterVC.subject;
+	[self refresh];
 }
 
 @end
