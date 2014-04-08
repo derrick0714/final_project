@@ -13,6 +13,7 @@
 
 //import custom tableview cell
 #import "EventCustomCellTableViewCell.h"
+#import "NetWorkApi.h"
 
 @interface EventTableViewController ()
 

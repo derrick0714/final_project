@@ -17,4 +17,6 @@
                         sortBy:(NSString *)sortBy
                        completion:(void (^)(NSMutableArray *events))completionBlock;
 
++ (void)EventByStatus:(NSString *)status
+             completion:(void (^)(NSMutableArray *events))completionBlock;
 @end
