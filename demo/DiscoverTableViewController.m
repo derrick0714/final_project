@@ -11,6 +11,7 @@
 #import "EventDetailTableViewController.h"
 #import "FilterTableViewController.h"
 #import "EventCustomCellTableViewCell.h"
+#import "NetWorkApi.h"
 
 @interface DiscoverTableViewController ()
 @property NSMutableArray* section;
@@ -49,11 +50,12 @@
     self.section = [[NSMutableArray alloc] init];
 //    [self.section addObject:@"SSS"];
 //    [self.section addObject:@"BBB"];
-	[self.section addObject:[Event initWithTitle:@"Guitar"
-										   notes:@"How to play scales"
-									   startTime:[NSDate dateWithTimeIntervalSinceNow:0]
-										 endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
-										location:@"333 Jay Street"]];
+//	[self.section addObject:[Event initWithTitle:@"Guitar"
+//										   notes:@"How to play scales"
+//									   startTime:[NSDate dateWithTimeIntervalSinceNow:0]
+//										 endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
+//										location:@"333 Jay Street"]];
+    [self refresh:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -175,14 +177,21 @@
 - (IBAction)refresh:(id)sender {
 	// Placeholder: add a placeholder event
 	// should use self.sortBy and self.subject as parameters to get data remotely
-	Event *e = [Event initWithTitle:[NSString stringWithFormat:@"A %@ Event",
-									 self.subject]
-							  notes:[NSString stringWithFormat:@"Sort by %@",
-									 self.sortBy]
-						  startTime:[NSDate dateWithTimeIntervalSinceNow:0]
-							endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
-						   location:@"Somewhere"];
-	[self.section addObject:e];
+    //	Event *e = [Event initWithTitle:[NSString stringWithFormat:@"A %@ Event",
+    //									 self.subject]
+    //							  notes:[NSString stringWithFormat:@"Sort by %@",
+    //									 self.sortBy]
+    //						  startTime:[NSDate dateWithTimeIntervalSinceNow:0]
+    //							endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
+    //						   location:@"Somewhere"];
+    //	[self.section addObject:e];
+    
+    [NetWorkApi discoverEventBySubject:self.subject sortBy: self.sortBy
+                            completion:^( NSMutableArray* events) {
+                                Event * a = [events objectAtIndex:0];
+                                NSLog(@"%@", a.title);
+                                self.section = [[NSMutableArray alloc] initWithArray:events];
+                            }];
 	[self.tableView reloadData];
 }
 
