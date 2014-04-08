@@ -124,7 +124,7 @@
         <scene sceneID="txO-7z-IKs">
             <objects>
                 <tableViewController id="R8M-rb-B9F" customClass="DiscoverTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IpD-AY-kPq">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="IpD-AY-kPq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -134,35 +134,15 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="discover_item_cell" textLabel="PQ6-oc-lvO" detailTextLabel="QHW-h4-F7e" imageView="Mm8-s2-ZK7" style="IBUITableViewCellStyleSubtitle" id="xOV-tr-STA">
-                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomEventTableCell" rowHeight="70" id="xOV-tr-STA" customClass="EventCustomCellTableViewCell">
+                                <rect key="frame" x="0.0" y="130" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xOV-tr-STA" id="f8R-q8-nHv">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PQ6-oc-lvO">
-                                            <rect key="frame" x="87" y="3" width="34" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="facebook_blank_face3.png" id="Mm8-s2-ZK7">
-                                            <rect key="frame" x="15" y="0.0" width="57" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Time,distance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QHW-h4-F7e">
-                                            <rect key="frame" x="87" y="25" width="78" height="15"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="nwW-Ib-Ns4" kind="push" identifier="segue_eventdetail" id="2Ys-YC-nsQ"/>
+                                    <segue destination="nwW-Ib-Ns4" kind="push" identifier="segue_eventdetail" id="tlK-OA-wjf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1319,7 +1299,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="bar_discover.png" width="24" height="24"/>
         <image name="bar_event.png" width="24" height="24"/>
         <image name="bar_me.png" width="24" height="24"/>
-        <image name="facebook_blank_face3.png" width="1024" height="768"/>
         <image name="luming.png" width="460" height="460"/>
         <image name="tom.png" width="400" height="400"/>
         <image name="xu.png" width="600" height="600"/>

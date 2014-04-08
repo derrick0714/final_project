@@ -38,6 +38,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+	[self.tableView registerNib:[UINib nibWithNibName:@"CustomEventCell"
+											   bundle:nil]
+		 forCellReuseIdentifier:@"CustomEventTableCell"];
+	
 	self.sortBy = @"Best Match";
 	self.subject = @"Math";
 	
@@ -72,30 +76,39 @@
     return [self.section count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	Event *e = [self.section objectAtIndex: indexPath.row];
 
 	// Default cell
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"discover_item_cell" forIndexPath:indexPath];
-    // Configure the cell...
-    cell.textLabel.text = e.title;
-	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",
-								 e.location,
-								 [NSDateFormatter localizedStringFromDate:e.startTime
-																dateStyle:NSDateFormatterShortStyle
-																timeStyle:NSDateFormatterShortStyle]];
-	return cell;
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"discover_item_cell" forIndexPath:indexPath];
+//    // Configure the cell...
+//    cell.textLabel.text = e.title;
+//	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",
+//								 e.location,
+//								 [NSDateFormatter localizedStringFromDate:e.startTime
+//																dateStyle:NSDateFormatterShortStyle
+//																timeStyle:NSDateFormatterShortStyle]];
+//	return cell;
 
 	// Custom cell
-//	EventCustomCellTableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"discover_item_cell"
-//																			   forIndexPath:indexPath];
-//	customCell.title.text = e.title;
-//	customCell.location.text = e.location;
-//	customCell.time.text = [NSDateFormatter localizedStringFromDate:e.startTime
-//														  dateStyle:NSDateFormatterShortStyle
-//														  timeStyle:NSDateFormatterShortStyle];
-//	return customCell;
+	EventCustomCellTableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"CustomEventTableCell"
+																			   forIndexPath:indexPath];
+	if(!customCell) {
+		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomEventTableCell" owner:self options:nil];
+		customCell = [nib objectAtIndex:0];
+	}
+	customCell.title.text = e.title;
+	customCell.location.text = e.location;
+	customCell.time.text = [NSDateFormatter localizedStringFromDate:e.startTime
+														  dateStyle:NSDateFormatterShortStyle
+														  timeStyle:NSDateFormatterShortStyle];
+	return customCell;
 }
 
 /*
@@ -138,11 +151,16 @@
 
 #pragma mark - Navigation
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	[self performSegueWithIdentifier:@"segue_eventdetail"
+							  sender:[self.tableView cellForRowAtIndexPath:indexPath]];
+}
+
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if([segue.identifier isEqual: @"segue_eventdetail"]) {
+    if([segue.identifier isEqual:@"segue_eventdetail"]) {
         EventDetailTableViewController *destVC = [segue destinationViewController];
 		NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
 		Event *e = [self.section objectAtIndex:ip.row];
