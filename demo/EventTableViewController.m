@@ -75,6 +75,15 @@
 							 endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
 							location:@"RH 715"];
     
+//        MeetingScheduleData *item1 = [[MeetingScheduleData alloc] init];
+//        //[self createDateFormatter];
+//        item1.Title = @"Discussing iOS Programming";
+//        item1.Location = @"RH 715";
+//        //item1.startTime = @"2014/04/05, 3:00pm";
+//        [self.cellTitle addObject:item1.Title];
+//        [self.cellLocation addObject:item1.Location];
+//        [self.cellTime addObject:@"2014/04/05, 3:00pm"];
+//    
 //        MeetingScheduleData *item2 = [[MeetingScheduleData alloc] init];
 //        //[self createDateFormatter];
 //        item2.Title = @"Discussing Algorithms";
@@ -83,7 +92,15 @@
 //        [self.cellTitle addObject:item2.Title];
 //        [self.cellLocation addObject:item2.Location];
 //        [self.cellTime addObject:@"2014/04/05, 4:00pm"];
-	[self.events addObject:e1];
+    
+    NSString* status = @"coming";
+    [NetWorkApi EventByStatus:status
+                            completion:^( NSMutableArray* events) {
+                                
+                        }];
+
+
+    
 }
 
 
