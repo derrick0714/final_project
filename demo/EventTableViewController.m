@@ -69,11 +69,11 @@
 
 //add initial data - this methods should be changed during after the sever is setted up and initial data is loaded from the sever.
 - (void)loadInitialData {
-    Event *e1 = [Event initWithTitle:@"Discussing iOS Programming"
-							   notes:@"LOLWTF"
-						   startTime:[NSDate dateWithTimeIntervalSinceNow:0]
-							 endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
-							location:@"RH 715"];
+//    Event *e1 = [Event initWithTitle:@"Discussing iOS Programming"
+//							   notes:@"LOLWTF"
+//						   startTime:[NSDate dateWithTimeIntervalSinceNow:0]
+//							 endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
+//							location:@"RH 715"];
     
 //        MeetingScheduleData *item1 = [[MeetingScheduleData alloc] init];
 //        //[self createDateFormatter];

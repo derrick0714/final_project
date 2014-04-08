@@ -66,18 +66,18 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
     NSDate* endDate = [NSDate dateWithTimeIntervalSinceNow: 0];
     NSString* location = @"poly";
     
-    Event *e = [Event initWithTitle:title
-                notes:notes
-                startTime:startDate
-                endTime:endDate location:location];
-    Event *e1 = [Event initWithTitle:title
-                              notes:notes
-                          startTime:startDate
-                            endTime:endDate location:location];
+//    Event *e = [Event initWithTitle:title
+//                notes:notes
+//                startTime:startDate
+//                endTime:endDate location:location];
+//    Event *e1 = [Event initWithTitle:title
+//                              notes:notes
+//                          startTime:startDate
+//                            endTime:endDate location:location];
     
     NSMutableArray *events = [NSMutableArray new];
-    [events addObject:e];
-    [events addObject:e1];
+//    [events addObject:e];
+//    [events addObject:e1];
     
     
     completionBlock(events);
@@ -94,18 +94,18 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
     NSDate* endDate = [NSDate dateWithTimeIntervalSinceNow: 0];
     NSString* location = @"poly";
     
-    Event *e = [Event initWithTitle:title
-                              notes:notes
-                          startTime:startDate
-                            endTime:endDate location:location];
-    Event *e1 = [Event initWithTitle:title
-                               notes:notes
-                           startTime:startDate
-                             endTime:endDate location:location];
+//    Event *e = [Event initWithTitle:title
+//                              notes:notes
+//                          startTime:startDate
+//                            endTime:endDate location:location];
+//    Event *e1 = [Event initWithTitle:title
+//                               notes:notes
+//                           startTime:startDate
+//                             endTime:endDate location:location];
     
     NSMutableArray *events = [NSMutableArray new];
-    [events addObject:e];
-    [events addObject:e1];
+//    [events addObject:e];
+//    [events addObject:e1];
     
     
     completionBlock(events);
