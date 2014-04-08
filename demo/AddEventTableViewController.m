@@ -44,6 +44,8 @@
 //date formatter for converting datepicker's time to formatted string
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
+
+
 @end
 
 
@@ -282,6 +284,8 @@
 }
 
 
+
+
 #pragma mark - Navigation
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -315,8 +319,16 @@
         [NetWorkApi CreateEvent:self.event
                      completion:^(BOOL result){
                          if (!result) {
-                             
+                             //alert information - this will be showed when adding event fails
+                             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail To Add"
+                                                                             message:@"Please Input Again."
+                                                                            delegate:nil
+                                                                   cancelButtonTitle:@"OK"
+                                                                   otherButtonTitles:nil];
+                             [alert show];
                          }
+                         
+                         
                          
                      }];
     }
