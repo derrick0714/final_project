@@ -7,6 +7,7 @@
 //
 
 #import "FilterTableViewController.h"
+#import "EventCustomCellTableViewCell.h"
 
 @interface FilterTableViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
