@@ -57,19 +57,44 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
                         sortBy:(NSString *)sortBy
                     completion:(void (^)(NSMutableArray *events))completionBlock{
     
-
     
-    NSString *string = [NSString stringWithFormat:@"%@allEvent/%@/%@", BaseURLString, @"0", @"all"];
+    NSString *string = [NSString stringWithFormat:@"%@allEvent/%@/%@", BaseURLString, @"0", sortBy];
     NSURL *url = [NSURL URLWithString:string];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-       // NSMutableArray *response = (NSMutableArray *)responseObject;
+       
+        NSMutableArray *events = [NSMutableArray new];
+        NSDictionary *response = (NSDictionary *)responseObject;
+        for (NSDictionary* value in response) {
+            Event * new = [[Event alloc] init];
+            new.eventID = [(NSNumber*)[value objectForKey:@"eventID"] intValue];
+            new.status = [(NSNumber*)[value objectForKey:@"status"] intValue];
+            new.canidateID = [(NSNumber*)[value objectForKey:@"canidateID"] intValue];
+            new.title = (NSString*)[value objectForKey:@"title"];
+            new.subject = (NSString*)[value objectForKey:@"subject"];
+            new.notes = (NSString*)[value objectForKey:@"notes"];
+            new.location = (NSString*)[value objectForKey:@"location"];
+            
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            [dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
 
-//        completionBlock(response);
+
+            new.createTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"createTime"]];
+            new.startTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"startTime"]];
+            new.endTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"endTime"]];
+
+            
+            new.latitude = [(NSNumber*)[value objectForKey:@"latitude"] intValue];
+            new.longitude = [(NSNumber*)[value objectForKey:@"longitude"] intValue];
+            [events addObject:new];
+
+        }
+        
+        completionBlock(events);
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
