@@ -7,6 +7,7 @@
 //
 
 #import "AddEventTableViewController.h"
+#import "../Event.h"
 
 @interface AddEventTableViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
@@ -16,6 +17,9 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *locationText;
 @property (weak, nonatomic) IBOutlet UITextField *questionDetail;
+@property float latitude;
+@property float longitude;
+
 
 //date formatter for converting datepicker's time to formatted string
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -27,6 +31,7 @@
 //add properties here:
 @property NSDate *startTimeFromPicker;
 @property NSDate *endTimeFromPicker;
+@property NSDate *createTime;
 
 //date picker
 @property (weak, nonatomic) IBOutlet UIDatePicker *startDatePicker;
@@ -309,18 +314,23 @@
     // Pass the selected object to the new view controller.
     if (sender != self.saveButton) return;
     if (self.titleText.text.length > 0) {
+		//get create time
+		self.createTime = [NSDate date];
 		
-//        self.scheduleData = [[MeetingScheduleData alloc] init];
-//        self.scheduleData.Title = self.titleText.text;
-//        self.scheduleData.startTime = self.startTimeFromPicker;
-//        self.scheduleData.endTime = self.endTimeFromPicker;
-//        self.scheduleData.Location = self.locationText.text;
-//        self.scheduleData.questionDetail = self.questionDetail.text;
-		self.event = [Event initWithTitle:self.titleText.text
-									notes:self.questionDetail.text
-								startTime:self.startTimeFromPicker
-								  endTime:self.endTimeFromPicker
-								 location:self.locationText.text];
+
+		
+		//        self.scheduleData = [[MeetingScheduleData alloc] init];
+		//        self.scheduleData.Title = self.titleText.text;
+		//        self.scheduleData.startTime = self.startTimeFromPicker;
+		//        self.scheduleData.endTime = self.endTimeFromPicker;
+		//        self.scheduleData.Location = self.locationText.text;
+		//        self.scheduleData.questionDetail = self.questionDetail.text;
+		self.event = [[Event alloc] init];
+		self.event.title = self.titleText.text;
+		self.event.startTime = self.startTimeFromPicker;
+		self.event.endTime = self.endTimeFromPicker;
+		self.event.location = self.locationText.text;
+		self.event.notes = self.questionDetail.text;
     }
 }
 

@@ -17,6 +17,7 @@
 @property int creatorID;
 //events information
 @property NSString *title; // ename
+@property NSString *subject;
 @property NSString *notes;
 @property NSString *location; // location_desc
 //time
@@ -24,7 +25,7 @@
 @property NSDate *endTime;
 @property NSDate *createTime;
 //location
-@property float latitute;
+@property float latitude;
 @property float longitude;
 
 
