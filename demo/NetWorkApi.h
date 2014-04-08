@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Event.h"
 #import "FilterTableViewController.h"
+#import "EventTableViewController.h"
 @interface NetWorkApi : NSObject
 + (void)signInAccountWithUserName:(NSString *)userName
                          password:(NSString *)password
@@ -18,6 +19,6 @@
                         sortBy:(SortBy)sortBy
                        completion:(void (^)(NSMutableArray *events))completionBlock;
 
-+ (void)EventByStatus:(NSString *)status
++ (void)EventByStatus:(EventsSelector)status
              completion:(void (^)(NSMutableArray *events))completionBlock;
 @end
