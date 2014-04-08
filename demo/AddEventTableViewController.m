@@ -290,7 +290,7 @@
     // Pass the selected object to the new view controller.
     if (sender != self.saveButton) return;
     if (self.titleText.text.length > 0) {
-		//get create time
+		//get create current time
 		self.createTime = [NSDate date];
 		
         //initialize the event object
@@ -301,9 +301,14 @@
 		self.event.location = self.locationText.text;
 		self.event.notes = self.questionDetail.text;
         
-
-        
+        [NetWorkApi CreateEvent:self.event
+                     completion:^(BOOL result){
+                         
+                         
+                     }];
     }
+    
+
 }
 
 -(IBAction)unwindToEventlist: (UIStoryboardSegue *)segue {

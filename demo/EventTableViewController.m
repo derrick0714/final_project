@@ -94,10 +94,11 @@
 //        [self.cellTime addObject:@"2014/04/05, 4:00pm"];
     
 //initialize events table view with data from the server
-    NSString* status = @"coming";
-    [NetWorkApi EventByStatus:status
+    
+    [NetWorkApi EventByStatus:self.eventSelectID
                             completion:^( NSMutableArray* events) {
-                            
+                                self.events = events;
+                                [self.tableView reloadData];
                         }];
 
 
@@ -109,6 +110,7 @@
     
     if(Segment.selectedSegmentIndex == 0){
 		self.eventSelectID = (EventsSelector)0;
+        
 	}
     if(Segment.selectedSegmentIndex == 1){
 		self.eventSelectID = (EventsSelector)1;
@@ -117,9 +119,8 @@
 		self.eventSelectID = (EventsSelector)2;
 	}
     
-    
-    [self.tableView reloadData];
-    
+    [self loadInitialData];
+
 }
 
 
