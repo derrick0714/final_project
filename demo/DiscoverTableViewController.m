@@ -199,7 +199,7 @@
 		[self refresh];
 	} else if([[segue sourceViewController] isKindOfClass:[EventDetailTableViewController class]]) {
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Applied"
-														message:@"You have sucessfully applied to this event."
+														message:@"You have successfully applied to this event."
 													   delegate:nil
 											  cancelButtonTitle:@"OK"
 											  otherButtonTitles:nil];
