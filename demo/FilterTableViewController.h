@@ -8,7 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+	bestMatch = 0,
+	distance,
+	rating
+} SortBy;
+
+typedef enum {
+	all = 0,
+	math,
+	cs,
+	history,
+	english,
+	sports	
+} Subject;
+
 @interface FilterTableViewController : UITableViewController
 @property NSString *sortBy;
 @property NSString *subject;
+@property SortBy sortByID;
+@property Subject subjectID;
 @end

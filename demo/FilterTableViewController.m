@@ -54,7 +54,7 @@
     // Return the number of rows in the section.
 	switch(section) {
 		case 0: return 3;
-		case 1: return 5;
+		case 1: return 6;
 		default: return 0;
 	}
 }
@@ -123,9 +123,11 @@
 	switch(section) {
 		case 0: // sort by
 			self.sortBy = cell.textLabel.text;
+			self.sortByID = (SortBy)indexPath.row;
 			break;
 		case 1: // subject
 			self.subject = cell.textLabel.text;
+			self.subjectID = (Subject)indexPath.row;
 			break;
 	}
 }
