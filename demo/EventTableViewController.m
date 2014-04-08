@@ -17,7 +17,7 @@
 
 @interface EventTableViewController ()
 
-@property NSMutableArray* MeetingScheduleDataObjects;
+@property NSMutableArray* events;
 //properties for storing data and showing in customized table cell
 @property NSMutableArray* cellTitle;
 @property NSMutableArray* cellTime;
@@ -49,7 +49,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-    self.MeetingScheduleDataObjects = [[NSMutableArray alloc] init];
+    self.events = [[NSMutableArray alloc] init];
     self.cellTitle = [[NSMutableArray alloc] init];
     self.cellTime = [[NSMutableArray alloc] init];
     self.cellLocation = [[NSMutableArray alloc] init];
@@ -69,6 +69,11 @@
 
 //add initial data - this methods should be changed during after the sever is setted up and initial data is loaded from the sever.
 - (void)loadInitialData {
+//    Event *e1 = [Event initWithTitle:@"Discussing iOS Programming"
+//							   notes:@"LOLWTF"
+//						   startTime:[NSDate dateWithTimeIntervalSinceNow:0]
+//							 endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
+//							location:@"RH 715"];
     
 //        MeetingScheduleData *item1 = [[MeetingScheduleData alloc] init];
 //        //[self createDateFormatter];
@@ -95,6 +100,7 @@
                         }];
 
 
+    
 }
 
 
@@ -116,7 +122,7 @@
 {
     // Return the number of rows in the section.
     
-    return [self.cellTitle count];
+    return [self.events count];
     // return [self.MeetingScheduleDataObjects count];
     
 }
@@ -124,18 +130,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	Event *e = [self.events objectAtIndex: indexPath.row];
     EventCustomCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomEventTableCell"];
     
     if (cell==nil) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomEventCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-
+	
     // Configure the cell...
-    cell.title.text = [self.cellTitle objectAtIndex:indexPath.row];
-    cell.time.text = [self.cellTime objectAtIndex:indexPath.row];
-    cell.location.text = [self.cellLocation objectAtIndex:indexPath.row];
-    
+    cell.title.text = e.title;
+	cell.location.text = e.location;
+    cell.time.text = [NSDateFormatter localizedStringFromDate:e.startTime
+													dateStyle:NSDateFormatterShortStyle
+													timeStyle:NSDateFormatterShortStyle];
     return cell;
 }
 
@@ -146,19 +154,21 @@
 
 - (IBAction)unwindEventTableView:(UIStoryboardSegue *) segue
 {
-    AddEventTableViewController *scheduleDataSource = [segue sourceViewController];
-    MeetingScheduleData *item = scheduleDataSource.scheduleData;
-    
-    if (item != nil) {
-        [self.MeetingScheduleDataObjects addObject:item.Title];
-        [self.cellTitle addObject: item.Title];
-        [self.cellLocation addObject: item.Location];
-        //use date formatter to convert NSDate value in item to string
-        [self createDateFormatter];
-        [self.cellTime addObject: [self.dateFormatter stringFromDate:item.startTime]];//@"Time"];
-
-        [self.tableView reloadData];
-    }
+    AddEventTableViewController *srcVC = [segue sourceViewController];
+//    MeetingScheduleData *item = srcVC.scheduleData;
+	Event *e = [Event initWithEvent:srcVC.event];
+    [self.events addObject:e];
+//    if (item != nil) {
+//        [self.events addObject:item.Title];
+//        [self.cellTitle addObject: item.Title];
+//        [self.cellLocation addObject: item.Location];
+//        //use date formatter to convert NSDate value in item to string
+//        [self createDateFormatter];
+//        [self.cellTime addObject: [self.dateFormatter stringFromDate:item.startTime]];//@"Time"];
+//
+//        [self.tableView reloadData];
+//    }
+	[self.tableView reloadData];
 }
 
 

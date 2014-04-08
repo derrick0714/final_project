@@ -7,17 +7,39 @@
 //
 
 #import <Foundation/Foundation.h>
-
+// #import user;
 @interface Event : NSObject
-@property NSString *title;
+
+//user and candidates
+@property int eventID; // eid
+@property int status; // enum: recruiting: 1; has canidate: 2; ended: 3;
+@property int canidateID;
+@property int creatorID;
+//events information
+@property NSString *title; // ename
+@property NSString *subject;
 @property NSString *notes;
+@property NSString *location; // location_desc
+//time
 @property NSDate *startTime;
 @property NSDate *endTime;
-@property NSString *location;
+@property NSDate *createTime;
+//location
+@property float latitude;
+@property float longitude;
+
+
+
+
 + (id) initWithTitle:(NSString *) title
 			   notes:(NSString *) notes
+			location:(NSString *) location
 		   startTime:(NSDate *) startTime
 			 endTime:(NSDate *) endTime
-			location:(NSString *) location;
+		  createTime:(NSDate *) createTime
+			latitute:(float) latitude
+		  longitude:(float) longitude;
+
 + (id) initWithEvent:(Event *)event;
+
 @end
