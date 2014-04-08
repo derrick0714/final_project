@@ -107,13 +107,13 @@
 
 -(IBAction)threeEventSelector{
 	if(Segment.selectedSegmentIndex == 0){
-		
+		self.eventSelectID = 0;
 	}
     if(Segment.selectedSegmentIndex == 1){
-		
+		self.eventSelectID = 1;
 	}
     if(Segment.selectedSegmentIndex == 2){
-		
+		self.eventSelectID = 2;
 	}
 }
 
