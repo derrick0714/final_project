@@ -104,17 +104,22 @@
     
 }
 
-
+//events selector: coming, pending, history
 -(IBAction)threeEventSelector{
-	if(Segment.selectedSegmentIndex == 0){
-		self.eventSelectID = 0;
+    
+    if(Segment.selectedSegmentIndex == 0){
+		self.eventSelectID = (EventsSelector)0;
 	}
     if(Segment.selectedSegmentIndex == 1){
-		self.eventSelectID = 1;
+		self.eventSelectID = (EventsSelector)1;
 	}
     if(Segment.selectedSegmentIndex == 2){
-		self.eventSelectID = 2;
+		self.eventSelectID = (EventsSelector)2;
 	}
+    
+    
+    [self.tableView reloadData];
+    
 }
 
 
