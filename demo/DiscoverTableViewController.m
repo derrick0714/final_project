@@ -192,10 +192,19 @@
 }
 
 - (IBAction)unwindToDiscover	:(UIStoryboardSegue *)segue {
-	FilterTableViewController *filterVC = [segue sourceViewController];
-	self.sortBy = filterVC.sortBy;
-	self.subject = filterVC.subject;
-	[self refresh];
+	if([[segue sourceViewController] isKindOfClass:[FilterTableViewController class]]) {
+		FilterTableViewController *filterVC = [segue sourceViewController];
+		self.sortBy = filterVC.sortBy;
+		self.subject = filterVC.subject;
+		[self refresh];
+	} else if([[segue sourceViewController] isKindOfClass:[EventDetailTableViewController class]]) {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Applied"
+														message:@"You have sucessfully applied to this event."
+													   delegate:nil
+											  cancelButtonTitle:@"OK"
+											  otherButtonTitles:nil];
+		[alert show];
+	}
 }
 
 @end

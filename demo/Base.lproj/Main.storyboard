@@ -587,7 +587,13 @@
                             <outlet property="delegate" destination="nwW-Ib-Ns4" id="qBT-cD-ni6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Event Detail" id="qGU-Wu-0vJ"/>
+                    <navigationItem key="navigationItem" title="Event Detail" id="qGU-Wu-0vJ">
+                        <barButtonItem key="rightBarButtonItem" title="Apply" id="LKw-SW-gzc">
+                            <connections>
+                                <segue destination="5Ik-4Z-PS4" kind="unwind" unwindAction="unwindToDiscover:" id="23N-bU-OG5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="endTimeCell" destination="4vT-xh-vqw" id="ngB-dY-BBi"/>
                         <outlet property="locationCell" destination="4pr-rL-7Hb" id="hkd-Cr-gSi"/>
@@ -597,6 +603,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="alI-a3-pZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5Ik-4Z-PS4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2376" y="-885"/>
         </scene>
@@ -1332,6 +1339,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="swd-E5-gFf"/>
+        <segue reference="Ciq-po-D6o"/>
     </inferredMetricsTieBreakers>
 </document>
