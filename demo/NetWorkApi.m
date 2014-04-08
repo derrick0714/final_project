@@ -57,19 +57,43 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
                         sortBy:(NSString *)sortBy
                     completion:(void (^)(NSMutableArray *events))completionBlock{
     
-
     
-    NSString *string = [NSString stringWithFormat:@"%@allEvent/%@/%@", BaseURLString, @"0", @"all"];
+    NSString *string = [NSString stringWithFormat:@"%@allEvent/%@/%@", BaseURLString, @"0", sortBy];
     NSURL *url = [NSURL URLWithString:string];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-       // NSMutableArray *response = (NSMutableArray *)responseObject;
+       
+        NSMutableArray *events = [NSMutableArray new];
+        NSDictionary *response = (NSDictionary *)responseObject;
+        for (NSDictionary* value in response) {
+            Event * new = [[Event alloc] init];
+            new.eventID = [(NSNumber*)[value objectForKey:@"eventID"] intValue];
+            new.status = [(NSNumber*)[value objectForKey:@"status"] intValue];
+            new.canidateID = [(NSNumber*)[value objectForKey:@"canidateID"] intValue];
+            new.title = (NSString*)[value objectForKey:@"title"];
+            new.subject = (NSString*)[value objectForKey:@"subject"];
+            new.notes = (NSString*)[value objectForKey:@"notes"];
+            new.location = (NSString*)[value objectForKey:@"location"];
+            
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            [dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
 
-//        completionBlock(response);
+            new.createTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"createTime"]];
+            new.startTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"startTime"]];
+            new.endTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"endTime"]];
+
+            
+            new.latitude = [(NSNumber*)[value objectForKey:@"latitude"] intValue];
+            new.longitude = [(NSNumber*)[value objectForKey:@"longitude"] intValue];
+            [events addObject:new];
+
+        }
+        
+        completionBlock(events);
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -89,27 +113,56 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
 + (void)EventByStatus:(NSString *)status
            completion:(void (^)(NSMutableArray *events))completionBlock{
     
+    NSString *string = [NSString stringWithFormat:@"%@eventByStatus/%@/", BaseURLString, status];
+    NSURL *url = [NSURL URLWithString:string];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-//    NSString* title = @"title1";
-//    NSString* notes = @"subject2";
-//    NSDate* startDate = [NSDate dateWithTimeIntervalSinceNow: 0];
-//    NSDate* endDate = [NSDate dateWithTimeIntervalSinceNow: 0];
-//    NSString* location = @"poly";
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSMutableArray *events = [NSMutableArray new];
+        NSDictionary *response = (NSDictionary *)responseObject;
+        for (NSDictionary* value in response) {
+            Event * new = [[Event alloc] init];
+            new.eventID = [(NSNumber*)[value objectForKey:@"eventID"] intValue];
+            new.status = [(NSNumber*)[value objectForKey:@"status"] intValue];
+            new.canidateID = [(NSNumber*)[value objectForKey:@"canidateID"] intValue];
+            new.title = (NSString*)[value objectForKey:@"title"];
+            new.subject = (NSString*)[value objectForKey:@"subject"];
+            new.notes = (NSString*)[value objectForKey:@"notes"];
+            new.location = (NSString*)[value objectForKey:@"location"];
+            
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            [dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+            
+            new.createTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"createTime"]];
+            new.startTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"startTime"]];
+            new.endTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"endTime"]];
+            
+            
+            new.latitude = [(NSNumber*)[value objectForKey:@"latitude"] intValue];
+            new.longitude = [(NSNumber*)[value objectForKey:@"longitude"] intValue];
+            [events addObject:new];
+            
+        }
+        
+        completionBlock(events);
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+                                                            message:[error localizedDescription]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }];
     
-//    Event *e = [Event initWithTitle:title
-//                              notes:notes
-//                          startTime:startDate
-//                            endTime:endDate location:location];
-//    Event *e1 = [Event initWithTitle:title
-//                               notes:notes
-//                           startTime:startDate
-//                             endTime:endDate location:location];
-    
-    NSMutableArray *events = [NSMutableArray new];
-//    [events addObject:e];
-//    [events addObject:e1];
-    
-    completionBlock(events);
+    [operation start];
+
     
 }
 
