@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-
+#import "NetWorkApi.h"
 @interface LoginViewController ()
 - (IBAction)login:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *uname;
@@ -50,17 +50,25 @@
 */
 
 - (IBAction)login:(id)sender {
-    if([self.uname.text isEqualToString:@"test"] && [self.password.text isEqualToString:@"123456"]){
-        [self performSegueWithIdentifier:@"segue_login" sender:self];
-    }
-    else{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"user name or password dismatch"
-        message:@"You need to type your user name or password again."
-        delegate:nil
-        cancelButtonTitle:@"OK"
-        otherButtonTitles:nil];
-        [alert show];
-    }
+    
+
+    
+    [NetWorkApi signInAccountWithUserName:self.uname.text
+                           password:self.password.text
+                         completion:^(BOOL success, NSString* desc) {
+                             if (success) {
+                                [self performSegueWithIdentifier:@"segue_login" sender:self];
+                             } else {
+                                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"user name or password dismatch"
+                                                                                 message:@"You need to type your user name or password again."
+                                                                                delegate:nil
+                                                                       cancelButtonTitle:@"OK"
+                                                                       otherButtonTitles:nil];
+                                 [alert show];
+                             }
+                         }];
+    
+
    // [alert release];
 }
 @end

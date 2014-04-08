@@ -35,6 +35,7 @@
 		9505A86018E1C2A9006F1CA2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9505A85F18E1C2A9006F1CA2 /* MapKit.framework */; };
 		956B1C3018E8ACAD003E782D /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956B1C2F18E8ACAD003E782D /* FilterTableViewController.m */; };
 		956FA87A18EB3700009A106E /* MeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956FA87918EB3700009A106E /* MeTableViewController.m */; };
+		958056E018F4515D00D7C49D /* NetWorkApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 958056DF18F4515D00D7C49D /* NetWorkApi.m */; };
 		958CC73F18F37D2E0042E395 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 958CC72D18F37D2E0042E395 /* AFHTTPRequestOperation.m */; };
 		958CC74018F37D2E0042E395 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 958CC72F18F37D2E0042E395 /* AFHTTPRequestOperationManager.m */; };
 		958CC74118F37D2E0042E395 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 958CC73118F37D2E0042E395 /* AFHTTPSessionManager.m */; };
@@ -122,6 +123,8 @@
 		956B1C2F18E8ACAD003E782D /* FilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewController.m; sourceTree = "<group>"; };
 		956FA87818EB3700009A106E /* MeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeTableViewController.h; sourceTree = "<group>"; };
 		956FA87918EB3700009A106E /* MeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeTableViewController.m; sourceTree = "<group>"; };
+		958056DE18F4515D00D7C49D /* NetWorkApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkApi.h; sourceTree = "<group>"; };
+		958056DF18F4515D00D7C49D /* NetWorkApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkApi.m; sourceTree = "<group>"; };
 		958CC72C18F37D2E0042E395 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		958CC72D18F37D2E0042E395 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		958CC72E18F37D2E0042E395 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -264,6 +267,7 @@
 		9505A81918E12CAD006F1CA2 /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				958CC76218F37EE70042E395 /* NetworkInterface */,
 				958CC74818F37DAE0042E395 /* UIKit+AFNetworking */,
 				958CC72B18F37D2E0042E395 /* AFNetworking */,
 				E27163BF18EB3A890096C8AE /* Event.h */,
@@ -421,6 +425,15 @@
 				958CC75918F37DAE0042E395 /* UIWebView+AFNetworking.m */,
 			);
 			path = "UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
+		958CC76218F37EE70042E395 /* NetworkInterface */ = {
+			isa = PBXGroup;
+			children = (
+				958056DE18F4515D00D7C49D /* NetWorkApi.h */,
+				958056DF18F4515D00D7C49D /* NetWorkApi.m */,
+			);
+			name = NetworkInterface;
 			sourceTree = "<group>";
 		};
 		95AB12C918EB1778009E583B /* ImagePicker */ = {
@@ -632,6 +645,7 @@
 				95DD929318E8B98200016E6B /* MapViewController.m in Sources */,
 				AC99F65D18ED259B00E7D1FC /* MeData.m in Sources */,
 				E27163C118EB3A890096C8AE /* Event.m in Sources */,
+				958056E018F4515D00D7C49D /* NetWorkApi.m in Sources */,
 				958CC75D18F37DAE0042E395 /* UIButton+AFNetworking.m in Sources */,
 				95AB12C818EB1710009E583B /* UIImage+FixOrientation.m in Sources */,
 				958CC75F18F37DAE0042E395 /* UIProgressView+AFNetworking.m in Sources */,
