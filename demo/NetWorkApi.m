@@ -7,6 +7,7 @@
 //
 
 #import "NetWorkApi.h"
+
 @interface NetWorkApi ()
 @property(nonatomic, strong) NSDictionary *weather;   // current section being parsed
 @end
@@ -54,10 +55,10 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
 
 
 + (void)discoverEventBySubject:(NSString *)subject
-                        sortBy:(NSString *)sortBy
+                        sortBy:(SortBy)sortBy
                     completion:(void (^)(NSMutableArray *events))completionBlock{
     
-    NSString *string = [NSString stringWithFormat:@"%@allEvent/%@/%@", BaseURLString, @"0", sortBy];
+    NSString *string = [NSString stringWithFormat:@"%@allEvent/%@/%d", BaseURLString, subject , sortBy];
     NSURL *url = [NSURL URLWithString:string];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     

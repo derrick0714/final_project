@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
-	bestMatch = 0,
-	distance,
-	rating
+	BESTMATCH = 0,
+	DISTANCE,
+	RATING
 } SortBy;
 
 typedef enum {
