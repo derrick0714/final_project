@@ -14,7 +14,7 @@
 #import "NetWorkApi.h"
 
 @interface DiscoverTableViewController ()
-@property NSMutableArray* section;
+@property NSMutableArray* events;
 - (IBAction)refresh:(id)sender;
 @end
 
@@ -43,18 +43,10 @@
 											   bundle:nil]
 		 forCellReuseIdentifier:@"CustomEventTableCell"];
 	
-	self.sortBy = @"Best Match";
-	self.subject = @"Math";
+	self.sortBy = BESTMATCH;
+	self.subject = @"All";
 	
-    //init data in section
-    self.section = [[NSMutableArray alloc] init];
-//    [self.section addObject:@"SSS"];
-//    [self.section addObject:@"BBB"];
-//	[self.section addObject:[Event initWithTitle:@"Guitar"
-//										   notes:@"How to play scales"
-//									   startTime:[NSDate dateWithTimeIntervalSinceNow:0]
-//										 endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
-//										location:@"333 Jay Street"]];
+    self.events = [[NSMutableArray alloc] init];
     [self refresh:nil];
 }
 
@@ -75,7 +67,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.section count];
+    return [self.events count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -85,7 +77,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	Event *e = [self.section objectAtIndex: indexPath.row];
+	Event *e = [self.events objectAtIndex: indexPath.row];
 
 	// Default cell
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"discover_item_cell" forIndexPath:indexPath];
@@ -165,7 +157,7 @@
     if([segue.identifier isEqual:@"segue_eventdetail"]) {
         EventDetailTableViewController *destVC = [segue destinationViewController];
 		NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
-		Event *e = [self.section objectAtIndex:ip.row];
+		Event *e = [self.events objectAtIndex:ip.row];
 		destVC.event = [Event initWithEvent:e];
     } else if([segue.identifier isEqual:@"segue_filter"]) {
         FilterTableViewController *destVC = [segue destinationViewController];
@@ -186,11 +178,12 @@
     //						   location:@"Somewhere"];
     //	[self.section addObject:e];
     
-    [NetWorkApi discoverEventBySubject:self.subject sortBy: self.sortBy
+    [NetWorkApi discoverEventBySubject:self.subject
+								sortBy:self.sortBy
                             completion:^( NSMutableArray* events) {
-                                Event * a = [events objectAtIndex:0];
-                                NSLog(@"%@", a.title);
-                                self.section = [[NSMutableArray alloc] initWithArray:events];
+//                                Event * a = [events objectAtIndex:0];
+//                                NSLog(@"%@", a.title);
+                                self.events = [[NSMutableArray alloc] initWithArray:events];
                             }];
 	[self.tableView reloadData];
 }

@@ -122,12 +122,10 @@
 	cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	switch(section) {
 		case 0: // sort by
-			self.sortBy = cell.textLabel.text;
-			self.sortByID = (SortBy)indexPath.row;
+			self.sortBy = (SortBy)indexPath.row;
 			break;
 		case 1: // subject
 			self.subject = cell.textLabel.text;
-			self.subjectID = (Subject)indexPath.row;
 			break;
 	}
 }
@@ -140,7 +138,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 	if(sender == self.doneButton) {
-		NSLog(@"%@ %@", self.sortBy, self.subject);
+		NSLog(@"%d %@", self.sortBy, self.subject);
 	}
 }
 
