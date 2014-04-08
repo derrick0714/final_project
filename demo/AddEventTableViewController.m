@@ -254,16 +254,13 @@
     self.endDatePickerIsShowing = YES;
     
     [self.tableView beginUpdates];
-    
     [self.tableView endUpdates];
     
     self.endDatePicker.hidden = NO;
     self.endDatePicker.alpha = 0.0f;
     
     [UIView animateWithDuration:0.25 animations:^{
-        
         self.endDatePicker.alpha = 1.0f;
-        
     }];
 }
 

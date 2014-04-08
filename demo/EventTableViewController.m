@@ -93,6 +93,7 @@
 //        [self.cellLocation addObject:item2.Location];
 //        [self.cellTime addObject:@"2014/04/05, 4:00pm"];
     
+//initialize events table view with data from the server
     NSString* status = @"coming";
     [NetWorkApi EventByStatus:status
                             completion:^( NSMutableArray* events) {
@@ -102,6 +103,9 @@
 
     
 }
+
+
+
 
 
 - (void)didReceiveMemoryWarning
