@@ -20,9 +20,6 @@
 @property float latitude;
 @property float longitude;
 
-
-//date formatter for converting datepicker's time to formatted string
-@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 //start and end time
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
 @property (weak, nonatomic) IBOutlet UILabel *endTime;
@@ -42,6 +39,9 @@
 //flags for controlling the showing and hiding of datepickercell
 @property BOOL startDatePickerIsShowing;
 @property BOOL endDatePickerIsShowing;
+
+//date formatter for converting datepicker's time to formatted string
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
 @end
 
@@ -148,9 +148,7 @@
 - (void)createDateFormatter {
     
     self.dateFormatter = [[NSDateFormatter alloc] init];
-    
     [self.dateFormatter setDateStyle:NSDateFormatterShortStyle];
-    
     [self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 }
 
@@ -160,7 +158,6 @@
 - (IBAction)startDatePickerChanged:(UIDatePicker *)sender {
     
     [self createDateFormatter];
-
     self.startTime.text =  [self.dateFormatter stringFromDate:sender.date];
     
     //storing the user picker's data
@@ -178,24 +175,16 @@
 }
 
 
-
-
-
-
 //below code is used to hide the date pciker cell
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat height = self.tableView.rowHeight;
     
     if (indexPath.row == 2){
-        
         height = self.startDatePickerIsShowing ? 164 : 0.0f;
-        
     }
     
     if (indexPath.row == 4){
-        
         height = self.endDatePickerIsShowing ? 164 : 0.0f;
-        
     }
     
     return height;
@@ -209,11 +198,8 @@
     if (indexPath.row == 1){
         
         if (self.startDatePickerIsShowing){
-            
             [self hideStartDatePickerCell];
-            
         }else {
-            
             [self showStartDatePickerCell];
         }
     }
@@ -221,11 +207,8 @@
     if (indexPath.row == 3){
         
         if (self.endDatePickerIsShowing){
-            
             [self hideEndDatePickerCell];
-            
         }else {
-            
             [self showEndDatePickerCell];
         }
     }
@@ -239,16 +222,13 @@
     self.startDatePickerIsShowing = YES;
     
     [self.tableView beginUpdates];
-    
     [self.tableView endUpdates];
     
     self.startDatePicker.hidden = NO;
     self.startDatePicker.alpha = 0.0f;
     
     [UIView animateWithDuration:0.25 animations:^{
-        
         self.startDatePicker.alpha = 1.0f;
-        
     }];
 }
 
@@ -304,8 +284,6 @@
 }
 
 
-
-
 #pragma mark - Navigation
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -317,20 +295,14 @@
 		//get create time
 		self.createTime = [NSDate date];
 		
-
-		
-		//        self.scheduleData = [[MeetingScheduleData alloc] init];
-		//        self.scheduleData.Title = self.titleText.text;
-		//        self.scheduleData.startTime = self.startTimeFromPicker;
-		//        self.scheduleData.endTime = self.endTimeFromPicker;
-		//        self.scheduleData.Location = self.locationText.text;
-		//        self.scheduleData.questionDetail = self.questionDetail.text;
+        //initialize the event object
 		self.event = [[Event alloc] init];
 		self.event.title = self.titleText.text;
 		self.event.startTime = self.startTimeFromPicker;
 		self.event.endTime = self.endTimeFromPicker;
 		self.event.location = self.locationText.text;
 		self.event.notes = self.questionDetail.text;
+        
     }
 }
 
