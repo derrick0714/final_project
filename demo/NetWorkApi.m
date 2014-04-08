@@ -182,17 +182,17 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
 //                                @"latitude":[NSNumber numberWithFloat:event.latitude],
 //                                @"longitude":[NSNumber numberWithFloat:event.longitude]
 //                                };
-
-    NSString *string = [NSString stringWithFormat:@"%@createEvent/%@/%@/%@/%@/%@/%@/%@/%@",
+    event.subject = @"Math";
+    NSString *string = [NSString stringWithFormat:@"%@createEvent/%@/%@/%@/%@/%@/%@/%d",
                                                                         BaseURLString,
                                                                         event.title,
                                                                         event.subject,
                                                                         event.location,
-                                                                        startTime,
-                                                                        endTime,
+                                                                        //startTime,
+                                                                        //endTime,
                                                                         [NSNumber numberWithFloat:event.latitude],
                                                                         [NSNumber numberWithFloat:event.longitude],
-                                                                        event.notes];
+                                                                        event.notes,1];
     NSURL *url = [NSURL URLWithString:string];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     

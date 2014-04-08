@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>C49E51C5-2912-4FE1-85A6-25EA3725EB16</string>
+	<string>3375AA1C-3CF5-4F5D-8CDA-C1CDC9491EC7</string>
 	<key>IDESourceControlProjectName</key>
 	<string>demo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>455FC8E7-348A-4890-9CE1-779FA605A152</key>
-		<string>https://github.com/derrick0714/final_project</string>
+		<key>7FA9C0FA-EB86-4466-A000-CC4652DB36E4</key>
+		<string>ssh://github.com/derrick0714/final_project.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>demo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>455FC8E7-348A-4890-9CE1-779FA605A152</key>
+		<key>7FA9C0FA-EB86-4466-A000-CC4652DB36E4</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/derrick0714/final_project</string>
+	<string>ssh://github.com/derrick0714/final_project.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>455FC8E7-348A-4890-9CE1-779FA605A152</string>
+	<string>7FA9C0FA-EB86-4466-A000-CC4652DB36E4</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>455FC8E7-348A-4890-9CE1-779FA605A152</string>
+			<string>7FA9C0FA-EB86-4466-A000-CC4652DB36E4</string>
 			<key>IDESourceControlWCCName</key>
-			<string>final_project</string>
+			<string>demo</string>
 		</dict>
 	</array>
 </dict>
