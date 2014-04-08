@@ -109,6 +109,12 @@
 	if(Segment.selectedSegmentIndex == 0){
 		
 	}
+    if(Segment.selectedSegmentIndex == 0){
+		
+	}
+    if(Segment.selectedSegmentIndex == 0){
+		
+	}
 }
 
 

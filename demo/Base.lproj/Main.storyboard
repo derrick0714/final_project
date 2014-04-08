@@ -934,7 +934,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <segment title="History"/>
                                 </segments>
                                 <connections>
-                                    <action selector="threeEventSelector" destination="ROn-Bw-q9E" eventType="valueChanged" id="Caj-Tn-AD3"/>
+                                    <action selector="threeEventSelector" destination="ROn-Bw-q9E" eventType="valueChanged" id="BjO-CD-S5i"/>
                                 </connections>
                             </segmentedControl>
                         </barButtonItem>
@@ -948,7 +948,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
                     <connections>
-                        <outlet property="Segment" destination="GSl-4I-e9c" id="qUw-fO-WwZ"/>
+                        <outlet property="Segment" destination="GSl-4I-e9c" id="39b-ge-ax1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqm-xY-g9p" userLabel="First Responder" sceneMemberID="firstResponder"/>
