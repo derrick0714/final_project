@@ -173,16 +173,47 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
     [dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
     NSString *startTime  = [dateFormat stringFromDate:event.startTime];
     NSString *endTime  = [dateFormat stringFromDate:event.endTime];
-    NSDictionary *parameter = @{@"title":event.title,
-                                @"subject":event.subject,
-                                @"subject":event.subject,
-                                @"notes":event.notes,
-                                @"location":event.location,
-                                @"startTime":startTime,
-                                @"endTime":endTime,
-                                @"latitude":[NSNumber numberWithFloat:event.latitude],
-                                @"longitude":[NSNumber numberWithFloat:event.longitude]
-                                };
+//    NSDictionary *parameter = @{@"title":event.title,
+//                                @"subject":event.subject,
+//                                @"notes":event.notes,
+//                                @"location":event.location,
+//                                @"startTime":startTime,
+//                                @"endTime":endTime,
+//                                @"latitude":[NSNumber numberWithFloat:event.latitude],
+//                                @"longitude":[NSNumber numberWithFloat:event.longitude]
+//                                };
+
+    NSString *string = [NSString stringWithFormat:@"%@createEvent/%@/%@/%@/%@/%@/%@/%@",
+                                                                        BaseURLString,
+                                                                        event.title,
+                                                                        event.subject,
+                                                                        event.location,
+                                                                        startTime,
+                                                                        endTime,
+                                                                        [NSNumber numberWithFloat:event.latitude],
+                                                                        [NSNumber numberWithFloat:event.longitude]];
+    NSURL *url = [NSURL URLWithString:string];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        
+       // completionBlock();
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+                                                            message:[error localizedDescription]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }];
+    
+    [operation start];
 
 
 }
