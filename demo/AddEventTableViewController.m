@@ -309,12 +309,18 @@
     // Pass the selected object to the new view controller.
     if (sender != self.saveButton) return;
     if (self.titleText.text.length > 0) {
-        self.scheduleData = [[MeetingScheduleData alloc] init];
-        self.scheduleData.Title = self.titleText.text;
-        self.scheduleData.startTime = self.startTimeFromPicker;
-        self.scheduleData.endTime = self.endTimeFromPicker;
-        self.scheduleData.Location = self.locationText.text;
-        self.scheduleData.questionDetail = self.questionDetail.text;
+		
+//        self.scheduleData = [[MeetingScheduleData alloc] init];
+//        self.scheduleData.Title = self.titleText.text;
+//        self.scheduleData.startTime = self.startTimeFromPicker;
+//        self.scheduleData.endTime = self.endTimeFromPicker;
+//        self.scheduleData.Location = self.locationText.text;
+//        self.scheduleData.questionDetail = self.questionDetail.text;
+		self.event = [Event initWithTitle:self.titleText.text
+									notes:self.questionDetail.text
+								startTime:self.startTimeFromPicker
+								  endTime:self.endTimeFromPicker
+								 location:self.locationText.text];
     }
 }
 
