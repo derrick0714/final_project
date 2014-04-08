@@ -7,6 +7,7 @@
 //
 
 #import "AddEventTableViewController.h"
+#import "NetWorkApi.h"
 #import "../Event.h"
 
 @interface AddEventTableViewController ()
@@ -299,6 +300,8 @@
 		self.event.endTime = self.endTimeFromPicker;
 		self.event.location = self.locationText.text;
 		self.event.notes = self.questionDetail.text;
+        
+
         
     }
 }
