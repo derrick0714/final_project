@@ -110,10 +110,10 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
     
 }
 
-+ (void)EventByStatus:(NSString *)status
++ (void)EventByStatus:(EventsSelector)status
            completion:(void (^)(NSMutableArray *events))completionBlock{
     
-    NSString *string = [NSString stringWithFormat:@"%@eventByStatus/%@/", BaseURLString, status];
+    NSString *string = [NSString stringWithFormat:@"%@eventByStatus/%d/", BaseURLString, status];
     NSURL *url = [NSURL URLWithString:string];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
