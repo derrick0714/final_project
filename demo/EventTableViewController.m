@@ -91,7 +91,7 @@
     NSString* status = @"coming";
     [NetWorkApi EventByStatus:status
                             completion:^( NSMutableArray* events) {
-                                
+                            
                         }];
 
 
