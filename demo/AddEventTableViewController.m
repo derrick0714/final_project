@@ -314,10 +314,7 @@
         
         [NetWorkApi CreateEvent:self.event
                      completion:^(BOOL result){
-                         if (result) {
-                             
-                         }
-                         else {
+                         if (!result) {
                              
                          }
                          
