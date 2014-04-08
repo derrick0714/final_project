@@ -57,7 +57,6 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
                         sortBy:(NSString *)sortBy
                     completion:(void (^)(NSMutableArray *events))completionBlock{
     
-    
     NSString *string = [NSString stringWithFormat:@"%@allEvent/%@/%@", BaseURLString, @"0", sortBy];
     NSURL *url = [NSURL URLWithString:string];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -168,7 +167,22 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
 
 + (void)CreateEvent:(Event *)event
            completion:(void (^)(BOOL result))completionBlock{
-    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    NSString *startTime  = [dateFormat stringFromDate:event.startTime];
+    NSString *endTime  = [dateFormat stringFromDate:event.endTime];
+    NSDictionary *parameter = @{@"title":event.title,
+                                @"subject":event.subject,
+                                @"subject":event.subject,
+                                @"notes":event.notes,
+                                @"location":event.location,
+                                @"startTime":startTime,
+                                @"endTime":endTime,
+                                @"latitude":[NSNumber numberWithFloat:event.latitude],
+                                @"longitude":[NSNumber numberWithFloat:event.longitude]
+                                };
+
 
 }
 
