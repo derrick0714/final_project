@@ -12,6 +12,10 @@
 
 @interface AddEventTableViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+
+
 @property (weak, nonatomic) IBOutlet UITextField *titleText;
 
 //locationText will not be presented on the events table view, but will bu stored in database
@@ -98,53 +102,53 @@
 
 
 /*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
+ - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+ 
+ // Configure the cell...
+ 
+ return cell;
+ }
+ */
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 
 //initialize and create the date formatter
@@ -172,7 +176,7 @@
     [self createDateFormatter];
     
     self.endTime.text =  [self.dateFormatter stringFromDate:sender.date];
-
+    
     //storing the user picker's data
     self.endTimeFromPicker = sender.date;
 }
@@ -286,17 +290,20 @@
 //If there is not input to the title, segue will not be performed
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     
-    if (self.titleText.text.length > 0) {
-        return YES;
+    if (sender == self.saveButton) {
+        if (self.titleText.text.length > 0) {
+            return YES;
+        }
+        //alert information - this will be showed when adding event fails
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail To Add"
+                                                        message:@"Please Input Again."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return NO;
     }
-    //alert information - this will be showed when adding event fails
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail To Add"
-                                                    message:@"Please Input Again."
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-    return NO;
+    return YES;
 }
 
 
@@ -314,7 +321,7 @@
         //initialize the event object
 		self.event = [[Event alloc] init];
 		self.event.title = self.titleText.text;
-
+        
         if (self.startTimeFromPicker) {
             self.event.startTime = self.startTimeFromPicker;
         }
@@ -326,7 +333,7 @@
         }
         else
             self.event.endTime = [NSDate date];
-
+        
 		self.event.location = self.locationText.text;
 		self.event.notes = self.questionDetail.text;
         
@@ -342,12 +349,10 @@
                              [alert show];
                          }
                          
-                         
-                         
                      }];
     }
     
-
+    
 }
 
 -(IBAction)unwindToEventlist: (UIStoryboardSegue *)segue {

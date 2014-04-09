@@ -858,7 +858,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" title="Schedule a Meeting" id="FWc-qn-P8y">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="3XW-wa-gPU">
                             <connections>
-                                <segue destination="KwR-cR-hUL" kind="unwind" unwindAction="unwindEventTableView:" id="ir9-Zb-utz"/>
+                                <segue destination="KwR-cR-hUL" kind="unwind" unwindAction="unwindEventTableView:" id="sbD-un-l8y"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="rnk-Um-qsM">
@@ -868,6 +868,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="3XW-wa-gPU" id="Fcz-uC-md3"/>
                         <outlet property="endDatePicker" destination="yVc-zL-XEa" id="ulX-us-AJP"/>
                         <outlet property="endDatePickerCell" destination="25k-sl-vKM" id="bzm-2Z-tWv"/>
                         <outlet property="endTime" destination="Yoo-iL-IC5" id="P82-y8-yb1"/>
@@ -883,7 +884,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htt-f4-e85" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KwR-cR-hUL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2498" y="435"/>
+            <point key="canvasLocation" x="2342" y="435"/>
         </scene>
         <!--Event Table View Controller-->
         <scene sceneID="L1V-Kb-Ms5">
@@ -960,7 +961,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqm-xY-g9p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1379" y="435"/>
+            <point key="canvasLocation" x="1598" y="435"/>
         </scene>
         <!--Navigation Controller - Meeting-->
         <scene sceneID="aV5-rh-GjO">
@@ -1339,6 +1340,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ciq-po-D6o"/>
+        <segue reference="swd-E5-gFf"/>
     </inferredMetricsTieBreakers>
 </document>

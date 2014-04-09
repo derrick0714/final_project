@@ -176,8 +176,11 @@
 {
     AddEventTableViewController *srcVC = [segue sourceViewController];
 //    MeetingScheduleData *item = srcVC.scheduleData;
-	Event *e = [Event initWithEvent:srcVC.event];
-    [self.events addObject:e];
+	if (srcVC.event!=nil) {
+        Event *e = [Event initWithEvent:srcVC.event];
+        [self.events addObject:e];
+    }
+    
 //    if (item != nil) {
 //        [self.events addObject:item.Title];
 //        [self.cellTitle addObject: item.Title];
