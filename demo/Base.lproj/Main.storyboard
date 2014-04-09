@@ -169,10 +169,10 @@
             </objects>
             <point key="canvasLocation" x="1438" y="-879"/>
         </scene>
-        <!--Map View Controller - Map View-->
+        <!--Add Meeting Map View Controller - Map View-->
         <scene sceneID="8iI-Io-z4u">
             <objects>
-                <viewController id="tWs-3f-Qh7" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController id="tWs-3f-Qh7" customClass="AddMeetingMapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7cP-3Y-AM5"/>
                         <viewControllerLayoutGuide type="bottom" id="AR4-DI-dMR"/>
@@ -191,14 +191,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Map View" id="qsj-q9-hQn"/>
+                    <navigationItem key="navigationItem" title="Map View" id="qsj-q9-hQn">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="QHk-Ek-f1b">
+                            <connections>
+                                <segue destination="uNG-Av-6GJ" kind="unwind" unwindAction="unwindToAddEventTable:" id="jts-LM-3OL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="leL-zO-mIc"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="OyN-es-DOf" id="Rcj-x5-dXE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3d-r3-ZoR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uNG-Av-6GJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3527" y="-180"/>
+            <point key="canvasLocation" x="3259" y="435"/>
         </scene>
         <!--Filter Table View Controller - Filter-->
         <scene sceneID="hws-BE-N7Q">
@@ -528,11 +536,11 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="OJn-IE-yJs" detailTextLabel="iMb-ES-r86" style="IBUITableViewCellStyleValue1" id="4pr-rL-7Hb">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="OJn-IE-yJs" detailTextLabel="iMb-ES-r86" style="IBUITableViewCellStyleValue1" id="4pr-rL-7Hb">
                                         <rect key="frame" x="0.0" y="405" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4pr-rL-7Hb" id="rNC-9b-6Og">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="253" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OJn-IE-yJs">
@@ -543,7 +551,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="RH 702" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iMb-ES-r86">
-                                                    <rect key="frame" x="247" y="11" width="58" height="21"/>
+                                                    <rect key="frame" x="195" y="11" width="58" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -552,7 +560,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="tWs-3f-Qh7" kind="push" id="Ciq-po-D6o"/>
+                                            <segue destination="ipo-K2-iZp" kind="push" trigger="accessoryAction" id="sP2-5T-5dj"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="vpa-XZ-bBX" detailTextLabel="5MH-bg-a3i" style="IBUITableViewCellStyleValue1" id="i3m-ek-yij">
@@ -606,6 +614,33 @@
                 <exit id="5Ik-4Z-PS4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2376" y="-885"/>
+        </scene>
+        <!--Event Map View Controller-->
+        <scene sceneID="lJs-fa-zKL">
+            <objects>
+                <viewController id="ipo-K2-iZp" customClass="EventMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rwt-Os-814"/>
+                        <viewControllerLayoutGuide type="bottom" id="BMb-cs-fT1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fgF-PY-Rzb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="GPM-z6-cEh">
+                                <rect key="frame" x="0.0" y="67" width="320" height="449"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5NO-Zu-ejl">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="aFf-rr-cpf"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ugm-wU-xkN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2836" y="-885"/>
         </scene>
         <!--Add Event Table View Controller - Schedule a Meeting-->
         <scene sceneID="T7p-5A-YxA">
@@ -812,7 +847,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="See Available Loacations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sg9-4n-gGd">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Make Annotation On Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sg9-4n-gGd">
                                                     <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -822,7 +857,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="tWs-3f-Qh7" kind="push" id="swd-E5-gFf"/>
+                                            <segue destination="jxA-60-jj3" kind="modal" id="swd-E5-gFf"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="a5B-u3-cTv">
@@ -884,7 +919,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htt-f4-e85" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KwR-cR-hUL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2342" y="435"/>
+            <point key="canvasLocation" x="2398" y="435"/>
         </scene>
         <!--Event Table View Controller-->
         <scene sceneID="L1V-Kb-Ms5">
@@ -1325,6 +1360,24 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1972" y="435"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wlz-RD-JzP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jxA-60-jj3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YWK-5c-cm7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tWs-3f-Qh7" kind="relationship" relationship="rootViewController" id="Mrc-oJ-c9h"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MGg-Zc-TCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2844" y="435"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bar_discover.png" width="24" height="24"/>
@@ -1339,7 +1392,4 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="swd-E5-gFf"/>
-    </inferredMetricsTieBreakers>
 </document>

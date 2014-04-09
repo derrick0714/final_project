@@ -66,11 +66,12 @@
 		95AB12C818EB1710009E583B /* UIImage+FixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12C318EB1710009E583B /* UIImage+FixOrientation.m */; };
 		95AB12CF18EB18CD009E583B /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12CE18EB18CD009E583B /* EditProfileTableViewController.m */; };
 		95DD929018E8B48900016E6B /* AddEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD928F18E8B48900016E6B /* AddEventTableViewController.m */; };
-		95DD929318E8B98200016E6B /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD929218E8B98200016E6B /* MapViewController.m */; };
+		95DD929318E8B98200016E6B /* AddMeetingMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD929218E8B98200016E6B /* AddMeetingMapViewController.m */; };
 		AC2A4CFE18E8C71000A002DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */; };
 		AC93E5D718EDF25000510883 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC93E5D618EDF25000510883 /* DatePickerViewController.m */; };
 		AC99F65A18ED13C400E7D1FC /* MeetingScheduleData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC99F65918ED13C400E7D1FC /* MeetingScheduleData.m */; };
 		AC99F65D18ED259B00E7D1FC /* MeData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC99F65C18ED259B00E7D1FC /* MeData.m */; };
+		ACC3B78A18F612C0007B90E1 /* EventMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3B78918F612C0007B90E1 /* EventMapViewController.m */; };
 		ACD0344518EE7B8900E4EE1A /* EventCustomCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD0344418EE7B8900E4EE1A /* EventCustomCellTableViewCell.m */; };
 		ACD0344B18EE90B300E4EE1A /* CustomEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD0344A18EE90B300E4EE1A /* CustomEventCell.xib */; };
 		ACF5AF5D18EBB22500DEA17E /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */; };
@@ -187,8 +188,8 @@
 		95AB12CE18EB18CD009E583B /* EditProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileTableViewController.m; sourceTree = "<group>"; };
 		95DD928E18E8B48900016E6B /* AddEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventTableViewController.h; sourceTree = "<group>"; };
 		95DD928F18E8B48900016E6B /* AddEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventTableViewController.m; sourceTree = "<group>"; };
-		95DD929118E8B98200016E6B /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		95DD929218E8B98200016E6B /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		95DD929118E8B98200016E6B /* AddMeetingMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMeetingMapViewController.h; sourceTree = "<group>"; };
+		95DD929218E8B98200016E6B /* AddMeetingMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMeetingMapViewController.m; sourceTree = "<group>"; };
 		AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AC93E5D518EDF25000510883 /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
 		AC93E5D618EDF25000510883 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
@@ -196,6 +197,8 @@
 		AC99F65918ED13C400E7D1FC /* MeetingScheduleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingScheduleData.m; sourceTree = "<group>"; };
 		AC99F65B18ED259B00E7D1FC /* MeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeData.h; sourceTree = "<group>"; };
 		AC99F65C18ED259B00E7D1FC /* MeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeData.m; sourceTree = "<group>"; };
+		ACC3B78818F612C0007B90E1 /* EventMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventMapViewController.h; sourceTree = "<group>"; };
+		ACC3B78918F612C0007B90E1 /* EventMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventMapViewController.m; sourceTree = "<group>"; };
 		ACD0344318EE7B8900E4EE1A /* EventCustomCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCustomCellTableViewCell.h; sourceTree = "<group>"; };
 		ACD0344418EE7B8900E4EE1A /* EventCustomCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCustomCellTableViewCell.m; sourceTree = "<group>"; };
 		ACD0344A18EE90B300E4EE1A /* CustomEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomEventCell.xib; path = ../CustomEventCell.xib; sourceTree = "<group>"; };
@@ -270,8 +273,7 @@
 				958CC76218F37EE70042E395 /* NetworkInterface */,
 				958CC74818F37DAE0042E395 /* UIKit+AFNetworking */,
 				958CC72B18F37D2E0042E395 /* AFNetworking */,
-				E27163BF18EB3A890096C8AE /* Event.h */,
-				E27163C018EB3A890096C8AE /* Event.m */,
+				ACC3B78618F61235007B90E1 /* Event */,
 				959187A118E5F49C00538439 /* LoginViewController.h */,
 				959187A218E5F49C00538439 /* LoginViewController.m */,
 				956B1C2D18E8A4F2003E782D /* Me */,
@@ -478,10 +480,29 @@
 		AC2492A318EF428500F2EE6E /* MapViewController */ = {
 			isa = PBXGroup;
 			children = (
-				95DD929118E8B98200016E6B /* MapViewController.h */,
-				95DD929218E8B98200016E6B /* MapViewController.m */,
+				95DD929118E8B98200016E6B /* AddMeetingMapViewController.h */,
+				95DD929218E8B98200016E6B /* AddMeetingMapViewController.m */,
 			);
 			name = MapViewController;
+			sourceTree = "<group>";
+		};
+		ACC3B78618F61235007B90E1 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				ACC3B78718F61273007B90E1 /* EventMapViewController */,
+				E27163BF18EB3A890096C8AE /* Event.h */,
+				E27163C018EB3A890096C8AE /* Event.m */,
+			);
+			name = Event;
+			sourceTree = "<group>";
+		};
+		ACC3B78718F61273007B90E1 /* EventMapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				ACC3B78818F612C0007B90E1 /* EventMapViewController.h */,
+				ACC3B78918F612C0007B90E1 /* EventMapViewController.m */,
+			);
+			name = EventMapViewController;
 			sourceTree = "<group>";
 		};
 		ACD0344818EE816300E4EE1A /* MeetingScheduleDataClass */ = {
@@ -628,6 +649,7 @@
 				95AB12B918EB16F5009E583B /* GKImageCropper.m in Sources */,
 				958CC74418F37D2E0042E395 /* AFURLConnectionOperation.m in Sources */,
 				958CC75B18F37DAE0042E395 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				ACC3B78A18F612C0007B90E1 /* EventMapViewController.m in Sources */,
 				AC93E5D718EDF25000510883 /* DatePickerViewController.m in Sources */,
 				95DD929018E8B48900016E6B /* AddEventTableViewController.m in Sources */,
 				958CC75E18F37DAE0042E395 /* UIImageView+AFNetworking.m in Sources */,
@@ -642,7 +664,7 @@
 				95AB12C618EB1710009E583B /* UIImage+Rotate.m in Sources */,
 				958CC74718F37D2E0042E395 /* AFURLSessionManager.m in Sources */,
 				956FA87A18EB3700009A106E /* MeTableViewController.m in Sources */,
-				95DD929318E8B98200016E6B /* MapViewController.m in Sources */,
+				95DD929318E8B98200016E6B /* AddMeetingMapViewController.m in Sources */,
 				AC99F65D18ED259B00E7D1FC /* MeData.m in Sources */,
 				E27163C118EB3A890096C8AE /* Event.m in Sources */,
 				958056E018F4515D00D7C49D /* NetWorkApi.m in Sources */,

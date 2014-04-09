@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Xu Deng. All rights reserved.
 //
 
-#import "MapViewController.h"
+#import "AddMeetingMapViewController.h"
 
 #define METERS_PER_MILE 1609.344
 
 
-@interface MapViewController ()
+@interface AddMeetingMapViewController ()
 
 @end
 
-@implementation MapViewController
+@implementation AddMeetingMapViewController
 
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -66,5 +66,6 @@
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
     [self.mapView setRegion:region animated:YES];
 }
+
 
 @end

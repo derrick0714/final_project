@@ -355,7 +355,7 @@
     
 }
 
--(IBAction)unwindToEventlist: (UIStoryboardSegue *)segue {
+-(IBAction)unwindToAddEventTable: (UIStoryboardSegue *)segue {
     
 }
 
