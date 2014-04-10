@@ -17,6 +17,8 @@
 
 @implementation AddMeetingMapViewController
 
+@synthesize mapView;
+
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,8 +60,8 @@
 }
 */
 
-//startup to the self location
 
+//update user location when users change their location
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
     CLLocationCoordinate2D loc = [userLocation coordinate];
     //zoom to location

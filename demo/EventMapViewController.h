@@ -11,5 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface EventMapViewController : UIViewController<MKMapViewDelegate>
+@property (weak, nonatomic) IBOutlet MKMapView *eventOnMap;
+@property MKPointAnnotation *eventAnnotation;
 
 @end

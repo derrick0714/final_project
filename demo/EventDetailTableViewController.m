@@ -73,6 +73,11 @@
     }
 }
 
+- (IBAction)unwindEventDetailTableView:(UIStoryboardSegue *) segue
+{
+    
+}
+
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

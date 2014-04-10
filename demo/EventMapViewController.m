@@ -13,20 +13,41 @@
 @end
 
 @implementation EventMapViewController
+@synthesize eventOnMap;
+@synthesize eventAnnotation;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self.eventOnMap setDelegate: self];
+    
+    eventAnnotation = [[MKPointAnnotation alloc]init];
+    
+    CLLocationCoordinate2D pinCoordinate;
+    //this location coordinates shuold be replaced by the parameters sent from server
+    pinCoordinate.latitude = 51.49795;
+    pinCoordinate.longitude = 21.174056;
+    eventAnnotation.coordinate = pinCoordinate;
+    
+    eventAnnotation.title = @"Need help with Computer Mathematics";
+    eventAnnotation.subtitle = @"Albert";
+    
+    [self.eventOnMap addAnnotation:eventAnnotation];
+    CLLocationCoordinate2D loc = eventAnnotation.coordinate;
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
+    [self.eventOnMap setRegion:region animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,6 +55,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

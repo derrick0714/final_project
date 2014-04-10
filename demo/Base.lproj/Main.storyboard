@@ -48,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C5H-MN-8MN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-639" y="719"/>
+            <point key="canvasLocation" x="-471" y="275"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Lgw-8c-bgd">
@@ -97,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUh-Vn-dCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-639" y="1376"/>
+            <point key="canvasLocation" x="-459" y="1340"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9Fy-q5-fni">
@@ -118,7 +118,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HaV-om-fJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-140" y="719"/>
+            <point key="canvasLocation" x="-36" y="719"/>
         </scene>
         <!--Discover Table View Controller - Discover-->
         <scene sceneID="txO-7z-IKs">
@@ -167,9 +167,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5sv-31-vbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1438" y="-879"/>
+            <point key="canvasLocation" x="987" y="4"/>
         </scene>
-        <!--Add Meeting Map View Controller - Map View-->
+        <!--Add Meeting Map View Controller - Annotate On Map-->
         <scene sceneID="8iI-Io-z4u">
             <objects>
                 <viewController id="tWs-3f-Qh7" customClass="AddMeetingMapViewController" sceneMemberID="viewController">
@@ -181,17 +181,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OyN-es-DOf">
-                                <rect key="frame" x="0.0" y="64" width="320" height="539"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OyN-es-DOf">
+                                <rect key="frame" x="0.0" y="65" width="320" height="445"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="tWs-3f-Qh7" id="6NS-sP-6BY"/>
                                 </connections>
                             </mapView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click to annotate place for meeting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWi-eX-Fjg">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Map View" id="qsj-q9-hQn">
+                    <navigationItem key="navigationItem" title="Annotate On Map" id="qsj-q9-hQn">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="QHk-Ek-f1b">
                             <connections>
                                 <segue destination="uNG-Av-6GJ" kind="unwind" unwindAction="unwindToAddEventTable:" id="jts-LM-3OL"/>
@@ -206,7 +213,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m3d-r3-ZoR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="uNG-Av-6GJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3259" y="435"/>
+            <point key="canvasLocation" x="2785" y="719"/>
         </scene>
         <!--Filter Table View Controller - Filter-->
         <scene sceneID="hws-BE-N7Q">
@@ -398,7 +405,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Tp-cH-9Ie" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="LoG-P8-DKl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1885" y="-882"/>
+            <point key="canvasLocation" x="1458" y="4"/>
         </scene>
         <!--Event Detail Table View Controller - Event Detail-->
         <scene sceneID="kcd-3q-dgL">
@@ -560,7 +567,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ipo-K2-iZp" kind="push" trigger="accessoryAction" id="sP2-5T-5dj"/>
+                                            <segue destination="YoH-es-NlD" kind="modal" id="L4G-qA-7kf"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="vpa-XZ-bBX" detailTextLabel="5MH-bg-a3i" style="IBUITableViewCellStyleValue1" id="i3m-ek-yij">
@@ -613,7 +620,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="alI-a3-pZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5Ik-4Z-PS4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2376" y="-885"/>
+            <point key="canvasLocation" x="1912" y="4"/>
         </scene>
         <!--Event Map View Controller-->
         <scene sceneID="lJs-fa-zKL">
@@ -635,12 +642,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="5NO-Zu-ejl">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="aFf-rr-cpf"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="aFf-rr-cpf">
+                            <connections>
+                                <segue destination="Uyf-Vd-Nka" kind="unwind" unwindAction="unwindEventDetailTableView:" id="1Xq-Re-U8o"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="eventOnMap" destination="GPM-z6-cEh" id="2e6-tH-TUL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugm-wU-xkN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Uyf-Vd-Nka" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2836" y="-885"/>
+            <point key="canvasLocation" x="2795" y="4"/>
         </scene>
         <!--Add Event Table View Controller - Schedule a Meeting-->
         <scene sceneID="T7p-5A-YxA">
@@ -919,7 +934,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htt-f4-e85" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KwR-cR-hUL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2398" y="435"/>
+            <point key="canvasLocation" x="1912" y="719"/>
         </scene>
         <!--Event Table View Controller-->
         <scene sceneID="L1V-Kb-Ms5">
@@ -996,7 +1011,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqm-xY-g9p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1598" y="435"/>
+            <point key="canvasLocation" x="987" y="719"/>
         </scene>
         <!--Navigation Controller - Meeting-->
         <scene sceneID="aV5-rh-GjO">
@@ -1012,7 +1027,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZI-fi-8Zh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="753" y="435"/>
+            <point key="canvasLocation" x="529" y="719"/>
         </scene>
         <!--Me Table View Controller - Me-->
         <scene sceneID="fAG-gb-70b">
@@ -1128,7 +1143,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f1T-nl-4mN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1259" y="1999"/>
+            <point key="canvasLocation" x="987" y="1472"/>
         </scene>
         <!--Edit Profile Table View Controller - Profile-->
         <scene sceneID="Dwz-Pf-igg">
@@ -1243,7 +1258,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUZ-R6-gH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="J8C-at-fWD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1707" y="1999"/>
+            <point key="canvasLocation" x="1458" y="1472"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wI6-h6-h0Q">
@@ -1276,7 +1291,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ww8-sN-xwX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2163" y="1999"/>
+            <point key="canvasLocation" x="1912" y="1407"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="OTk-ZR-dlC">
@@ -1307,7 +1322,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15j-RN-ti7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2175" y="2668"/>
+            <point key="canvasLocation" x="1912" y="2077"/>
         </scene>
         <!--Navigation Controller - Me-->
         <scene sceneID="Pxe-Lu-gdR">
@@ -1323,7 +1338,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="am6-lx-oKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="727" y="1999"/>
+            <point key="canvasLocation" x="529" y="1472"/>
         </scene>
         <!--Navigation Controller - Discover-->
         <scene sceneID="4kg-Ca-bF8">
@@ -1339,7 +1354,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJ8-9i-yNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="783" y="-882"/>
+            <point key="canvasLocation" x="529" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5up-fm-uUl">
@@ -1358,7 +1373,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pI8-KK-ln8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="435"/>
+            <point key="canvasLocation" x="1458" y="719"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wlz-RD-JzP">
@@ -1376,7 +1391,25 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGg-Zc-TCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2844" y="435"/>
+            <point key="canvasLocation" x="2353" y="719"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dD2-Fu-t6x">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YoH-es-NlD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dH1-ei-OW9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ipo-K2-iZp" kind="relationship" relationship="rootViewController" id="Wde-PN-JgG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J6J-2k-mpr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2353" y="4"/>
         </scene>
     </scenes>
     <resources>
