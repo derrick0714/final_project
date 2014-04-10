@@ -36,13 +36,14 @@
     
     CLLocationCoordinate2D pinCoordinate;
     //this location coordinates shuold be replaced by the parameters sent from server
-    pinCoordinate.latitude = 51.49795;
-    pinCoordinate.longitude = 21.174056;
+    pinCoordinate.latitude = 51.49795; //should be data from server
+    pinCoordinate.longitude = 21.174056; //should be data from server
     eventAnnotation.coordinate = pinCoordinate;
     
     eventAnnotation.title = @"Need help with Computer Mathematics";
     eventAnnotation.subtitle = @"Albert";
     
+    //zoom to the event location
     [self.eventOnMap addAnnotation:eventAnnotation];
     CLLocationCoordinate2D loc = eventAnnotation.coordinate;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
