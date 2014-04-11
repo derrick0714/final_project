@@ -5,34 +5,43 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>4D2DB7CB-DDCC-4286-910A-C844FFC149CC</string>
+	<string>53644ECE-F891-4A65-984D-DAC9A3C9D5A2</string>
 	<key>IDESourceControlProjectName</key>
 	<string>demo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>455FC8E7-348A-4890-9CE1-779FA605A152</key>
-		<string>https://github.com/derrick0714/final_project</string>
+		<key>DDFCC8F6-A798-4545-805E-9173A99DA30E</key>
+		<string>https://github.com/derrick0714/final_project/trunk</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>demo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>455FC8E7-348A-4890-9CE1-779FA605A152</key>
+		<key>DDFCC8F6-A798-4545-805E-9173A99DA30E</key>
 		<string>../..</string>
 	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>DDFCC8F6-A798-4545-805E-9173A99DA30E</key>
+		<string>https://github.com/derrick0714/final_project</string>
+	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/derrick0714/final_project</string>
+	<string>https://github.com/derrick0714/final_project/trunk/demo.xcodeproj</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>455FC8E7-348A-4890-9CE1-779FA605A152</string>
+	<string>DDFCC8F6-A798-4545-805E-9173A99DA30E</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
+			<key>IDESourceControlRepositoryBranchesRelativeLocationKey</key>
+			<string>branches</string>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlRepositoryTrunkRelativeLocationKey</key>
+			<string>trunk</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>455FC8E7-348A-4890-9CE1-779FA605A152</string>
+			<string>DDFCC8F6-A798-4545-805E-9173A99DA30E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>final_project</string>
 		</dict>
