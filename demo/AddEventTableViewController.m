@@ -198,6 +198,8 @@
 
 //below two functions are used to handle the change of date pickers
 
+
+
 - (IBAction)startDatePickerChanged:(UIDatePicker *)sender {
     
     [self createDateFormatter];
@@ -398,14 +400,17 @@
     // Pass the selected object to the new view controller.
     if (sender != self.saveButton) return;
     if (self.titleText.text.length > 0) {
-		//get create current time
-		self.createTime = [NSDate date];
 		
         //initialize the event object
 		self.event = [[Event alloc] init];
 		self.event.title = self.titleText.text;
-        self.event.subject = self.subjectFromPicker.text;
         
+        if(self.subjectFromPicker.text){
+            self.event.subject = self.subjectFromPicker.text;
+        }
+        else
+            self.event.subject = @"Math"; //defualt value of subject
+            
         if (self.startTimeFromPicker) {
             self.event.startTime = self.startTimeFromPicker;
         }
