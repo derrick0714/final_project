@@ -9,48 +9,54 @@
 #import "NetWorkApi.h"
 
 @interface NetWorkApi ()
-@property(nonatomic, strong) NSDictionary *weather;   // current section being parsed
 @end
 
 @implementation NetWorkApi
 static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
+static NSNumber* uid;
 
++ (void)showNetWorkAlertWindow:(NSError*) error{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving data"
+                                                        message:[error localizedDescription]
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+    [alertView show];
+}
++ (NSString*)datetimeToString:(NSDate*) date{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    return [dateFormat stringFromDate:date];
+}
 
+//log in
 + (void)signInAccountWithUserName:(NSString *)userName
                          password:(NSString *)password
                        completion:(void (^)(BOOL success,NSString* desc))completionBlock
 {
-    NSString *string = [NSString stringWithFormat:@"%@login/%@/%@", BaseURLString, userName, password];
-    NSURL *url = [NSURL URLWithString:string];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSDictionary *params = @ {@"user" :userName,
+                               @"pwd" :password };
     
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+    NSString *string = [NSString stringWithFormat:@"%@login/", BaseURLString];
+    [manager POST:string parameters:params
+          success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        NSLog(@"JSON: %@", responseObject);
         NSDictionary *response = (NSDictionary *)responseObject;
-        NSLog(@"%@",[response objectForKey:@"result"]);
-        NSLog(@"%@",[response objectForKey:@"desc"]);
-        if([[response objectForKey:@"result"]  isEqual: @"true"]){
-            completionBlock(true, [response objectForKey:@"desc"]);
-        }else{
-            completionBlock(false, [response objectForKey:@"desc"]);
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving data"
-                                                            message:[error localizedDescription]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Ok"
-                                                  otherButtonTitles:nil];
-        [alertView show];
-    }];
-    
-    [operation start];
+        uid = [NSNumber numberWithInt: [[response objectForKey:@"uid"] intValue]];
+        completionBlock([[response objectForKey:@"result"] boolValue] , [response objectForKey:@"desc"]);
+    }
+          failure:
+     ^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"Error: %@", error);
+         [self showNetWorkAlertWindow:error];
+     }];
     
 }
+
 
 
 
@@ -98,12 +104,7 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving data"
-                                                            message:[error localizedDescription]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Ok"
-                                                  otherButtonTitles:nil];
-        [alertView show];
+       
     }];
     
     [operation start];
@@ -168,61 +169,34 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
 
 + (void)CreateEvent:(Event *)event
            completion:(void (^)(BOOL result))completionBlock{
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    [dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-    NSString *startTime  = [dateFormat stringFromDate:event.startTime];
-    NSString *endTime  = [dateFormat stringFromDate:event.endTime];
-//    NSDictionary *parameter = @{@"title":event.title,
-//                                @"subject":event.subject,
-//                                @"notes":event.notes,
-//                                @"location":event.location,
-//                                @"startTime":startTime,
-//                                @"endTime":endTime,
-//                                @"latitude":[NSNumber numberWithFloat:event.latitude],
-//                                @"longitude":[NSNumber numberWithFloat:event.longitude]
-//                                };
-
-    NSString *string = [NSString stringWithFormat:@"%@createEvent/%@/%@/%@/%@/%@/%@/%@/%@",
-                                                                        BaseURLString,
-                                                                        event.title,
-                                                                        event.subject,
-                                                                        event.location,
-                                                                        startTime,
-                                                                        endTime,
-                                                                        [NSNumber numberWithFloat:event.latitude],
-                                                                        [NSNumber numberWithFloat:event.longitude],
-                                                                        event.notes];
-    NSURL *url = [NSURL URLWithString:string];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        
-        NSDictionary *response = (NSDictionary *)responseObject;
-        if([[response objectForKey:@"result"]  isEqual: @"true"]){
-            completionBlock(true);
-        }else{
-            completionBlock(false);
-        }
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSDictionary *params = @{   @"uid":uid,
+                                @"title":event.title,
+                                @"subject":event.subject,
+                                @"notes":event.notes,
+                                @"location":event.location,
+                                @"startTime":[self datetimeToString:event.startTime],
+                                @"endTime":[self datetimeToString:event.endTime],
+                                @"latitude":[NSNumber numberWithFloat:event.latitude],
+                                @"longitude":[NSNumber numberWithFloat:event.longitude]
+                                };
 
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving data"
-                                                            message:[error localizedDescription]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Ok"
-                                                  otherButtonTitles:nil];
-        [alertView show];
-    }];
     
-    [operation start];
-
-
+    NSString *string = [NSString stringWithFormat:@"%@createEvent/", BaseURLString];
+    [manager POST:string parameters:params
+          success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         NSLog(@"JSON: %@", responseObject);
+         NSDictionary *response = (NSDictionary *)responseObject;
+         completionBlock([[response objectForKey:@"result"] boolValue]);
+     }
+          failure:
+     ^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"Error: %@", error);
+         [self showNetWorkAlertWindow:error];
+     }];
 }
 
 
