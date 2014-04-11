@@ -20,6 +20,11 @@
 		<key>7FA9C0FA-EB86-4466-A000-CC4652DB36E4</key>
 		<string>../..</string>
 	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>DDFCC8F6-A798-4545-805E-9173A99DA30E</key>
+		<string>https://github.com/derrick0714/final_project</string>
+	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/derrick0714/final_project.git</string>
 	<key>IDESourceControlProjectVersion</key>
@@ -29,8 +34,12 @@
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
+			<key>IDESourceControlRepositoryBranchesRelativeLocationKey</key>
+			<string>branches</string>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlRepositoryTrunkRelativeLocationKey</key>
+			<string>trunk</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>7FA9C0FA-EB86-4466-A000-CC4652DB36E4</string>
 			<key>IDESourceControlWCCName</key>

@@ -12,6 +12,9 @@
 
 @interface AddEventTableViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+
 @property (weak, nonatomic) IBOutlet UITextField *titleText;
 
 //locationText will not be presented on the events table view, but will bu stored in database
@@ -31,6 +34,11 @@
 @property NSDate *endTimeFromPicker;
 @property NSDate *createTime;
 
+//subject picker
+@property (weak, nonatomic) IBOutlet UIPickerView *subjectPicker;
+@property (weak, nonatomic) IBOutlet UILabel *subjectFromPicker;
+@property (strong, nonatomic) NSArray *subjectArray;
+
 //date picker
 @property (weak, nonatomic) IBOutlet UIDatePicker *startDatePicker;
 @property (weak, nonatomic) IBOutlet UIDatePicker *endDatePicker;
@@ -40,6 +48,7 @@
 //flags for controlling the showing and hiding of datepickercell
 @property BOOL startDatePickerIsShowing;
 @property BOOL endDatePickerIsShowing;
+@property BOOL subjectPickerIsShowing;
 
 //date formatter for converting datepicker's time to formatted string
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -69,12 +78,43 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self.subjectPickerView setDelegate: self];
+    
+    self.subjectArray  = [[NSArray alloc]         initWithObjects:@"Math",@"Physics",@"ComputerScience",@"Biology",@"Economics",@"E.E." , nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+//Implement the subject picker
+// returns the number of 'columns' to display.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+// returns the # of rows in each component..
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component
+{
+    return 6;
+}
+
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    
+    return [self.subjectArray objectAtIndex:row];
+    
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
+{
+    self.subjectFromPicker.text = [self.subjectArray objectAtIndex: row];
 }
 
 #pragma mark - Table view data source
@@ -98,53 +138,53 @@
 
 
 /*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
+ - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+ 
+ // Configure the cell...
+ 
+ return cell;
+ }
+ */
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 
 //initialize and create the date formatter
@@ -172,7 +212,7 @@
     [self createDateFormatter];
     
     self.endTime.text =  [self.dateFormatter stringFromDate:sender.date];
-
+    
     //storing the user picker's data
     self.endTimeFromPicker = sender.date;
 }
@@ -183,11 +223,15 @@
     CGFloat height = self.tableView.rowHeight;
     
     if (indexPath.row == 2){
-        height = self.startDatePickerIsShowing ? 164 : 0.0f;
+        height = self.subjectPickerIsShowing ? 185 : 0.0f;
     }
     
     if (indexPath.row == 4){
-        height = self.endDatePickerIsShowing ? 164 : 0.0f;
+        height = self.startDatePickerIsShowing ? 165 : 0.0f;
+    }
+    
+    if (indexPath.row == 6){
+        height = self.endDatePickerIsShowing ? 165 : 0.0f;
     }
     
     return height;
@@ -200,6 +244,15 @@
     
     if (indexPath.row == 1){
         
+        if (self.subjectPickerIsShowing){
+            [self hideSubjectPickerCell];
+        }else {
+            [self showSubjectPickerCell];
+        }
+    }
+    
+    if (indexPath.row == 3){
+        
         if (self.startDatePickerIsShowing){
             [self hideStartDatePickerCell];
         }else {
@@ -207,7 +260,7 @@
         }
     }
     
-    if (indexPath.row == 3){
+    if (indexPath.row == 5){
         
         if (self.endDatePickerIsShowing){
             [self hideEndDatePickerCell];
@@ -217,9 +270,43 @@
     }
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+ 
 }
 
 //methods for showing and hiding date picker cells
+- (void)showSubjectPickerCell {
+    
+    self.subjectPickerIsShowing = YES;
+    
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    
+    self.subjectPicker.hidden = NO;
+    self.subjectPicker.alpha = 0.0f;
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        self.subjectPicker.alpha = 1.0f;
+    }];
+}
+
+- (void)hideSubjectPickerCell {
+    
+    self.subjectPickerIsShowing = NO;
+    
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         self.subjectPicker.alpha = 0.0f;
+                     }
+                     completion:^(BOOL finished){
+                         self.subjectPicker.hidden = YES;
+                     }];
+}
+
+
 - (void)showStartDatePickerCell {
     
     self.startDatePickerIsShowing = YES;
@@ -286,17 +373,20 @@
 //If there is not input to the title, segue will not be performed
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     
-    if (self.titleText.text.length > 0) {
-        return YES;
+    if (sender == self.saveButton) {
+        if (self.titleText.text.length > 0) {
+            return YES;
+        }
+        //alert information - this will be showed when adding event fails
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail To Add"
+                                                        message:@"Please Input Again."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return NO;
     }
-    //alert information - this will be showed when adding event fails
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail To Add"
-                                                    message:@"Please Input Again."
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-    return NO;
+    return YES;
 }
 
 
@@ -314,7 +404,7 @@
         //initialize the event object
 		self.event = [[Event alloc] init];
 		self.event.title = self.titleText.text;
-
+        
         if (self.startTimeFromPicker) {
             self.event.startTime = self.startTimeFromPicker;
         }
@@ -326,7 +416,7 @@
         }
         else
             self.event.endTime = [NSDate date];
-
+        
 		self.event.location = self.locationText.text;
 		self.event.notes = self.questionDetail.text;
         
@@ -342,15 +432,13 @@
                              [alert show];
                          }
                          
-                         
-                         
                      }];
     }
     
-
+    
 }
 
--(IBAction)unwindToEventlist: (UIStoryboardSegue *)segue {
+-(IBAction)unwindToAddEventTable: (UIStoryboardSegue *)segue {
     
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MapViewController.h"
+#import "AddMeetingMapViewController.h"
 
 @implementation AppDelegate
 

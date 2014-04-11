@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface MapViewController : UIViewController<MKMapViewDelegate>
+@interface AddMeetingMapViewController : UIViewController<MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
