@@ -426,6 +426,7 @@
 		self.event.location = self.locationText.text;
 		self.event.notes = self.questionDetail.text;
         
+        
         [NetWorkApi CreateEvent:self.event
                      completion:^(BOOL result){
                          if (!result) {
