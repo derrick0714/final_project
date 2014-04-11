@@ -21,6 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *locationText;
 @property (weak, nonatomic) IBOutlet UITextField *questionDetail;
+//coordinate information
 @property float latitude;
 @property float longitude;
 
@@ -404,6 +405,7 @@
         //initialize the event object
 		self.event = [[Event alloc] init];
 		self.event.title = self.titleText.text;
+        self.event.subject = self.subjectFromPicker.text;
         
         if (self.startTimeFromPicker) {
             self.event.startTime = self.startTimeFromPicker;

@@ -38,6 +38,8 @@
     //annotate self location
     [self.mapView setShowsUserLocation:YES];
     
+    //[self addGestureRecogniserToMapView];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
