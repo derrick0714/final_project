@@ -22,8 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *locationText;
 @property (weak, nonatomic) IBOutlet UITextField *questionDetail;
 //coordinate information
-@property float latitude;
-@property float longitude;
+@property double latitude;
+@property double longitude;
 
 //start and end time
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
@@ -53,7 +53,6 @@
 
 //date formatter for converting datepicker's time to formatted string
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
-
 
 
 @end

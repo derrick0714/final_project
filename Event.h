@@ -25,8 +25,8 @@
 @property NSDate *endTime;
 @property NSDate *createTime;
 //location
-@property float latitude;
-@property float longitude;
+@property double latitude;
+@property double longitude;
 
 
 
