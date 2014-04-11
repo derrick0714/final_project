@@ -16,6 +16,7 @@ static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
 static NSNumber* uid;
 
 + (void)showNetWorkAlertWindow:(NSError*) error{
+    NSLog(@"Error: %@", error);
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving data"
                                                         message:[error localizedDescription]
                                                        delegate:nil
@@ -51,7 +52,6 @@ static NSNumber* uid;
     }
           failure:
      ^(AFHTTPRequestOperation *operation, NSError *error) {
-         NSLog(@"Error: %@", error);
          [self showNetWorkAlertWindow:error];
      }];
     
@@ -194,7 +194,6 @@ static NSNumber* uid;
      }
           failure:
      ^(AFHTTPRequestOperation *operation, NSError *error) {
-         NSLog(@"Error: %@", error);
          [self showNetWorkAlertWindow:error];
      }];
 }
