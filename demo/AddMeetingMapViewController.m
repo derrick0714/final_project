@@ -7,6 +7,7 @@
 //
 
 #import "AddMeetingMapViewController.h"
+#import "AddEventMapAnnotation.h"
 
 #define METERS_PER_MILE 1609.344
 
@@ -37,6 +38,9 @@
     [self.mapView setDelegate: self];
     //annotate self location
     [self.mapView setShowsUserLocation:YES];
+    [self addGestureRecogniserToMapView];
+    
+    //[self addGestureRecogniserToMapView];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -48,6 +52,36 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)addGestureRecogniserToMapView{
+    
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(addPinToMap:)];
+    lpgr.minimumPressDuration = 0.5; //
+    [self.mapView addGestureRecognizer:lpgr];
+    
+}
+
+- (void)addPinToMap:(UIGestureRecognizer *)gestureRecognizer
+{
+    
+    if (gestureRecognizer.state != UIGestureRecognizerStateBegan)
+        return;
+    
+    CGPoint touchPoint = [gestureRecognizer locationInView:self.mapView];
+    CLLocationCoordinate2D touchMapCoordinate =
+    [self.mapView convertPoint:touchPoint toCoordinateFromView:self.mapView];
+    
+    AddEventMapAnnotation *toAdd = [[AddEventMapAnnotation alloc]init];
+    
+    toAdd.coordinate = touchMapCoordinate;
+    toAdd.subtitle= @"Subtitle";
+    toAdd.title = @"Title";
+    
+    [self.mapView addAnnotation:toAdd];
+    
+}
+
 
 /*
 #pragma mark - Navigation

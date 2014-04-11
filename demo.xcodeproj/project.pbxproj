@@ -68,6 +68,7 @@
 		95DD929018E8B48900016E6B /* AddEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD928F18E8B48900016E6B /* AddEventTableViewController.m */; };
 		95DD929318E8B98200016E6B /* AddMeetingMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD929218E8B98200016E6B /* AddMeetingMapViewController.m */; };
 		AC2A4CFE18E8C71000A002DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */; };
+		AC6FE0D918F8ABC3006424C0 /* AddEventMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6FE0D818F8ABC3006424C0 /* AddEventMapAnnotation.m */; };
 		AC93E5D718EDF25000510883 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC93E5D618EDF25000510883 /* DatePickerViewController.m */; };
 		AC99F65A18ED13C400E7D1FC /* MeetingScheduleData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC99F65918ED13C400E7D1FC /* MeetingScheduleData.m */; };
 		AC99F65D18ED259B00E7D1FC /* MeData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC99F65C18ED259B00E7D1FC /* MeData.m */; };
@@ -191,6 +192,8 @@
 		95DD929118E8B98200016E6B /* AddMeetingMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMeetingMapViewController.h; sourceTree = "<group>"; };
 		95DD929218E8B98200016E6B /* AddMeetingMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMeetingMapViewController.m; sourceTree = "<group>"; };
 		AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		AC6FE0D718F8ABC3006424C0 /* AddEventMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventMapAnnotation.h; sourceTree = "<group>"; };
+		AC6FE0D818F8ABC3006424C0 /* AddEventMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventMapAnnotation.m; sourceTree = "<group>"; };
 		AC93E5D518EDF25000510883 /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
 		AC93E5D618EDF25000510883 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
 		AC99F65818ED13C400E7D1FC /* MeetingScheduleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingScheduleData.h; sourceTree = "<group>"; };
@@ -482,6 +485,8 @@
 			children = (
 				95DD929118E8B98200016E6B /* AddMeetingMapViewController.h */,
 				95DD929218E8B98200016E6B /* AddMeetingMapViewController.m */,
+				AC6FE0D718F8ABC3006424C0 /* AddEventMapAnnotation.h */,
+				AC6FE0D818F8ABC3006424C0 /* AddEventMapAnnotation.m */,
 			);
 			name = MapViewController;
 			sourceTree = "<group>";
@@ -671,6 +676,7 @@
 				958CC75D18F37DAE0042E395 /* UIButton+AFNetworking.m in Sources */,
 				95AB12C818EB1710009E583B /* UIImage+FixOrientation.m in Sources */,
 				958CC75F18F37DAE0042E395 /* UIProgressView+AFNetworking.m in Sources */,
+				AC6FE0D918F8ABC3006424C0 /* AddEventMapAnnotation.m in Sources */,
 				ACD0344518EE7B8900E4EE1A /* EventCustomCellTableViewCell.m in Sources */,
 				9591879718E5E81200538439 /* DiscoverTableViewController.m in Sources */,
 				9505A82018E12CAD006F1CA2 /* main.m in Sources */,

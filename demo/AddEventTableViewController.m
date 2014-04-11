@@ -21,8 +21,9 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *locationText;
 @property (weak, nonatomic) IBOutlet UITextField *questionDetail;
-@property float latitude;
-@property float longitude;
+//coordinate information
+@property double latitude;
+@property double longitude;
 
 //start and end time
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
@@ -52,7 +53,6 @@
 
 //date formatter for converting datepicker's time to formatted string
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
-
 
 
 @end
@@ -197,6 +197,8 @@
 
 
 //below two functions are used to handle the change of date pickers
+
+
 
 - (IBAction)startDatePickerChanged:(UIDatePicker *)sender {
     
@@ -398,13 +400,17 @@
     // Pass the selected object to the new view controller.
     if (sender != self.saveButton) return;
     if (self.titleText.text.length > 0) {
-		//get create current time
-		self.createTime = [NSDate date];
 		
         //initialize the event object
 		self.event = [[Event alloc] init];
 		self.event.title = self.titleText.text;
         
+        if(self.subjectFromPicker.text){
+            self.event.subject = self.subjectFromPicker.text;
+        }
+        else
+            self.event.subject = @"Math"; //defualt value of subject
+            
         if (self.startTimeFromPicker) {
             self.event.startTime = self.startTimeFromPicker;
         }
@@ -419,6 +425,7 @@
         
 		self.event.location = self.locationText.text;
 		self.event.notes = self.questionDetail.text;
+        
         
         [NetWorkApi CreateEvent:self.event
                      completion:^(BOOL result){

@@ -36,8 +36,8 @@
     
     CLLocationCoordinate2D pinCoordinate;
     //this location coordinates shuold be replaced by the parameters sent from server
-    pinCoordinate.latitude = 51.49795; //should be data from server
-    pinCoordinate.longitude = 21.174056; //should be data from server
+    pinCoordinate.latitude = 51.49795; //should be data from server / double float type
+    pinCoordinate.longitude = 21.174056; //should be data from server / double float type
     eventAnnotation.coordinate = pinCoordinate;
     
     eventAnnotation.title = @"Need help with Computer Mathematics";
