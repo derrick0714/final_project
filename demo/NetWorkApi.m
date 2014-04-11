@@ -172,7 +172,7 @@ static NSNumber* uid;
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    NSDictionary *params = @{   @"uid":uid,
+    NSDictionary *params = @{   @"creatorID":uid,
                                 @"title":event.title,
                                 @"subject":event.subject,
                                 @"notes":event.notes,
