@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Xu Deng. All rights reserved.
 //
 
-#import "ViewController.h"
 
 @interface SignUpViewController : UIViewController<UITextFieldDelegate>
 
