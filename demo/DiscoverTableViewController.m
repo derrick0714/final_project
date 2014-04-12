@@ -36,6 +36,15 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
+    //key board dismiss with a tap on the screen
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    //this enables the editing of picker views after touching
+    tap.cancelsTouchesInView = NO;
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
@@ -112,6 +121,10 @@
     cell.numberOfApplicant.text = @"5";
     
 	return cell;
+}
+
+-(void)dismissKeyboard {
+    [self.view endEditing:YES]; //make the view end editing!
 }
 
 
