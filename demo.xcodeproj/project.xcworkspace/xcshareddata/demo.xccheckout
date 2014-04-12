@@ -5,43 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>9146D22B-59E9-4858-8B36-9DB84DCF80F7</string>
+	<string>EE37844F-F455-4B2A-9838-892F8A6F7D49</string>
 	<key>IDESourceControlProjectName</key>
 	<string>demo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>7FA9C0FA-EB86-4466-A000-CC4652DB36E4</key>
-		<string>ssh://github.com/derrick0714/final_project.git</string>
+		<key>67022F0D-567C-461F-A6A4-B8BB7DCF6407</key>
+		<string>https://github.com/derrick0714/final_project</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>demo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>7FA9C0FA-EB86-4466-A000-CC4652DB36E4</key>
+		<key>67022F0D-567C-461F-A6A4-B8BB7DCF6407</key>
 		<string>../..</string>
 	</dict>
-	<key>IDESourceControlProjectRepositoryRootDictionary</key>
-	<dict>
-		<key>DDFCC8F6-A798-4545-805E-9173A99DA30E</key>
-		<string>https://github.com/derrick0714/final_project</string>
-	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/derrick0714/final_project.git</string>
+	<string>https://github.com/derrick0714/final_project</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>7FA9C0FA-EB86-4466-A000-CC4652DB36E4</string>
+	<string>67022F0D-567C-461F-A6A4-B8BB7DCF6407</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
-			<key>IDESourceControlRepositoryBranchesRelativeLocationKey</key>
-			<string>branches</string>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
-			<key>IDESourceControlRepositoryTrunkRelativeLocationKey</key>
-			<string>trunk</string>
+			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>7FA9C0FA-EB86-4466-A000-CC4652DB36E4</string>
+			<string>67022F0D-567C-461F-A6A4-B8BB7DCF6407</string>
 			<key>IDESourceControlWCCName</key>
 			<string>demo</string>
 		</dict>

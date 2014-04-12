@@ -12,7 +12,7 @@
 @end
 
 @implementation NetWorkApi
-static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
+static NSString * const BaseURLString = @"http://ios.dengxu.me/ios_api_v1/";
 static NSNumber* uid;
 
 + (void)showNetWorkAlertWindow:(NSError*) error{
