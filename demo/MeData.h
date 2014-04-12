@@ -10,4 +10,11 @@
 
 @interface MeData : NSObject
 
+@property NSInteger userID;
+@property NSString* userName;
+@property NSString* gender;
+@property NSString* subject;
+@property NSInteger age;
+//the data type of profile image:
+
 @end

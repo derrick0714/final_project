@@ -10,7 +10,8 @@
 #import "AddEventTableViewController.h"
 #import "MeetingScheduleData.h"
 #import "EventCustomCellTableViewCell.h"
-
+//framework to manage the property for tabel cells
+#import <QuartzCore/QuartzCore.h>
 //import custom tableview cell
 #import "EventCustomCellTableViewCell.h"
 #import "NetWorkApi.h"
@@ -158,18 +159,24 @@
         cell = [nib objectAtIndex:0];
     }
 	
+    cell.numberOfApplicant.layer.cornerRadius = 15.0;
+    cell.numberOfApplicant.layer.masksToBounds = YES;
+    
     // Configure the cell...
     cell.title.text = e.title;
 	cell.location.text = e.location;
     cell.time.text = [NSDateFormatter localizedStringFromDate:e.startTime
 													dateStyle:NSDateFormatterShortStyle
 													timeStyle:NSDateFormatterShortStyle];
+    //this should be modified, and the type from sever should be string
+    cell.numberOfApplicant.text = @"5";
+
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70;
+    return 80;
 }
 
 - (IBAction)unwindEventTableView:(UIStoryboardSegue *) segue

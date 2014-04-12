@@ -36,6 +36,15 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
+    //key board dismiss with a tap on the screen
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    //this enables the editing of picker views after touching
+    tap.cancelsTouchesInView = NO;
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
@@ -72,7 +81,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70;
+    return 80;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,13 +107,27 @@
 		cell = [nib objectAtIndex:0];
 	}
 	NSLog(@"%@ %d", e.title, [self.events count]);
+    
+    
+    // Initialization cell style code
+    cell.numberOfApplicant.layer.cornerRadius = 15.0;
+    cell.numberOfApplicant.layer.masksToBounds = YES;
+    
 	cell.title.text = e.title;
 	cell.location.text = e.location;
 	cell.time.text = [NSDateFormatter localizedStringFromDate:e.startTime
 													dateStyle:NSDateFormatterShortStyle
 													timeStyle:NSDateFormatterShortStyle];
+    cell.numberOfApplicant.text = @"5";
+    
 	return cell;
 }
+
+-(void)dismissKeyboard {
+    [self.view endEditing:YES]; //make the view end editing!
+}
+
+
 
 /*
  // Override to support conditional editing of the table view.

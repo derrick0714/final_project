@@ -13,6 +13,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *title;
 @property (nonatomic, weak) IBOutlet UILabel *time;
 @property (nonatomic, weak) IBOutlet UILabel *location;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfApplicant;
 @property (nonatomic, weak) IBOutlet UIImageView *personalImage;
 
 @end
