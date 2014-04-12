@@ -82,6 +82,44 @@
     
     self.subjectArray  = [[NSArray alloc]         initWithObjects:@"Math",@"Physics",@"ComputerScience",@"Biology",@"Economics",@"E.E." , nil];
     
+    //init for the dismiss function of keyboard
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(titleKeyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:self.view.window];
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(titleKeyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:self.view.window];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(locationKeyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:self.view.window];
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(locationKeyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:self.view.window];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(detailKeyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:self.view.window];
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(detailKeyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:self.view.window];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -106,6 +144,71 @@
 
 
 
+//- (BOOL)textFieldShouldReturn:(UITextField *)textField
+//{
+//    //  NSLog(@"12");
+//    //  return [textField resignFirstResponder];
+//    [self titleText:self];
+//    [textField resignFirstResponder];
+//    return true;
+//}
+
+
+//--------------------- Key board dismiss---------------------------
+
+
+- (void)titleKeyboardWillHide:(NSNotification *)n
+{
+    [self animateTextField:_titleText up:NO];
+    
+}
+- (void)titleKeyboardWillShow:(NSNotification *)n
+{
+    [self animateTextField:_titleText up:YES];
+    
+}
+
+- (void)locationKeyboardWillHide:(NSNotification *)n
+{
+    [self animateTextField:_locationText up:NO];
+    
+}
+- (void)locationKeyboardWillShow:(NSNotification *)n
+{
+    [self animateTextField:_locationText up:YES];
+    
+}
+
+- (void)detailKeyboardWillHide:(NSNotification *)n
+{
+    [self animateTextField:_questionDetail up:NO];
+    
+}
+- (void)detailKeyboardWillShow:(NSNotification *)n
+{
+    [self animateTextField:_questionDetail up:YES];
+    
+}
+
+-(void)animateTextField:(UITextField*)textField up:(BOOL)up
+{
+    const int movementDistance = -10; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? movementDistance : -movementDistance);
+    
+    [UIView beginAnimations: @"animateTextField" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
+-(void)dismissKeyboard {
+    [self.view endEditing:YES]; //make the view end editing!
+    
+}
+//----------------------    Key  board   ---------------------------
 
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
