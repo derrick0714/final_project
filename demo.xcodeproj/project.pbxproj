@@ -33,6 +33,8 @@
 		9505A85C18E1B3C8006F1CA2 /* photo.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 9505A85B18E1B3C8006F1CA2 /* photo.PNG */; };
 		9505A85E18E1BBE2006F1CA2 /* facebook_blank_face3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9505A85D18E1BBE2006F1CA2 /* facebook_blank_face3.png */; };
 		9505A86018E1C2A9006F1CA2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9505A85F18E1C2A9006F1CA2 /* MapKit.framework */; };
+		954B9D4118F8CE7800E38315 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 954B9D4018F8CE7800E38315 /* logo.png */; };
+		954B9D4418F8D56200E38315 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B9D4318F8D56200E38315 /* SignUpViewController.m */; };
 		956B1C3018E8ACAD003E782D /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956B1C2F18E8ACAD003E782D /* FilterTableViewController.m */; };
 		956FA87A18EB3700009A106E /* MeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956FA87918EB3700009A106E /* MeTableViewController.m */; };
 		958056E018F4515D00D7C49D /* NetWorkApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 958056DF18F4515D00D7C49D /* NetWorkApi.m */; };
@@ -121,6 +123,9 @@
 		9505A85B18E1B3C8006F1CA2 /* photo.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo.PNG; sourceTree = "<group>"; };
 		9505A85D18E1BBE2006F1CA2 /* facebook_blank_face3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_blank_face3.png; sourceTree = "<group>"; };
 		9505A85F18E1C2A9006F1CA2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		954B9D4018F8CE7800E38315 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		954B9D4218F8D56200E38315 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = ../SignUpViewController.h; sourceTree = "<group>"; };
+		954B9D4318F8D56200E38315 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = ../SignUpViewController.m; sourceTree = "<group>"; };
 		956B1C2E18E8ACAD003E782D /* FilterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterTableViewController.h; sourceTree = "<group>"; };
 		956B1C2F18E8ACAD003E782D /* FilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewController.m; sourceTree = "<group>"; };
 		956FA87818EB3700009A106E /* MeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeTableViewController.h; sourceTree = "<group>"; };
@@ -273,6 +278,8 @@
 		9505A81918E12CAD006F1CA2 /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				954B9D4218F8D56200E38315 /* SignUpViewController.h */,
+				954B9D4318F8D56200E38315 /* SignUpViewController.m */,
 				958CC76218F37EE70042E395 /* NetworkInterface */,
 				958CC74818F37DAE0042E395 /* UIKit+AFNetworking */,
 				958CC72B18F37D2E0042E395 /* AFNetworking */,
@@ -326,6 +333,7 @@
 		9505A84818E12DE5006F1CA2 /* Imgs */ = {
 			isa = PBXGroup;
 			children = (
+				954B9D4018F8CE7800E38315 /* logo.png */,
 				9505A85D18E1BBE2006F1CA2 /* facebook_blank_face3.png */,
 				9505A85B18E1B3C8006F1CA2 /* photo.PNG */,
 				9505A85718E136EA006F1CA2 /* history.png */,
@@ -625,6 +633,7 @@
 				9505A85A18E136EA006F1CA2 /* pending.png in Resources */,
 				9505A85518E131A4006F1CA2 /* tom.png in Resources */,
 				9505A85418E131A4006F1CA2 /* xu.png in Resources */,
+				954B9D4118F8CE7800E38315 /* logo.png in Resources */,
 				9505A85C18E1B3C8006F1CA2 /* photo.PNG in Resources */,
 				9505A84D18E12E5A006F1CA2 /* bar_me.png in Resources */,
 				9505A85618E131A4006F1CA2 /* luming.png in Resources */,
@@ -672,6 +681,7 @@
 				95DD929318E8B98200016E6B /* AddMeetingMapViewController.m in Sources */,
 				AC99F65D18ED259B00E7D1FC /* MeData.m in Sources */,
 				E27163C118EB3A890096C8AE /* Event.m in Sources */,
+				954B9D4418F8D56200E38315 /* SignUpViewController.m in Sources */,
 				958056E018F4515D00D7C49D /* NetWorkApi.m in Sources */,
 				958CC75D18F37DAE0042E395 /* UIButton+AFNetworking.m in Sources */,
 				95AB12C818EB1710009E583B /* UIImage+FixOrientation.m in Sources */,
