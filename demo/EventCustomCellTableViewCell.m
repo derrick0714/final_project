@@ -7,8 +7,6 @@
 //
 
 #import "EventCustomCellTableViewCell.h"
-//framework to manage the property for tabel cells
-#import <QuartzCore/QuartzCore.h>
 
 @implementation EventCustomCellTableViewCell
 
@@ -23,8 +21,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        self.numberOfApplicant.layer.cornerRadius = 12.0;
-        self.numberOfApplicant.layer.masksToBounds = YES;
     }
     
     return self;

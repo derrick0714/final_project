@@ -15,6 +15,8 @@
 @property NSString* gender;
 @property NSString* subject;
 @property NSInteger age;
+
+@property float userRating;
 //the data type of profile image:
 
 @end
