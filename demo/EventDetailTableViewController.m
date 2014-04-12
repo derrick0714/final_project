@@ -59,7 +59,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -69,6 +69,7 @@
         case 0: return 1;
         case 1: return 2;
         case 2: return 4;
+		case 3: return 1;
         default: return 0;
     }
 }
@@ -137,5 +138,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+//#pragma mark Candidates
+//
+//- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
+//{
+//	return [self.candidates count];
+//}
 
 @end

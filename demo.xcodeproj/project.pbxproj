@@ -79,6 +79,8 @@
 		ACD0344B18EE90B300E4EE1A /* CustomEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD0344A18EE90B300E4EE1A /* CustomEventCell.xib */; };
 		ACF5AF5D18EBB22500DEA17E /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */; };
 		E27163C118EB3A890096C8AE /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = E27163C018EB3A890096C8AE /* Event.m */; };
+		E29F236418F8CD8A002798F5 /* CandidateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E29F236318F8CD8A002798F5 /* CandidateCollectionViewCell.m */; };
+		E29F236718F8D445002798F5 /* EventCandidatesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E29F236618F8D445002798F5 /* EventCandidatesCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +215,10 @@
 		ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		E27163BF18EB3A890096C8AE /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
 		E27163C018EB3A890096C8AE /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
+		E29F236218F8CD8A002798F5 /* CandidateCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandidateCollectionViewCell.h; sourceTree = "<group>"; };
+		E29F236318F8CD8A002798F5 /* CandidateCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandidateCollectionViewCell.m; sourceTree = "<group>"; };
+		E29F236518F8D445002798F5 /* EventCandidatesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCandidatesCollectionViewController.h; sourceTree = "<group>"; };
+		E29F236618F8D445002798F5 /* EventCandidatesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCandidatesCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +299,10 @@
 				9505A82218E12CAD006F1CA2 /* AppDelegate.h */,
 				9505A82318E12CAD006F1CA2 /* AppDelegate.m */,
 				9505A82518E12CAD006F1CA2 /* Main.storyboard */,
+				E29F236518F8D445002798F5 /* EventCandidatesCollectionViewController.h */,
+				E29F236618F8D445002798F5 /* EventCandidatesCollectionViewController.m */,
+				E29F236218F8CD8A002798F5 /* CandidateCollectionViewCell.h */,
+				E29F236318F8CD8A002798F5 /* CandidateCollectionViewCell.m */,
 				9505A82818E12CAD006F1CA2 /* ViewController.h */,
 				9505A82918E12CAD006F1CA2 /* ViewController.m */,
 				9505A82B18E12CAD006F1CA2 /* Images.xcassets */,
@@ -659,6 +669,7 @@
 				9591879D18E5EED300538439 /* EventDetailTableViewController.m in Sources */,
 				958CC76018F37DAE0042E395 /* UIRefreshControl+AFNetworking.m in Sources */,
 				9505A82A18E12CAD006F1CA2 /* ViewController.m in Sources */,
+				E29F236418F8CD8A002798F5 /* CandidateCollectionViewCell.m in Sources */,
 				9591879A18E5EBDE00538439 /* EventTableViewController.m in Sources */,
 				95AB12B918EB16F5009E583B /* GKImageCropper.m in Sources */,
 				958CC74418F37D2E0042E395 /* AFURLConnectionOperation.m in Sources */,
@@ -684,6 +695,7 @@
 				954B9D4418F8D56200E38315 /* SignUpViewController.m in Sources */,
 				958056E018F4515D00D7C49D /* NetWorkApi.m in Sources */,
 				958CC75D18F37DAE0042E395 /* UIButton+AFNetworking.m in Sources */,
+				E29F236718F8D445002798F5 /* EventCandidatesCollectionViewController.m in Sources */,
 				95AB12C818EB1710009E583B /* UIImage+FixOrientation.m in Sources */,
 				958CC75F18F37DAE0042E395 /* UIProgressView+AFNetworking.m in Sources */,
 				AC6FE0D918F8ABC3006424C0 /* AddEventMapAnnotation.m in Sources */,
