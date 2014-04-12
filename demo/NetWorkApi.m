@@ -31,6 +31,33 @@ static NSNumber* uid;
     return [dateFormat stringFromDate:date];
 }
 
++ (NSDate*)stringToDatetime:(NSString*) date{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    return [dateFormat dateFromString: date];
+}
+
++ (Event*) dictToEvent:(NSDictionary*) dict{
+    Event * new = [[Event alloc] init];
+    new.eventID = [(NSNumber*)[dict objectForKey:@"eventID"] intValue];
+    new.status = [(NSNumber*)[dict objectForKey:@"status"] intValue];
+    new.canidateID = [(NSNumber*)[dict objectForKey:@"canidateID"] intValue];
+    new.title = (NSString*)[dict objectForKey:@"title"];
+    new.subject = (NSString*)[dict objectForKey:@"subject"];
+    new.notes = (NSString*)[dict objectForKey:@"notes"];
+    new.location = (NSString*)[dict objectForKey:@"location"];
+    
+    new.createTime = [self stringToDatetime :(NSString*)[dict objectForKey:@"createTime"]];
+    new.startTime = [self stringToDatetime :(NSString*)[dict objectForKey:@"startTime"]];
+    new.endTime = [self stringToDatetime :(NSString*)[dict objectForKey:@"endTime"]];
+    
+    new.latitude = [(NSNumber*)[dict objectForKey:@"latitude"] intValue];
+    new.longitude = [(NSNumber*)[dict objectForKey:@"longitude"] intValue];
+    return new;
+}
+
+
 //log in
 + (void)signInAccountWithUserName:(NSString *)userName
                          password:(NSString *)password
@@ -63,108 +90,56 @@ static NSNumber* uid;
 + (void)discoverEventBySubject:(NSString *)subject
                         sortBy:(SortBy)sortBy
                     completion:(void (^)(NSMutableArray *events))completionBlock{
-    NSLog(@"call discoverEventBySubject: subject: %@, sortBy:%d", subject,sortBy);
-    NSString *string = [NSString stringWithFormat:@"%@allEvent/%@/%d", BaseURLString, subject , sortBy];
-    NSURL *url = [NSURL URLWithString:string];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSDictionary *params = @{ @"status": [NSNumber numberWithInt: sortBy],
+                              @"subject": subject};
     
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-       
-        NSMutableArray *events = [NSMutableArray new];
-        NSDictionary *response = (NSDictionary *)responseObject;
-        for (NSDictionary* value in response) {
-            Event * new = [[Event alloc] init];
-            new.eventID = [(NSNumber*)[value objectForKey:@"eventID"] intValue];
-            new.status = [(NSNumber*)[value objectForKey:@"status"] intValue];
-            new.canidateID = [(NSNumber*)[value objectForKey:@"canidateID"] intValue];
-            new.title = (NSString*)[value objectForKey:@"title"];
-            new.subject = (NSString*)[value objectForKey:@"subject"];
-            new.notes = (NSString*)[value objectForKey:@"notes"];
-            new.location = (NSString*)[value objectForKey:@"location"];
-            
-            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-            [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-            [dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    NSString *string = [NSString stringWithFormat:@"%@allEvent/", BaseURLString];
+    [manager POST:string parameters:params
+          success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         NSLog(@"JSON: %@", responseObject);
+         NSMutableArray *events = [NSMutableArray new];
+         NSDictionary *response = (NSDictionary *)responseObject;
+         for (NSDictionary* value in response) {
+             [events addObject: [self dictToEvent:value ]];
+         }
+         completionBlock(events);
+     }
+          failure:
+     ^(AFHTTPRequestOperation *operation, NSError *error) {
+         [self showNetWorkAlertWindow:error];
+     }];
 
-            new.createTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"createTime"]];
-            new.startTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"startTime"]];
-            new.endTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"endTime"]];
-
-            
-            new.latitude = [(NSNumber*)[value objectForKey:@"latitude"] intValue];
-            new.longitude = [(NSNumber*)[value objectForKey:@"longitude"] intValue];
-            [events addObject:new];
-
-        }
-        
-        completionBlock(events);
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-       
-    }];
-    
-    [operation start];
     
 }
 
 + (void)EventByStatus:(EventsSelector)status
            completion:(void (^)(NSMutableArray *events))completionBlock{
     
-    NSString *string = [NSString stringWithFormat:@"%@eventByStatus/%d/", BaseURLString, status];
-    NSURL *url = [NSURL URLWithString:string];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSDictionary *params = @{ @"status": [NSNumber numberWithInt: status]};
     
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSMutableArray *events = [NSMutableArray new];
-        NSDictionary *response = (NSDictionary *)responseObject;
-        for (NSDictionary* value in response) {
-            Event * new = [[Event alloc] init];
-            new.eventID = [(NSNumber*)[value objectForKey:@"eventID"] intValue];
-            new.status = [(NSNumber*)[value objectForKey:@"status"] intValue];
-            new.canidateID = [(NSNumber*)[value objectForKey:@"canidateID"] intValue];
-            new.title = (NSString*)[value objectForKey:@"title"];
-            new.subject = (NSString*)[value objectForKey:@"subject"];
-            new.notes = (NSString*)[value objectForKey:@"notes"];
-            new.location = (NSString*)[value objectForKey:@"location"];
-            
-            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-            [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-            [dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-            
-            new.createTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"createTime"]];
-            new.startTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"startTime"]];
-            new.endTime = [dateFormat dateFromString:(NSString*)[value objectForKey:@"endTime"]];
-            
-            
-            new.latitude = [(NSNumber*)[value objectForKey:@"latitude"] intValue];
-            new.longitude = [(NSNumber*)[value objectForKey:@"longitude"] intValue];
-            [events addObject:new];
-            
-        }
-        
-        completionBlock(events);
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving data"
-                                                            message:[error localizedDescription]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Ok"
-                                                  otherButtonTitles:nil];
-        [alertView show];
-    }];
     
-    [operation start];
+    NSString *string = [NSString stringWithFormat:@"%@eventByStatus/", BaseURLString];
+    [manager POST:string parameters:params
+          success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         NSLog(@"JSON: %@", responseObject);
+         NSMutableArray *events = [NSMutableArray new];
+         NSDictionary *response = (NSDictionary *)responseObject;
+         for (NSDictionary* value in response) {
+             [events addObject: [self dictToEvent:value ]];
+         }
+         completionBlock(events);
+     }
+          failure:
+     ^(AFHTTPRequestOperation *operation, NSError *error) {
+         [self showNetWorkAlertWindow:error];
+     }];
 
-    
 }
 
 + (void)CreateEvent:(Event *)event
