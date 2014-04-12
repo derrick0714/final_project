@@ -106,6 +106,13 @@
     [self.mapView setRegion:region animated:YES];
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if (sender != self.doneButton) return;
+    self.latitudeToPass = self.latitude;
+    self.longitudeToPass = self.longitude;
+}
+
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 //{
 //    if (sender != self.doneButton) return;

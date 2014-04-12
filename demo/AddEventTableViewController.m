@@ -105,6 +105,9 @@
 }
 
 
+
+
+
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     
@@ -390,7 +393,9 @@
 }
 
 -(IBAction)unwindToAddEventTable: (UIStoryboardSegue *)segue {
-    
+    AddMeetingMapViewController *source = [segue sourceViewController];
+    self.latitude = source.latitudeToPass;
+    self.longitude = source.longitudeToPass;
 }
 
 @end

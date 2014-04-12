@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "MeetingScheduleData.h"
 #import "../Event.h"
-#import "AddMeetingMapViewController.h"
 
-@interface AddEventTableViewController : UITableViewController<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate, AddMeetingMapViewControllerDelegate>
+@interface AddEventTableViewController : UITableViewController<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 
 @property MeetingScheduleData *scheduleData;
 @property Event *event;
@@ -19,5 +18,8 @@
 //coordinate information
 @property double latitude;
 @property double longitude;
+
+//the location tabel cell is the view controller sender button for "AddMeetingMapViewController"
+
 
 @end

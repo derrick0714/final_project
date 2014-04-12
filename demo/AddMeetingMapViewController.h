@@ -11,9 +11,9 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-@class AddMeetingMapViewController;
+//@class AddMeetingMapViewController;
 @protocol AddMeetingMapViewControllerDelegate <NSObject>
-- (void) addItemViewController:(double) latitude longitudePass: (double) longitude;
+- (void) addItemViewController: (double) latitude longitudePass: (double) longitude;
 @end
 
 
@@ -22,5 +22,8 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UISearchBar *mapSearchBar;
 @property (nonatomic, weak)id addEventMapDelegate;
+
+@property double latitudeToPass;
+@property double longitudeToPass;
 
 @end
