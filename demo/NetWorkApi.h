@@ -11,6 +11,10 @@
 #import "FilterTableViewController.h"
 #import "EventTableViewController.h"
 @interface NetWorkApi : NSObject
++ (void)signUpAccountWithUserName:(NSString *)userName
+                         password:(NSString *)password
+                           gender:(bool)gender
+                       completion:(void (^)(BOOL success, NSString* desc))completionBlock;
 + (void)signInAccountWithUserName:(NSString *)userName
                          password:(NSString *)password
                        completion:(void (^)(BOOL success, NSString* desc))completionBlock;
