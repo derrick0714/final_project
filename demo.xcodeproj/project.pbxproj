@@ -39,6 +39,7 @@
 		957A5DD718F9EF3800F82524 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957A5DD618F9EF3800F82524 /* LoginViewController.m */; };
 		957A5DDA18F9EF5400F82524 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957A5DD918F9EF5400F82524 /* SignUpViewController.m */; };
 		957A5DDD18F9EF8000F82524 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 957A5DDC18F9EF8000F82524 /* Event.m */; };
+		957A5DE018F9F11000F82524 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 957A5DDF18F9F11000F82524 /* User.m */; };
 		958056E018F4515D00D7C49D /* NetWorkApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 958056DF18F4515D00D7C49D /* NetWorkApi.m */; };
 		958CC73F18F37D2E0042E395 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 958CC72D18F37D2E0042E395 /* AFHTTPRequestOperation.m */; };
 		958CC74018F37D2E0042E395 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 958CC72F18F37D2E0042E395 /* AFHTTPRequestOperationManager.m */; };
@@ -137,6 +138,8 @@
 		957A5DD918F9EF5400F82524 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		957A5DDB18F9EF8000F82524 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		957A5DDC18F9EF8000F82524 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		957A5DDE18F9F11000F82524 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		957A5DDF18F9F11000F82524 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		958056DE18F4515D00D7C49D /* NetWorkApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkApi.h; sourceTree = "<group>"; };
 		958056DF18F4515D00D7C49D /* NetWorkApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkApi.m; sourceTree = "<group>"; };
 		958CC72C18F37D2E0042E395 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -406,6 +409,10 @@
 		957A5DD118F9ED5100F82524 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				957A5DDB18F9EF8000F82524 /* Event.h */,
+				957A5DDC18F9EF8000F82524 /* Event.m */,
+				957A5DDE18F9F11000F82524 /* User.h */,
+				957A5DDF18F9F11000F82524 /* User.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -552,8 +559,6 @@
 		ACC3B78618F61235007B90E1 /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				957A5DDB18F9EF8000F82524 /* Event.h */,
-				957A5DDC18F9EF8000F82524 /* Event.m */,
 				E29F236518F8D445002798F5 /* EventCandidatesCollectionViewController.h */,
 				E29F236618F8D445002798F5 /* EventCandidatesCollectionViewController.m */,
 				E29F236218F8CD8A002798F5 /* CandidateCollectionViewCell.h */,
@@ -741,6 +746,7 @@
 				958CC75F18F37DAE0042E395 /* UIProgressView+AFNetworking.m in Sources */,
 				AC6FE0D918F8ABC3006424C0 /* AddEventMapAnnotation.m in Sources */,
 				957A5DDA18F9EF5400F82524 /* SignUpViewController.m in Sources */,
+				957A5DE018F9F11000F82524 /* User.m in Sources */,
 				ACD0344518EE7B8900E4EE1A /* EventCustomCellTableViewCell.m in Sources */,
 				9591879718E5E81200538439 /* DiscoverTableViewController.m in Sources */,
 				9505A82018E12CAD006F1CA2 /* main.m in Sources */,
