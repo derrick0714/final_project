@@ -22,6 +22,13 @@ typedef enum {
 	sports
 } Subject;
 
+//three selectors for coming|pending|history
+typedef enum {
+	COMING = 0,
+	PENDING,
+	HISTORY
+} EventsSelector;
+
 // #import user;
 @interface Event : NSObject
 
