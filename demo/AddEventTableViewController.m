@@ -9,16 +9,14 @@
 #import "AddEventTableViewController.h"
 #import "NetWorkApi.h"
 #import "../Event.h"
+#import "AddMeetingMapViewController.h"
 
 @interface AddEventTableViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 
 @property (weak, nonatomic) IBOutlet UITextField *titleText;
-
 //locationText will not be presented on the events table view, but will bu stored in database
-
 @property (weak, nonatomic) IBOutlet UITextField *locationText;
 @property (weak, nonatomic) IBOutlet UITextField *questionDetail;
 
@@ -83,6 +81,7 @@
     [self.subjectPickerView setDelegate: self];
     
     self.subjectArray  = [[NSArray alloc]         initWithObjects:@"Math",@"Physics",@"ComputerScience",@"Biology",@"Economics",@"E.E." , nil];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -322,6 +321,11 @@
         return NO;
     }
     return YES;
+}
+
+- (void)addItemViewController:(AddMeetingMapViewController *)controller didFinishEnteringItem:(double) item
+{
+    self.latitude = item;
 }
 
 

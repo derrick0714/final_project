@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "MeetingScheduleData.h"
 #import "../Event.h"
-@interface AddEventTableViewController : UITableViewController<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
+#import "AddMeetingMapViewController.h"
+
+@interface AddEventTableViewController : UITableViewController<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate, AddMeetingMapViewControllerDelegate>
 
 @property MeetingScheduleData *scheduleData;
 @property Event *event;

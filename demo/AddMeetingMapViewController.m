@@ -8,7 +8,6 @@
 
 #import "AddMeetingMapViewController.h"
 #import "AddEventMapAnnotation.h"
-#import "AddEventTableViewController.h"
 
 #define METERS_PER_MILE 1609.344
 
@@ -16,16 +15,17 @@
 @interface AddMeetingMapViewController ()
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
-@property float latitude;
-@property float longitude;
+@property double latitude;
+@property double longitude;
 
 @end
 
 @implementation AddMeetingMapViewController
 
+@synthesize addEventMapDelegate;
 @synthesize mapView;
 
-/*
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,7 +34,7 @@
     }
     return self;
 }
-*/
+
 
 - (void)viewDidLoad
 {
@@ -91,16 +91,11 @@
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)viewWillDisappear:(BOOL)animated
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [addEventMapDelegate addItemViewController:(double) self.latitude longitudePass: (double) self.longitude];
 }
-*/
+
 
 
 //update user location when users change their location
@@ -111,20 +106,17 @@
     [self.mapView setRegion:region animated:YES];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if (sender != self.doneButton) return;
-    
-    
-    AddEventTableViewController *controller = (AddEventTableViewController *)segue.destinationViewController;
-        
-    controller.latitude = self.latitude;
-    controller.longitude = self.longitude;
-        
-    
-}
-
-
-
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if (sender != self.doneButton) return;
+//    
+//    
+//    AddEventTableViewController *controller = (AddEventTableViewController *)segue.destinationViewController;
+//        
+//    controller.latitude = self.latitude;
+//    controller.longitude = self.longitude;
+//        
+//    
+//}
 
 @end
