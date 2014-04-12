@@ -17,6 +17,4 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *mapSearchBar;
 
 
-
-
 @end

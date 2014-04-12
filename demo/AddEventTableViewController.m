@@ -363,6 +363,9 @@
         self.latitude = 0.0;  //to be modified
         self.longitude = 0.0;  //to be modified
         
+        self.event.latitude = self.latitude;
+        self.event.longitude = self.longitude;
+        
         
         [NetWorkApi CreateEvent:self.event
                      completion:^(BOOL result){

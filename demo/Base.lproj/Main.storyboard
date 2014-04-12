@@ -205,7 +205,11 @@
                                 <segue destination="uNG-Av-6GJ" kind="unwind" unwindAction="unwindToAddEventTable:" id="jts-LM-3OL"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="leL-zO-mIc"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="leL-zO-mIc">
+                            <connections>
+                                <segue destination="uNG-Av-6GJ" kind="unwind" unwindAction="unwindToAddEventTable:" id="EhW-Nc-g9v"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="doneButton" destination="leL-zO-mIc" id="sPu-uO-Eqb"/>

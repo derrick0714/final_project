@@ -16,6 +16,8 @@
 @interface AddMeetingMapViewController ()
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property float latitude;
+@property float longitude;
 
 @end
 
@@ -81,6 +83,9 @@
     
     if(![self.mapView.annotations count] == 0) { [self.mapView removeAnnotation:self.mapView.annotations.lastObject];}
     
+    self.latitude = toAdd.coordinate.latitude;
+    self.longitude = toAdd.coordinate.longitude;
+    
     [self.mapView addAnnotation:toAdd];
     
 }
@@ -108,6 +113,14 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if (sender != self.doneButton) return;
+    
+    
+    AddEventTableViewController *controller = (AddEventTableViewController *)segue.destinationViewController;
+        
+    controller.latitude = self.latitude;
+    controller.longitude = self.longitude;
+        
     
 }
 
