@@ -16,4 +16,6 @@
 @property NSString* subject;
 @property NSInteger age;
 
+@property float userRating;
+
 @end

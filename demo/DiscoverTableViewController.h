@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface DiscoverTableViewController : UITableViewController
+@interface DiscoverTableViewController : UITableViewController<UIScrollViewDelegate, CLLocationManagerDelegate>
 @property SortBy sortBy;
 @property NSString *subject;
 @end

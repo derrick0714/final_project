@@ -16,6 +16,8 @@
 @interface DiscoverTableViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property NSMutableArray* events;
+@property CLLocationManager *locationManager;
+
 - (IBAction)refresh:(id)sender;
 @end
 
@@ -64,6 +66,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//dismiss the keyboard when scrolling the tabel view
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.searchBar resignFirstResponder];
 }
 
 #pragma mark - Table view data source
@@ -119,6 +126,7 @@
 	cell.time.text = [NSDateFormatter localizedStringFromDate:e.startTime
 													dateStyle:NSDateFormatterShortStyle
 													timeStyle:NSDateFormatterShortStyle];
+    //this cell should be filled with data from the server
     cell.numberOfApplicant.text = @"5";
     
 	return cell;
@@ -204,17 +212,27 @@
     //	[self.section addObject:e];
     
     
+    // get user's current location:
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    double tempLatitude = self.locationManager.location.coordinate.latitude;
+    double tempLongitude = self.locationManager.location.coordinate.longitude;
+
+    NSLog(@"the latitude is %f", tempLatitude);
+    NSLog(@"the longitude is %f", tempLongitude);
+    
+    
     //this is temporary code, need to be changed
-    float temp_latitude = 0.1;
-    float temp_longitude = 0.1;
+//    float temp_latitude = 0.1;
+//    float temp_longitude = 0.1;
     NSString* temp_keyword = self.searchBar.text;
     //
     
     [NetWorkApi discoverEventByKeyworkd:temp_keyword
                                 subject:self.subject
                                  sortBy:self.sortBy
-                               latitude:temp_latitude
-                              longitude:temp_longitude
+                               latitude:tempLatitude
+                              longitude:tempLongitude
                              completion:^( NSMutableArray* events) {
                                  
                                  self.events = [[NSMutableArray alloc] initWithArray:events];
