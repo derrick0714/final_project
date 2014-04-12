@@ -31,4 +31,8 @@
 
 + (void)CreateEvent:(Event *)event
          completion:(void (^)(BOOL result))completionBlock;
+
++ (void)applyEvent:(int) eventId
+         completion:(void (^)(BOOL result))completionBlock;
+
 @end

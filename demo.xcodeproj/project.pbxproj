@@ -37,6 +37,7 @@
 		954B9D4418F8D56200E38315 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954B9D4318F8D56200E38315 /* SignUpViewController.m */; };
 		956B1C3018E8ACAD003E782D /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956B1C2F18E8ACAD003E782D /* FilterTableViewController.m */; };
 		956FA87A18EB3700009A106E /* MeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956FA87918EB3700009A106E /* MeTableViewController.m */; };
+		957A5DD018F9E22300F82524 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 957A5DCF18F9E22300F82524 /* Helper.m */; };
 		958056E018F4515D00D7C49D /* NetWorkApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 958056DF18F4515D00D7C49D /* NetWorkApi.m */; };
 		958CC73F18F37D2E0042E395 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 958CC72D18F37D2E0042E395 /* AFHTTPRequestOperation.m */; };
 		958CC74018F37D2E0042E395 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 958CC72F18F37D2E0042E395 /* AFHTTPRequestOperationManager.m */; };
@@ -132,6 +133,8 @@
 		956B1C2F18E8ACAD003E782D /* FilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewController.m; sourceTree = "<group>"; };
 		956FA87818EB3700009A106E /* MeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeTableViewController.h; sourceTree = "<group>"; };
 		956FA87918EB3700009A106E /* MeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeTableViewController.m; sourceTree = "<group>"; };
+		957A5DCE18F9E22300F82524 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		957A5DCF18F9E22300F82524 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		958056DE18F4515D00D7C49D /* NetWorkApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkApi.h; sourceTree = "<group>"; };
 		958056DF18F4515D00D7C49D /* NetWorkApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkApi.m; sourceTree = "<group>"; };
 		958CC72C18F37D2E0042E395 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -459,6 +462,8 @@
 			children = (
 				958056DE18F4515D00D7C49D /* NetWorkApi.h */,
 				958056DF18F4515D00D7C49D /* NetWorkApi.m */,
+				957A5DCE18F9E22300F82524 /* Helper.h */,
+				957A5DCF18F9E22300F82524 /* Helper.m */,
 			);
 			name = NetworkInterface;
 			sourceTree = "<group>";
@@ -692,6 +697,7 @@
 				958CC75C18F37DAE0042E395 /* UIAlertView+AFNetworking.m in Sources */,
 				959187A318E5F49C00538439 /* LoginViewController.m in Sources */,
 				958CC74218F37D2E0042E395 /* AFNetworkReachabilityManager.m in Sources */,
+				957A5DD018F9E22300F82524 /* Helper.m in Sources */,
 				95AB12C718EB1710009E583B /* UIImage+RoundedCorner.m in Sources */,
 				958CC76118F37DAE0042E395 /* UIWebView+AFNetworking.m in Sources */,
 				95AB12C618EB1710009E583B /* UIImage+Rotate.m in Sources */,
