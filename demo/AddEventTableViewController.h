@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MeetingScheduleData.h"
-#import "../Event.h"
+#import "Event.h"
 
 @interface AddEventTableViewController : UITableViewController<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 
