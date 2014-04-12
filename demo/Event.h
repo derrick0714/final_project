@@ -7,6 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+typedef enum {
+	BESTMATCH = 0,
+	DISTANCE,
+	RATING
+} SortBy;
+
+typedef enum {
+	all = 0,
+	math,
+	cs,
+	history,
+	english,
+	sports
+} Subject;
+
 // #import user;
 @interface Event : NSObject
 

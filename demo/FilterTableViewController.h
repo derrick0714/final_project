@@ -7,21 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef enum {
-	BESTMATCH = 0,
-	DISTANCE,
-	RATING
-} SortBy;
-
-typedef enum {
-	all = 0,
-	math,
-	cs,
-	history,
-	english,
-	sports	
-} Subject;
+#import "Event.h"
 
 @interface FilterTableViewController : UITableViewController
 @property SortBy sortBy;
