@@ -22,7 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-    }
+           }
     return self;
 }
 
@@ -30,12 +30,29 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIColor *myColor = [[UIColor alloc]initWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1];
+    
+    self.view.backgroundColor = myColor;
+    
+    self.password.delegate = self;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction) clickedBackground
+{
+    NSLog(@"123");
+    [self.view endEditing:YES]; //make the view end editing!
 }
 
 /*
@@ -49,9 +66,14 @@
 }
 */
 
+
+-(void)dismissKeyboard {
+    NSLog(@"222");
+    [self.view endEditing:YES]; //make the view end editing!
+
+}
 - (IBAction)login:(id)sender {
     
-
     
     [NetWorkApi signInAccountWithUserName:self.uname.text
                            password:self.password.text
@@ -71,4 +93,13 @@
 
    // [alert release];
 }
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+  //  NSLog(@"12");
+  //  return [textField resignFirstResponder];
+    [self login:self];
+    [textField resignFirstResponder];
+    return true;
+}
+
 @end
