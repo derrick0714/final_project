@@ -14,6 +14,8 @@
 @property MeetingScheduleData *scheduleData;
 @property Event *event;
 @property (weak, nonatomic) IBOutlet UIPickerView *subjectPickerView;
-
+//coordinate information
+@property double latitude;
+@property double longitude;
 
 @end

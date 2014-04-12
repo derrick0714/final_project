@@ -21,9 +21,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *locationText;
 @property (weak, nonatomic) IBOutlet UITextField *questionDetail;
-//coordinate information
-@property double latitude;
-@property double longitude;
 
 //start and end time
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
@@ -59,6 +56,10 @@
 
 
 @implementation AddEventTableViewController
+
+//coordinate information
+@synthesize latitude;
+@synthesize longitude;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -117,74 +118,6 @@
     self.subjectFromPicker.text = [self.subjectArray objectAtIndex: row];
 }
 
-#pragma mark - Table view data source
-//because the table view cells are static, so there is no need to use the following two methods:
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//#warning Potentially incomplete method implementation.
-//    // Return the number of sections.
-//    return 1;
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//#warning Incomplete method implementation.
-//    // Return the number of rows in the section.
-//    return 7;
-//}
-
-
-
-
-/*
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
- {
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
- 
- // Configure the cell...
- 
- return cell;
- }
- */
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
 
 
 //initialize and create the date formatter
@@ -425,6 +358,10 @@
         
 		self.event.location = self.locationText.text;
 		self.event.notes = self.questionDetail.text;
+        
+        //add latitude and longitude here:
+        self.latitude = 0.0;  //to be modified
+        self.longitude = 0.0;  //to be modified
         
         
         [NetWorkApi CreateEvent:self.event

@@ -8,11 +8,14 @@
 
 #import "AddMeetingMapViewController.h"
 #import "AddEventMapAnnotation.h"
+#import "AddEventTableViewController.h"
 
 #define METERS_PER_MILE 1609.344
 
 
 @interface AddMeetingMapViewController ()
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @end
 
@@ -40,8 +43,6 @@
     [self.mapView setShowsUserLocation:YES];
     [self addGestureRecogniserToMapView];
     
-    //[self addGestureRecogniserToMapView];
-    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -57,7 +58,7 @@
     
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(addPinToMap:)];
-    lpgr.minimumPressDuration = 0.5; //
+    lpgr.minimumPressDuration = 0.5;
     [self.mapView addGestureRecognizer:lpgr];
     
 }
@@ -77,6 +78,8 @@
     toAdd.coordinate = touchMapCoordinate;
     toAdd.subtitle= @"Subtitle";
     toAdd.title = @"Title";
+    
+    if(![self.mapView.annotations count] == 0) { [self.mapView removeAnnotation:self.mapView.annotations.lastObject];}
     
     [self.mapView addAnnotation:toAdd];
     
@@ -102,6 +105,13 @@
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
     [self.mapView setRegion:region animated:YES];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+}
+
+
 
 
 @end

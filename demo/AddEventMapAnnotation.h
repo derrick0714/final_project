@@ -22,4 +22,6 @@
 @property (nonatomic, copy) NSString * subtitle;
 @property (nonatomic, assign)CLLocationCoordinate2D coordinate;
 
+
+
 @end

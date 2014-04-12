@@ -208,6 +208,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Done" id="leL-zO-mIc"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneButton" destination="leL-zO-mIc" id="sPu-uO-Eqb"/>
                         <outlet property="mapSearchBar" destination="w4V-bG-BVT" id="ihh-1C-Blc"/>
                         <outlet property="mapView" destination="OyN-es-DOf" id="Rcj-x5-dXE"/>
                         <outlet property="searchDisplayController" destination="gRv-sP-VKb" id="bcI-aM-2BD"/>
