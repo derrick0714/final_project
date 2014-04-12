@@ -32,7 +32,10 @@
 + (void)CreateEvent:(Event *)event
          completion:(void (^)(BOOL result))completionBlock;
 
-+ (void)applyEvent:(int) eventId
++ (void)applyToCandidate:(int) eventId
          completion:(void (^)(BOOL result))completionBlock;
+
++ (void)comfirmCandidate:(int) candidateId
+        completion:(void (^)(BOOL result))completionBlock;
 
 @end

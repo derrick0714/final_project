@@ -120,13 +120,27 @@ static NSNumber* uid;
              }];
 }
 
-//apply a event
-+ (void)applyEvent:(int) eventId
+//apply to candidate
++ (void)applyToCandidate:(int) eventId
         completion:(void (^)(BOOL result))completionBlock{
 
     NSString *apiName = @"applyEvent";
     NSDictionary *params = @{ @"eventId":[NSNumber numberWithInt:eventId] };
 
+    
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                 completionBlock([[response objectForKey:@"result"] boolValue]);
+             }];
+}
+
+//comfirm a candidate
++ (void)comfirmCandidate:(int) candidateId
+              completion:(void (^)(BOOL result))completionBlock{
+    
+    NSString *apiName = @"applyCandidate";
+    NSDictionary *params = @{ @"candidateId":[NSNumber numberWithInt:candidateId] };
     
     [self networkDealer:apiName
                  params:params
