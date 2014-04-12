@@ -222,6 +222,12 @@
                              }];
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
+    [self refresh:nil];
+    [searchBar resignFirstResponder];
+}
+
 - (IBAction)refresh {
 	[self refresh:nil];
 }
