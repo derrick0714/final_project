@@ -7,13 +7,29 @@
 //
 
 #import "NetWorkApi.h"
+#import <CommonCrypto/CommonDigest.h>
 
 @interface NetWorkApi ()
 @end
 
 @implementation NetWorkApi
-static NSString * const BaseURLString = @"http://dengxu.me/ios_api_v1/";
+static NSString * const BaseURLString = @"http://ios.dengxu.me/ios_api_v1/";
 static NSNumber* uid;
+
++ (NSString *) md5:(NSString *) input
+{
+    const char *cStr = [input UTF8String];
+    unsigned char digest[16];
+    CC_MD5( cStr, strlen(cStr), digest ); // This is the md5 call
+    
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    
+    return  output;
+    
+}
 
 + (void)showNetWorkAlertWindow:(NSError*) error{
     NSLog(@"Error: %@", error);
@@ -57,8 +73,35 @@ static NSNumber* uid;
     return new;
 }
 
+//sign up
++ (void)signUpAccountWithUserName:(NSString *)userName
+                         password:(NSString *)password
+                           gender:(bool)gender
+                       completion:(void (^)(BOOL success, NSString* desc))completionBlock{
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSDictionary *params = @ {@"user" :userName,
+                              @"pwd" :[self md5:password],
+                              @"gender":[NSNumber numberWithBool:gender]}
+                            ;
+    
+    NSString *string = [NSString stringWithFormat:@"%@signup/", BaseURLString];
+    [manager POST:string parameters:params
+          success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         NSLog(@"JSON: %@", responseObject);
+         NSDictionary *response = (NSDictionary *)responseObject;
+         completionBlock([[response objectForKey:@"result"] boolValue] , [response objectForKey:@"desc"]);
+     }
+          failure:
+     ^(AFHTTPRequestOperation *operation, NSError *error) {
+         [self showNetWorkAlertWindow:error];
+     }];
 
-//log in
+    
+}
+//sign in
 + (void)signInAccountWithUserName:(NSString *)userName
                          password:(NSString *)password
                        completion:(void (^)(BOOL success,NSString* desc))completionBlock
@@ -66,7 +109,7 @@ static NSNumber* uid;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     NSDictionary *params = @ {@"user" :userName,
-                               @"pwd" :password };
+                               @"pwd" :[self md5:password] };
     
     NSString *string = [NSString stringWithFormat:@"%@login/", BaseURLString];
     [manager POST:string parameters:params

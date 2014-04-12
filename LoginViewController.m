@@ -34,7 +34,6 @@
     
     self.view.backgroundColor = myColor;
     
-    self.password.delegate = self;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -42,6 +41,43 @@
     
     [self.view addGestureRecognizer:tap];
 
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:self.view.window];
+    // register for keyboard notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:self.view.window];
+    
+}
+
+- (void)keyboardWillHide:(NSNotification *)n
+{
+    [self animateTextField:_uname up:NO];
+    
+}
+
+- (void)keyboardWillShow:(NSNotification *)n
+{
+    [self animateTextField:_uname up:YES];
+
+}
+
+-(void)animateTextField:(UITextField*)textField up:(BOOL)up
+{
+    const int movementDistance = -25; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? movementDistance : -movementDistance);
+    
+    [UIView beginAnimations: @"animateTextField" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,11 +85,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction) clickedBackground
-{
-    NSLog(@"123");
-    [self.view endEditing:YES]; //make the view end editing!
-}
+
 
 /*
 #pragma mark - Navigation
@@ -68,12 +100,13 @@
 
 
 -(void)dismissKeyboard {
-    NSLog(@"222");
     [self.view endEditing:YES]; //make the view end editing!
 
 }
+
+
+
 - (IBAction)login:(id)sender {
-    
     
     [NetWorkApi signInAccountWithUserName:self.uname.text
                            password:self.password.text
