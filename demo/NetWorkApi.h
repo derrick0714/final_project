@@ -19,12 +19,15 @@
                          password:(NSString *)password
                        completion:(void (^)(BOOL success, NSString* desc))completionBlock;
 
-+ (void)discoverEventBySubject:(NSString *)subject
-                        sortBy:(SortBy)sortBy
-                       completion:(void (^)(NSMutableArray *events))completionBlock;
++ (void)discoverEventByKeyworkd:(NSString *)keyword
+                        subject:(NSString *)subject
+                         sortBy:(SortBy)sortBy
+                       latitude:(float)latitude
+                      longitude:(float)longitude
+                     completion:(void (^)(NSMutableArray *events))completionBlock;
 
 + (void)EventByStatus:(EventsSelector)status
-             completion:(void (^)(NSMutableArray *events))completionBlock;
+           completion:(void (^)(NSMutableArray *events))completionBlock;
 
 + (void)CreateEvent:(Event *)event
          completion:(void (^)(BOOL result))completionBlock;

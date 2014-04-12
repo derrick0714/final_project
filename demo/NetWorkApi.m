@@ -82,9 +82,9 @@ static NSNumber* uid;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     NSDictionary *params = @ {@"user" :userName,
-                              @"pwd" :[self md5:password],
-                              @"gender":[NSNumber numberWithBool:gender]}
-                            ;
+        @"pwd" :[self md5:password],
+        @"gender":[NSNumber numberWithBool:gender]}
+    ;
     
     NSString *string = [NSString stringWithFormat:@"%@signup/", BaseURLString];
     [manager POST:string parameters:params
@@ -98,7 +98,7 @@ static NSNumber* uid;
      ^(AFHTTPRequestOperation *operation, NSError *error) {
          [self showNetWorkAlertWindow:error];
      }];
-
+    
     
 }
 //sign in
@@ -109,17 +109,17 @@ static NSNumber* uid;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     NSDictionary *params = @ {@"user" :userName,
-                               @"pwd" :[self md5:password] };
+        @"pwd" :[self md5:password] };
     
     NSString *string = [NSString stringWithFormat:@"%@login/", BaseURLString];
     [manager POST:string parameters:params
           success:^(AFHTTPRequestOperation *operation, id responseObject)
-    {
-        NSLog(@"JSON: %@", responseObject);
-        NSDictionary *response = (NSDictionary *)responseObject;
-        uid = [NSNumber numberWithInt: [[response objectForKey:@"uid"] intValue]];
-        completionBlock([[response objectForKey:@"result"] boolValue] , [response objectForKey:@"desc"]);
-    }
+     {
+         NSLog(@"JSON: %@", responseObject);
+         NSDictionary *response = (NSDictionary *)responseObject;
+         uid = [NSNumber numberWithInt: [[response objectForKey:@"uid"] intValue]];
+         completionBlock([[response objectForKey:@"result"] boolValue] , [response objectForKey:@"desc"]);
+     }
           failure:
      ^(AFHTTPRequestOperation *operation, NSError *error) {
          [self showNetWorkAlertWindow:error];
@@ -130,13 +130,20 @@ static NSNumber* uid;
 
 
 
-+ (void)discoverEventBySubject:(NSString *)subject
-                        sortBy:(SortBy)sortBy
-                    completion:(void (^)(NSMutableArray *events))completionBlock{
++ (void)discoverEventByKeyworkd:(NSString *)keyword
+                        subject:(NSString *)subject
+                         sortBy:(SortBy)sortBy
+                       latitude:(float)latitude
+                      longitude:(float)longitude
+                     completion:(void (^)(NSMutableArray *events))completionBlock{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    NSDictionary *params = @{ @"status": [NSNumber numberWithInt: sortBy],
-                              @"subject": subject};
+    NSDictionary *params = @{@"keyword": keyword,
+                             @"status": [NSNumber numberWithInt: sortBy],
+                             @"subject": subject,
+                             @"latitude": [NSNumber numberWithFloat: latitude],
+                             @"longitude":[NSNumber numberWithFloat: longitude]
+                             };
     
     NSString *string = [NSString stringWithFormat:@"%@allEvent/", BaseURLString];
     [manager POST:string parameters:params
@@ -154,7 +161,7 @@ static NSNumber* uid;
      ^(AFHTTPRequestOperation *operation, NSError *error) {
          [self showNetWorkAlertWindow:error];
      }];
-
+    
     
 }
 
@@ -182,11 +189,11 @@ static NSNumber* uid;
      ^(AFHTTPRequestOperation *operation, NSError *error) {
          [self showNetWorkAlertWindow:error];
      }];
-
+    
 }
 
 + (void)CreateEvent:(Event *)event
-           completion:(void (^)(BOOL result))completionBlock{
+         completion:(void (^)(BOOL result))completionBlock{
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -200,7 +207,7 @@ static NSNumber* uid;
                                 @"latitude":[NSNumber numberWithFloat:event.latitude],
                                 @"longitude":[NSNumber numberWithFloat:event.longitude]
                                 };
-
+    
     
     NSString *string = [NSString stringWithFormat:@"%@createEvent/", BaseURLString];
     [manager POST:string parameters:params
