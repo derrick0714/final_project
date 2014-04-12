@@ -72,7 +72,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70;
+    return 80;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,13 +98,23 @@
 		cell = [nib objectAtIndex:0];
 	}
 	NSLog(@"%@ %d", e.title, [self.events count]);
+    
+    
+    // Initialization cell style code
+    cell.numberOfApplicant.layer.cornerRadius = 15.0;
+    cell.numberOfApplicant.layer.masksToBounds = YES;
+    
 	cell.title.text = e.title;
 	cell.location.text = e.location;
 	cell.time.text = [NSDateFormatter localizedStringFromDate:e.startTime
 													dateStyle:NSDateFormatterShortStyle
 													timeStyle:NSDateFormatterShortStyle];
+    cell.numberOfApplicant.text = @"5";
+    
 	return cell;
 }
+
+
 
 /*
 // Override to support conditional editing of the table view.

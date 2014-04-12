@@ -75,6 +75,7 @@
 		AC99F65A18ED13C400E7D1FC /* MeetingScheduleData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC99F65918ED13C400E7D1FC /* MeetingScheduleData.m */; };
 		AC99F65D18ED259B00E7D1FC /* MeData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC99F65C18ED259B00E7D1FC /* MeData.m */; };
 		ACC3B78A18F612C0007B90E1 /* EventMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3B78918F612C0007B90E1 /* EventMapViewController.m */; };
+		ACC7C0C018F9E43600019EB8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC7C0BF18F9E43600019EB8 /* QuartzCore.framework */; };
 		ACD0344518EE7B8900E4EE1A /* EventCustomCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD0344418EE7B8900E4EE1A /* EventCustomCellTableViewCell.m */; };
 		ACD0344B18EE90B300E4EE1A /* CustomEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD0344A18EE90B300E4EE1A /* CustomEventCell.xib */; };
 		ACF5AF5D18EBB22500DEA17E /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */; };
@@ -209,6 +210,7 @@
 		AC99F65C18ED259B00E7D1FC /* MeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeData.m; sourceTree = "<group>"; };
 		ACC3B78818F612C0007B90E1 /* EventMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventMapViewController.h; sourceTree = "<group>"; };
 		ACC3B78918F612C0007B90E1 /* EventMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventMapViewController.m; sourceTree = "<group>"; };
+		ACC7C0BF18F9E43600019EB8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		ACD0344318EE7B8900E4EE1A /* EventCustomCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCustomCellTableViewCell.h; sourceTree = "<group>"; };
 		ACD0344418EE7B8900E4EE1A /* EventCustomCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCustomCellTableViewCell.m; sourceTree = "<group>"; };
 		ACD0344A18EE90B300E4EE1A /* CustomEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomEventCell.xib; path = ../CustomEventCell.xib; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACC7C0C018F9E43600019EB8 /* QuartzCore.framework in Frameworks */,
 				ACF5AF5D18EBB22500DEA17E /* libsqlite3.0.dylib in Frameworks */,
 				AC2A4CFE18E8C71000A002DE /* CoreLocation.framework in Frameworks */,
 				9505A86018E1C2A9006F1CA2 /* MapKit.framework in Frameworks */,
@@ -270,6 +273,7 @@
 		9505A81218E12CAD006F1CA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACC7C0BF18F9E43600019EB8 /* QuartzCore.framework */,
 				ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */,
 				AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */,
 				9505A85F18E1C2A9006F1CA2 /* MapKit.framework */,

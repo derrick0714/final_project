@@ -7,6 +7,8 @@
 //
 
 #import "EventCustomCellTableViewCell.h"
+//framework to manage the property for tabel cells
+#import <QuartzCore/QuartzCore.h>
 
 @implementation EventCustomCellTableViewCell
 
@@ -14,13 +16,17 @@
 @synthesize time = _time;
 @synthesize location = _location;
 @synthesize personalImage = _personalImage;
+@synthesize numberOfApplicant = _numberOfApplicant;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        self.numberOfApplicant.layer.cornerRadius = 12.0;
+        self.numberOfApplicant.layer.masksToBounds = YES;
     }
+    
     return self;
 }
 
