@@ -10,4 +10,10 @@
 
 @interface User : NSObject
 
+@property NSInteger userID;
+@property NSString* userName;
+@property NSString* gender;
+@property NSString* subject;
+@property NSInteger age;
+
 @end
