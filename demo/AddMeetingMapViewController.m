@@ -14,13 +14,18 @@
 
 @interface AddMeetingMapViewController ()
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property double latitude;
+@property double longitude;
+
 @end
 
 @implementation AddMeetingMapViewController
 
+@synthesize addEventMapDelegate;
 @synthesize mapView;
 
-/*
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,7 +34,7 @@
     }
     return self;
 }
-*/
+
 
 - (void)viewDidLoad
 {
@@ -39,8 +44,6 @@
     //annotate self location
     [self.mapView setShowsUserLocation:YES];
     [self addGestureRecogniserToMapView];
-    
-    //[self addGestureRecogniserToMapView];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -57,7 +60,7 @@
     
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(addPinToMap:)];
-    lpgr.minimumPressDuration = 0.5; //
+    lpgr.minimumPressDuration = 0.5;
     [self.mapView addGestureRecognizer:lpgr];
     
 }
@@ -78,21 +81,21 @@
     toAdd.subtitle= @"Subtitle";
     toAdd.title = @"Title";
     
+    if(![self.mapView.annotations count] == 0) { [self.mapView removeAnnotation:self.mapView.annotations.lastObject];}
+    
+    self.latitude = toAdd.coordinate.latitude;
+    self.longitude = toAdd.coordinate.longitude;
+    
     [self.mapView addAnnotation:toAdd];
     
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)viewWillDisappear:(BOOL)animated
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [addEventMapDelegate addItemViewController:(double) self.latitude longitudePass: (double) self.longitude];
 }
-*/
+
 
 
 //update user location when users change their location
@@ -103,5 +106,24 @@
     [self.mapView setRegion:region animated:YES];
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if (sender != self.doneButton) return;
+    self.latitudeToPass = self.latitude;
+    self.longitudeToPass = self.longitude;
+}
+
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if (sender != self.doneButton) return;
+//    
+//    
+//    AddEventTableViewController *controller = (AddEventTableViewController *)segue.destinationViewController;
+//        
+//    controller.latitude = self.latitude;
+//    controller.longitude = self.longitude;
+//        
+//    
+//}
 
 @end
