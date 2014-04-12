@@ -81,13 +81,16 @@
     [self.subjectPickerView setDelegate: self];
     
     self.subjectArray  = [[NSArray alloc]         initWithObjects:@"Math",@"Physics",@"ComputerScience",@"Biology",@"Economics",@"E.E." , nil];
-    
-    //init for the dismiss function of keyboard
+
+
+
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    //this enables the editing of picker views after touching
+    tap.cancelsTouchesInView = NO;
     
     // register for keyboard notifications
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -99,7 +102,7 @@
                                              selector:@selector(titleKeyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:self.view.window];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(locationKeyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -155,39 +158,29 @@
 
 
 //--------------------- Key board dismiss---------------------------
-
-
 - (void)titleKeyboardWillHide:(NSNotification *)n
 {
     [self animateTextField:_titleText up:NO];
-    
 }
 - (void)titleKeyboardWillShow:(NSNotification *)n
 {
     [self animateTextField:_titleText up:YES];
-    
 }
-
 - (void)locationKeyboardWillHide:(NSNotification *)n
 {
     [self animateTextField:_locationText up:NO];
-    
 }
 - (void)locationKeyboardWillShow:(NSNotification *)n
 {
     [self animateTextField:_locationText up:YES];
-    
 }
-
 - (void)detailKeyboardWillHide:(NSNotification *)n
 {
     [self animateTextField:_questionDetail up:NO];
-    
 }
 - (void)detailKeyboardWillShow:(NSNotification *)n
 {
     [self animateTextField:_questionDetail up:YES];
-    
 }
 
 -(void)animateTextField:(UITextField*)textField up:(BOOL)up
@@ -206,7 +199,6 @@
 
 -(void)dismissKeyboard {
     [self.view endEditing:YES]; //make the view end editing!
-    
 }
 //----------------------    Key  board   ---------------------------
 
@@ -220,6 +212,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
 {
+    
     self.subjectFromPicker.text = [self.subjectArray objectAtIndex: row];
 }
 
@@ -235,9 +228,6 @@
 
 
 //below two functions are used to handle the change of date pickers
-
-
-
 - (IBAction)startDatePickerChanged:(UIDatePicker *)sender {
     
     [self createDateFormatter];
@@ -434,7 +424,6 @@
     self.latitude = item;
 }
 
-
 #pragma mark - Navigation
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -475,7 +464,6 @@
         
         self.event.latitude = self.latitude;
         self.event.longitude = self.longitude;
-        
         
         [NetWorkApi CreateEvent:self.event
                      completion:^(BOOL result){
