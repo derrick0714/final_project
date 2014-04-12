@@ -63,7 +63,7 @@ static NSNumber* uid;
     
     NSString *apiName = @"allEvent";
     NSDictionary *params = @{@"keyword": keyword,
-                             @"status": [NSNumber numberWithInt: sortBy],
+                             @"sortBy": [NSNumber numberWithInt: sortBy],
                              @"subject": subject,
                              @"latitude": [NSNumber numberWithFloat: latitude],
                              @"longitude":[NSNumber numberWithFloat: longitude]
