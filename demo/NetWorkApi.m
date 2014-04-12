@@ -7,7 +7,7 @@
 //
 
 #import "NetWorkApi.h"
-#import <CommonCrypto/CommonDigest.h>
+#import "Helper.h"
 
 @interface NetWorkApi ()
 @end
@@ -16,62 +16,6 @@
 static NSString * const BaseURLString = @"http://ios.dengxu.me/ios_api_v1/";
 static NSNumber* uid;
 
-+ (NSString *) md5:(NSString *) input
-{
-    const char *cStr = [input UTF8String];
-    unsigned char digest[16];
-    CC_MD5( cStr, strlen(cStr), digest ); // This is the md5 call
-    
-    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
-    
-    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
-        [output appendFormat:@"%02x", digest[i]];
-    
-    return  output;
-    
-}
-
-+ (void)showNetWorkAlertWindow:(NSError*) error{
-    NSLog(@"Error: %@", error);
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving data"
-                                                        message:[error localizedDescription]
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil];
-    [alertView show];
-}
-+ (NSString*)datetimeToString:(NSDate*) date{
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    [dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-    return [dateFormat stringFromDate:date];
-}
-
-+ (NSDate*)stringToDatetime:(NSString*) date{
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    [dateFormat setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-    return [dateFormat dateFromString: date];
-}
-
-+ (Event*) dictToEvent:(NSDictionary*) dict{
-    Event * new = [[Event alloc] init];
-    new.eventID = [(NSNumber*)[dict objectForKey:@"eventID"] intValue];
-    new.status = [(NSNumber*)[dict objectForKey:@"status"] intValue];
-    new.canidateID = [(NSNumber*)[dict objectForKey:@"canidateID"] intValue];
-    new.title = (NSString*)[dict objectForKey:@"title"];
-    new.subject = (NSString*)[dict objectForKey:@"subject"];
-    new.notes = (NSString*)[dict objectForKey:@"notes"];
-    new.location = (NSString*)[dict objectForKey:@"location"];
-    
-    new.createTime = [self stringToDatetime :(NSString*)[dict objectForKey:@"createTime"]];
-    new.startTime = [self stringToDatetime :(NSString*)[dict objectForKey:@"startTime"]];
-    new.endTime = [self stringToDatetime :(NSString*)[dict objectForKey:@"endTime"]];
-    
-    new.latitude = [(NSNumber*)[dict objectForKey:@"latitude"] intValue];
-    new.longitude = [(NSNumber*)[dict objectForKey:@"longitude"] intValue];
-    return new;
-}
 
 //sign up
 + (void)signUpAccountWithUserName:(NSString *)userName
@@ -79,26 +23,16 @@ static NSNumber* uid;
                            gender:(bool)gender
                        completion:(void (^)(BOOL success, NSString* desc))completionBlock{
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSString *apiName = @"signup";
     NSDictionary *params = @ {@"user" :userName,
-        @"pwd" :[self md5:password],
-        @"gender":[NSNumber numberWithBool:gender]}
-    ;
+        @"pwd" :[Helper md5:password],
+        @"gender":[NSNumber numberWithBool:gender]};
     
-    NSString *string = [NSString stringWithFormat:@"%@signup/", BaseURLString];
-    [manager POST:string parameters:params
-          success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
-         NSLog(@"JSON: %@", responseObject);
-         NSDictionary *response = (NSDictionary *)responseObject;
-         completionBlock([[response objectForKey:@"result"] boolValue] , [response objectForKey:@"desc"]);
-     }
-          failure:
-     ^(AFHTTPRequestOperation *operation, NSError *error) {
-         [self showNetWorkAlertWindow:error];
-     }];
-    
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                 completionBlock([[response objectForKey:@"result"] boolValue] , [response objectForKey:@"desc"]);
+             }];
     
 }
 //sign in
@@ -106,123 +40,136 @@ static NSNumber* uid;
                          password:(NSString *)password
                        completion:(void (^)(BOOL success,NSString* desc))completionBlock
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSString *apiName = @"login";
     NSDictionary *params = @ {@"user" :userName,
-        @"pwd" :[self md5:password] };
+        @"pwd" :[Helper md5:password] };
     
-    NSString *string = [NSString stringWithFormat:@"%@login/", BaseURLString];
-    [manager POST:string parameters:params
-          success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
-         NSLog(@"JSON: %@", responseObject);
-         NSDictionary *response = (NSDictionary *)responseObject;
-         uid = [NSNumber numberWithInt: [[response objectForKey:@"uid"] intValue]];
-         completionBlock([[response objectForKey:@"result"] boolValue] , [response objectForKey:@"desc"]);
-     }
-          failure:
-     ^(AFHTTPRequestOperation *operation, NSError *error) {
-         [self showNetWorkAlertWindow:error];
-     }];
-    
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                 uid = [NSNumber numberWithInt: [[response objectForKey:@"uid"] intValue]];
+                 completionBlock([[response objectForKey:@"result"] boolValue] , [response objectForKey:@"desc"]);
+             }];
 }
 
 
-
-
+//search event by keywords
 + (void)discoverEventByKeyworkd:(NSString *)keyword
                         subject:(NSString *)subject
                          sortBy:(SortBy)sortBy
                        latitude:(float)latitude
                       longitude:(float)longitude
                      completion:(void (^)(NSMutableArray *events))completionBlock{
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    NSString *apiName = @"allEvent";
     NSDictionary *params = @{@"keyword": keyword,
-                             @"status": [NSNumber numberWithInt: sortBy],
+                             @"sortBy": [NSNumber numberWithInt: sortBy],
                              @"subject": subject,
                              @"latitude": [NSNumber numberWithFloat: latitude],
                              @"longitude":[NSNumber numberWithFloat: longitude]
                              };
     
-    NSString *string = [NSString stringWithFormat:@"%@allEvent/", BaseURLString];
-    [manager POST:string parameters:params
-          success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
-         NSLog(@"JSON: %@", responseObject);
-         NSMutableArray *events = [NSMutableArray new];
-         NSDictionary *response = (NSDictionary *)responseObject;
-         for (NSDictionary* value in response) {
-             [events addObject: [self dictToEvent:value ]];
-         }
-         completionBlock(events);
-     }
-          failure:
-     ^(AFHTTPRequestOperation *operation, NSError *error) {
-         [self showNetWorkAlertWindow:error];
-     }];
-    
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                 NSMutableArray *events = [NSMutableArray new];
+                 for (NSDictionary* value in response) {
+                     [events addObject: [Helper dictToEvent:value ]];
+                 }
+                 completionBlock(events);
+             }];
     
 }
 
+//get events list by status
 + (void)EventByStatus:(EventsSelector)status
            completion:(void (^)(NSMutableArray *events))completionBlock{
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSString *apiName = @"eventByStatus";
     NSDictionary *params = @{ @"status": [NSNumber numberWithInt: status]};
-    
-    
-    NSString *string = [NSString stringWithFormat:@"%@eventByStatus/", BaseURLString];
-    [manager POST:string parameters:params
-          success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
-         NSLog(@"JSON: %@", responseObject);
-         NSMutableArray *events = [NSMutableArray new];
-         NSDictionary *response = (NSDictionary *)responseObject;
-         for (NSDictionary* value in response) {
-             [events addObject: [self dictToEvent:value ]];
-         }
-         completionBlock(events);
-     }
-          failure:
-     ^(AFHTTPRequestOperation *operation, NSError *error) {
-         [self showNetWorkAlertWindow:error];
-     }];
-    
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                 NSMutableArray *events = [NSMutableArray new];
+                 for (NSDictionary* value in response) {
+                     [events addObject: [Helper dictToEvent:value ]];
+                 }
+                 completionBlock(events);
+             }];
 }
 
+//create a event
 + (void)CreateEvent:(Event *)event
          completion:(void (^)(BOOL result))completionBlock{
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSString *apiName = @"createEvent";
     NSDictionary *params = @{   @"creatorID":uid,
                                 @"title":event.title,
                                 @"subject":event.subject,
                                 @"notes":event.notes,
                                 @"location":event.location,
-                                @"startTime":[self datetimeToString:event.startTime],
-                                @"endTime":[self datetimeToString:event.endTime],
+                                @"startTime":[Helper datetimeToString:event.startTime],
+                                @"endTime":[Helper datetimeToString:event.endTime],
                                 @"latitude":[NSNumber numberWithFloat:event.latitude],
                                 @"longitude":[NSNumber numberWithFloat:event.longitude]
                                 };
     
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                  completionBlock([[response objectForKey:@"result"] boolValue]);
+             }];
+}
+
+//apply to candidate
++ (void)applyToCandidate:(int) eventId
+        completion:(void (^)(BOOL result))completionBlock{
+
+    NSString *apiName = @"applyEvent";
+    NSDictionary *params = @{ @"eventId":[NSNumber numberWithInt:eventId] };
+
     
-    NSString *string = [NSString stringWithFormat:@"%@createEvent/", BaseURLString];
-    [manager POST:string parameters:params
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                 completionBlock([[response objectForKey:@"result"] boolValue]);
+             }];
+}
+
+//comfirm a candidate
++ (void)comfirmCandidate:(int) candidateId
+              completion:(void (^)(BOOL result))completionBlock{
+    
+    NSString *apiName = @"applyCandidate";
+    NSDictionary *params = @{ @"candidateId":[NSNumber numberWithInt:candidateId] };
+    
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                 completionBlock([[response objectForKey:@"result"] boolValue]);
+             }];
+}
+
+//network core function
++(void) networkDealer:(NSString*) apiName
+               params:(NSDictionary*) params
+           completion:(void (^)(NSDictionary * response))completionBlock {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    NSString* url = [BaseURLString stringByAppendingString: apiName];
+    
+    NSLog(@"Call api url: %@", url);
+    [manager POST:url parameters:params
           success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"JSON: %@", responseObject);
-         NSDictionary *response = (NSDictionary *)responseObject;
-         completionBlock([[response objectForKey:@"result"] boolValue]);
+         NSLog(@"Api response: %@", responseObject);
+         completionBlock((NSDictionary*)responseObject);
+         
      }
           failure:
      ^(AFHTTPRequestOperation *operation, NSError *error) {
-         [self showNetWorkAlertWindow:error];
+         NSLog(@"network error: %@", error);
+         [Helper showNetWorkAlertWindow:error];
      }];
 }
-
-
 
 @end

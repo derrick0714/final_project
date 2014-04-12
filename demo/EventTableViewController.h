@@ -7,15 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-//three selectors for coming|pending|history
-typedef enum {
-	COMING = 0,
-	PENDING,
-	HISTORY
-} EventsSelector;
-
-
+#import "Event.h"
 @interface EventTableViewController : UITableViewController{
     //three-way segmented control
     IBOutlet UISegmentedControl *Segment;

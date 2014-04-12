@@ -8,7 +8,7 @@
 
 #import "AddEventTableViewController.h"
 #import "NetWorkApi.h"
-#import "Event.h"
+#import "../Event.h"
 #import "AddMeetingMapViewController.h"
 
 @interface AddEventTableViewController ()

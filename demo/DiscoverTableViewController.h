@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FilterTableViewController.h"
+#import "Event.h"
 
 @interface DiscoverTableViewController : UITableViewController
 @property SortBy sortBy;

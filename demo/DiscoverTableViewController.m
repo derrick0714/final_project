@@ -14,6 +14,7 @@
 #import "NetWorkApi.h"
 
 @interface DiscoverTableViewController ()
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property NSMutableArray* events;
 - (IBAction)refresh:(id)sender;
 @end
@@ -206,9 +207,8 @@
     //this is temporary code, need to be changed
     float temp_latitude = 0.1;
     float temp_longitude = 0.1;
-    NSString* temp_keyword = @"";
+    NSString* temp_keyword = self.searchBar.text;
     //
-    
     
     [NetWorkApi discoverEventByKeyworkd:temp_keyword
                                 subject:self.subject
@@ -220,6 +220,12 @@
                                  self.events = [[NSMutableArray alloc] initWithArray:events];
                                  [self.tableView reloadData];
                              }];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
+    [self refresh:nil];
+    [searchBar resignFirstResponder];
 }
 
 - (IBAction)refresh {
