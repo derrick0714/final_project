@@ -65,8 +65,8 @@
     new.startTime = [self stringToDatetime :(NSString*)[dict objectForKey:@"startTime"]];
     new.endTime = [self stringToDatetime :(NSString*)[dict objectForKey:@"endTime"]];
     
-    new.latitude = [(NSNumber*)[dict objectForKey:@"latitude"] intValue];
-    new.longitude = [(NSNumber*)[dict objectForKey:@"longitude"] intValue];
+    new.latitude = [(NSNumber*)[dict objectForKey:@"latitude"] doubleValue];
+    new.longitude = [(NSNumber*)[dict objectForKey:@"longitude"] doubleValue];
     return new;
 }
 @end
