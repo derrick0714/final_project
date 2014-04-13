@@ -7,10 +7,13 @@
 //
 
 #import "EventDetailTableViewController.h"
+#import "EventMapViewController.h"
 
 @interface EventDetailTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *titleCell;
-@property (weak, nonatomic) IBOutlet UITableViewCell *notesCell;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *subjectCell;
+@property (weak, nonatomic) IBOutlet UITextView *questionDetail;
 @property (weak, nonatomic) IBOutlet UITableViewCell *startTimeCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *endTimeCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *locationCell;
@@ -38,7 +41,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.titleCell.detailTextLabel.text = self.event.title;
-	self.notesCell.detailTextLabel.text = self.event.notes;
+    NSLog(@"subject: %@", self.event.subject);
+    self.subjectCell.detailTextLabel.text = self.event.subject;
+	self.questionDetail.text = self.event.notes;
 	self.startTimeCell.detailTextLabel.text = [NSDateFormatter localizedStringFromDate:self.event.startTime
 																			 dateStyle:NSDateFormatterShortStyle
 																			 timeStyle:NSDateFormatterShortStyle];
@@ -62,6 +67,7 @@
     return 4;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
@@ -73,6 +79,17 @@
         default: return 0;
     }
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if([segue.identifier isEqualToString:@"showEventOnMap"]){
+        EventMapViewController *controller = (EventMapViewController *)segue.destinationViewController;
+        controller.latitude = self.event.latitude;
+        controller.longitude = self.event.longitude;
+    }
+}
+
+
 
 - (IBAction)unwindEventDetailTableView:(UIStoryboardSegue *) segue
 {

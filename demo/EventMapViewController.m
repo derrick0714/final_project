@@ -16,6 +16,9 @@
 @synthesize eventOnMap;
 @synthesize eventAnnotation;
 
+@synthesize latitude;
+@synthesize longitude;
+
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 //{
 //    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -35,9 +38,14 @@
     eventAnnotation = [[MKPointAnnotation alloc]init];
     
     CLLocationCoordinate2D pinCoordinate;
+
+//    test
+//    latitude =21.212122;
+//    longitude =32.323232;
+    
     //this location coordinates shuold be replaced by the parameters sent from server
-    pinCoordinate.latitude = 51.49795; //should be data from server / double float type
-    pinCoordinate.longitude = 21.174056; //should be data from server / double float type
+    pinCoordinate.latitude = latitude; //should be data from server / double float type
+    pinCoordinate.longitude = longitude; //should be data from server / double float type
     eventAnnotation.coordinate = pinCoordinate;
     
     eventAnnotation.title = @"Need help with Computer Mathematics";

@@ -10,11 +10,11 @@
 #import "MeetingScheduleData.h"
 #import "Event.h"
 
-@interface AddEventTableViewController : UITableViewController<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
+@interface AddEventTableViewController : UITableViewController<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UITextViewDelegate>
 
 @property MeetingScheduleData *scheduleData;
 @property Event *event;
-@property (weak, nonatomic) IBOutlet UIPickerView *subjectPickerView;
+
 //coordinate information
 @property double latitude;
 @property double longitude;

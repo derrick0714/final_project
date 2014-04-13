@@ -18,8 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleText;
 //locationText will not be presented on the events table view, but will bu stored in database
 @property (weak, nonatomic) IBOutlet UITextField *locationText;
-@property (weak, nonatomic) IBOutlet UITextField *questionDetail;
-
+@property (weak, nonatomic) IBOutlet UITextView *questionDetail;
 //start and end time
 @property (weak, nonatomic) IBOutlet UILabel *startTime;
 @property (weak, nonatomic) IBOutlet UILabel *endTime;
@@ -78,7 +77,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [self.subjectPickerView setDelegate: self];
+    [self.subjectPicker setDelegate: self];
     
     self.subjectArray  = [[NSArray alloc]         initWithObjects:@"Math",@"Physics",@"ComputerScience",@"Biology",@"Economics",@"E.E." , nil];
 
@@ -145,8 +144,6 @@
     return 6;
 }
 
-
-
 //- (BOOL)textFieldShouldReturn:(UITextField *)textField
 //{
 //    //  NSLog(@"12");
@@ -155,7 +152,6 @@
 //    [textField resignFirstResponder];
 //    return true;
 //}
-
 
 //--------------------- Key board dismiss---------------------------
 - (void)titleKeyboardWillHide:(NSNotification *)n
@@ -200,19 +196,22 @@
 -(void)dismissKeyboard {
     [self.view endEditing:YES]; //make the view end editing!
 }
+
+//dismiss the keyboard when scrolling the tabel view
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.titleText resignFirstResponder];
+    [self.locationText resignFirstResponder];
+}
 //----------------------    Key  board   ---------------------------
 
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    
     return [self.subjectArray objectAtIndex:row];
-    
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
 {
-    
     self.subjectFromPicker.text = [self.subjectArray objectAtIndex: row];
 }
 
@@ -220,11 +219,13 @@
 
 //initialize and create the date formatter
 - (void)createDateFormatter {
-    
     self.dateFormatter = [[NSDateFormatter alloc] init];
     [self.dateFormatter setDateStyle:NSDateFormatterShortStyle];
     [self.dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 }
+
+//subject picker changed:
+
 
 
 //below two functions are used to handle the change of date pickers
@@ -232,7 +233,6 @@
     
     [self createDateFormatter];
     self.startTime.text =  [self.dateFormatter stringFromDate:sender.date];
-    
     //storing the user picker's data
     self.startTimeFromPicker = sender.date;
 }
@@ -240,9 +240,7 @@
 - (IBAction)endDatePickerChanged:(UIDatePicker *)sender {
     
     [self createDateFormatter];
-    
     self.endTime.text =  [self.dateFormatter stringFromDate:sender.date];
-    
     //storing the user picker's data
     self.endTimeFromPicker = sender.date;
 }
@@ -255,13 +253,14 @@
     if (indexPath.row == 2){
         height = self.subjectPickerIsShowing ? 185 : 0.0f;
     }
-    
     if (indexPath.row == 4){
         height = self.startDatePickerIsShowing ? 165 : 0.0f;
     }
-    
     if (indexPath.row == 6){
         height = self.endDatePickerIsShowing ? 165 : 0.0f;
+    }
+    if (indexPath.row == 9) {
+        height = 162;
     }
     
     return height;
@@ -437,11 +436,7 @@
 		self.event = [[Event alloc] init];
 		self.event.title = self.titleText.text;
         
-        if(self.subjectFromPicker.text){
-            self.event.subject = self.subjectFromPicker.text;
-        }
-        else
-            self.event.subject = @"Math"; //defualt value of subject
+        self.event.subject = self.subjectFromPicker.text;
             
         if (self.startTimeFromPicker) {
             self.event.startTime = self.startTimeFromPicker;
@@ -458,12 +453,13 @@
 		self.event.location = self.locationText.text;
 		self.event.notes = self.questionDetail.text;
         
-        //add latitude and longitude here:
-        self.latitude = 0.0;  //to be modified
-        self.longitude = 0.0;  //to be modified
-        
         self.event.latitude = self.latitude;
         self.event.longitude = self.longitude;
+        
+        //test to see if the values are successfully passed
+        NSLog(@"latitude %f", self.event.latitude);
+        NSLog(@"longitude %f", self.event.longitude);
+        NSLog(@"subject %@", self.event.subject);
         
         [NetWorkApi CreateEvent:self.event
                      completion:^(BOOL result){

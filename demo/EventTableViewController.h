@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
-@interface EventTableViewController : UITableViewController{
+@interface EventTableViewController : UITableViewController<UIScrollViewDelegate>{
     //three-way segmented control
     IBOutlet UISegmentedControl *Segment;
 }

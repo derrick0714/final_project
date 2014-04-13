@@ -14,4 +14,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *eventOnMap;
 @property MKPointAnnotation *eventAnnotation;
 
+@property double latitude;
+@property double longitude;
+
 @end
