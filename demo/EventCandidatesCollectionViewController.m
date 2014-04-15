@@ -67,7 +67,7 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     //click candidate picture to move to the candidate detail
 	NSIndexPath *ip = [self.collectionView indexPathForCell:(UICollectionViewCell *)sender];
-	User *u = [self.candidates objectAtIndex:ip.item];
+	User *u = [User initWithUser:(User *)[self.candidates objectAtIndex:ip.item]];
 	MeTableViewController *destVC = (MeTableViewController *)[segue destinationViewController];
 	destVC.userid = (int)u.userID;
 	if (self.isSelfEvent) {

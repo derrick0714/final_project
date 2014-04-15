@@ -19,4 +19,6 @@
 @property float userRating;
 @property UIImage* photo;
 
++ (id) initWithUser:(User *)u;
+
 @end

@@ -562,7 +562,7 @@
                                 <connections>
                                     <outlet property="image" destination="mmm-yE-wLA" id="iE0-Ab-gcF"/>
                                     <outlet property="nameLabel" destination="mHU-vU-ROM" id="JlB-dw-p4A"/>
-                                    <segue destination="6Zh-Bg-I6Z" kind="push" identifier="segue_show_candidate" id="YCe-5V-vCL"/>
+                                    <segue destination="go0-ZR-daN" kind="push" identifier="segue_show_candidate" id="Vk2-Wd-SH8"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -1659,7 +1659,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="3lY-OP-8BW"/>
-        <segue reference="7RF-8X-Xej"/>
-        <segue reference="YCe-5V-vCL"/>
+        <segue reference="Vk2-Wd-SH8"/>
     </inferredMetricsTieBreakers>
 </document>
