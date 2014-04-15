@@ -96,26 +96,13 @@
 {
 	Event *e = [self.events objectAtIndex: indexPath.row];
 	
-	// Default cell
-	//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"discover_item_cell" forIndexPath:indexPath];
-	//    // Configure the cell...
-	//    cell.textLabel.text = e.title;
-	//	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",
-	//								 e.location,
-	//								 [NSDateFormatter localizedStringFromDate:e.startTime
-	//																dateStyle:NSDateFormatterShortStyle
-	//																timeStyle:NSDateFormatterShortStyle]];
-	//	return cell;
-	
-	// Custom cell
 	EventCustomCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomEventTableCell"
 																		 forIndexPath:indexPath];
 	if(!cell) {
 		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomEventTableCell" owner:self options:nil];
 		cell = [nib objectAtIndex:0];
 	}
-	NSLog(@"%@ %d", e.title, [self.events count]);
-    
+	NSLog(@"%@ %ld", e.title, [self.events count]);
     
     // Initialization cell style code
     cell.numberOfApplicant.layer.cornerRadius = 15.0;
@@ -128,7 +115,7 @@
 													timeStyle:NSDateFormatterShortStyle];
     //this cell should be filled with data from the server
     cell.numberOfApplicant.text = [NSString stringWithFormat:@"%d", e.numOfCandidates];
-    
+//    cell.imageView.image = e.
 	return cell;
 }
 
