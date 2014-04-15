@@ -8,16 +8,19 @@
 
 #import "EventDetailTableViewController.h"
 #import "EventMapViewController.h"
+#import "NetWorkApi.h"
+#import "User.h"
 
 @interface EventDetailTableViewController ()
+@property (weak, nonatomic) IBOutlet UITableViewCell *userCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *titleCell;
-
 @property (weak, nonatomic) IBOutlet UITableViewCell *subjectCell;
 @property (weak, nonatomic) IBOutlet UITextView *questionDetail;
 @property (weak, nonatomic) IBOutlet UITableViewCell *startTimeCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *endTimeCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *locationCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *candidatesCell;
+@property User *creator;
 @end
 
 @implementation EventDetailTableViewController
@@ -53,6 +56,9 @@
 																		   timeStyle:NSDateFormatterShortStyle];
 	self.locationCell.detailTextLabel.text = self.event.location;
 	self.candidatesCell.detailTextLabel.text = [NSString stringWithFormat:@"%d", self.event.numOfCandidates];
+	[NetWorkApi getUserInfo:self.event.creatorID completion:^(User *user) {
+//		self.userCell.textLabel.text = user.userName;
+	}];
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,13 +94,6 @@
         controller.latitude = self.event.latitude;
         controller.longitude = self.event.longitude;
     }
-}
-
-
-
-- (IBAction)unwindEventDetailTableView:(UIStoryboardSegue *) segue
-{
-    
 }
 
 /*

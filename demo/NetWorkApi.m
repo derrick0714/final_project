@@ -150,6 +150,19 @@ static NSNumber* uid;
                  completionBlock([[response objectForKey:@"result"] boolValue]);
              }];
 }
+//get user info
++ (void)getUserInfo:(int) uid
+         completion:(void (^)(User* user))completionBlock{
+    NSString *apiName = @"getUserInfo";
+    NSDictionary *params = @{ @"uid":[NSNumber numberWithInt:uid] };
+    
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                 completionBlock([Helper dictToUser:response ]);
+             }];
+
+}
 
 //network core function
 +(void) networkDealer:(NSString*) apiName
