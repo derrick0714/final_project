@@ -14,6 +14,7 @@
 #import <QuartzCore/QuartzCore.h>
 //import custom tableview cell
 #import "EventCustomCellTableViewCell.h"
+#import "EventDetailTableViewController.h"
 #import "NetWorkApi.h"
 
 @interface EventTableViewController ()
@@ -43,7 +44,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -115,10 +115,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    
     return [self.events count];
-    // return [self.MeetingScheduleDataObjects count];
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -141,14 +138,28 @@
 													dateStyle:NSDateFormatterShortStyle
 													timeStyle:NSDateFormatterShortStyle];
     //this should be modified, and the type from sever should be string
-    cell.numberOfApplicant.text = @"5";
-
+    cell.numberOfApplicant.text = [NSString stringWithFormat:@"%d", e.numOfCandidates];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 80;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	[self performSegueWithIdentifier:@"segueEventDetail"
+							  sender:[self.tableView cellForRowAtIndexPath:indexPath]];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqual:@"segueEventDetail"]) {
+        EventDetailTableViewController *destVC = [segue destinationViewController];
+        NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
+		Event *e = [self.events objectAtIndex:ip.row];
+		destVC.event = [Event initWithEvent:e];
+    }
+    
 }
 
 - (IBAction)unwindEventTableView:(UIStoryboardSegue *) segue
@@ -158,6 +169,7 @@
 	if (srcVC.event!=nil) {
         Event *e = [Event initWithEvent:srcVC.event];
         [self.events addObject:e];
+        
     }
 	[self.tableView reloadData];
 }
