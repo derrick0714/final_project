@@ -86,7 +86,7 @@
         photo_name = @"luming.png";
     UIImage *img = [[UIImage alloc] init];
     img = [UIImage imageNamed:photo_name];
-    
+    new.photo = img;
     return new;
 }
 @end
