@@ -842,19 +842,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5NO-Zu-ejl">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="aFf-rr-cpf">
-                            <connections>
-                                <segue destination="Uyf-Vd-Nka" kind="unwind" unwindAction="unwindEventDetailTableView:" id="Qnj-UA-Vna"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="5NO-Zu-ejl"/>
                     <connections>
                         <outlet property="eventOnMap" destination="GPM-z6-cEh" id="2e6-tH-TUL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugm-wU-xkN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Uyf-Vd-Nka" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2414" y="4"/>
         </scene>
