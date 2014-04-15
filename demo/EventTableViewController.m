@@ -24,6 +24,7 @@
 @property NSMutableArray* cellTitle;
 @property NSMutableArray* cellTime;
 @property NSMutableArray* cellLocation;
+@property NSMutableArray* userphoto;
 
 //date formatter
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
@@ -132,6 +133,7 @@
     cell.numberOfApplicant.layer.masksToBounds = YES;
     
     // Configure the cell...
+    //cell.imageView.image = e.photo;
     cell.title.text = e.title;
 	cell.location.text = e.location;
     cell.time.text = [NSDateFormatter localizedStringFromDate:e.startTime
