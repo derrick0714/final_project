@@ -812,6 +812,7 @@
                         <outlet property="startTimeCell" destination="pxC-Ro-Gwh" id="IyZ-KD-k80"/>
                         <outlet property="subjectCell" destination="p7N-A1-vXg" id="Nlf-uP-Me5"/>
                         <outlet property="titleCell" destination="cXS-la-krg" id="HBD-Lq-0r3"/>
+                        <outlet property="userCell" destination="ZME-2d-4Km" id="FRl-NK-wAb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="alI-a3-pZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
