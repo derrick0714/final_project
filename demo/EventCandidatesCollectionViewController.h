@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EventCandidatesCollectionViewController : UICollectionViewController
-
+@property int eventid;
 @end

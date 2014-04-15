@@ -33,11 +33,10 @@
 	//	[NetWorkApi candidatesByEventID:@"" completion:^(NSMutableArray *candidates)] {
 //	self.candidates = [[NSMutableArray alloc] initWithArray:candidates];
 	self.candidates = [NSMutableArray arrayWithArray:@[@"Alice", @"Bob", @"Charlie", @"Dick"]];
-	[NetWorkApi ]
-	NSMutableArray *candidates =
+	[NetWorkApi candidatesList:self.eventid completion:^(NSMutableArray *candidates) {
+		self.candidates = [NSMutableArray arrayWithArray:candidates];
+	}];
 	[self.collectionView reloadData];
-	//                             }];
-	
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,8 +57,9 @@
 				  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 	CandidateCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"CandidateCell"
 																					   forIndexPath:indexPath];
-//	cell.image.i
-	cell.nameLabel.text = [self.candidates objectAtIndex:indexPath.item];
+	User* u = [self.candidates objectAtIndex:indexPath.item];
+	cell.nameLabel.text = u.userName;
+	cell.image.image = u.photo;
 	return cell;
 }
 
