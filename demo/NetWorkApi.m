@@ -122,16 +122,18 @@ static NSNumber* uid;
 
 //apply to candidate
 + (void)applyToCandidate:(int) eventId
-        completion:(void (^)(BOOL result))completionBlock{
+        completion:(void (^)(BOOL result, NSString* desc))completionBlock{
 
     NSString *apiName = @"applyEvent";
-    NSDictionary *params = @{ @"eventId":[NSNumber numberWithInt:eventId] };
+    NSDictionary *params = @{ @"eventId":[NSNumber numberWithInt:eventId],
+                              @"uid": uid
+                              };
 
     
     [self networkDealer:apiName
                  params:params
              completion:^(NSDictionary *response) {
-                 completionBlock([[response objectForKey:@"result"] boolValue]);
+                 completionBlock([[response objectForKey:@"result"] boolValue], [response objectForKey:@"desc"]);
              }];
 }
 
