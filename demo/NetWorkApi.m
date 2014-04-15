@@ -159,7 +159,10 @@ static NSNumber* uid;
     [self networkDealer:apiName
                  params:params
              completion:^(NSDictionary *response) {
-                 completionBlock([Helper dictToUser:response ]);
+                 for (NSDictionary* value in response) {
+                     completionBlock([Helper dictToUser:value]);
+                 }
+                 
              }];
 
 }
