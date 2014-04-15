@@ -140,6 +140,24 @@ static NSNumber* uid;
              }];
 }
 
+//get candidates list
++ (void)candidatesList:(int) eventId
+              completion:(void (^)(NSMutableArray *candidates))completionBlock{
+    
+    NSString *apiName = @"candidateList";
+    NSDictionary *params = @{ @"eventId":[NSNumber numberWithInt:eventId]
+                              };
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                 NSMutableArray *candidates = [NSMutableArray new];
+                 for (NSDictionary* value in response) {
+                     [candidates addObject: [Helper dictToUser:value ]];
+                 }
+                 completionBlock(candidates);
+             }];
+}
+
 //comfirm a candidate
 + (void)comfirmCandidate:(int) candidateId
               completion:(void (^)(BOOL result))completionBlock{
