@@ -114,7 +114,7 @@
 		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomEventTableCell" owner:self options:nil];
 		cell = [nib objectAtIndex:0];
 	}
-	NSLog(@"%@ %d", e.title, [self.events count]);
+	NSLog(@"%@ %ld", e.title, [self.events count]);
     
     
     // Initialization cell style code

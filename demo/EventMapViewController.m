@@ -56,7 +56,6 @@
     CLLocationCoordinate2D loc = eventAnnotation.coordinate;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
     [self.eventOnMap setRegion:region animated:YES];
-    
 }
 
 - (void)didReceiveMemoryWarning
