@@ -71,9 +71,7 @@
 	MeTableViewController *destVC = (MeTableViewController *)[segue destinationViewController];
 	destVC.userid = (int)u.userID;
 	destVC.eventID = self.eventid;
-	if (self.isSelfEvent) {
-		destVC.isApplicantToMe = true;
-	}
+	destVC.isApplicantToMe = self.isSelfEvent;
 }
 
 /*
