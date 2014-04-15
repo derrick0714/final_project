@@ -108,6 +108,9 @@
 	} else if([segue.identifier isEqualToString:@"segue_show_candidates"]) {
 		EventCandidatesCollectionViewController *destVC = (EventCandidatesCollectionViewController *)segue.destinationViewController;
 		destVC.eventid = self.event.eventID;
+        if (self.isSelfEvent) {
+            destVC.isSelfEvent = true;
+        }
 	}
 }
 

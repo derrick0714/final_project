@@ -13,9 +13,15 @@
 
 @interface MeTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *userCell;
+@property UIAlertView *alert;
 @end
 
 @implementation MeTableViewController
+
+@synthesize acceptButton;
+@synthesize eventID;
+@synthesize meTableViewTitle;
+@synthesize isApplicantToMe;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,6 +41,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if (!self.isApplicantToMe) {
+        [acceptButton setEnabled:NO];
+        meTableViewTitle.title = @"Applicant";
+    }
+    
 	[NetWorkApi getUserInfo:self.userid
 				 completion:^(User *user) {
 					 self.userCell.textLabel.text = user.userName;
@@ -66,6 +77,15 @@
     if(section ==0)
         return 1;
     return 2;
+}
+
+- (IBAction)acceptButton:(id)sender {
+    [NetWorkApi confirmCandidate:eventID candidateId:self.userid completion:^(BOOL result) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Successfully Accept" message: @"This applicant is successfully added." delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }];
+    
+    
 }
 
 /*

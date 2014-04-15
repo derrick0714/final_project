@@ -562,7 +562,7 @@
                                 <connections>
                                     <outlet property="image" destination="mmm-yE-wLA" id="iE0-Ab-gcF"/>
                                     <outlet property="nameLabel" destination="mHU-vU-ROM" id="JlB-dw-p4A"/>
-                                    <segue destination="6Zh-Bg-I6Z" kind="push" identifier="segue_show_candidate" id="YCe-5V-vCL"/>
+                                    <segue destination="go0-ZR-daN" kind="push" identifier="segue_show_candidate" id="Vk2-Wd-SH8"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -1376,8 +1376,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="go0-ZR-daN" id="QHB-o3-UpI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Me" id="3aT-b2-ySV"/>
+                    <navigationItem key="navigationItem" title="Me" id="3aT-b2-ySV">
+                        <barButtonItem key="rightBarButtonItem" title="Accept" id="ksd-f1-4hN">
+                            <connections>
+                                <action selector="acceptButton:" destination="go0-ZR-daN" id="H50-yP-4NB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="acceptButton" destination="ksd-f1-4hN" id="1hY-58-0ff"/>
+                        <outlet property="meTableViewTitle" destination="3aT-b2-ySV" id="r9a-ek-a0Z"/>
                         <outlet property="userCell" destination="ow1-rG-v5i" id="DyF-wg-pYC"/>
                     </connections>
                 </tableViewController>

@@ -10,4 +10,5 @@
 
 @interface EventCandidatesCollectionViewController : UICollectionViewController
 @property int eventid;
+@property BOOL isSelfEvent;
 @end
