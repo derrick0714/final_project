@@ -89,7 +89,8 @@ static NSNumber* uid;
            completion:(void (^)(NSMutableArray *events))completionBlock{
     
     NSString *apiName = @"eventByStatus";
-    NSDictionary *params = @{ @"status": [NSNumber numberWithInt: status]};
+    NSDictionary *params = @{ @"status": [NSNumber numberWithInt: status],
+                              @"uid":uid};
     [self networkDealer:apiName
                  params:params
              completion:^(NSDictionary *response) {
