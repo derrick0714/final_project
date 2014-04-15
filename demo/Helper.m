@@ -56,6 +56,7 @@
     new.eventID = [(NSNumber*)[dict objectForKey:@"eventID"] intValue];
     new.status = [(NSNumber*)[dict objectForKey:@"status"] intValue];
     new.canidateID = [(NSNumber*)[dict objectForKey:@"canidateID"] intValue];
+    new.numOfCandidates =[(NSNumber*)[dict objectForKey:@"numOfCandidates"] intValue];
     new.title = (NSString*)[dict objectForKey:@"title"];
     new.subject = (NSString*)[dict objectForKey:@"subject"];
     new.notes = (NSString*)[dict objectForKey:@"notes"];
