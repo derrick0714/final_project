@@ -271,6 +271,7 @@
 				Event *e = [self.events objectAtIndex:self.currentEventIndexPath.row];
 				e.numOfCandidates++;
 				[self.tableView reloadData];
+				self.currentEventIndexPath = nil;
 			} else {
 				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
 																message:desc
