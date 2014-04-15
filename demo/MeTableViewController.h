@@ -19,5 +19,5 @@
 @property BOOL isApplicantToMe;
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *meTableViewTitle;
-
+@property int eventID;
 @end

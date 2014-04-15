@@ -181,6 +181,7 @@
 		NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
 		Event *e = [self.events objectAtIndex:ip.row];
 		destVC.event = [Event initWithEvent:e];
+		destVC.isSelfEvent = (e.creatorID == [NetWorkApi getSelfId]);
 		self.currentEventIndexPath = ip;
     } else if([segue.identifier isEqual:@"segue_filter"]) {
         FilterTableViewController *destVC = [segue destinationViewController];
