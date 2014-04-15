@@ -70,6 +70,7 @@
 	User *u = [User initWithUser:(User *)[self.candidates objectAtIndex:ip.item]];
 	MeTableViewController *destVC = (MeTableViewController *)[segue destinationViewController];
 	destVC.userid = (int)u.userID;
+	destVC.eventID = self.eventid;
 	if (self.isSelfEvent) {
 		destVC.isApplicantToMe = true;
 	}
