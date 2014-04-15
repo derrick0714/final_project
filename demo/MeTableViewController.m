@@ -80,10 +80,12 @@
 }
 
 - (IBAction)acceptButton:(id)sender {
-    [NetWorkApi confirmCandidate:<#(int)#> candidateId:<#(int)#> completion:<#^(BOOL result)completionBlock#>]
+    [NetWorkApi confirmCandidate:eventID candidateId:self.userid completion:^(BOOL result) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Successfully Accept" message: @"This applicant is successfully added." delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [self.alert show];
+    }];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Successfully Accept" message: @"This applicant is successfully added." delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [self.alert show];
+    
 }
 
 /*
