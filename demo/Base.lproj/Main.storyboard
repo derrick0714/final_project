@@ -1310,9 +1310,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="S4g-PP-Fez" kind="push" identifier="segueEditProfile" id="zhP-bS-5Mt"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1403,7 +1400,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <tableViewSection id="Yf3-kF-RKZ">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="cell_photo" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" editingAccessoryType="disclosureIndicator" textLabel="xvX-XB-HAQ" imageView="gYu-iO-PUk" rowHeight="90" style="IBUITableViewCellStyleDefault" id="Lik-aM-vME">
-                                        <rect key="frame" x="0.0" y="99" width="320" height="90"/>
+                                        <rect key="frame" x="0.0" y="35" width="320" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lik-aM-vME" id="e60-IP-6iN">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="89"/>
@@ -1428,7 +1425,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <tableViewSection id="d0b-5Y-mTu">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="8uF-nn-4AR" detailTextLabel="0Al-cf-NB4" style="IBUITableViewCellStyleValue2" id="Qpo-ND-OeK">
-                                        <rect key="frame" x="0.0" y="209" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="145" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" tableViewCell="Qpo-ND-OeK" id="sCc-Nw-FTN">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -1455,7 +1452,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Yfh-Al-UfW" detailTextLabel="jJA-X1-93p" style="IBUITableViewCellStyleValue2" id="ssJ-53-EV8">
-                                        <rect key="frame" x="0.0" y="253" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="189" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" tableViewCell="ssJ-53-EV8" id="8TP-Kl-H2B">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>

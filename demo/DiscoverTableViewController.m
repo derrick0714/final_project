@@ -115,7 +115,9 @@
 													timeStyle:NSDateFormatterShortStyle];
     //this cell should be filled with data from the server
     cell.numberOfApplicant.text = [NSString stringWithFormat:@"%d", e.numOfCandidates];
-//    cell.imageView.image = e.
+	[NetWorkApi getUserInfo:e.creatorID completion:^(User *user) {
+		cell.imageView.image = user.photo;
+	}];
 	return cell;
 }
 
@@ -246,28 +248,38 @@
 		[self refresh];
 	} else if([[segue sourceViewController] isKindOfClass:[EventDetailTableViewController class]]) {
 		EventDetailTableViewController *detailVC = [segue sourceViewController];
-		[NetWorkApi applyToCandidate:detailVC.event.eventID
-						  completion:^(BOOL result, NSString *desc) {
-			if(result) {
-				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Applied"
-																message:desc
-															   delegate:nil
-													  cancelButtonTitle:@"OK"
-													  otherButtonTitles:nil];
-				[alert show];
-				Event *e = [self.events objectAtIndex:self.currentEventIndexPath.row];
-				e.numOfCandidates++;
-				[self.tableView reloadData];
-				self.currentEventIndexPath = nil;
-			} else {
-				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-																message:desc
-															   delegate:nil
-													  cancelButtonTitle:@"OK"
-													  otherButtonTitles:nil];
-				[alert show];
-			}
-		}];
+		Event *currentEvent = (Event *)[self.events objectAtIndex:self.currentEventIndexPath.row];
+		if(detailVC.event.creatorID != currentEvent.creatorID) {
+			[NetWorkApi applyToCandidate:detailVC.event.eventID
+							  completion:^(BOOL result, NSString *desc) {
+								  if(result) {
+									  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Applied"
+																					  message:desc
+																					 delegate:nil
+																			cancelButtonTitle:@"OK"
+																			otherButtonTitles:nil];
+									  [alert show];
+									  Event *e = [self.events objectAtIndex:self.currentEventIndexPath.row];
+									  e.numOfCandidates++;
+									  [self.tableView reloadData];
+									  self.currentEventIndexPath = nil;
+								  } else {
+									  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+																					  message:desc
+																					 delegate:nil
+																			cancelButtonTitle:@"OK"
+																			otherButtonTitles:nil];
+									  [alert show];
+								  }
+							  }];
+		} else {
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+															message:@"You cannot apply to an event of your own."
+														   delegate:nil
+												  cancelButtonTitle:@"OK"
+												  otherButtonTitles:nil];
+			[alert show];
+		}
 	}
 }
 

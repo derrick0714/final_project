@@ -44,7 +44,6 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     self.titleCell.detailTextLabel.text = self.event.title;
     NSLog(@"subject: %@", self.event.subject);
     self.subjectCell.detailTextLabel.text = self.event.subject;
@@ -59,6 +58,7 @@
 	self.candidatesCell.detailTextLabel.text = [NSString stringWithFormat:@"%d", self.event.numOfCandidates];
 	NSLog(@"uid: %d, eid: %d", self.event.creatorID, self.event.eventID);
 	[NetWorkApi getUserInfo:self.event.creatorID completion:^(User *user) {
+		self.userCell.imageView.image = user.photo;
 		self.userCell.textLabel.text = user.userName;
 	}];
 }
