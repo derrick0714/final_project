@@ -13,7 +13,6 @@
 @property UIImage *myphoto;
 @property int userid;
 
-
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *acceptButton;
 @property BOOL isApplicantToMe;
 
