@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Event.h"
-#import "FilterTableViewController.h"
-#import "EventTableViewController.h"
+#import "User.h"
 
 @interface Helper : NSObject
 + (NSString *) md5:(NSString *) input;
@@ -17,5 +16,6 @@
 + (Event*) dictToEvent:(NSDictionary*) dict;
 + (NSString*)datetimeToString:(NSDate*) date;
 + (NSDate*)stringToDatetime:(NSString*) date;
++ (User*) dictToUser:(NSDictionary*) dict;
 
 @end

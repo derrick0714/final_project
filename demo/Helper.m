@@ -70,4 +70,11 @@
     new.longitude = [(NSNumber*)[dict objectForKey:@"longitude"] doubleValue];
     return new;
 }
++ (User*) dictToUser:(NSDictionary*) dict{
+    User * new = [[User alloc] init];
+    new.userID = [(NSNumber*)[dict objectForKey:@"userID"] intValue];
+    new.userName = [dict objectForKey:@"userName"];
+    new.userRating = [(NSNumber*)[dict objectForKey:@"userRating"] floatValue];
+    return new;
+}
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Event.h"
+#import "User.h"
 @interface NetWorkApi : NSObject
 + (void)signUpAccountWithUserName:(NSString *)userName
                          password:(NSString *)password
@@ -36,5 +37,8 @@
 
 + (void)comfirmCandidate:(int) candidateId
         completion:(void (^)(BOOL result))completionBlock;
+
++ (void)getUserInfo:(int) uid
+              completion:(void (^)(User* user))completionBlock;
 
 @end
