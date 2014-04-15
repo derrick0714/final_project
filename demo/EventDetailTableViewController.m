@@ -8,10 +8,10 @@
 
 #import "EventDetailTableViewController.h"
 #import "EventMapViewController.h"
+#import "NetWorkApi.h"
 
 @interface EventDetailTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *titleCell;
-
 @property (weak, nonatomic) IBOutlet UITableViewCell *subjectCell;
 @property (weak, nonatomic) IBOutlet UITextView *questionDetail;
 @property (weak, nonatomic) IBOutlet UITableViewCell *startTimeCell;
