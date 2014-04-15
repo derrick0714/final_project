@@ -808,6 +808,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="applyButton" destination="LKw-SW-gzc" id="mpg-Kr-Lo5"/>
                         <outlet property="candidatesCell" destination="GC9-Ua-ajS" id="GjH-By-HwL"/>
                         <outlet property="endTimeCell" destination="4vT-xh-vqw" id="ngB-dY-BBi"/>
                         <outlet property="locationCell" destination="4pr-rL-7Hb" id="hkd-Cr-gSi"/>
@@ -1318,8 +1319,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Liuming Nie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1ZG-P5-ZjX">
-                                                    <rect key="frame" x="79" y="6" width="96" height="22"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Luming Nie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1ZG-P5-ZjX">
+                                                    <rect key="frame" x="79" y="6" width="92" height="22"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

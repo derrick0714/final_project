@@ -27,6 +27,8 @@
 
 @implementation EventDetailTableViewController
 
+@synthesize applyButton;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -45,6 +47,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    if (self.isSelfEvent){
+        [applyButton setEnabled:NO];
+    }
     self.titleCell.detailTextLabel.text = self.event.title;
     NSLog(@"subject: %@", self.event.subject);
     self.subjectCell.detailTextLabel.text = self.event.subject;
