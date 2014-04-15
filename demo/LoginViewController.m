@@ -108,6 +108,11 @@
 
 - (IBAction)login:(id)sender {
     
+//    [NetWorkApi candidatesList:25
+//                    completion:^(NSMutableArray *candidates){
+//                        
+//                    }];
+    
     [NetWorkApi signInAccountWithUserName:self.uname.text
                            password:self.password.text
                          completion:^(BOOL success, NSString* desc) {
