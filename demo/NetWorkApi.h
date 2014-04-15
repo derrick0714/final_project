@@ -35,7 +35,8 @@
 + (void)applyToCandidate:(int) eventId
          completion:(void (^)(BOOL result, NSString* desc))completionBlock;
 
-+ (void)comfirmCandidate:(int) candidateId
++ (void)comfirmCandidate:(int) eventId
+             candidateId:(int) candidateId
         completion:(void (^)(BOOL result))completionBlock;
 
 + (void)getUserInfo:(int) uid
