@@ -33,6 +33,8 @@
 	//	[NetWorkApi candidatesByEventID:@"" completion:^(NSMutableArray *candidates)] {
 //	self.candidates = [[NSMutableArray alloc] initWithArray:candidates];
 	self.candidates = [NSMutableArray arrayWithArray:@[@"Alice", @"Bob", @"Charlie", @"Dick"]];
+	[NetWorkApi ]
+	NSMutableArray *candidates =
 	[self.collectionView reloadData];
 	//                             }];
 	

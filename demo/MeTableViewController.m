@@ -38,6 +38,8 @@
 	[NetWorkApi getUserInfo:self.userid
 				 completion:^(User *user) {
 					 self.userCell.textLabel.text = user.userName;
+					 self.userCell.imageView.image = user.photo;
+					 NSLog(@"Photo: %@", user.photo);
 				 }];
 }
 

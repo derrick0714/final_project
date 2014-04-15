@@ -96,18 +96,6 @@
 {
 	Event *e = [self.events objectAtIndex: indexPath.row];
 	
-	// Default cell
-	//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"discover_item_cell" forIndexPath:indexPath];
-	//    // Configure the cell...
-	//    cell.textLabel.text = e.title;
-	//	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@",
-	//								 e.location,
-	//								 [NSDateFormatter localizedStringFromDate:e.startTime
-	//																dateStyle:NSDateFormatterShortStyle
-	//																timeStyle:NSDateFormatterShortStyle]];
-	//	return cell;
-	
-	// Custom cell
 	EventCustomCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomEventTableCell"
 																		 forIndexPath:indexPath];
 	if(!cell) {
@@ -115,7 +103,6 @@
 		cell = [nib objectAtIndex:0];
 	}
 	NSLog(@"%@ %ld", e.title, [self.events count]);
-    
     
     // Initialization cell style code
     cell.numberOfApplicant.layer.cornerRadius = 15.0;
@@ -128,7 +115,9 @@
 													timeStyle:NSDateFormatterShortStyle];
     //this cell should be filled with data from the server
     cell.numberOfApplicant.text = [NSString stringWithFormat:@"%d", e.numOfCandidates];
-    
+	[NetWorkApi getUserInfo:e.creatorID completion:^(User *user) {
+		cell.imageView.image = user.photo;
+	}];
 	return cell;
 }
 
@@ -259,28 +248,38 @@
 		[self refresh];
 	} else if([[segue sourceViewController] isKindOfClass:[EventDetailTableViewController class]]) {
 		EventDetailTableViewController *detailVC = [segue sourceViewController];
-		[NetWorkApi applyToCandidate:detailVC.event.eventID
-						  completion:^(BOOL result, NSString *desc) {
-			if(result) {
-				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Applied"
-																message:desc
-															   delegate:nil
-													  cancelButtonTitle:@"OK"
-													  otherButtonTitles:nil];
-				[alert show];
-				Event *e = [self.events objectAtIndex:self.currentEventIndexPath.row];
-				e.numOfCandidates++;
-				[self.tableView reloadData];
-				self.currentEventIndexPath = nil;
-			} else {
-				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-																message:desc
-															   delegate:nil
-													  cancelButtonTitle:@"OK"
-													  otherButtonTitles:nil];
-				[alert show];
-			}
-		}];
+		Event *currentEvent = (Event *)[self.events objectAtIndex:self.currentEventIndexPath.row];
+		if(detailVC.event.creatorID != currentEvent.creatorID) {
+			[NetWorkApi applyToCandidate:detailVC.event.eventID
+							  completion:^(BOOL result, NSString *desc) {
+								  if(result) {
+									  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Applied"
+																					  message:desc
+																					 delegate:nil
+																			cancelButtonTitle:@"OK"
+																			otherButtonTitles:nil];
+									  [alert show];
+									  Event *e = [self.events objectAtIndex:self.currentEventIndexPath.row];
+									  e.numOfCandidates++;
+									  [self.tableView reloadData];
+									  self.currentEventIndexPath = nil;
+								  } else {
+									  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+																					  message:desc
+																					 delegate:nil
+																			cancelButtonTitle:@"OK"
+																			otherButtonTitles:nil];
+									  [alert show];
+								  }
+							  }];
+		} else {
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+															message:@"You cannot apply to an event of your own."
+														   delegate:nil
+												  cancelButtonTitle:@"OK"
+												  otherButtonTitles:nil];
+			[alert show];
+		}
 	}
 }
 
