@@ -248,8 +248,8 @@
 		[self refresh];
 	} else if([[segue sourceViewController] isKindOfClass:[EventDetailTableViewController class]]) {
 		EventDetailTableViewController *detailVC = [segue sourceViewController];
-		Event *currentEvent = (Event *)[self.events objectAtIndex:self.currentEventIndexPath.row];
-		if(detailVC.event.creatorID != currentEvent.creatorID) {
+//		Event *currentEvent = (Event *)[self.events objectAtIndex:self.currentEventIndexPath.row];
+		if(detailVC.event.creatorID != [NetWorkApi getSelfId]) {
 			[NetWorkApi applyToCandidate:detailVC.event.eventID
 							  completion:^(BOOL result, NSString *desc) {
 								  if(result) {
