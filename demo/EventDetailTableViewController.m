@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *startTimeCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *endTimeCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *locationCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *candidatesCell;
 @end
 
 @implementation EventDetailTableViewController
@@ -51,6 +52,7 @@
 																		   dateStyle:NSDateFormatterShortStyle
 																		   timeStyle:NSDateFormatterShortStyle];
 	self.locationCell.detailTextLabel.text = self.event.location;
+	self.candidatesCell.detailTextLabel.text = [NSString stringWithFormat:@"%d", self.event.numOfCandidates];
 }
 
 - (void)didReceiveMemoryWarning
