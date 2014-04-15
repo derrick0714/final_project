@@ -63,6 +63,10 @@
 	return cell;
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    //click candidate picture to move to the candidate detail
+}
+
 /*
 #pragma mark - Navigation
 

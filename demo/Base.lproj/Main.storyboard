@@ -1377,9 +1377,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Me" id="3aT-b2-ySV">
-                        <barButtonItem key="rightBarButtonItem" title="Accept" id="ksd-f1-4hN"/>
+                        <barButtonItem key="rightBarButtonItem" title="Accept" id="ksd-f1-4hN">
+                            <connections>
+                                <action selector="acceptButton:" destination="go0-ZR-daN" id="H50-yP-4NB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="acceptButton" destination="ksd-f1-4hN" id="1hY-58-0ff"/>
                         <outlet property="meTableViewTitle" destination="3aT-b2-ySV" id="r9a-ek-a0Z"/>
                         <outlet property="userCell" destination="ow1-rG-v5i" id="DyF-wg-pYC"/>
                     </connections>

@@ -17,6 +17,8 @@
 
 @implementation MeTableViewController
 
+@synthesize acceptButton;
+@synthesize meTableViewTitle;
 @synthesize isApplicantToMe;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -37,6 +39,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if (self.isApplicantToMe) {
+        [acceptButton setEnabled:YES];
+        meTableViewTitle.title = @"Applicant";
+    }
+    
 	[NetWorkApi getUserInfo:self.userid
 				 completion:^(User *user) {
 					 self.userCell.textLabel.text = user.userName;
@@ -68,6 +75,10 @@
     if(section ==0)
         return 1;
     return 2;
+}
+
+- (IBAction)acceptButton:(id)sender {
+    
 }
 
 /*
