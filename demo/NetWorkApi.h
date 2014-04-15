@@ -43,5 +43,5 @@
 
 + (void)updateImage:(NSData*) data
          completion:(void (^)(BOOL result))completionBlock;
-
++ (int)getSelfId;
 @end
