@@ -79,6 +79,14 @@
     new.userID = [(NSNumber*)[dict objectForKey:@"userID"] intValue];
     new.userName = [dict objectForKey:@"userName"];
     new.userRating = [(NSNumber*)[dict objectForKey:@"userRating"] floatValue];
+    NSString* photo_name = @"tom.png";
+    if([new.userName isEqual:@"derrick"])
+        photo_name = @"xu.png";
+    else if([new.userName isEqual:@"luming"])
+        photo_name = @"luming.png";
+    UIImage *img = [[UIImage alloc] init];
+    img = [UIImage imageNamed:photo_name];
+    
     return new;
 }
 @end

@@ -41,4 +41,7 @@
 + (void)getUserInfo:(int) uid
               completion:(void (^)(User* user))completionBlock;
 
++ (void)updateImage:(NSData*) data
+         completion:(void (^)(BOOL result))completionBlock;
+
 @end

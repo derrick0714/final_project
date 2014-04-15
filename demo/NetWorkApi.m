@@ -166,6 +166,22 @@ static NSNumber* uid;
              }];
 
 }
+//upload image
++ (void)updateImage:(NSData*) data
+         completion:(void (^)(BOOL result))completionBlock{
+    NSString *apiName = @"updatePhoto";
+    NSDictionary *params = @{ @"uid":uid,
+                              @"photo":data
+                              };
+    
+//    [self networkDealer:apiName
+//                 params:params
+//             completion:^(NSDictionary *response) {
+//                     completionBlock([[response objectForKey:@"result"] boolValue]);
+//                 
+//             }];
+//
+}
 
 //network core function
 +(void) networkDealer:(NSString*) apiName
