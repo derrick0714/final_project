@@ -13,11 +13,13 @@
 
 @interface MeTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *userCell;
+@property UIAlertView *alert;
 @end
 
 @implementation MeTableViewController
 
 @synthesize acceptButton;
+@synthesize eventID;
 @synthesize meTableViewTitle;
 @synthesize isApplicantToMe;
 
@@ -78,7 +80,10 @@
 }
 
 - (IBAction)acceptButton:(id)sender {
-
+    [NetWorkApi confirmCandidate:<#(int)#> candidateId:<#(int)#> completion:<#^(BOOL result)completionBlock#>]
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Successfully Accept" message: @"This applicant is successfully added." delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [self.alert show];
 }
 
 /*

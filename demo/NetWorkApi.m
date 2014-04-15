@@ -160,7 +160,7 @@ static NSNumber* uid;
 }
 
 //comfirm a candidate
-+ (void)comfirmCandidate:(int) eventId
++ (void)confirmCandidate:(int) eventId
              candidateId:(int) candidateId
               completion:(void (^)(BOOL result))completionBlock{
     

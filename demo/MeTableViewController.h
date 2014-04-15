@@ -12,6 +12,8 @@
 @interface MeTableViewController : UITableViewController
 @property UIImage *myphoto;
 @property int userid;
+@property int eventID;
+
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *acceptButton;
 @property BOOL isApplicantToMe;
