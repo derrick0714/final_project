@@ -262,14 +262,14 @@
 						  completion:^(BOOL result, NSString *desc) {
 			if(result) {
 				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Applied"
-																message:@"You have successfully applied to this event."
+																message:desc
 															   delegate:nil
 													  cancelButtonTitle:@"OK"
 													  otherButtonTitles:nil];
 				[alert show];
 			} else {
 				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-																message:@"Unable to apply to this event."
+																message:desc
 															   delegate:nil
 													  cancelButtonTitle:@"OK"
 													  otherButtonTitles:nil];
