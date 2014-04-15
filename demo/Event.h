@@ -13,15 +13,6 @@ typedef enum {
 	RATING
 } SortBy;
 
-typedef enum {
-	all = 0,
-	math,
-	cs,
-	history,
-	english,
-	sports
-} Subject;
-
 //three selectors for coming|pending|history
 typedef enum {
 	COMING = 0,
@@ -35,6 +26,7 @@ typedef enum {
 //user and candidates
 @property int eventID; // eid
 @property int status; // enum: recruiting: 1; has canidate: 2; ended: 3;
+@property int numOfCandidates;
 @property int canidateID;
 @property int creatorID;
 //events information
