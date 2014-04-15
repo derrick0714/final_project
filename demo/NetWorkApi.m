@@ -160,11 +160,13 @@ static NSNumber* uid;
 }
 
 //comfirm a candidate
-+ (void)comfirmCandidate:(int) candidateId
++ (void)comfirmCandidate:(int) eventId
+             candidateId:(int) candidateId
               completion:(void (^)(BOOL result))completionBlock{
     
     NSString *apiName = @"applyCandidate";
-    NSDictionary *params = @{ @"candidateId":[NSNumber numberWithInt:candidateId] };
+    NSDictionary *params = @{@"eventId": [NSNumber numberWithInt: eventId],
+                             @"candidateId":[NSNumber numberWithInt:candidateId] };
     
     [self networkDealer:apiName
                  params:params
