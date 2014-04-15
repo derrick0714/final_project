@@ -41,8 +41,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    if (self.isApplicantToMe) {
-        [acceptButton setEnabled:YES];
+    if (!self.isApplicantToMe) {
+        [acceptButton setEnabled:NO];
         meTableViewTitle.title = @"Applicant";
     }
     
@@ -82,7 +82,7 @@
 - (IBAction)acceptButton:(id)sender {
     [NetWorkApi confirmCandidate:eventID candidateId:self.userid completion:^(BOOL result) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Successfully Accept" message: @"This applicant is successfully added." delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [self.alert show];
+        [alert show];
     }];
     
     
