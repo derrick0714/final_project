@@ -116,7 +116,7 @@
     //this cell should be filled with data from the server
     cell.numberOfApplicant.text = [NSString stringWithFormat:@"%d", e.numOfCandidates];
 	[NetWorkApi getUserInfo:e.creatorID completion:^(User *user) {
-		cell.imageView.image = user.photo;
+		cell.personalImage.image = user.photo;
 	}];
 	return cell;
 }
