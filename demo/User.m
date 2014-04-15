@@ -9,5 +9,7 @@
 #import "User.h"
 
 @implementation User
-
++ (id) initWithUser {
+	
+}
 @end
