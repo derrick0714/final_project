@@ -10,5 +10,9 @@
 #import "Event.h"
 
 @interface EventDetailTableViewController : UITableViewController
+
 @property Event *event;
+@property BOOL isSelfEvent;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *applyButton;
+
 @end

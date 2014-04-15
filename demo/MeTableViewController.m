@@ -41,6 +41,9 @@
 					 self.userCell.imageView.image = user.photo;
 					 NSLog(@"Photo: %@", user.photo);
 				 }];
+    
+    //get self id:
+    //[NetWorkApi getSelfId];
 }
 
 - (void)didReceiveMemoryWarning
