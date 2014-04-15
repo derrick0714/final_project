@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface MeTableViewController : UITableViewController
 @property UIImage *myphoto;
+@property int userid;
 @end

@@ -8,8 +8,10 @@
 
 #import "MeTableViewController.h"
 #import "EditProfileTableViewController.h"
+#import "NetWorkApi.h"
 
 @interface MeTableViewController ()
+@property (weak, nonatomic) IBOutlet UITableViewCell *userCell;
 
 @end
 
@@ -33,6 +35,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	[NetWorkApi getUserInfo:self.userid
+				 completion:^(User *user) {
+					 self.userCell.textLabel.text = user.userName;
+				 }];
 }
 
 - (void)didReceiveMemoryWarning

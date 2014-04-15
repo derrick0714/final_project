@@ -608,6 +608,9 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="go0-ZR-daN" kind="push" identifier="segue_show_creator_detail" id="7RF-8X-Xej"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1380,6 +1383,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Me" id="3aT-b2-ySV"/>
+                    <connections>
+                        <outlet property="userCell" destination="ow1-rG-v5i" id="DyF-wg-pYC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f1T-nl-4mN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1651,5 +1657,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="YCe-5V-vCL"/>
+        <segue reference="7RF-8X-Xej"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,6 +10,7 @@
 #import "EventMapViewController.h"
 #import "NetWorkApi.h"
 #import "User.h"
+#import "MeTableViewController.h"
 
 @interface EventDetailTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *userCell;
@@ -58,7 +59,7 @@
 	self.candidatesCell.detailTextLabel.text = [NSString stringWithFormat:@"%d", self.event.numOfCandidates];
 	NSLog(@"uid: %d, eid: %d", self.event.creatorID, self.event.eventID);
 	[NetWorkApi getUserInfo:self.event.creatorID completion:^(User *user) {
-//		self.userCell.textLabel.text = user.userName;
+		self.userCell.textLabel.text = user.userName;
 	}];
 }
 
@@ -94,7 +95,10 @@
         EventMapViewController *controller = (EventMapViewController *)segue.destinationViewController;
         controller.latitude = self.event.latitude;
         controller.longitude = self.event.longitude;
-    }
+    } else if([segue.identifier isEqualToString:@"segue_show_creator_detail"]) {
+		MeTableViewController *destVC = (MeTableViewController *)segue.destinationViewController;
+		destVC.userid = self.event.creatorID;
+	}
 }
 
 /*
