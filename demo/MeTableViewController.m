@@ -17,6 +17,8 @@
 
 @implementation MeTableViewController
 
+@synthesize isApplicantToMe;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];

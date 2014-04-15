@@ -12,4 +12,9 @@
 @interface MeTableViewController : UITableViewController
 @property UIImage *myphoto;
 @property int userid;
+
+@property BOOL isApplicantToMe;
+
+@property (weak, nonatomic) IBOutlet UINavigationItem *meTableViewTitle;
+
 @end
