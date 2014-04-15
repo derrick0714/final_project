@@ -11,6 +11,7 @@
 #import "NetWorkApi.h"
 #import "User.h"
 #import "MeTableViewController.h"
+#import "EventCandidatesCollectionViewController.h"
 
 @interface EventDetailTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *userCell;
@@ -92,12 +93,15 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     if([segue.identifier isEqualToString:@"showEventOnMap"]){
-        EventMapViewController *controller = (EventMapViewController *)segue.destinationViewController;
-        controller.latitude = self.event.latitude;
-        controller.longitude = self.event.longitude;
+        EventMapViewController *destVC = (EventMapViewController *)segue.destinationViewController;
+        destVC.latitude = self.event.latitude;
+        destVC.longitude = self.event.longitude;
     } else if([segue.identifier isEqualToString:@"segue_show_creator_detail"]) {
 		MeTableViewController *destVC = (MeTableViewController *)segue.destinationViewController;
 		destVC.userid = self.event.creatorID;
+	} else if([segue.identifier isEqualToString:@"segue_show_candidates"]) {
+		EventCandidatesCollectionViewController *destVC = (EventCandidatesCollectionViewController *)segue.destinationViewController;
+		destVC.eventid = self.event.eventID;
 	}
 }
 

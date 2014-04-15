@@ -9,10 +9,10 @@
 #import "MeTableViewController.h"
 #import "EditProfileTableViewController.h"
 #import "NetWorkApi.h"
+#import "EventCandidatesCollectionViewController.h"
 
 @interface MeTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *userCell;
-
 @end
 
 @implementation MeTableViewController
@@ -123,7 +123,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"segueEditProfile"]) {
- 
         NSIndexPath *a = [NSIndexPath indexPathForRow:0 inSection:0]; // I wanted to update this cell specifically
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:a];
         EditProfileTableViewController * detailViewController = [segue destinationViewController];
@@ -131,8 +130,7 @@
         detailViewController.myphoto =  cell.imageView.image;
         NSIndexPath *b = [NSIndexPath indexPathForRow:0 inSection:0]; // I wanted to update this cell specifically
         UITableViewCell *cell2 = [detailViewController.tableView cellForRowAtIndexPath:b];
-        cell2.imageView.image = cell.imageView.image ;
-        
+        cell2.imageView.image = cell.imageView.image;
     }
 }
 

@@ -31,12 +31,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 	//	[NetWorkApi candidatesByEventID:@"" completion:^(NSMutableArray *candidates)] {
-//	self.candidates = [[NSMutableArray alloc] initWithArray:candidates];
-	self.candidates = [NSMutableArray arrayWithArray:@[@"Alice", @"Bob", @"Charlie", @"Dick"]];
+//	self.candidates = [NSMutableArray arrayWithArray:@[@"Alice", @"Bob", @"Charlie", @"Dick"]];
 	[NetWorkApi candidatesList:self.eventid completion:^(NSMutableArray *candidates) {
 		self.candidates = [NSMutableArray arrayWithArray:candidates];
+		NSLog(@"candidates: %@", self.candidates);
+		[self.collectionView reloadData];
 	}];
-	[self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
