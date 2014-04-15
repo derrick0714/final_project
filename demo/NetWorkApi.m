@@ -16,6 +16,9 @@
 static NSString * const BaseURLString = @"http://ios.dengxu.me/ios_api_v1/";
 static NSNumber* uid;
 
++ (int)getSelfId{
+    return (int)uid;
+}
 
 //sign up
 + (void)signUpAccountWithUserName:(NSString *)userName
