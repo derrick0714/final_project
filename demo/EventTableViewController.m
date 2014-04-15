@@ -70,40 +70,14 @@
 
 //add initial data - this methods should be changed during after the sever is setted up and initial data is loaded from the sever.
 - (void)loadInitialData {
-//    Event *e1 = [Event initWithTitle:@"Discussing iOS Programming"
-//							   notes:@"LOLWTF"
-//						   startTime:[NSDate dateWithTimeIntervalSinceNow:0]
-//							 endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
-//							location:@"RH 715"];
-    
-//        MeetingScheduleData *item1 = [[MeetingScheduleData alloc] init];
-//        //[self createDateFormatter];
-//        item1.Title = @"Discussing iOS Programming";
-//        item1.Location = @"RH 715";
-//        //item1.startTime = @"2014/04/05, 3:00pm";
-//        [self.cellTitle addObject:item1.Title];
-//        [self.cellLocation addObject:item1.Location];
-//        [self.cellTime addObject:@"2014/04/05, 3:00pm"];
-//    
-//        MeetingScheduleData *item2 = [[MeetingScheduleData alloc] init];
-//        //[self createDateFormatter];
-//        item2.Title = @"Discussing Algorithms";
-//        item2.Location = @"JB 213";
-//        //item2.startTime = @"2014/04/05, 3:00pm";
-//        [self.cellTitle addObject:item2.Title];
-//        [self.cellLocation addObject:item2.Location];
-//        [self.cellTime addObject:@"2014/04/05, 4:00pm"];
     
 //initialize events table view with data from the server
     
     [NetWorkApi EventByStatus:self.eventSelectID
-                            completion:^( NSMutableArray* events) {
+                            completion:^(NSMutableArray* events) {
                                 self.events = events;
                                 [self.tableView reloadData];
                         }];
-
-
-    
 }
 
 //events selector: coming, pending, history
@@ -111,7 +85,6 @@
     
     if(Segment.selectedSegmentIndex == 0){
 		self.eventSelectID = (EventsSelector)0;
-        
 	}
     if(Segment.selectedSegmentIndex == 1){
 		self.eventSelectID = (EventsSelector)1;
@@ -147,7 +120,6 @@
     // return [self.MeetingScheduleDataObjects count];
     
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -187,17 +159,6 @@
         Event *e = [Event initWithEvent:srcVC.event];
         [self.events addObject:e];
     }
-    
-//    if (item != nil) {
-//        [self.events addObject:item.Title];
-//        [self.cellTitle addObject: item.Title];
-//        [self.cellLocation addObject: item.Location];
-//        //use date formatter to convert NSDate value in item to string
-//        [self createDateFormatter];
-//        [self.cellTime addObject: [self.dateFormatter stringFromDate:item.startTime]];//@"Time"];
-//
-//        [self.tableView reloadData];
-//    }
 	[self.tableView reloadData];
 }
 

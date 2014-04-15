@@ -1228,7 +1228,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <segments>
                                     <segment title="Coming"/>
                                     <segment title="Pending"/>
-                                    <segment title="History"/>
+                                    <segment title="InitByMe"/>
                                 </segments>
                                 <connections>
                                     <action selector="threeEventSelector" destination="ROn-Bw-q9E" eventType="valueChanged" id="BjO-CD-S5i"/>

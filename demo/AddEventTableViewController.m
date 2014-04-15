@@ -172,11 +172,11 @@
 }
 - (void)detailKeyboardWillHide:(NSNotification *)n
 {
-    [self animateTextField:_questionDetail up:NO];
+    [self animateTextView:_questionDetail up:NO];
 }
 - (void)detailKeyboardWillShow:(NSNotification *)n
 {
-    [self animateTextField:_questionDetail up:YES];
+    [self animateTextView:_questionDetail up:YES];
 }
 
 -(void)animateTextField:(UITextField*)textField up:(BOOL)up
@@ -187,6 +187,20 @@
     int movement = (up ? movementDistance : -movementDistance);
     
     [UIView beginAnimations: @"animateTextField" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
+-(void)animateTextView:(UITextView*)textView up:(BOOL)up
+{
+    const int movementDistance = -10; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? movementDistance : -movementDistance);
+    
+    [UIView beginAnimations: @"animateTextView" context: nil];
     [UIView setAnimationBeginsFromCurrentState: YES];
     [UIView setAnimationDuration: movementDuration];
     self.view.frame = CGRectOffset(self.view.frame, 0, movement);
