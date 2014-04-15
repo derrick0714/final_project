@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property NSMutableArray* events;
 @property CLLocationManager *locationManager;
-
+@property NSIndexPath *currentEventIndexPath;
 - (IBAction)refresh:(id)sender;
 @end
 
@@ -57,8 +57,8 @@
 	
 	self.sortBy = BESTMATCH;
 	self.subject = @"All";
-	
     self.events = [[NSMutableArray alloc] init];
+	self.currentEventIndexPath = nil;
     [self refresh:nil];
 }
 
@@ -127,7 +127,7 @@
 													dateStyle:NSDateFormatterShortStyle
 													timeStyle:NSDateFormatterShortStyle];
     //this cell should be filled with data from the server
-    cell.numberOfApplicant.text = @"5";
+    cell.numberOfApplicant.text = [NSString stringWithFormat:@"%d", e.numOfCandidates];
     
 	return cell;
 }
@@ -192,6 +192,7 @@
 		NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
 		Event *e = [self.events objectAtIndex:ip.row];
 		destVC.event = [Event initWithEvent:e];
+		self.currentEventIndexPath = ip;
     } else if([segue.identifier isEqual:@"segue_filter"]) {
         FilterTableViewController *destVC = [segue destinationViewController];
 		destVC.sortBy = self.sortBy;
@@ -267,6 +268,9 @@
 													  cancelButtonTitle:@"OK"
 													  otherButtonTitles:nil];
 				[alert show];
+				Event *e = [self.events objectAtIndex:self.currentEventIndexPath.row];
+				e.numOfCandidates++;
+				[self.tableView reloadData];
 			} else {
 				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
 																message:desc
