@@ -54,6 +54,7 @@
 + (Event*) dictToEvent:(NSDictionary*) dict{
     Event * new = [[Event alloc] init];
     new.eventID = [(NSNumber*)[dict objectForKey:@"eventID"] intValue];
+    new.creatorID= [(NSNumber*)[dict objectForKey:@"creatorID"] intValue];
     new.status = [(NSNumber*)[dict objectForKey:@"status"] intValue];
     new.canidateID = [(NSNumber*)[dict objectForKey:@"canidateID"] intValue];
     new.numOfCandidates =[(NSNumber*)[dict objectForKey:@"numOfCandidates"] intValue];
@@ -71,7 +72,10 @@
     return new;
 }
 + (User*) dictToUser:(NSDictionary*) dict{
+   
     User * new = [[User alloc] init];
+    if(dict.count == 0)
+         return new;
     new.userID = [(NSNumber*)[dict objectForKey:@"userID"] intValue];
     new.userName = [dict objectForKey:@"userName"];
     new.userRating = [(NSNumber*)[dict objectForKey:@"userRating"] floatValue];
