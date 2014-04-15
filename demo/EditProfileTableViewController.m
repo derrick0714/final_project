@@ -9,13 +9,13 @@
 #import "EditProfileTableViewController.h"
 #import "GKImagePicker.h"
 #import "MeTableViewController.h"
+#import "NetWorkApi.h"
 
 @interface EditProfileTableViewController()<GKImagePickerDelegate>{
   GKImagePicker *picker;
 }
 @property (nonatomic, retain) GKImagePicker *picker;
 @property (weak, nonatomic) IBOutlet UIView *myPhoto;
-- (IBAction)backTo:(id)sender;
 
 @end
 
@@ -156,6 +156,15 @@
         
         MeTableViewController * detailViewController = [segue destinationViewController];
         detailViewController.myphoto =  cell.imageView.image;
+        
+        CGDataProviderRef provider = CGImageGetDataProvider(cell.imageView.image.CGImage);
+        NSData* data = (id)CFBridgingRelease(CGDataProviderCopyData(provider));
+        
+        
+        [NetWorkApi updateImage:data completion:^(BOOL result) {
+            NSLog(@"upload image success");
+        }];
+
 
     }
 }

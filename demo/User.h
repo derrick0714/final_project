@@ -17,5 +17,6 @@
 @property NSInteger age;
 
 @property float userRating;
+@property UIImage* photo;
 
 @end
