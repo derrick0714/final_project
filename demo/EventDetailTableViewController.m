@@ -56,6 +56,7 @@
 																		   timeStyle:NSDateFormatterShortStyle];
 	self.locationCell.detailTextLabel.text = self.event.location;
 	self.candidatesCell.detailTextLabel.text = [NSString stringWithFormat:@"%d", self.event.numOfCandidates];
+	NSLog(@"uid: %d, eid: %d", self.event.creatorID, self.event.eventID);
 	[NetWorkApi getUserInfo:self.event.creatorID completion:^(User *user) {
 //		self.userCell.textLabel.text = user.userName;
 	}];
