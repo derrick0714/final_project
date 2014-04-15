@@ -8,6 +8,8 @@
 
 #import "EventCandidatesCollectionViewController.h"
 #import "CandidateCollectionViewCell.h"
+#import "NetWorkApi.h"
+#import "User.h"
 
 @interface EventCandidatesCollectionViewController ()
 @property NSMutableArray *candidates;
@@ -28,7 +30,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+	//	[NetWorkApi candidatesByEventID:@"" completion:^(NSMutableArray *candidates)] {
+//	self.candidates = [[NSMutableArray alloc] initWithArray:candidates];
 	self.candidates = [NSMutableArray arrayWithArray:@[@"Alice", @"Bob", @"Charlie", @"Dick"]];
+	[self.collectionView reloadData];
+	//                             }];
+	
 }
 
 - (void)didReceiveMemoryWarning

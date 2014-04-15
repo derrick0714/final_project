@@ -257,12 +257,25 @@
 		self.subject = filterVC.subject;
 		[self refresh];
 	} else if([[segue sourceViewController] isKindOfClass:[EventDetailTableViewController class]]) {
-		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Applied"
-														message:@"You have successfully applied to this event."
-													   delegate:nil
-											  cancelButtonTitle:@"OK"
-											  otherButtonTitles:nil];
-		[alert show];
+		EventDetailTableViewController *detailVC = [segue sourceViewController];
+		[NetWorkApi applyToCandidate:detailVC.event.eventID
+						  completion:^(BOOL result, NSString *desc) {
+			if(result) {
+				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Applied"
+																message:@"You have successfully applied to this event."
+															   delegate:nil
+													  cancelButtonTitle:@"OK"
+													  otherButtonTitles:nil];
+				[alert show];
+			} else {
+				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+																message:@"Unable to apply to this event."
+															   delegate:nil
+													  cancelButtonTitle:@"OK"
+													  otherButtonTitles:nil];
+				[alert show];
+			}
+		}];
 	}
 }
 
