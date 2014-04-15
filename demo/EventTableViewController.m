@@ -133,7 +133,9 @@
     cell.numberOfApplicant.layer.masksToBounds = YES;
     
     // Configure the cell...
-    //cell.imageView.image = e.photo;
+	[NetWorkApi getUserInfo:e.creatorID completion:^(User *user) {
+		cell.personalImage.image = user.photo;
+	}];
     cell.title.text = e.title;
 	cell.location.text = e.location;
     cell.time.text = [NSDateFormatter localizedStringFromDate:e.startTime
