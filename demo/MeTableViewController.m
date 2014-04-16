@@ -42,7 +42,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     if (!self.isApplicantToMe) {
+        acceptButton.customView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         [acceptButton setEnabled:NO];
+        acceptButton.customView.alpha = 0.0f;
         meTableViewTitle.title = @"Applicant";
     }
     
