@@ -55,6 +55,10 @@
 											   bundle:nil]
 		 forCellReuseIdentifier:@"CustomEventTableCell"];
 	
+	UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+	[refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+	self.refreshControl = refreshControl;
+	
 	self.sortBy = BESTMATCH;
 	self.subject = @"All";
     self.events = [[NSMutableArray alloc] init];
@@ -239,6 +243,7 @@
 
 - (IBAction)refresh {
 	[self refresh:nil];
+	[self.refreshControl endRefreshing];
 }
 
 - (IBAction)unwindToDiscover	:(UIStoryboardSegue *)segue {
