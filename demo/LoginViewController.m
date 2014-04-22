@@ -30,10 +30,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIColor *myColor = [[UIColor alloc]initWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1];
-    
-    self.view.backgroundColor = myColor;
-    
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -51,7 +47,11 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:self.view.window];
-    
+	
+	self.uname.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+	self.uname.leftViewMode = UITextFieldViewModeAlways;
+	self.password.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+	self.password.leftViewMode = UITextFieldViewModeAlways;
 }
 
 - (void)keyboardWillHide:(NSNotification *)n
