@@ -61,6 +61,7 @@
 		9591879718E5E81200538439 /* DiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9591879618E5E81200538439 /* DiscoverTableViewController.m */; };
 		9591879A18E5EBDE00538439 /* EventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9591879918E5EBDE00538439 /* EventTableViewController.m */; };
 		9591879D18E5EED300538439 /* EventDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9591879C18E5EED300538439 /* EventDetailTableViewController.m */; };
+		95A68DF41906CE28000A2FB0 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A68DF31906CE28000A2FB0 /* Comment.m */; };
 		95AB12B818EB16F5009E583B /* GKImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12B518EB16F5009E583B /* GKImagePicker.m */; };
 		95AB12B918EB16F5009E583B /* GKImageCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12B718EB16F5009E583B /* GKImageCropper.m */; };
 		95AB12C418EB1710009E583B /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12BB18EB170F009E583B /* UIImage+Alpha.m */; };
@@ -184,6 +185,8 @@
 		9591879918E5EBDE00538439 /* EventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableViewController.m; sourceTree = "<group>"; };
 		9591879B18E5EED300538439 /* EventDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailTableViewController.h; sourceTree = "<group>"; };
 		9591879C18E5EED300538439 /* EventDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailTableViewController.m; sourceTree = "<group>"; };
+		95A68DF21906CE28000A2FB0 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		95A68DF31906CE28000A2FB0 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		95AB12B418EB16F5009E583B /* GKImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKImagePicker.h; sourceTree = "<group>"; };
 		95AB12B518EB16F5009E583B /* GKImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKImagePicker.m; sourceTree = "<group>"; };
 		95AB12B618EB16F5009E583B /* GKImageCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKImageCropper.h; sourceTree = "<group>"; };
@@ -413,6 +416,8 @@
 				957A5DDC18F9EF8000F82524 /* Event.m */,
 				957A5DDE18F9F11000F82524 /* User.h */,
 				957A5DDF18F9F11000F82524 /* User.m */,
+				95A68DF21906CE28000A2FB0 /* Comment.h */,
+				95A68DF31906CE28000A2FB0 /* Comment.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -749,6 +754,7 @@
 				957A5DE018F9F11000F82524 /* User.m in Sources */,
 				ACD0344518EE7B8900E4EE1A /* EventCustomCellTableViewCell.m in Sources */,
 				9591879718E5E81200538439 /* DiscoverTableViewController.m in Sources */,
+				95A68DF41906CE28000A2FB0 /* Comment.m in Sources */,
 				9505A82018E12CAD006F1CA2 /* main.m in Sources */,
 				958CC75A18F37DAE0042E395 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				958CC74318F37D2E0042E395 /* AFSecurityPolicy.m in Sources */,

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Event.h"
 #import "User.h"
+#import "Comment.h"
 
 @interface Helper : NSObject
 + (NSString *) md5:(NSString *) input;
@@ -17,5 +18,6 @@
 + (NSString*)datetimeToString:(NSDate*) date;
 + (NSDate*)stringToDatetime:(NSString*) date;
 + (User*) dictToUser:(NSDictionary*) dict;
++ (Comment*) dictToComment:(NSDictionary*) dict;
 
 @end

@@ -248,16 +248,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Discover" id="0Qo-C8-zwX">
-                        <barButtonItem key="leftBarButtonItem" title="Filter" id="SJj-7c-JUv">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="SJj-7c-JUv">
                             <connections>
                                 <segue destination="vdr-gx-mdS" kind="push" identifier="segue_filter" id="wd7-ur-qc5"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="j54-JV-jUJ">
-                            <connections>
-                                <action selector="refresh:" destination="R8M-rb-B9F" id="wp9-NN-kiJ"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="672-2K-Kii"/>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="KFf-Sr-JSp" id="O0r-Id-YIi"/>
@@ -330,7 +326,7 @@
             </objects>
             <point key="canvasLocation" x="2785" y="719"/>
         </scene>
-        <!--Filter Table View Controller - Filter-->
+        <!--Filter Table View Controller - Settings-->
         <scene sceneID="hws-BE-N7Q">
             <objects>
                 <tableViewController id="vdr-gx-mdS" customClass="FilterTableViewController" sceneMemberID="viewController">
@@ -500,13 +496,37 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Log Out" id="d2K-fM-8a4">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="9LX-tj-bXx" style="IBUITableViewCellStyleDefault" id="vNE-IF-5oe">
+                                        <rect key="frame" x="0.0" y="611" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vNE-IF-5oe" id="Atm-a4-QNx">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Log Out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9LX-tj-bXx">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7Bs-Y5-wE3" kind="modal" identifier="segue_logout" id="Y9Z-qR-AS5"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="vdr-gx-mdS" id="UE1-FC-MPD"/>
                             <outlet property="delegate" destination="vdr-gx-mdS" id="43W-WS-01M"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Filter" id="WaY-Ii-pl2">
+                    <navigationItem key="navigationItem" title="Settings" id="WaY-Ii-pl2">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="qTC-bG-fAN">
                             <connections>
                                 <segue destination="LoG-P8-DKl" kind="unwind" unwindAction="unwindToDiscover:" id="GQn-JT-bxN"/>
@@ -522,7 +542,7 @@
             </objects>
             <point key="canvasLocation" x="1458" y="4"/>
         </scene>
-        <!--Event Candidates Collection View Controller - Event Candidates-->
+        <!--Event Candidates Collection View Controller - Candidates-->
         <scene sceneID="Gov-JY-2TW">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="A4w-jV-b8Q" customClass="EventCandidatesCollectionViewController" sceneMemberID="viewController">
@@ -571,13 +591,13 @@
                             <outlet property="delegate" destination="A4w-jV-b8Q" id="Vvt-WY-mhG"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Event Candidates" id="sAX-z1-waJ"/>
+                    <navigationItem key="navigationItem" title="Candidates" id="sAX-z1-waJ"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h5z-oz-QDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2353" y="-678"/>
         </scene>
-        <!--Event Detail Table View Controller - Event Detail-->
+        <!--Event Detail Table View Controller - Detail-->
         <scene sceneID="kcd-3q-dgL">
             <objects>
                 <tableViewController id="nwW-Ib-Ns4" customClass="EventDetailTableViewController" sceneMemberID="viewController">
@@ -800,7 +820,7 @@
                             <outlet property="delegate" destination="nwW-Ib-Ns4" id="qBT-cD-ni6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Event Detail" id="qGU-Wu-0vJ">
+                    <navigationItem key="navigationItem" title="Detail" id="qGU-Wu-0vJ">
                         <barButtonItem key="rightBarButtonItem" title="Apply" id="LKw-SW-gzc">
                             <connections>
                                 <segue destination="5Ik-4Z-PS4" kind="unwind" unwindAction="unwindToDiscover:" id="23N-bU-OG5"/>
@@ -852,7 +872,7 @@
             </objects>
             <point key="canvasLocation" x="2414" y="4"/>
         </scene>
-        <!--Add Event Table View Controller - Schedule a Meeting-->
+        <!--Add Event Table View Controller - New Event-->
         <scene sceneID="T7p-5A-YxA">
             <objects>
                 <tableViewController id="3Pi-BP-cAq" customClass="AddEventTableViewController" sceneMemberID="viewController">
@@ -1140,7 +1160,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="3Pi-BP-cAq" id="4Qj-l8-uOe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Schedule a Meeting" id="FWc-qn-P8y">
+                    <navigationItem key="navigationItem" title="New Event" id="FWc-qn-P8y">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="3XW-wa-gPU">
                             <connections>
                                 <segue destination="KwR-cR-hUL" kind="unwind" unwindAction="unwindEventTableView:" id="sbD-un-l8y"/>
