@@ -10,4 +10,6 @@
 
 @interface AllCommentsTableViewController : UITableViewController
 
+@property int userIdComment;
+
 @end

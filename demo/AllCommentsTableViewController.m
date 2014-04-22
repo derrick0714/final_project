@@ -16,7 +16,6 @@
 @property NSMutableArray* commentList;
 @property NSMutableArray* cellComment;
 @property NSMutableArray* cellPhoto;
-@property int userID;
 
 @end
 
@@ -37,7 +36,7 @@
     self.cellComment = [[NSMutableArray alloc] init];
     self.cellPhoto = [[NSMutableArray alloc] init];
     
-    [NetWorkApi getComments:self.userID completion:^(NSMutableArray *commentList) {
+    [NetWorkApi getComments:self.userIdComment completion:^(NSMutableArray *commentList) {
         self.commentList = commentList;
     }];
 }
@@ -71,14 +70,14 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return [self.commentList count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
 
 /*

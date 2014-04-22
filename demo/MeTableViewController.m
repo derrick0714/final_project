@@ -10,6 +10,7 @@
 #import "EditProfileTableViewController.h"
 #import "NetWorkApi.h"
 #import "EventCandidatesCollectionViewController.h"
+#import "AllCommentsTableViewController.h"
 
 @interface MeTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *userCell;
@@ -185,6 +186,13 @@
         NSIndexPath *b = [NSIndexPath indexPathForRow:0 inSection:0]; // I wanted to update this cell specifically
         UITableViewCell *cell2 = [detailViewController.tableView cellForRowAtIndexPath:b];
         cell2.imageView.image = cell.imageView.image;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"SeeAllComments"]) {
+        AllCommentsTableViewController *destVC = [segue destinationViewController];
+        
+        destVC.userIdComment = self.userid;
+        
     }
 }
 
