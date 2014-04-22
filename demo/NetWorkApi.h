@@ -49,4 +49,11 @@
 
 + (void)candidatesList:(int) eventId
     completion:(void (^)(NSMutableArray *candidates))completionBlock;
+
++ (void)addComment:(int) commenterId
+           content:(NSString*) content
+            completion:(void (^)(BOOL result, NSString* desc))completionBlock;
+
++ (void)getComments:(int) userId
+        completion:(void (^)(NSMutableArray* commentList))completionBlock;
 @end

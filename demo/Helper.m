@@ -89,4 +89,15 @@
     new.photo = img;
     return new;
 }
+
++ (Comment*) dictToComment:(NSDictionary*) dict{
+    Comment * new = [[Comment alloc] init];
+    if(dict.count == 0)
+        return new;
+    new.userID = [(NSNumber*)[dict objectForKey:@"userID"] intValue];
+    new.content = [dict objectForKey:@"content"];
+    new.createTime = [self stringToDatetime :(NSString*)[dict objectForKey:@"createTime"]];
+    return new;
+}
+
 @end

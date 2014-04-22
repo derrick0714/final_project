@@ -190,6 +190,8 @@ static NSNumber* uid;
              }];
 
 }
+
+
 //upload image
 + (void)updateImage:(NSData*) data
          completion:(void (^)(BOOL result))completionBlock{
@@ -206,6 +208,43 @@ static NSNumber* uid;
 //             }];
 //
 }
+
++ (void)addComment:(int) commenterId
+           content:(NSString*) content
+        completion:(void (^)(BOOL result, NSString* desc))completionBlock{
+    
+    NSString *apiName = @"addComment";
+    NSDictionary *params = @{@"uid":uid,
+                             @"commenterId":[NSNumber numberWithInt:commenterId],
+                             @"content":content};
+    
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                     completionBlock([[response objectForKey:@"result"] boolValue] , [response objectForKey:@"desc"]);
+             }];
+
+    
+}
+
++ (void)getComments:(int) userId
+         completion:(void (^)(NSMutableArray* commentList))completionBlock{
+    NSString *apiName = @"getComments";
+    NSDictionary *params = @{@"uid":uid};
+    
+    
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                     NSMutableArray *commentList = [NSMutableArray new];
+                     for (NSDictionary* value in response) {
+                         [commentList addObject: [Helper dictToComment:value ]];
+                     }
+                     completionBlock(commentList);
+             }];
+    
+}
+
 
 //network core function
 +(void) networkDealer:(NSString*) apiName
