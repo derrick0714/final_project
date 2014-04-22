@@ -47,8 +47,9 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
-    if (self.isSelfEvent){
+    
+    // if it is SelfEvent ComingEvent or PendingEvent, disable the apply button.
+    if (self.isSelfEvent || self.isComingEvent || self.isPendingEvent){
         [applyButton setEnabled:NO];
     }
     self.titleCell.detailTextLabel.text = self.event.title;

@@ -13,6 +13,8 @@
 
 @property Event *event;
 @property BOOL isSelfEvent;
+@property BOOL isComingEvent;
+@property BOOL isPendingEvent;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *applyButton;
 
 @end

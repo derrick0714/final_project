@@ -162,6 +162,11 @@
         NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
 		Event *e = [self.events objectAtIndex:ip.row];
 		destVC.event = [Event initWithEvent:e];
+
+        if(Segment.selectedSegmentIndex == 0)
+            destVC.isComingEvent = true;
+        if(Segment.selectedSegmentIndex == 1)
+            destVC.isPendingEvent = true;
         if(Segment.selectedSegmentIndex == 2)
             destVC.isSelfEvent = true;
     }
