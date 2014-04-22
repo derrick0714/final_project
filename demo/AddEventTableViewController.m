@@ -160,7 +160,7 @@
 }
 - (void)titleKeyboardWillShow:(NSNotification *)n
 {
-    [self animateTextField:_titleText up:YES];
+    [self animateTextField:_titleText up:NO];
 }
 - (void)locationKeyboardWillHide:(NSNotification *)n
 {

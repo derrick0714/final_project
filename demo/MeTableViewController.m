@@ -13,8 +13,20 @@
 
 @interface MeTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *userCell;
+
+@property int firstCommentUserId;
+@property (weak, nonatomic) IBOutlet UIImageView *firstCommentImage;
+@property (nonatomic, retain) IBOutlet UITextView *firstCommentText;
+@property int secondCommentUserId;
+@property (weak, nonatomic) IBOutlet UIImageView *secondCommentImage;
+@property (nonatomic, retain) IBOutlet UITextView *secondCommentText;
+
+@property NSMutableArray *commentsList;
+
 @property UIAlertView *alert;
 @end
+
+
 
 @implementation MeTableViewController
 
@@ -46,7 +58,7 @@
         acceptButton.customView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         [acceptButton setEnabled:NO];
         acceptButton.customView.alpha = 0.0f;
-        meTableViewTitle.title = @"Profile";
+        meTableViewTitle.title = @"My Profile";
     }
     
 	[NetWorkApi getUserInfo:self.userid
@@ -56,8 +68,24 @@
 					 NSLog(@"Photo: %@", user.photo);
 				 }];
     
-    //get self id:
-    //[NetWorkApi getSelfId];
+    // API for getting comments photo and text
+    [NetWorkApi getComments:self.userid completion:^(NSMutableArray *commentList) {
+        self.commentsList = commentList;
+        if ([self.commentsList count]>0) {
+            for (int i=0; i<[self.commentsList count] && i<2; i++) {
+                self.firstCommentUserId = (int)[[commentList objectAtIndex:i] userID];
+                self.firstCommentText.text = [[commentList objectAtIndex:i] content];
+                
+                [NetWorkApi getUserInfo:self.firstCommentUserId
+                             completion:^(User *user) {
+                                 self.firstCommentImage.image = user.photo;
+                             }];
+//                self.secondCommentUserId = (int)[[commentList objectAtIndex:2] userID];
+//                self.firstCommentText.text = [[commentList objectAtIndex:2] content];
+            }
+        }
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning
