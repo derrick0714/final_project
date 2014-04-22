@@ -16,16 +16,17 @@
 
 @property int firstCommentUserId;
 @property (weak, nonatomic) IBOutlet UIImageView *firstCommentImage;
-@property (weak, nonatomic) IBOutlet UITextView *firstCommentText;
+@property (nonatomic, retain) IBOutlet UITextView *firstCommentText;
 @property int secondCommentUserId;
 @property (weak, nonatomic) IBOutlet UIImageView *secondCommentImage;
-@property (weak, nonatomic) IBOutlet UITextView *secondCommentText;
+@property (nonatomic, retain) IBOutlet UITextView *secondCommentText;
 
-
-
+@property NSMutableArray *commentsList;
 
 @property UIAlertView *alert;
 @end
+
+
 
 @implementation MeTableViewController
 
@@ -69,10 +70,20 @@
     
     // API for getting comments photo and text
     [NetWorkApi getComments:self.userid completion:^(NSMutableArray *commentList) {
-        self.firstCommentUserId = (int)[[commentList objectAtIndex:0] userID];
-        self.firstCommentText.text = [[commentList objectAtIndex:0] content];
-        self.secondCommentUserId = (int)[[commentList objectAtIndex:1] userID];
-        self.firstCommentText.text = [[commentList objectAtIndex:1] content];
+        self.commentsList = commentList;
+        if ([self.commentsList count]>0) {
+            for (int i=0; i<[self.commentsList count] && i<2; i++) {
+                self.firstCommentUserId = (int)[[commentList objectAtIndex:i] userID];
+                self.firstCommentText.text = [[commentList objectAtIndex:i] content];
+                
+                [NetWorkApi getUserInfo:self.firstCommentUserId
+                             completion:^(User *user) {
+                                 self.firstCommentImage.image = user.photo;
+                             }];
+//                self.secondCommentUserId = (int)[[commentList objectAtIndex:2] userID];
+//                self.firstCommentText.text = [[commentList objectAtIndex:2] content];
+            }
+        }
     }];
     
 }
