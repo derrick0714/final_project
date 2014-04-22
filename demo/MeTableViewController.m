@@ -13,6 +13,17 @@
 
 @interface MeTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *userCell;
+
+@property int firstCommentUserId;
+@property (weak, nonatomic) IBOutlet UIImageView *firstCommentImage;
+@property (weak, nonatomic) IBOutlet UITextView *firstCommentText;
+@property int secondCommentUserId;
+@property (weak, nonatomic) IBOutlet UIImageView *secondCommentImage;
+@property (weak, nonatomic) IBOutlet UITextView *secondCommentText;
+
+
+
+
 @property UIAlertView *alert;
 @end
 
@@ -46,7 +57,7 @@
         acceptButton.customView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         [acceptButton setEnabled:NO];
         acceptButton.customView.alpha = 0.0f;
-        meTableViewTitle.title = @"Profile";
+        meTableViewTitle.title = @"My Profile";
     }
     
 	[NetWorkApi getUserInfo:self.userid
@@ -56,8 +67,14 @@
 					 NSLog(@"Photo: %@", user.photo);
 				 }];
     
-    //get self id:
-    //[NetWorkApi getSelfId];
+    // API for getting comments photo and text
+    [NetWorkApi getComments:self.userid completion:^(NSMutableArray *commentList) {
+        self.firstCommentUserId = (int)[[commentList objectAtIndex:0] userID];
+        self.firstCommentText.text = [[commentList objectAtIndex:0] content];
+        self.secondCommentUserId = (int)[[commentList objectAtIndex:1] userID];
+        self.firstCommentText.text = [[commentList objectAtIndex:1] content];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning

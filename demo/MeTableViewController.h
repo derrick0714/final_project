@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "Comment.h"
 
 @interface MeTableViewController : UITableViewController
 @property UIImage *myphoto;
+
+
 @property int userid;
 @property int eventID;
 
