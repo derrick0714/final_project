@@ -66,7 +66,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -75,6 +75,7 @@
 	switch(section) {
 		case 0: return 3;
 		case 1: return 6;
+		case 2: return 1;
 		default: return 0;
 	}
 }
@@ -132,6 +133,9 @@
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];
 //	for (int section = 0; section < [tableView numberOfSections]; section++) {
 	int section = indexPath.section;
+	if(section == 2) {
+		return;
+	}
 	for (int row = 0; row < [tableView numberOfRowsInSection:section]; row++) {
 		NSIndexPath *cellPath = [NSIndexPath indexPathForRow:row inSection:section];
 		UITableViewCell *cell = [tableView cellForRowAtIndexPath:cellPath];
