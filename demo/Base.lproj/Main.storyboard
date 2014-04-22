@@ -61,7 +61,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="JrG-h2-2bq" kind="modal" id="y8S-dC-Qsw"/>
+                                    <segue destination="JrG-h2-2bq" kind="custom" identifier="segue_signup" customClass="FlipSegue" id="y8S-dC-Qsw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfb-A9-cnP">
