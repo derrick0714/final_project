@@ -9,6 +9,7 @@
 #import "AllCommentsTableViewController.h"
 #import "NetWorkApi.h"
 #import "Comment.h"
+#import "CustomCommentCell.h"
 
 @interface AllCommentsTableViewController ()
 
@@ -45,9 +46,14 @@
 {
     Comment *c = [self.commentList objectAtIndex:indexPath.row];
     //need to be modified here:
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentListCell"];
+    CustomCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCommentCell"];
     
-    //self.cell.comment = c.content;
+    if (cell==nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomCommentTableCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    cell.commentContent.text = c.content;
     
     return cell;
 }
@@ -56,8 +62,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
-    
     
 }
 

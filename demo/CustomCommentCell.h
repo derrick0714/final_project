@@ -6,10 +6,11 @@
 //  Copyright (c) 2014年 Xu Deng. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface CustomCommentCell : NSObject
+@interface CustomCommentCell : UITableViewCell
 
-
+@property (weak, nonatomic) IBOutlet UIImageView *commentPhoto;
+@property (weak, nonatomic) IBOutlet UITextView *commentContent;
 
 @end
