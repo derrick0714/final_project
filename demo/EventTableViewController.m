@@ -50,6 +50,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	
+	UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+	[refreshControl addTarget:self action:@selector(loadInitialData) forControlEvents:UIControlEventValueChanged];
+	self.refreshControl = refreshControl;
 
     self.events = [[NSMutableArray alloc] init];
     self.cellTitle = [[NSMutableArray alloc] init];
@@ -72,13 +76,14 @@
 //add initial data - this methods should be changed during after the sever is setted up and initial data is loaded from the sever.
 - (void)loadInitialData {
     
-//initialize events table view with data from the server
+	//initialize events table view with data from the server
     
     [NetWorkApi EventByStatus:self.eventSelectID
-                            completion:^(NSMutableArray* events) {
-                                self.events = events;
-                                [self.tableView reloadData];
-                        }];
+				   completion:^(NSMutableArray* events) {
+					   self.events = events;
+					   [self.tableView reloadData];
+				   }];
+	[self.refreshControl endRefreshing];
 }
 
 //events selector: coming, pending, history
