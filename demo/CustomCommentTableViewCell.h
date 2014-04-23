@@ -1,5 +1,5 @@
 //
-//  CustomCommentCell.h
+//  CustomCommentTableViewCell.h
 //  demo
 //
 //  Created by 聂 路明 on 14-4-22.
@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomCommentCell : UITableViewCell
+@interface CustomCommentTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *commentPhoto;
 @property (weak, nonatomic) IBOutlet UITextView *commentContent;
+
 
 @end

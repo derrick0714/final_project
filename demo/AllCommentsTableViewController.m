@@ -9,13 +9,11 @@
 #import "AllCommentsTableViewController.h"
 #import "NetWorkApi.h"
 #import "Comment.h"
-#import "CustomCommentCell.h"
+#import "CustomCommentTableViewCell.h"
 
 @interface AllCommentsTableViewController ()
 
 @property NSMutableArray* commentList;
-@property NSMutableArray* cellComment;
-@property NSMutableArray* cellPhoto;
 
 @end
 
@@ -33,26 +31,40 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.cellComment = [[NSMutableArray alloc] init];
-    self.cellPhoto = [[NSMutableArray alloc] init];
+    self.commentList = [[NSMutableArray alloc] init];
     
-    [NetWorkApi getComments:self.userIdComment completion:^(NSMutableArray *commentList) {
+    [self.tableView registerNib:[UINib nibWithNibName:@"CustomCommentTableCell"
+											   bundle:nil]
+		 forCellReuseIdentifier:@"CustomCommentTableViewCell"];
+    
+    //int testUserId = self.userIdComment;
+    [NetWorkApi getComments:self.userIdComment
+                 completion:^(NSMutableArray *commentList) {
         self.commentList = commentList;
     }];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 125;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Comment *c = [self.commentList objectAtIndex:indexPath.row];
+    
     //need to be modified here:
-    CustomCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCommentCell"];
+    CustomCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCommentTableViewCell" forIndexPath:indexPath];
     
     if (cell==nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomCommentTableCell" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomCommentTableViewCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
     
     cell.commentContent.text = c.content;
+    [NetWorkApi getUserInfo:(int)c.userID completion:^(User *user) {
+		cell.commentPhoto.image = user.photo;
+	}];
     
     return cell;
 }
@@ -70,14 +82,14 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return [self.commentList count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 1;
+    return [self.commentList count];
 }
 
 /*

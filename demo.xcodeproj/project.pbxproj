@@ -76,7 +76,7 @@
 		AC6FE0D918F8ABC3006424C0 /* AddEventMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6FE0D818F8ABC3006424C0 /* AddEventMapAnnotation.m */; };
 		AC7876101907023A0079437A /* AllCommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC78760F1907023A0079437A /* AllCommentsTableViewController.m */; };
 		AC78761219070CBD0079437A /* CustomCommentTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC78761119070CBD0079437A /* CustomCommentTableCell.xib */; };
-		AC78761519070D5B0079437A /* CustomCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC78761419070D5B0079437A /* CustomCommentCell.m */; };
+		AC8DE76C190762BB00D20324 /* CustomCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8DE76B190762BB00D20324 /* CustomCommentTableViewCell.m */; };
 		AC93E5D718EDF25000510883 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC93E5D618EDF25000510883 /* DatePickerViewController.m */; };
 		AC99F65A18ED13C400E7D1FC /* MeetingScheduleData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC99F65918ED13C400E7D1FC /* MeetingScheduleData.m */; };
 		AC99F65D18ED259B00E7D1FC /* MeData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC99F65C18ED259B00E7D1FC /* MeData.m */; };
@@ -217,8 +217,8 @@
 		AC78760E1907023A0079437A /* AllCommentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllCommentsTableViewController.h; sourceTree = "<group>"; };
 		AC78760F1907023A0079437A /* AllCommentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllCommentsTableViewController.m; sourceTree = "<group>"; };
 		AC78761119070CBD0079437A /* CustomCommentTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCommentTableCell.xib; sourceTree = "<group>"; };
-		AC78761319070D5B0079437A /* CustomCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCommentCell.h; sourceTree = "<group>"; };
-		AC78761419070D5B0079437A /* CustomCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCommentCell.m; sourceTree = "<group>"; };
+		AC8DE76A190762BB00D20324 /* CustomCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCommentTableViewCell.h; sourceTree = "<group>"; };
+		AC8DE76B190762BB00D20324 /* CustomCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCommentTableViewCell.m; sourceTree = "<group>"; };
 		AC93E5D518EDF25000510883 /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
 		AC93E5D618EDF25000510883 /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
 		AC99F65818ED13C400E7D1FC /* MeetingScheduleData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingScheduleData.h; sourceTree = "<group>"; };
@@ -581,8 +581,8 @@
 			isa = PBXGroup;
 			children = (
 				AC78761119070CBD0079437A /* CustomCommentTableCell.xib */,
-				AC78761319070D5B0079437A /* CustomCommentCell.h */,
-				AC78761419070D5B0079437A /* CustomCommentCell.m */,
+				AC8DE76A190762BB00D20324 /* CustomCommentTableViewCell.h */,
+				AC8DE76B190762BB00D20324 /* CustomCommentTableViewCell.m */,
 			);
 			name = CustomCommentCell;
 			sourceTree = "<group>";
@@ -760,7 +760,6 @@
 				958CC75E18F37DAE0042E395 /* UIImageView+AFNetworking.m in Sources */,
 				956B1C3018E8ACAD003E782D /* FilterTableViewController.m in Sources */,
 				9505A82418E12CAD006F1CA2 /* AppDelegate.m in Sources */,
-				AC78761519070D5B0079437A /* CustomCommentCell.m in Sources */,
 				95AB12CF18EB18CD009E583B /* EditProfileTableViewController.m in Sources */,
 				958CC75C18F37DAE0042E395 /* UIAlertView+AFNetworking.m in Sources */,
 				E2ACCFBD1906F1CC00B2362B /* FlipSegue.m in Sources */,
@@ -772,6 +771,7 @@
 				958CC74718F37D2E0042E395 /* AFURLSessionManager.m in Sources */,
 				956FA87A18EB3700009A106E /* MeTableViewController.m in Sources */,
 				95DD929318E8B98200016E6B /* AddMeetingMapViewController.m in Sources */,
+				AC8DE76C190762BB00D20324 /* CustomCommentTableViewCell.m in Sources */,
 				AC99F65D18ED259B00E7D1FC /* MeData.m in Sources */,
 				958056E018F4515D00D7C49D /* NetWorkApi.m in Sources */,
 				958CC75D18F37DAE0042E395 /* UIButton+AFNetworking.m in Sources */,

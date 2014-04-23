@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Comment.h"
 
-@interface AllCommentsTableViewController : UITableViewController
+@interface AllCommentsTableViewController : UITableViewController<UITextViewDelegate,UITextFieldDelegate>
 
 @property int userIdComment;
 
