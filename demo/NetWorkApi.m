@@ -47,7 +47,7 @@ static NSNumber* uid;
     NSDictionary *params = @ {@"user" :userName,
         @"pwd" :[Helper md5:password] };
     
-    [self networkDealer:apiName
+       [self networkDealer:apiName
                  params:params
              completion:^(NSDictionary *response) {
                  uid = [NSNumber numberWithInt: [[response objectForKey:@"uid"] intValue]];
@@ -117,6 +117,7 @@ static NSNumber* uid;
                                 @"longitude":[NSNumber numberWithFloat:event.longitude]
                                 };
     
+
     [self networkDealer:apiName
                  params:params
              completion:^(NSDictionary *response) {

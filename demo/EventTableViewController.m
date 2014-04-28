@@ -16,6 +16,7 @@
 #import "EventCustomCellTableViewCell.h"
 #import "EventDetailTableViewController.h"
 #import "NetWorkApi.h"
+#import "Helper.h"
 
 @interface EventTableViewController ()
 
@@ -60,9 +61,12 @@
     self.cellTime = [[NSMutableArray alloc] init];
     self.cellLocation = [[NSMutableArray alloc] init];
     
+
+    
     [self loadInitialData];
     
 }
+
 
 
 //initialize and create the date formatter
@@ -82,7 +86,7 @@
 				   completion:^(NSMutableArray* events) {
 					   self.events = events;
 					   [self.tableView reloadData];
-				   }];
+                    }];
 	[self.refreshControl endRefreshing];
 }
 
@@ -189,6 +193,7 @@
     }
 	[self.tableView reloadData];
 }
+
 
 
 /*

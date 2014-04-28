@@ -19,5 +19,6 @@
 + (NSDate*)stringToDatetime:(NSString*) date;
 + (User*) dictToUser:(NSDictionary*) dict;
 + (Comment*) dictToComment:(NSDictionary*) dict;
++ (void) setNotification:(NSMutableArray*) events;
 
 @end

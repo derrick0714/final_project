@@ -29,6 +29,7 @@
 + (void)EventByStatus:(EventsSelector)status
            completion:(void (^)(NSMutableArray *events))completionBlock;
 
+
 + (void)CreateEvent:(Event *)event
          completion:(void (^)(BOOL result))completionBlock;
 
