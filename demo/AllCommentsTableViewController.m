@@ -19,6 +19,7 @@
 
 @implementation AllCommentsTableViewController
 
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -42,6 +43,7 @@
                  completion:^(NSMutableArray *commentList) {
         self.commentList = commentList;
     }];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -52,7 +54,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Comment *c = [self.commentList objectAtIndex:indexPath.row];
-    
+    NSLog(@"test test test: %ld", c.userID);
     //need to be modified here:
     CustomCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCommentTableViewCell" forIndexPath:indexPath];
     

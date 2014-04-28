@@ -119,8 +119,6 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Successfully Accept" message: @"This applicant is successfully added." delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }];
-    
-    
 }
 
 /*
