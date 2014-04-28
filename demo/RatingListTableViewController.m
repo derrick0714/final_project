@@ -71,8 +71,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    EventCustomCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"event_cell"
-																		 forIndexPath:indexPath];
+    EventCustomCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomEventTableCell"];
     
     // Configure the cell...
 	Event *e = [self.unratedEvents objectAtIndex: indexPath.row];

@@ -102,10 +102,10 @@
 	
 	EventCustomCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomEventTableCell"
 																		 forIndexPath:indexPath];
-	if(!cell) {
-		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomEventTableCell" owner:self options:nil];
-		cell = [nib objectAtIndex:0];
-	}
+//	if(!cell) {
+//		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomEventTableCell" owner:self options:nil];
+//		cell = [nib objectAtIndex:0];
+//	}
 	NSLog(@"%@ %ld", e.title, [self.events count]);
     
     // Initialization cell style code
