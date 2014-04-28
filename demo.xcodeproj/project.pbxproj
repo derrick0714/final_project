@@ -86,6 +86,8 @@
 		ACD0344518EE7B8900E4EE1A /* EventCustomCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD0344418EE7B8900E4EE1A /* EventCustomCellTableViewCell.m */; };
 		ACD0344B18EE90B300E4EE1A /* CustomEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD0344A18EE90B300E4EE1A /* CustomEventCell.xib */; };
 		ACF5AF5D18EBB22500DEA17E /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */; };
+		E29956D0190ED5F7007A8D4B /* TPFloatRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E29956CF190ED5F7007A8D4B /* TPFloatRatingView.m */; };
+		E29956D3190ED7A6007A8D4B /* RatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E29956D2190ED7A6007A8D4B /* RatingViewController.m */; };
 		E29F236418F8CD8A002798F5 /* CandidateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E29F236318F8CD8A002798F5 /* CandidateCollectionViewCell.m */; };
 		E29F236718F8D445002798F5 /* EventCandidatesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E29F236618F8D445002798F5 /* EventCandidatesCollectionViewController.m */; };
 		E2ACCFBD1906F1CC00B2362B /* FlipSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ACCFBC1906F1CC00B2362B /* FlipSegue.m */; };
@@ -235,6 +237,10 @@
 		ACD0344418EE7B8900E4EE1A /* EventCustomCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCustomCellTableViewCell.m; sourceTree = "<group>"; };
 		ACD0344A18EE90B300E4EE1A /* CustomEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomEventCell.xib; path = ../CustomEventCell.xib; sourceTree = "<group>"; };
 		ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		E29956CE190ED5F7007A8D4B /* TPFloatRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPFloatRatingView.h; sourceTree = "<group>"; };
+		E29956CF190ED5F7007A8D4B /* TPFloatRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFloatRatingView.m; sourceTree = "<group>"; };
+		E29956D1190ED7A6007A8D4B /* RatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingViewController.h; sourceTree = "<group>"; };
+		E29956D2190ED7A6007A8D4B /* RatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingViewController.m; sourceTree = "<group>"; };
 		E29F236218F8CD8A002798F5 /* CandidateCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandidateCollectionViewCell.h; sourceTree = "<group>"; };
 		E29F236318F8CD8A002798F5 /* CandidateCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandidateCollectionViewCell.m; sourceTree = "<group>"; };
 		E29F236518F8D445002798F5 /* EventCandidatesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCandidatesCollectionViewController.h; sourceTree = "<group>"; };
@@ -424,6 +430,10 @@
 				95AB12C918EB1778009E583B /* ImagePicker */,
 				AC78760E1907023A0079437A /* AllCommentsTableViewController.h */,
 				AC78760F1907023A0079437A /* AllCommentsTableViewController.m */,
+				E29956D1190ED7A6007A8D4B /* RatingViewController.h */,
+				E29956D2190ED7A6007A8D4B /* RatingViewController.m */,
+				E29956CE190ED5F7007A8D4B /* TPFloatRatingView.h */,
+				E29956CF190ED5F7007A8D4B /* TPFloatRatingView.m */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -752,6 +762,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				958CC74518F37D2E0042E395 /* AFURLRequestSerialization.m in Sources */,
+				E29956D0190ED5F7007A8D4B /* TPFloatRatingView.m in Sources */,
 				9591879D18E5EED300538439 /* EventDetailTableViewController.m in Sources */,
 				958CC76018F37DAE0042E395 /* UIRefreshControl+AFNetworking.m in Sources */,
 				E29F236418F8CD8A002798F5 /* CandidateCollectionViewCell.m in Sources */,
@@ -784,6 +795,7 @@
 				E29F236718F8D445002798F5 /* EventCandidatesCollectionViewController.m in Sources */,
 				95AB12C818EB1710009E583B /* UIImage+FixOrientation.m in Sources */,
 				958CC75F18F37DAE0042E395 /* UIProgressView+AFNetworking.m in Sources */,
+				E29956D3190ED7A6007A8D4B /* RatingViewController.m in Sources */,
 				AC6FE0D918F8ABC3006424C0 /* AddEventMapAnnotation.m in Sources */,
 				957A5DDA18F9EF5400F82524 /* SignUpViewController.m in Sources */,
 				957A5DE018F9F11000F82524 /* User.m in Sources */,

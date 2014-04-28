@@ -19,6 +19,7 @@
 
 @implementation AllCommentsTableViewController
 
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -42,6 +43,7 @@
                  completion:^(NSMutableArray *commentList) {
         self.commentList = commentList;
     }];
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -52,7 +54,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Comment *c = [self.commentList objectAtIndex:indexPath.row];
-    
+    NSLog(@"test test test: %ld", c.userID);
     //need to be modified here:
     CustomCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CustomCommentTableViewCell" forIndexPath:indexPath];
     
@@ -80,14 +82,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [self.commentList count];
 }
@@ -141,9 +141,9 @@
 }
 */
 
-/*
-#pragma mark - Navigation
 
+#pragma mark - Navigation
+/*
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -151,5 +151,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(IBAction)unwindToAllComments:(UIStoryboardSegue *)segue {
+	// uploadComment(int uid, int eid, int rating, NSString *comment);
+}
 
 @end
