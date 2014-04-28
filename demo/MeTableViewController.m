@@ -10,22 +10,24 @@
 #import "EditProfileTableViewController.h"
 #import "NetWorkApi.h"
 #import "EventCandidatesCollectionViewController.h"
+#import "AllCommentsTableViewController.h"
 
 @interface MeTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *userCell;
 
 @property int firstCommentUserId;
 @property (weak, nonatomic) IBOutlet UIImageView *firstCommentImage;
-@property (weak, nonatomic) IBOutlet UITextView *firstCommentText;
+@property (nonatomic, retain) IBOutlet UITextView *firstCommentText;
 @property int secondCommentUserId;
 @property (weak, nonatomic) IBOutlet UIImageView *secondCommentImage;
-@property (weak, nonatomic) IBOutlet UITextView *secondCommentText;
+@property (nonatomic, retain) IBOutlet UITextView *secondCommentText;
 
-
-
+@property NSMutableArray *commentsList;
 
 @property UIAlertView *alert;
 @end
+
+
 
 @implementation MeTableViewController
 
@@ -69,10 +71,20 @@
     
     // API for getting comments photo and text
     [NetWorkApi getComments:self.userid completion:^(NSMutableArray *commentList) {
-        self.firstCommentUserId = (int)[[commentList objectAtIndex:0] userID];
-        self.firstCommentText.text = [[commentList objectAtIndex:0] content];
-        self.secondCommentUserId = (int)[[commentList objectAtIndex:1] userID];
-        self.firstCommentText.text = [[commentList objectAtIndex:1] content];
+        self.commentsList = commentList;
+        if ([self.commentsList count]>0) {
+            for (int i=0; i<[self.commentsList count] && i<2; i++) {
+                self.firstCommentUserId = (int)[[commentList objectAtIndex:i] userID];
+                self.firstCommentText.text = [[commentList objectAtIndex:i] content];
+                
+                [NetWorkApi getUserInfo:self.firstCommentUserId
+                             completion:^(User *user) {
+                                 self.firstCommentImage.image = user.photo;
+                             }];
+//                self.secondCommentUserId = (int)[[commentList objectAtIndex:2] userID];
+//                self.firstCommentText.text = [[commentList objectAtIndex:2] content];
+            }
+        }
     }];
     
 }
@@ -174,6 +186,13 @@
         NSIndexPath *b = [NSIndexPath indexPathForRow:0 inSection:0]; // I wanted to update this cell specifically
         UITableViewCell *cell2 = [detailViewController.tableView cellForRowAtIndexPath:b];
         cell2.imageView.image = cell.imageView.image;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"SeeAllComments"]) {
+        AllCommentsTableViewController *destVC = [segue destinationViewController];
+        
+        destVC.userIdComment = self.userid;
+        
     }
 }
 
