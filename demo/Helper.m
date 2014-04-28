@@ -97,6 +97,7 @@
     new.userID = [(NSNumber*)[dict objectForKey:@"userID"] intValue];
     new.content = [dict objectForKey:@"content"];
     new.createTime = [self stringToDatetime :(NSString*)[dict objectForKey:@"createTime"]];
+    new.rating = [(NSNumber*)[dict objectForKey:@"rating"] floatValue];
     return new;
 }
 
