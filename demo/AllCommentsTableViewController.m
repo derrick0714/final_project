@@ -14,6 +14,7 @@
 @interface AllCommentsTableViewController ()
 
 @property NSMutableArray* commentList;
+@property NSMutableArray* commentPhoto;
 
 @end
 
@@ -33,6 +34,7 @@
 {
     [super viewDidLoad];
     self.commentList = [[NSMutableArray alloc] init];
+    self.commentPhoto = [[NSMutableArray alloc] init];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"CustomCommentTableCell"
 											   bundle:nil]
@@ -44,9 +46,6 @@
         self.commentList = commentList;
         [self.tableView reloadData];
     }];
-    
-    
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,11 +66,13 @@
     }
     
     cell.commentContent.text = c.content;
+    
     [NetWorkApi getUserInfo:(int)c.userID completion:^(User *user) {
 		cell.commentPhoto.image = user.photo;
 	}];
-    
+
     return cell;
+    
 }
 
 - (void)didReceiveMemoryWarning

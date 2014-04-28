@@ -1434,7 +1434,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hFm-gt-37D">
-                                            <rect key="frame" x="20" y="14" width="35" height="68"/>
+                                            <rect key="frame" x="20" y="14" width="68" height="68"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Comments" translatesAutoresizingMaskIntoConstraints="NO" id="kDx-jO-WSl">
@@ -1782,6 +1782,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <segue reference="Vk2-Wd-SH8"/>
         <segue reference="3lY-OP-8BW"/>
         <segue reference="Y9Z-qR-AS5"/>
-        <segue reference="BAi-Bu-dfk"/>
+        <segue reference="ywq-Eb-deW"/>
     </inferredMetricsTieBreakers>
 </document>
