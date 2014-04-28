@@ -179,9 +179,10 @@ static NSNumber* uid;
              }];
     
     //set notification
-    [self setNotification:uid.intValue content:@"You have a coming Event" eventId:eventId completion:^(BOOL result) {
+    NSString *words= @"Your have a coming event in 30 min";
+    [self setNotification:uid.intValue content:words eventId:eventId completion:^(BOOL result) {
     }];
-    [self setNotification:candidateId content:@"You have a coming Event" eventId:eventId completion:^(BOOL result) {
+    [self setNotification:candidateId content:words eventId:eventId completion:^(BOOL result) {
     }];
 }
 //get user info
