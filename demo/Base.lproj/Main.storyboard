@@ -1474,7 +1474,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Vxh-Zr-bVV" kind="push" id="61y-bR-qGs"/>
+                                    <segue destination="Vxh-Zr-bVV" kind="push" identifier="segue_rating" id="61y-bR-qGs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
