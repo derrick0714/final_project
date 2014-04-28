@@ -10,6 +10,7 @@
 #import "Event.h"
 #import "User.h"
 #import "Comment.h"
+#import "Notification.h"
 
 @interface Helper : NSObject
 + (NSString *) md5:(NSString *) input;
@@ -19,6 +20,7 @@
 + (NSDate*)stringToDatetime:(NSString*) date;
 + (User*) dictToUser:(NSDictionary*) dict;
 + (Comment*) dictToComment:(NSDictionary*) dict;
++ (Notification*) dictToNotification:(NSDictionary*) dict;
 + (void) setNotification:(NSMutableArray*) events;
 
 @end

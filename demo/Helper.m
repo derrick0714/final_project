@@ -100,21 +100,27 @@
     return new;
 }
 
-+ (void) setNotification:(NSMutableArray*) events{
++ (Notification*) dictToNotification:(NSDictionary*) dict{
+    Notification * new = [[Notification alloc] init];
+    if(dict.count == 0)
+        return new;
+    new.userID = [(NSNumber*)[dict objectForKey:@"userID"] intValue];
+    new.content = [dict objectForKey:@"content"];
+    new.fireDate = [self stringToDatetime :(NSString*)[dict objectForKey:@"fireTime"]];
+    return new;
+}
+
+
++ (void) setNotification:(NSMutableArray*) notificationList{
     
-    for (Event* key in events) {
-        if([self findNotification:[NSNumber numberWithInt:key.eventID]]){
-            continue;
-        }
-        NSDictionary *userInfo = @{ @"eventId": [NSNumber numberWithInt: key.eventID],
-                                  @"notified":[NSNumber numberWithInt: 0]};
+    for (Notification* key in notificationList) {
+       
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-        localNotification.userInfo = userInfo;
-        localNotification.fireDate = [key.startTime dateByAddingTimeInterval:-30*60];
+        localNotification.fireDate = [key.fireDate dateByAddingTimeInterval:-30*60];
         localNotification.timeZone = [NSTimeZone defaultTimeZone];
-        localNotification.alertBody = [NSString stringWithFormat:@"You have a scheduled meeting:'%@' in 30 mins at %@",key.title, key.location];
+        localNotification.alertBody = key.content;
         localNotification.soundName = UILocalNotificationDefaultSoundName;
-        localNotification.applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
+        [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
     
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         NSLog(@"add a new notifaction %@", localNotification);

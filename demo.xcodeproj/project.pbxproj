@@ -72,6 +72,7 @@
 		95AB12CF18EB18CD009E583B /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12CE18EB18CD009E583B /* EditProfileTableViewController.m */; };
 		95DD929018E8B48900016E6B /* AddEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD928F18E8B48900016E6B /* AddEventTableViewController.m */; };
 		95DD929318E8B98200016E6B /* AddMeetingMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD929218E8B98200016E6B /* AddMeetingMapViewController.m */; };
+		95E5E524190ED9B4001A0BA6 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E5E523190ED9B4001A0BA6 /* Notification.m */; };
 		AC2A4CFE18E8C71000A002DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */; };
 		AC6FE0D918F8ABC3006424C0 /* AddEventMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6FE0D818F8ABC3006424C0 /* AddEventMapAnnotation.m */; };
 		AC7876101907023A0079437A /* AllCommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC78760F1907023A0079437A /* AllCommentsTableViewController.m */; };
@@ -211,6 +212,8 @@
 		95DD928F18E8B48900016E6B /* AddEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventTableViewController.m; sourceTree = "<group>"; };
 		95DD929118E8B98200016E6B /* AddMeetingMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMeetingMapViewController.h; sourceTree = "<group>"; };
 		95DD929218E8B98200016E6B /* AddMeetingMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMeetingMapViewController.m; sourceTree = "<group>"; };
+		95E5E522190ED9B4001A0BA6 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		95E5E523190ED9B4001A0BA6 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AC6FE0D718F8ABC3006424C0 /* AddEventMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventMapAnnotation.h; sourceTree = "<group>"; };
 		AC6FE0D818F8ABC3006424C0 /* AddEventMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventMapAnnotation.m; sourceTree = "<group>"; };
@@ -434,6 +437,8 @@
 				957A5DDF18F9F11000F82524 /* User.m */,
 				95A68DF21906CE28000A2FB0 /* Comment.h */,
 				95A68DF31906CE28000A2FB0 /* Comment.m */,
+				95E5E522190ED9B4001A0BA6 /* Notification.h */,
+				95E5E523190ED9B4001A0BA6 /* Notification.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -764,6 +769,7 @@
 				958CC75C18F37DAE0042E395 /* UIAlertView+AFNetworking.m in Sources */,
 				E2ACCFBD1906F1CC00B2362B /* FlipSegue.m in Sources */,
 				958CC74218F37D2E0042E395 /* AFNetworkReachabilityManager.m in Sources */,
+				95E5E524190ED9B4001A0BA6 /* Notification.m in Sources */,
 				957A5DD018F9E22300F82524 /* Helper.m in Sources */,
 				95AB12C718EB1710009E583B /* UIImage+RoundedCorner.m in Sources */,
 				958CC76118F37DAE0042E395 /* UIWebView+AFNetworking.m in Sources */,

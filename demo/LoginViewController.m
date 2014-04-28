@@ -61,8 +61,8 @@
 -(void) getNotification
 {
     NSLog(@"getNotification");
-    [NetWorkApi EventByStatus:COMING completion:^(NSMutableArray *events) {
-        [Helper setNotification:events];
+    [NetWorkApi getNotification:0 completion:^(NSMutableArray *notificationList) {
+        [Helper setNotification:notificationList];
     }];
     
     [self performSelector:@selector(getNotification) withObject:self afterDelay:15.0f];

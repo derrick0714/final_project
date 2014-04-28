@@ -246,6 +246,40 @@ static NSNumber* uid;
     
 }
 
++ (void)getNotification:(int) userId
+             completion:(void (^)(NSMutableArray* notificationList))completionBlock{
+    NSString *apiName = @"getNotification";
+    NSDictionary *params = @{@"uid":uid};
+    
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                 NSMutableArray *notificationList = [NSMutableArray new];
+                 for (NSDictionary* value in response) {
+                     [notificationList addObject: [Helper dictToNotification:value ]];
+                 }
+                 completionBlock(notificationList);
+             }];
+}
+
++ (void)setNotification:(int) userId
+                content:(NSString*) content
+               fireTime:(NSDate*)fireTime
+             completion:(void (^)(BOOL result))completionBlock{
+    
+    NSString *apiName = @"setNotification";
+    NSDictionary *params = @{@"userId": [NSNumber numberWithInt: userId],
+                             @"content":content,
+                             @"fireTime":[Helper datetimeToString:fireTime]};
+    
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                 completionBlock([[response objectForKey:@"result"] boolValue]);
+             }];
+
+}
+
 
 //network core function
 +(void) networkDealer:(NSString*) apiName

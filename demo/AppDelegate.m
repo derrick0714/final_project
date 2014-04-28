@@ -47,9 +47,8 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
-    NSDictionary *userinfo = notification.userInfo;
-    int notified = [(NSNumber*)[userinfo valueForKey:@"notified"] integerValue];
-    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive && notified ==0) {
+
+    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
         
         // Show Alert Here
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification"
@@ -57,11 +56,10 @@
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
-      //  [userinfo setValue:@"notified" forKey:[NSNumber numberWithInt:1]];
         [alert show];
     }
-    [[UIApplication sharedApplication] cancelLocalNotification:notification];
-    [UIApplication sharedApplication].applicationIconBadgeNumber  -=1;
+    //[[UIApplication sharedApplication] cancelLocalNotification:notification];
+    [UIApplication sharedApplication].applicationIconBadgeNumber  =0;
 }
 
 
