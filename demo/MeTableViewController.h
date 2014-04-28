@@ -17,6 +17,7 @@
 @property int userid;
 @property int eventID;
 
+@property BOOL isNotSelf;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *acceptButton;
 @property BOOL isApplicantToMe;
