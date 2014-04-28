@@ -223,13 +223,16 @@ static NSNumber* uid;
 + (void)addComment:(int) commenterId
            content:(NSString*) content
             rating:(float)rating
+           eventId:(int)eventId
         completion:(void (^)(BOOL result, NSString* desc))completionBlock{
     
     NSString *apiName = @"addComment";
     NSDictionary *params = @{@"uid":uid,
                              @"commenterId":[NSNumber numberWithInt:commenterId],
                              @"content":content,
-                             @"rating":[NSNumber numberWithFloat:rating]};
+                             @"rating":[NSNumber numberWithFloat:rating],
+                             @"eventId":[NSNumber numberWithInt:eventId]
+                             };
     
     [self networkDealer:apiName
                  params:params

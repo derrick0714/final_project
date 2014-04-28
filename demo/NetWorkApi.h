@@ -54,6 +54,7 @@
 + (void)addComment:(int) commenterId
            content:(NSString*) content
             rating:(float)rating
+           eventId:(int)eventId
             completion:(void (^)(BOOL result, NSString* desc))completionBlock;
 
 + (void)getComments:(int) userId
