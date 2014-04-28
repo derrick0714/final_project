@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Comment.h"
 
-@interface AllCommentsTableViewController : UITableViewController<UITextViewDelegate,UITextFieldDelegate>
+@interface AllCommentsTableViewController : UITableViewController<UITextViewDelegate, UITextFieldDelegate>
 
 @property int userIdComment;
 
