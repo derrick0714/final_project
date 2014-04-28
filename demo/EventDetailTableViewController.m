@@ -98,7 +98,7 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
+    NSLog(@"EventDetail: prepareForSegue");
     if([segue.identifier isEqualToString:@"showEventOnMap"]){
         EventMapViewController *destVC = (EventMapViewController *)segue.destinationViewController;
         destVC.latitude = self.event.latitude;
@@ -106,6 +106,7 @@
     } else if([segue.identifier isEqualToString:@"segue_show_creator_detail"]) {
 		MeTableViewController *destVC = (MeTableViewController *)segue.destinationViewController;
 		destVC.userid = self.event.creatorID;
+        destVC.isNotSelf = true;
 	} else if([segue.identifier isEqualToString:@"segue_show_candidates"]) {
 		EventCandidatesCollectionViewController *destVC = (EventCandidatesCollectionViewController *)segue.destinationViewController;
 		destVC.eventid = self.event.eventID;

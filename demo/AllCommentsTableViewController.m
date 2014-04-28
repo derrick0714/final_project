@@ -42,7 +42,10 @@
     [NetWorkApi getComments:self.userIdComment
                  completion:^(NSMutableArray *commentList) {
         self.commentList = commentList;
+        [self.tableView reloadData];
     }];
+    
+    
     
 }
 
