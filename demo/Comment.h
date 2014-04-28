@@ -13,5 +13,5 @@
 @property NSInteger userID;
 @property NSString* content;
 @property NSDate* createTime;
-
+@property float rating;
 @end

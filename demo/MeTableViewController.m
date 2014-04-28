@@ -54,8 +54,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSLog(@"Me: viewDidLoad");
     
-    self.userid = [NetWorkApi getSelfId];
+    if (!self.isNotSelf) {
+        self.userid = [NetWorkApi getSelfId];
+    }
     
     meTableViewTitle.title = @"Applicant";
     if (!self.isApplicantToMe) {

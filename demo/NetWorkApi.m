@@ -140,6 +140,9 @@ static NSNumber* uid;
              completion:^(NSDictionary *response) {
                  completionBlock([[response objectForKey:@"result"] boolValue], [response objectForKey:@"desc"]);
              }];
+
+
+    
 }
 
 //get candidates list
@@ -174,6 +177,13 @@ static NSNumber* uid;
              completion:^(NSDictionary *response) {
                  completionBlock([[response objectForKey:@"result"] boolValue]);
              }];
+    
+    //set notification
+    NSString *words= @"Your have a coming event in 30 min";
+    [self setNotification:uid.intValue content:words eventId:eventId completion:^(BOOL result) {
+    }];
+    [self setNotification:candidateId content:words eventId:eventId completion:^(BOOL result) {
+    }];
 }
 //get user info
 + (void)getUserInfo:(int) uid
@@ -212,12 +222,17 @@ static NSNumber* uid;
 
 + (void)addComment:(int) commenterId
            content:(NSString*) content
+            rating:(float)rating
+           eventId:(int)eventId
         completion:(void (^)(BOOL result, NSString* desc))completionBlock{
     
     NSString *apiName = @"addComment";
     NSDictionary *params = @{@"uid":uid,
                              @"commenterId":[NSNumber numberWithInt:commenterId],
-                             @"content":content};
+                             @"content":content,
+                             @"rating":[NSNumber numberWithFloat:rating],
+                             @"eventId":[NSNumber numberWithInt:eventId]
+                             };
     
     [self networkDealer:apiName
                  params:params
@@ -264,13 +279,13 @@ static NSNumber* uid;
 
 + (void)setNotification:(int) userId
                 content:(NSString*) content
-               fireTime:(NSDate*)fireTime
+               eventId:(int)eventId
              completion:(void (^)(BOOL result))completionBlock{
     
     NSString *apiName = @"setNotification";
     NSDictionary *params = @{@"userId": [NSNumber numberWithInt: userId],
                              @"content":content,
-                             @"fireTime":[Helper datetimeToString:fireTime]};
+                             @"eventId":[NSNumber numberWithInt:eventId]};
     
     [self networkDealer:apiName
                  params:params

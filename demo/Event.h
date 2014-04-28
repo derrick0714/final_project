@@ -17,7 +17,9 @@ typedef enum {
 typedef enum {
 	COMING = 0,
 	PENDING,
-	HISTORY
+	HISTORY,
+    UNREVIEW,
+    REVIEWED
 } EventsSelector;
 
 // #import user;
