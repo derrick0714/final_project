@@ -179,9 +179,10 @@ static NSNumber* uid;
              }];
     
     //set notification
-    [self setNotification:uid.intValue content:@"You have a coming Event" eventId:eventId completion:^(BOOL result) {
+    NSString *words= @"Your have a coming event in 30 min";
+    [self setNotification:uid.intValue content:words eventId:eventId completion:^(BOOL result) {
     }];
-    [self setNotification:candidateId content:@"You have a coming Event" eventId:eventId completion:^(BOOL result) {
+    [self setNotification:candidateId content:words eventId:eventId completion:^(BOOL result) {
     }];
 }
 //get user info
@@ -222,13 +223,16 @@ static NSNumber* uid;
 + (void)addComment:(int) commenterId
            content:(NSString*) content
             rating:(float)rating
+           eventId:(int)eventId
         completion:(void (^)(BOOL result, NSString* desc))completionBlock{
     
     NSString *apiName = @"addComment";
     NSDictionary *params = @{@"uid":uid,
                              @"commenterId":[NSNumber numberWithInt:commenterId],
                              @"content":content,
-                             @"rating":[NSNumber numberWithFloat:rating]};
+                             @"rating":[NSNumber numberWithFloat:rating],
+                             @"eventId":[NSNumber numberWithInt:eventId]
+                             };
     
     [self networkDealer:apiName
                  params:params
