@@ -88,6 +88,7 @@
 		ACF5AF5D18EBB22500DEA17E /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */; };
 		E29956D0190ED5F7007A8D4B /* TPFloatRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E29956CF190ED5F7007A8D4B /* TPFloatRatingView.m */; };
 		E29956D3190ED7A6007A8D4B /* RatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E29956D2190ED7A6007A8D4B /* RatingViewController.m */; };
+		E29956D6190EFCF3007A8D4B /* RatingListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E29956D5190EFCF3007A8D4B /* RatingListTableViewController.m */; };
 		E29F236418F8CD8A002798F5 /* CandidateCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E29F236318F8CD8A002798F5 /* CandidateCollectionViewCell.m */; };
 		E29F236718F8D445002798F5 /* EventCandidatesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E29F236618F8D445002798F5 /* EventCandidatesCollectionViewController.m */; };
 		E2ACCFBD1906F1CC00B2362B /* FlipSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ACCFBC1906F1CC00B2362B /* FlipSegue.m */; };
@@ -241,6 +242,8 @@
 		E29956CF190ED5F7007A8D4B /* TPFloatRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFloatRatingView.m; sourceTree = "<group>"; };
 		E29956D1190ED7A6007A8D4B /* RatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingViewController.h; sourceTree = "<group>"; };
 		E29956D2190ED7A6007A8D4B /* RatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingViewController.m; sourceTree = "<group>"; };
+		E29956D4190EFCF3007A8D4B /* RatingListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingListTableViewController.h; sourceTree = "<group>"; };
+		E29956D5190EFCF3007A8D4B /* RatingListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingListTableViewController.m; sourceTree = "<group>"; };
 		E29F236218F8CD8A002798F5 /* CandidateCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandidateCollectionViewCell.h; sourceTree = "<group>"; };
 		E29F236318F8CD8A002798F5 /* CandidateCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandidateCollectionViewCell.m; sourceTree = "<group>"; };
 		E29F236518F8D445002798F5 /* EventCandidatesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCandidatesCollectionViewController.h; sourceTree = "<group>"; };
@@ -430,6 +433,8 @@
 				95AB12C918EB1778009E583B /* ImagePicker */,
 				AC78760E1907023A0079437A /* AllCommentsTableViewController.h */,
 				AC78760F1907023A0079437A /* AllCommentsTableViewController.m */,
+				E29956D4190EFCF3007A8D4B /* RatingListTableViewController.h */,
+				E29956D5190EFCF3007A8D4B /* RatingListTableViewController.m */,
 				E29956D1190ED7A6007A8D4B /* RatingViewController.h */,
 				E29956D2190ED7A6007A8D4B /* RatingViewController.m */,
 				E29956CE190ED5F7007A8D4B /* TPFloatRatingView.h */,
@@ -803,6 +808,7 @@
 				AC7876101907023A0079437A /* AllCommentsTableViewController.m in Sources */,
 				9591879718E5E81200538439 /* DiscoverTableViewController.m in Sources */,
 				95A68DF41906CE28000A2FB0 /* Comment.m in Sources */,
+				E29956D6190EFCF3007A8D4B /* RatingListTableViewController.m in Sources */,
 				9505A82018E12CAD006F1CA2 /* main.m in Sources */,
 				958CC75A18F37DAE0042E395 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				958CC74318F37D2E0042E395 /* AFSecurityPolicy.m in Sources */,
