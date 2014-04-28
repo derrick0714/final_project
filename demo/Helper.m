@@ -100,4 +100,42 @@
     return new;
 }
 
++ (Notification*) dictToNotification:(NSDictionary*) dict{
+    Notification * new = [[Notification alloc] init];
+    if(dict.count == 0)
+        return new;
+    new.userID = [(NSNumber*)[dict objectForKey:@"userID"] intValue];
+    new.content = [dict objectForKey:@"content"];
+    new.fireDate = [self stringToDatetime :(NSString*)[dict objectForKey:@"fireTime"]];
+    return new;
+}
+
+
++ (void) setNotification:(NSMutableArray*) notificationList{
+    
+    for (Notification* key in notificationList) {
+       
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [key.fireDate dateByAddingTimeInterval:-30*60];
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        localNotification.alertBody = key.content;
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
+        [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
+    
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        NSLog(@"add a new notifaction %@", localNotification);
+    }
+}
+
++ (BOOL) findNotification:(NSNumber*) eventId{
+    NSArray* notifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+
+    for (UILocalNotification* key in notifications){
+        if((NSNumber*)[key.userInfo valueForKey:@"eventId"] == eventId){
+            return true;
+        }
+    }
+    return false;
+}
+
 @end

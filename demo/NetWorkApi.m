@@ -47,7 +47,7 @@ static NSNumber* uid;
     NSDictionary *params = @ {@"user" :userName,
         @"pwd" :[Helper md5:password] };
     
-    [self networkDealer:apiName
+       [self networkDealer:apiName
                  params:params
              completion:^(NSDictionary *response) {
                  uid = [NSNumber numberWithInt: [[response objectForKey:@"uid"] intValue]];
@@ -117,6 +117,7 @@ static NSNumber* uid;
                                 @"longitude":[NSNumber numberWithFloat:event.longitude]
                                 };
     
+
     [self networkDealer:apiName
                  params:params
              completion:^(NSDictionary *response) {
@@ -243,6 +244,40 @@ static NSNumber* uid;
                      completionBlock(commentList);
              }];
     
+}
+
++ (void)getNotification:(int) userId
+             completion:(void (^)(NSMutableArray* notificationList))completionBlock{
+    NSString *apiName = @"getNotification";
+    NSDictionary *params = @{@"uid":uid};
+    
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                 NSMutableArray *notificationList = [NSMutableArray new];
+                 for (NSDictionary* value in response) {
+                     [notificationList addObject: [Helper dictToNotification:value ]];
+                 }
+                 completionBlock(notificationList);
+             }];
+}
+
++ (void)setNotification:(int) userId
+                content:(NSString*) content
+               fireTime:(NSDate*)fireTime
+             completion:(void (^)(BOOL result))completionBlock{
+    
+    NSString *apiName = @"setNotification";
+    NSDictionary *params = @{@"userId": [NSNumber numberWithInt: userId],
+                             @"content":content,
+                             @"fireTime":[Helper datetimeToString:fireTime]};
+    
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                 completionBlock([[response objectForKey:@"result"] boolValue]);
+             }];
+
 }
 
 

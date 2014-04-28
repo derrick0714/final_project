@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "NetWorkApi.h"
+#import "Helper.h"
 @interface LoginViewController ()
 - (IBAction)login:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *uname;
@@ -52,6 +53,19 @@
 	self.uname.leftViewMode = UITextFieldViewModeAlways;
 	self.password.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
 	self.password.leftViewMode = UITextFieldViewModeAlways;
+    
+    
+
+}
+
+-(void) getNotification
+{
+    NSLog(@"getNotification");
+    [NetWorkApi getNotification:0 completion:^(NSMutableArray *notificationList) {
+        [Helper setNotification:notificationList];
+    }];
+    
+    [self performSelector:@selector(getNotification) withObject:self afterDelay:15.0f];
 }
 
 - (void)keyboardWillHide:(NSNotification *)n
@@ -117,6 +131,7 @@
                            password:self.password.text
                          completion:^(BOOL success, NSString* desc) {
                              if (success) {
+                                 [self performSelector:@selector(getNotification) withObject:self];
                                 [self performSegueWithIdentifier:@"segue_login" sender:self];
                              } else {
                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"user name or password dismatch"

@@ -29,6 +29,7 @@
 + (void)EventByStatus:(EventsSelector)status
            completion:(void (^)(NSMutableArray *events))completionBlock;
 
+
 + (void)CreateEvent:(Event *)event
          completion:(void (^)(BOOL result))completionBlock;
 
@@ -56,4 +57,12 @@
 
 + (void)getComments:(int) userId
         completion:(void (^)(NSMutableArray* commentList))completionBlock;
+
++ (void)getNotification:(int) userId
+         completion:(void (^)(NSMutableArray* notificationList))completionBlock;
+
++ (void)setNotification:(int) userId
+                content:(NSString*) content
+               fireTime:(NSDate*)fireTime
+             completion:(void (^)(BOOL result))completionBlock;
 @end

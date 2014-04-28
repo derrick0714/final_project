@@ -54,6 +54,9 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.userid = [NetWorkApi getSelfId];
+    
     meTableViewTitle.title = @"Applicant";
     if (!self.isApplicantToMe) {
         acceptButton.customView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
@@ -116,8 +119,6 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Successfully Accept" message: @"This applicant is successfully added." delegate: nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }];
-    
-    
 }
 
 /*
