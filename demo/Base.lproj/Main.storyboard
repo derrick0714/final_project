@@ -1553,6 +1553,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <segment title="Unrated"/>
                                 <segment title="Rated"/>
                             </segments>
+                            <connections>
+                                <action selector="segCtrlTapped:" destination="gKu-N7-1JX" eventType="valueChanged" id="AkJ-FH-V9S"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>

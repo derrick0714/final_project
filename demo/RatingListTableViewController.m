@@ -10,9 +10,11 @@
 #import "EventCustomCellTableViewCell.h"
 #import "Event.h"
 #import "NetWorkApi.h"
+#import "RatingViewController.h"
 
 @interface RatingListTableViewController ()
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segCtrl;
+- (IBAction)segCtrlTapped:(id)sender;
 @property NSMutableArray *unratedEvents;
 @property NSMutableArray *ratedEvents;
 @end
@@ -37,7 +39,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	[NetWorkApi EventByStatus:3
+	[self refresh];
+}
+-(void) refresh {
+	[NetWorkApi EventByStatus:self.segCtrl.selectedSegmentIndex + 3
 				   completion:^(NSMutableArray* events) {
 					   self.unratedEvents = events;
 					   [self.tableView reloadData];
@@ -146,6 +151,8 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+	RatingViewController *destVC = (RatingViewController *) [segue destinationViewController];
+//	destVC.mode = self.segCtrl.
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -153,4 +160,7 @@
 							  sender:[self.tableView cellForRowAtIndexPath:indexPath]];
 }
 
+- (IBAction)segCtrlTapped:(id)sender {
+	[self refresh];
+}
 @end
