@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 #import "NetWorkApi.h"
 #import "Helper.h"
+#import "FBShimmeringView.h"
+
 @interface LoginViewController ()
 - (IBAction)login:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *uname;
@@ -16,7 +18,12 @@
 
 @end
 
-@implementation LoginViewController
+@implementation LoginViewController{
+    UIImageView *_wallpaperView;
+    FBShimmeringView *_shimmeringView;
+    UIView *_contentView;
+    UILabel *_logoLabel;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,7 +38,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -54,8 +61,44 @@
 	self.password.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
 	self.password.leftViewMode = UITextFieldViewModeAlways;
     
+    self.view.backgroundColor = [UIColor blackColor];
     
+    _wallpaperView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    _wallpaperView.image = [UIImage imageNamed:@"star_bg"];
+    _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
+    //[self.view addSubview:_wallpaperView];
+    [self.view insertSubview:_wallpaperView atIndex:0];
 
+ 
+    _shimmeringView = [[FBShimmeringView alloc] init];
+    _shimmeringView.shimmering = YES;
+    _shimmeringView.shimmeringBeginFadeDuration = 0.3;
+    _shimmeringView.shimmeringOpacity = 0.3;
+    [self.view addSubview:_shimmeringView];
+    
+    _logoLabel = [[UILabel alloc] initWithFrame:_shimmeringView.bounds];
+    _logoLabel.text = @"Tutor Me";
+    _logoLabel.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:60.0];
+    _logoLabel.textColor = [UIColor whiteColor];
+    _logoLabel.textAlignment = NSTextAlignmentCenter;
+    _logoLabel.backgroundColor = [UIColor clearColor];
+    _shimmeringView.contentView = _logoLabel;
+    
+    //holder
+    [self.uname setValue:[UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:0.4] forKeyPath:@"_placeholderLabel.textColor"];
+
+    [self.password setValue:[UIColor colorWithRed:200.0/255.0 green:200.0/255.0 blue:200.0/255.0 alpha:0.4] forKeyPath:@"_placeholderLabel.textColor"];
+
+
+}
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+    CGRect shimmeringFrame = self.view.bounds;
+    shimmeringFrame.origin.y = shimmeringFrame.size.height * 0.03;
+    shimmeringFrame.size.height = shimmeringFrame.size.height * 0.32;
+    _shimmeringView.frame = shimmeringFrame;
 }
 
 -(void) getNotification

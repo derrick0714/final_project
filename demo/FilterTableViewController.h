@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
+#import "REFrostedViewController.h"
+#import "DiscoverTableViewController.h"
 
 @interface FilterTableViewController : UITableViewController
 @property SortBy sortBy;
 @property NSString *subject;
+@property DiscoverTableViewController* discover;
+
 @end

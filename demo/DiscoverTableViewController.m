@@ -19,7 +19,6 @@
 @property NSMutableArray* events;
 @property CLLocationManager *locationManager;
 @property NSIndexPath *currentEventIndexPath;
-- (IBAction)refresh:(id)sender;
 @end
 
 @implementation DiscoverTableViewController
@@ -68,6 +67,7 @@
     [self.refreshControl tintColorDidChange];
 
 	
+    
 	self.sortBy = BESTMATCH;
 	self.subject = @"All";
     self.events = [[NSMutableArray alloc] init];
@@ -137,8 +137,26 @@
 -(void)dismissKeyboard {
     [self.view endEditing:YES]; //make the view end editing!
 }
+-(void) reload_data{
+    [self refresh:nil];
+}
 
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+    
+}
 
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController willShowMenuViewController:(UIViewController *)menuViewController{
+    
+}
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController didShowMenuViewController:(UIViewController *)menuViewController{
+    
+}
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController willHideMenuViewController:(UIViewController *)menuViewController{
+    
+}
+- (void)frostedViewController:(REFrostedViewController *)frostedViewController didHideMenuViewController:(UIViewController *)menuViewController{
+    
+}
 
 /*
  // Override to support conditional editing of the table view.
@@ -301,6 +319,8 @@
 
 - (IBAction)onClickSetting:(id)sender {
     NSLog(@"setting clicked");
+    FilterTableViewController* menu =  (FilterTableViewController*)self.frostedViewController.menuViewController;
+    menu.discover = self;
     [self.frostedViewController presentMenuViewController];
 
 }

@@ -8,6 +8,7 @@
 
 #import "FilterTableViewController.h"
 #import "EventCustomCellTableViewCell.h"
+#import "rootViewController.h"
 
 @interface FilterTableViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *view;
@@ -34,7 +35,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-	int section = 0;
+    self.subject = @"All";
+	int section = 1;
 	for (int row = 0; row < [self.tableView numberOfRowsInSection:section]; row++) {
 		NSIndexPath *cellPath = [NSIndexPath indexPathForRow:row inSection:section];
 		UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:cellPath];
@@ -44,7 +46,7 @@
 			cell.accessoryType = UITableViewCellAccessoryNone;
 		}
 	}
-	section = 1;
+	section = 2;
 	for (int row = 0; row < [self.tableView numberOfRowsInSection:section]; row++) {
 		NSIndexPath *cellPath = [NSIndexPath indexPathForRow:row inSection:section];
 		UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:cellPath];
@@ -72,16 +74,18 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 3;
+    return 6;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
 	switch(section) {
-		case 0: return 3;
-		case 1: return 6;
-		case 2: return 1;
+        case 0: return 1;
+		case 1: return 3;
+		case 2: return 6;
+		case 3: return 1;
+        case 4: return 1;
 		default: return 0;
 	}
 }
@@ -157,9 +161,9 @@
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];
 //	for (int section = 0; section < [tableView numberOfSections]; section++) {
 	int section = indexPath.section;
-	if(section == 2) {
-		return;
-	}
+    
+	if(section == 1 || section == 2) {
+        
 	for (int row = 0; row < [tableView numberOfRowsInSection:section]; row++) {
 		NSIndexPath *cellPath = [NSIndexPath indexPathForRow:row inSection:section];
 		UITableViewCell *cell = [tableView cellForRowAtIndexPath:cellPath];
@@ -169,13 +173,26 @@
 	UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 	cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	switch(section) {
-		case 0: // sort by
+		case 1: // sort by
 			self.sortBy = (SortBy)indexPath.row;
+          //  ((DiscoverTableViewCont*)self.frostedViewController.menuViewController).sortBy = DISTANCE;
 			break;
-		case 1: // subject
+		case 2: // subject
 			self.subject = cell.textLabel.text;
 			break;
 	}
+    }
+    if(section == 3){
+        [self.frostedViewController hideMenuViewController];
+        _discover.sortBy = self.sortBy;
+        _discover.subject = self.subject;
+        [_discover reload_data];
+       // rootViewController* a = (rootViewController*)self.frostedViewController.contentViewController;
+
+        //        content.subject =self.subject;
+//        content.sortBy = self.sortBy;
+       // [content.reload_data];
+    }
 }
 
 #pragma mark - Navigation

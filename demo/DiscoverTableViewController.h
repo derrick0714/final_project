@@ -11,8 +11,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import "REFrostedViewController.h"
 
-
 @interface DiscoverTableViewController : UITableViewController<UIScrollViewDelegate, CLLocationManagerDelegate>
+-(void) reload_data;
+
 @property SortBy sortBy;
 @property NSString *subject;
 @end
