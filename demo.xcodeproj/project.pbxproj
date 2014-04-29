@@ -37,6 +37,9 @@
 		954F381119102872006433B2 /* FBShimmeringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 954F380F19102872006433B2 /* FBShimmeringView.m */; };
 		954F381519103152006433B2 /* star_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 954F381419103152006433B2 /* star_bg.png */; };
 		954F38171910361A006433B2 /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 954F38161910361A006433B2 /* logo2.png */; };
+		954F381A191066D5006433B2 /* mapRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954F3819191066D5006433B2 /* mapRootViewController.m */; };
+		954F381D19106765006433B2 /* mapNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954F381C19106765006433B2 /* mapNavigationViewController.m */; };
+		954F3820191067FD006433B2 /* mapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954F381F191067FD006433B2 /* mapViewController.m */; };
 		956B1C3018E8ACAD003E782D /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956B1C2F18E8ACAD003E782D /* FilterTableViewController.m */; };
 		956FA87A18EB3700009A106E /* MeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956FA87918EB3700009A106E /* MeTableViewController.m */; };
 		957A5DD018F9E22300F82524 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 957A5DCF18F9E22300F82524 /* Helper.m */; };
@@ -154,6 +157,12 @@
 		954F380F19102872006433B2 /* FBShimmeringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringView.m; sourceTree = "<group>"; };
 		954F381419103152006433B2 /* star_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_bg.png; sourceTree = "<group>"; };
 		954F38161910361A006433B2 /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo2.png; sourceTree = "<group>"; };
+		954F3818191066D5006433B2 /* mapRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mapRootViewController.h; sourceTree = "<group>"; };
+		954F3819191066D5006433B2 /* mapRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mapRootViewController.m; sourceTree = "<group>"; };
+		954F381B19106765006433B2 /* mapNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mapNavigationViewController.h; sourceTree = "<group>"; };
+		954F381C19106765006433B2 /* mapNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mapNavigationViewController.m; sourceTree = "<group>"; };
+		954F381E191067FD006433B2 /* mapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mapViewController.h; sourceTree = "<group>"; };
+		954F381F191067FD006433B2 /* mapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mapViewController.m; sourceTree = "<group>"; };
 		956B1C2E18E8ACAD003E782D /* FilterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterTableViewController.h; sourceTree = "<group>"; };
 		956B1C2F18E8ACAD003E782D /* FilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewController.m; sourceTree = "<group>"; };
 		956FA87818EB3700009A106E /* MeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeTableViewController.h; sourceTree = "<group>"; };
@@ -444,8 +453,14 @@
 		956B1C2B18E8A4DE003E782D /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				954F3818191066D5006433B2 /* mapRootViewController.h */,
+				954F3819191066D5006433B2 /* mapRootViewController.m */,
+				954F381B19106765006433B2 /* mapNavigationViewController.h */,
+				954F381C19106765006433B2 /* mapNavigationViewController.m */,
 				957F33561910029F00E98D6F /* rootViewController.h */,
 				957F33571910029F00E98D6F /* rootViewController.m */,
+				954F381E191067FD006433B2 /* mapViewController.h */,
+				954F381F191067FD006433B2 /* mapViewController.m */,
 				9591879B18E5EED300538439 /* EventDetailTableViewController.h */,
 				9591879C18E5EED300538439 /* EventDetailTableViewController.m */,
 				956B1C2E18E8ACAD003E782D /* FilterTableViewController.h */,
@@ -864,7 +879,9 @@
 				957F3353191001F100E98D6F /* UIImage+REFrostedViewController.m in Sources */,
 				95E5E524190ED9B4001A0BA6 /* Notification.m in Sources */,
 				957A5DD018F9E22300F82524 /* Helper.m in Sources */,
+				954F381A191066D5006433B2 /* mapRootViewController.m in Sources */,
 				95AB12C718EB1710009E583B /* UIImage+RoundedCorner.m in Sources */,
+				954F381D19106765006433B2 /* mapNavigationViewController.m in Sources */,
 				957F3350191001F100E98D6F /* RECommonFunctions.m in Sources */,
 				958CC76118F37DAE0042E395 /* UIWebView+AFNetworking.m in Sources */,
 				95AB12C618EB1710009E583B /* UIImage+Rotate.m in Sources */,
@@ -892,6 +909,7 @@
 				E29956D6190EFCF3007A8D4B /* RatingListTableViewController.m in Sources */,
 				9505A82018E12CAD006F1CA2 /* main.m in Sources */,
 				958CC75A18F37DAE0042E395 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				954F3820191067FD006433B2 /* mapViewController.m in Sources */,
 				958CC74318F37D2E0042E395 /* AFSecurityPolicy.m in Sources */,
 				958CC74018F37D2E0042E395 /* AFHTTPRequestOperationManager.m in Sources */,
 				958CC74118F37D2E0042E395 /* AFHTTPSessionManager.m in Sources */,

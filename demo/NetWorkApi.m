@@ -182,8 +182,8 @@ static NSNumber* uid;
     NSString *words= @"Your have a coming event in 30 min";
     [self setNotification:uid.intValue content:words eventId:eventId completion:^(BOOL result) {
     }];
-    [self setNotification:candidateId content:words eventId:eventId completion:^(BOOL result) {
-    }];
+  //  [self setNotification:candidateId content:words eventId:eventId completion:^(BOOL result) {
+   // }];
 }
 //get user info
 + (void)getUserInfo:(int) uid
@@ -286,7 +286,7 @@ static NSNumber* uid;
     NSDictionary *params = @{@"userId": [NSNumber numberWithInt: userId],
                              @"content":content,
                              @"eventId":[NSNumber numberWithInt:eventId]};
-    
+    NSLog(@"%@",params);
     [self networkDealer:apiName
                  params:params
              completion:^(NSDictionary *response) {

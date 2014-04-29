@@ -210,6 +210,69 @@
             </objects>
             <point key="canvasLocation" x="-36" y="719"/>
         </scene>
+        <!--Map Root View Controller-->
+        <scene sceneID="O8b-Ci-C4R">
+            <objects>
+                <viewController id="wso-q4-QAE" customClass="mapRootViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dUO-W7-MxG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y5T-Nh-fp6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sl2-ZJ-CmW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4nM-E7-DaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="395" y="-967"/>
+        </scene>
+        <!--Map Navigation View Controller-->
+        <scene sceneID="lba-Us-niB">
+            <objects>
+                <navigationController storyboardIdentifier="mapContent" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O49-QS-LY1" customClass="mapNavigationViewController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vdU-mH-T9e">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="SNW-Ha-TFg" kind="relationship" relationship="rootViewController" id="g4s-0m-0mp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WwO-EG-0sz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="987" y="-977"/>
+        </scene>
+        <!--Map View Controller - Map-->
+        <scene sceneID="x6G-xb-VLO">
+            <objects>
+                <viewController id="SNW-Ha-TFg" customClass="mapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3JY-aW-nxf"/>
+                        <viewControllerLayoutGuide type="bottom" id="LM1-1A-wvb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CpE-2N-g4W">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="BQn-hl-zOf">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="RQK-LH-sEF">
+                            <connections>
+                                <action selector="onFilterClick:" destination="SNW-Ha-TFg" id="aF5-4d-fbV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="List" id="Qfo-Cn-EA5">
+                            <connections>
+                                <segue destination="qZK-L5-Kf0" kind="modal" modalTransitionStyle="flipHorizontal" id="5Mb-gN-rvc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E8e-mf-CEo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1492" y="-967"/>
+        </scene>
         <!--Discover Table View Controller - Discover-->
         <scene sceneID="txO-7z-IKs">
             <objects>
@@ -250,14 +313,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Discover" id="0Qo-C8-zwX">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="SJj-7c-JUv">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="SJj-7c-JUv">
                             <connections>
                                 <action selector="onClickSetting:" destination="R8M-rb-B9F" id="ovn-65-j6o"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Map" id="672-2K-Kii">
                             <connections>
-                                <segue destination="ipo-K2-iZp" kind="push" id="mBM-K0-ZrZ"/>
+                                <segue destination="wso-q4-QAE" kind="modal" modalTransitionStyle="flipHorizontal" id="0Ag-J7-tGk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -330,7 +393,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2785" y="719"/>
+            <point key="canvasLocation" x="2873" y="735"/>
         </scene>
         <!--Filter Table View Controller - Settings-->
         <scene sceneID="hws-BE-N7Q">
@@ -1920,9 +1983,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Y9Z-qR-AS5"/>
-        <segue reference="tlK-OA-wjf"/>
-        <segue reference="mBM-K0-ZrZ"/>
         <segue reference="7RF-8X-Xej"/>
+        <segue reference="tlK-OA-wjf"/>
+        <segue reference="5Mb-gN-rvc"/>
+        <segue reference="Y9Z-qR-AS5"/>
     </inferredMetricsTieBreakers>
 </document>
