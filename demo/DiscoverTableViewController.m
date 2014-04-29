@@ -15,6 +15,7 @@
 
 @interface DiscoverTableViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+- (IBAction)onClickSetting:(id)sender;
 @property NSMutableArray* events;
 @property CLLocationManager *locationManager;
 @property NSIndexPath *currentEventIndexPath;
@@ -48,6 +49,11 @@
     //this enables the editing of picker views after touching
     tap.cancelsTouchesInView = NO;
     
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"star_bg"]];
+    [tempImageView setFrame:self.tableView.frame];
+    
+    self.tableView.backgroundView = tempImageView;
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
@@ -58,6 +64,9 @@
 	UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
 	[refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
 	self.refreshControl = refreshControl;
+    [self.refreshControl setTintColor:[UIColor whiteColor]];
+    [self.refreshControl tintColorDidChange];
+
 	
 	self.sortBy = BESTMATCH;
 	self.subject = @"All";
@@ -106,7 +115,7 @@
 //		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomEventTableCell" owner:self options:nil];
 //		cell = [nib objectAtIndex:0];
 //	}
-	NSLog(@"%@ %ld", e.title, [self.events count]);
+	//NSLog(@"%@ %ld", e.title, [self.events count]);
     
     // Initialization cell style code
     cell.numberOfApplicant.layer.cornerRadius = 15.0;
@@ -290,4 +299,9 @@
 	}
 }
 
+- (IBAction)onClickSetting:(id)sender {
+    NSLog(@"setting clicked");
+    [self.frostedViewController presentMenuViewController];
+
+}
 @end

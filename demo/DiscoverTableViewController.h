@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Event.h"
 #import <CoreLocation/CoreLocation.h>
+#import "REFrostedViewController.h"
+
 
 @interface DiscoverTableViewController : UITableViewController<UIScrollViewDelegate, CLLocationManagerDelegate>
 @property SortBy sortBy;

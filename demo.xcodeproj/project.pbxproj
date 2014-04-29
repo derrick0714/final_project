@@ -40,6 +40,14 @@
 		957A5DDA18F9EF5400F82524 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957A5DD918F9EF5400F82524 /* SignUpViewController.m */; };
 		957A5DDD18F9EF8000F82524 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 957A5DDC18F9EF8000F82524 /* Event.m */; };
 		957A5DE018F9F11000F82524 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 957A5DDF18F9F11000F82524 /* User.m */; };
+		957F3350191001F100E98D6F /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 957F3345191001F100E98D6F /* RECommonFunctions.m */; };
+		957F3351191001F100E98D6F /* REFrostedContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957F3347191001F100E98D6F /* REFrostedContainerViewController.m */; };
+		957F3352191001F100E98D6F /* REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957F3349191001F100E98D6F /* REFrostedViewController.m */; };
+		957F3353191001F100E98D6F /* UIImage+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957F334B191001F100E98D6F /* UIImage+REFrostedViewController.m */; };
+		957F3354191001F100E98D6F /* UIView+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957F334D191001F100E98D6F /* UIView+REFrostedViewController.m */; };
+		957F3355191001F100E98D6F /* UIViewController+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957F334F191001F100E98D6F /* UIViewController+REFrostedViewController.m */; };
+		957F33581910029F00E98D6F /* rootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 957F33571910029F00E98D6F /* rootViewController.m */; };
+		957F335C19100E9200E98D6F /* star_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 957F335B19100E9200E98D6F /* star_bg.png */; };
 		958056E018F4515D00D7C49D /* NetWorkApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 958056DF18F4515D00D7C49D /* NetWorkApi.m */; };
 		958CC73F18F37D2E0042E395 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 958CC72D18F37D2E0042E395 /* AFHTTPRequestOperation.m */; };
 		958CC74018F37D2E0042E395 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 958CC72F18F37D2E0042E395 /* AFHTTPRequestOperationManager.m */; };
@@ -149,6 +157,21 @@
 		957A5DDC18F9EF8000F82524 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		957A5DDE18F9F11000F82524 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		957A5DDF18F9F11000F82524 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		957F3344191001F100E98D6F /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		957F3345191001F100E98D6F /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		957F3346191001F100E98D6F /* REFrostedContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedContainerViewController.h; sourceTree = "<group>"; };
+		957F3347191001F100E98D6F /* REFrostedContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedContainerViewController.m; sourceTree = "<group>"; };
+		957F3348191001F100E98D6F /* REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedViewController.h; sourceTree = "<group>"; };
+		957F3349191001F100E98D6F /* REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedViewController.m; sourceTree = "<group>"; };
+		957F334A191001F100E98D6F /* UIImage+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+REFrostedViewController.h"; sourceTree = "<group>"; };
+		957F334B191001F100E98D6F /* UIImage+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+REFrostedViewController.m"; sourceTree = "<group>"; };
+		957F334C191001F100E98D6F /* UIView+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+REFrostedViewController.h"; sourceTree = "<group>"; };
+		957F334D191001F100E98D6F /* UIView+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+REFrostedViewController.m"; sourceTree = "<group>"; };
+		957F334E191001F100E98D6F /* UIViewController+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+REFrostedViewController.h"; sourceTree = "<group>"; };
+		957F334F191001F100E98D6F /* UIViewController+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+REFrostedViewController.m"; sourceTree = "<group>"; };
+		957F33561910029F00E98D6F /* rootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rootViewController.h; sourceTree = "<group>"; };
+		957F33571910029F00E98D6F /* rootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rootViewController.m; sourceTree = "<group>"; };
+		957F335B19100E9200E98D6F /* star_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_bg.png; sourceTree = "<group>"; };
 		958056DE18F4515D00D7C49D /* NetWorkApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkApi.h; sourceTree = "<group>"; };
 		958056DF18F4515D00D7C49D /* NetWorkApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkApi.m; sourceTree = "<group>"; };
 		958CC72C18F37D2E0042E395 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -366,6 +389,7 @@
 		9505A84818E12DE5006F1CA2 /* Imgs */ = {
 			isa = PBXGroup;
 			children = (
+				957F335B19100E9200E98D6F /* star_bg.png */,
 				954B9D4018F8CE7800E38315 /* logo.png */,
 				9505A85D18E1BBE2006F1CA2 /* facebook_blank_face3.png */,
 				9505A85B18E1B3C8006F1CA2 /* photo.PNG */,
@@ -396,6 +420,8 @@
 		956B1C2B18E8A4DE003E782D /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				957F33561910029F00E98D6F /* rootViewController.h */,
+				957F33571910029F00E98D6F /* rootViewController.m */,
 				9591879B18E5EED300538439 /* EventDetailTableViewController.h */,
 				9591879C18E5EED300538439 /* EventDetailTableViewController.m */,
 				956B1C2E18E8ACAD003E782D /* FilterTableViewController.h */,
@@ -482,10 +508,30 @@
 		957A5DD418F9EDD600F82524 /* ThirdParts */ = {
 			isa = PBXGroup;
 			children = (
+				957F3343191001F100E98D6F /* REFrostedViewController */,
 				958CC72B18F37D2E0042E395 /* AFNetworking */,
 				958CC74818F37DAE0042E395 /* UIKit+AFNetworking */,
 			);
 			name = ThirdParts;
+			sourceTree = "<group>";
+		};
+		957F3343191001F100E98D6F /* REFrostedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				957F3344191001F100E98D6F /* RECommonFunctions.h */,
+				957F3345191001F100E98D6F /* RECommonFunctions.m */,
+				957F3346191001F100E98D6F /* REFrostedContainerViewController.h */,
+				957F3347191001F100E98D6F /* REFrostedContainerViewController.m */,
+				957F3348191001F100E98D6F /* REFrostedViewController.h */,
+				957F3349191001F100E98D6F /* REFrostedViewController.m */,
+				957F334A191001F100E98D6F /* UIImage+REFrostedViewController.h */,
+				957F334B191001F100E98D6F /* UIImage+REFrostedViewController.m */,
+				957F334C191001F100E98D6F /* UIView+REFrostedViewController.h */,
+				957F334D191001F100E98D6F /* UIView+REFrostedViewController.m */,
+				957F334E191001F100E98D6F /* UIViewController+REFrostedViewController.h */,
+				957F334F191001F100E98D6F /* UIViewController+REFrostedViewController.m */,
+			);
+			path = REFrostedViewController;
 			sourceTree = "<group>";
 		};
 		958CC72B18F37D2E0042E395 /* AFNetworking */ = {
@@ -733,6 +779,7 @@
 			files = (
 				ACD0344B18EE90B300E4EE1A /* CustomEventCell.xib in Resources */,
 				9505A82C18E12CAD006F1CA2 /* Images.xcassets in Resources */,
+				957F335C19100E9200E98D6F /* star_bg.png in Resources */,
 				9505A81E18E12CAD006F1CA2 /* InfoPlist.strings in Resources */,
 				AC78761219070CBD0079437A /* CustomCommentTableCell.xib in Resources */,
 				9505A84F18E12E5A006F1CA2 /* bar_event.png in Resources */,
@@ -770,6 +817,7 @@
 				E29956D0190ED5F7007A8D4B /* TPFloatRatingView.m in Sources */,
 				9591879D18E5EED300538439 /* EventDetailTableViewController.m in Sources */,
 				958CC76018F37DAE0042E395 /* UIRefreshControl+AFNetworking.m in Sources */,
+				957F3355191001F100E98D6F /* UIViewController+REFrostedViewController.m in Sources */,
 				E29F236418F8CD8A002798F5 /* CandidateCollectionViewCell.m in Sources */,
 				9591879A18E5EBDE00538439 /* EventTableViewController.m in Sources */,
 				95AB12B918EB16F5009E583B /* GKImageCropper.m in Sources */,
@@ -781,13 +829,16 @@
 				958CC75E18F37DAE0042E395 /* UIImageView+AFNetworking.m in Sources */,
 				956B1C3018E8ACAD003E782D /* FilterTableViewController.m in Sources */,
 				9505A82418E12CAD006F1CA2 /* AppDelegate.m in Sources */,
+				957F33581910029F00E98D6F /* rootViewController.m in Sources */,
 				95AB12CF18EB18CD009E583B /* EditProfileTableViewController.m in Sources */,
 				958CC75C18F37DAE0042E395 /* UIAlertView+AFNetworking.m in Sources */,
 				E2ACCFBD1906F1CC00B2362B /* FlipSegue.m in Sources */,
 				958CC74218F37D2E0042E395 /* AFNetworkReachabilityManager.m in Sources */,
+				957F3353191001F100E98D6F /* UIImage+REFrostedViewController.m in Sources */,
 				95E5E524190ED9B4001A0BA6 /* Notification.m in Sources */,
 				957A5DD018F9E22300F82524 /* Helper.m in Sources */,
 				95AB12C718EB1710009E583B /* UIImage+RoundedCorner.m in Sources */,
+				957F3350191001F100E98D6F /* RECommonFunctions.m in Sources */,
 				958CC76118F37DAE0042E395 /* UIWebView+AFNetworking.m in Sources */,
 				95AB12C618EB1710009E583B /* UIImage+Rotate.m in Sources */,
 				958CC74718F37D2E0042E395 /* AFURLSessionManager.m in Sources */,
@@ -806,6 +857,8 @@
 				957A5DE018F9F11000F82524 /* User.m in Sources */,
 				ACD0344518EE7B8900E4EE1A /* EventCustomCellTableViewCell.m in Sources */,
 				AC7876101907023A0079437A /* AllCommentsTableViewController.m in Sources */,
+				957F3351191001F100E98D6F /* REFrostedContainerViewController.m in Sources */,
+				957F3354191001F100E98D6F /* UIView+REFrostedViewController.m in Sources */,
 				9591879718E5E81200538439 /* DiscoverTableViewController.m in Sources */,
 				95A68DF41906CE28000A2FB0 /* Comment.m in Sources */,
 				E29956D6190EFCF3007A8D4B /* RatingListTableViewController.m in Sources */,
@@ -820,6 +873,7 @@
 				95AB12C418EB1710009E583B /* UIImage+Alpha.m in Sources */,
 				958CC74618F37D2E0042E395 /* AFURLResponseSerialization.m in Sources */,
 				957A5DD718F9EF3800F82524 /* LoginViewController.m in Sources */,
+				957F3352191001F100E98D6F /* REFrostedViewController.m in Sources */,
 				95AB12C518EB1710009E583B /* UIImage+Resize.m in Sources */,
 				957A5DDD18F9EF8000F82524 /* Event.m in Sources */,
 			);

@@ -52,6 +52,9 @@
     if (self.isSelfEvent || self.isComingEvent || self.isPendingEvent){
         [applyButton setEnabled:NO];
     }
+    
+
+    
     self.titleCell.detailTextLabel.text = self.event.title;
     NSLog(@"subject: %@", self.event.subject);
     self.subjectCell.detailTextLabel.text = self.event.subject;

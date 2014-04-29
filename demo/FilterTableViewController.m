@@ -10,6 +10,7 @@
 #import "EventCustomCellTableViewCell.h"
 
 @interface FilterTableViewController ()
+@property (strong, nonatomic) IBOutlet UITableView *view;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @end
 
@@ -53,6 +54,11 @@
 			cell.accessoryType = UITableViewCellAccessoryNone;
 		}
 	}
+    
+    self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
+    self.tableView.opaque = NO;
+    self.tableView.backgroundColor = [UIColor clearColor];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,6 +86,24 @@
 	}
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:17];
+}
+
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
+//{
+//    if (sectionIndex == 0)
+//        return nil;
+//    
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 34)];
+//    view.backgroundColor = [UIColor colorWithRed:167/255.0f green:167/255.0f blue:167/255.0f alpha:0.6f];
+//    
+//    
+//    return view;
+//}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
