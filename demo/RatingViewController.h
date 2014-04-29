@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface RatingViewController : UIViewController
-
+@property int mode;
 @end

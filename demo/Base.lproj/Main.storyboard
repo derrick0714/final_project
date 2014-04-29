@@ -1502,6 +1502,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <segment title="Unrated"/>
                                 <segment title="Rated"/>
                             </segments>
+                            <connections>
+                                <action selector="segCtrlTapped:" destination="gKu-N7-1JX" eventType="valueChanged" id="AkJ-FH-V9S"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <connections>
@@ -1865,8 +1868,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="7RF-8X-Xej"/>
-        <segue reference="tlK-OA-wjf"/>
         <segue reference="Y9Z-qR-AS5"/>
+        <segue reference="3lY-OP-8BW"/>
+        <segue reference="7RF-8X-Xej"/>
     </inferredMetricsTieBreakers>
 </document>
