@@ -84,6 +84,7 @@
 		95AB12C718EB1710009E583B /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12C118EB1710009E583B /* UIImage+RoundedCorner.m */; };
 		95AB12C818EB1710009E583B /* UIImage+FixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12C318EB1710009E583B /* UIImage+FixOrientation.m */; };
 		95AB12CF18EB18CD009E583B /* EditProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AB12CE18EB18CD009E583B /* EditProfileTableViewController.m */; };
+		95CC3DE3191431B400378CFA /* screenshot1.png in Resources */ = {isa = PBXBuildFile; fileRef = 95CC3DE2191431B400378CFA /* screenshot1.png */; };
 		95DD929018E8B48900016E6B /* AddEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD928F18E8B48900016E6B /* AddEventTableViewController.m */; };
 		95DD929318E8B98200016E6B /* AddMeetingMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD929218E8B98200016E6B /* AddMeetingMapViewController.m */; };
 		95E5E524190ED9B4001A0BA6 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E5E523190ED9B4001A0BA6 /* Notification.m */; };
@@ -253,6 +254,7 @@
 		95AB12C318EB1710009E583B /* UIImage+FixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FixOrientation.m"; sourceTree = "<group>"; };
 		95AB12CD18EB18CD009E583B /* EditProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileTableViewController.h; sourceTree = "<group>"; };
 		95AB12CE18EB18CD009E583B /* EditProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileTableViewController.m; sourceTree = "<group>"; };
+		95CC3DE2191431B400378CFA /* screenshot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot1.png; sourceTree = "<group>"; };
 		95DD928E18E8B48900016E6B /* AddEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventTableViewController.h; sourceTree = "<group>"; };
 		95DD928F18E8B48900016E6B /* AddEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventTableViewController.m; sourceTree = "<group>"; };
 		95DD929118E8B98200016E6B /* AddMeetingMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMeetingMapViewController.h; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 		9505A80718E12CAD006F1CA2 = {
 			isa = PBXGroup;
 			children = (
+				95CC3DE1191431B400378CFA /* screenshot */,
 				9505A81918E12CAD006F1CA2 /* demo */,
 				9505A83818E12CAD006F1CA2 /* demoTests */,
 				9505A81218E12CAD006F1CA2 /* Frameworks */,
@@ -654,6 +657,14 @@
 			name = ImagePicker;
 			sourceTree = "<group>";
 		};
+		95CC3DE1191431B400378CFA /* screenshot */ = {
+			isa = PBXGroup;
+			children = (
+				95CC3DE2191431B400378CFA /* screenshot1.png */,
+			);
+			path = screenshot;
+			sourceTree = "<group>";
+		};
 		AC2492A118EF423F00F2EE6E /* MeDataObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -826,6 +837,7 @@
 				954F38171910361A006433B2 /* logo2.png in Resources */,
 				9505A85E18E1BBE2006F1CA2 /* facebook_blank_face3.png in Resources */,
 				9505A85918E136EA006F1CA2 /* history.png in Resources */,
+				95CC3DE3191431B400378CFA /* screenshot1.png in Resources */,
 				9505A82718E12CAD006F1CA2 /* Main.storyboard in Resources */,
 				9505A84E18E12E5A006F1CA2 /* bar_launch.png in Resources */,
 				9505A85018E12E5A006F1CA2 /* bar_discover.png in Resources */,
