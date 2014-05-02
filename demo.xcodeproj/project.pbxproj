@@ -100,6 +100,7 @@
 		ACC7C0C018F9E43600019EB8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC7C0BF18F9E43600019EB8 /* QuartzCore.framework */; };
 		ACD0344518EE7B8900E4EE1A /* EventCustomCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD0344418EE7B8900E4EE1A /* EventCustomCellTableViewCell.m */; };
 		ACD0344B18EE90B300E4EE1A /* CustomEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACD0344A18EE90B300E4EE1A /* CustomEventCell.xib */; };
+		ACDE5AAF191087D2008F1EED /* discoverMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDE5AAE191087D2008F1EED /* discoverMapAnnotation.m */; };
 		ACF5AF5D18EBB22500DEA17E /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */; };
 		E29956D0190ED5F7007A8D4B /* TPFloatRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E29956CF190ED5F7007A8D4B /* TPFloatRatingView.m */; };
 		E29956D3190ED7A6007A8D4B /* RatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E29956D2190ED7A6007A8D4B /* RatingViewController.m */; };
@@ -281,6 +282,8 @@
 		ACD0344318EE7B8900E4EE1A /* EventCustomCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCustomCellTableViewCell.h; sourceTree = "<group>"; };
 		ACD0344418EE7B8900E4EE1A /* EventCustomCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCustomCellTableViewCell.m; sourceTree = "<group>"; };
 		ACD0344A18EE90B300E4EE1A /* CustomEventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomEventCell.xib; path = ../CustomEventCell.xib; sourceTree = "<group>"; };
+		ACDE5AAD191087D2008F1EED /* discoverMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = discoverMapAnnotation.h; sourceTree = "<group>"; };
+		ACDE5AAE191087D2008F1EED /* discoverMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = discoverMapAnnotation.m; sourceTree = "<group>"; };
 		ACF5AF5C18EBB22500DEA17E /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		E29956CE190ED5F7007A8D4B /* TPFloatRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPFloatRatingView.h; sourceTree = "<group>"; };
 		E29956CF190ED5F7007A8D4B /* TPFloatRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFloatRatingView.m; sourceTree = "<group>"; };
@@ -456,14 +459,9 @@
 		956B1C2B18E8A4DE003E782D /* Discover */ = {
 			isa = PBXGroup;
 			children = (
-				954F3818191066D5006433B2 /* mapRootViewController.h */,
-				954F3819191066D5006433B2 /* mapRootViewController.m */,
-				954F381B19106765006433B2 /* mapNavigationViewController.h */,
-				954F381C19106765006433B2 /* mapNavigationViewController.m */,
+				ACDE5AB019108855008F1EED /* MapView */,
 				957F33561910029F00E98D6F /* rootViewController.h */,
 				957F33571910029F00E98D6F /* rootViewController.m */,
-				954F381E191067FD006433B2 /* mapViewController.h */,
-				954F381F191067FD006433B2 /* mapViewController.m */,
 				9591879B18E5EED300538439 /* EventDetailTableViewController.h */,
 				9591879C18E5EED300538439 /* EventDetailTableViewController.m */,
 				956B1C2E18E8ACAD003E782D /* FilterTableViewController.h */,
@@ -744,6 +742,21 @@
 			name = CustomTableCellForEventsTable;
 			sourceTree = "<group>";
 		};
+		ACDE5AB019108855008F1EED /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				954F381E191067FD006433B2 /* mapViewController.h */,
+				954F381F191067FD006433B2 /* mapViewController.m */,
+				954F3818191066D5006433B2 /* mapRootViewController.h */,
+				954F3819191066D5006433B2 /* mapRootViewController.m */,
+				954F381B19106765006433B2 /* mapNavigationViewController.h */,
+				954F381C19106765006433B2 /* mapNavigationViewController.m */,
+				ACDE5AAD191087D2008F1EED /* discoverMapAnnotation.h */,
+				ACDE5AAE191087D2008F1EED /* discoverMapAnnotation.m */,
+			);
+			name = MapView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -927,6 +940,7 @@
 				958CC74118F37D2E0042E395 /* AFHTTPSessionManager.m in Sources */,
 				AC99F65A18ED13C400E7D1FC /* MeetingScheduleData.m in Sources */,
 				95AB12B818EB16F5009E583B /* GKImagePicker.m in Sources */,
+				ACDE5AAF191087D2008F1EED /* discoverMapAnnotation.m in Sources */,
 				958CC73F18F37D2E0042E395 /* AFHTTPRequestOperation.m in Sources */,
 				95AB12C418EB1710009E583B /* UIImage+Alpha.m in Sources */,
 				958CC74618F37D2E0042E395 /* AFURLResponseSerialization.m in Sources */,

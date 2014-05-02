@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "discoverMapAnnotation.h"
+#import "Event.h"
 
-@interface mapViewController : UIViewController
+@interface mapViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate>
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
+@property SortBy sortBy;
+@property NSString *subject;
 
 @end
