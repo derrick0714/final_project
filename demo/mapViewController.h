@@ -19,4 +19,6 @@
 @property SortBy sortBy;
 @property NSString *subject;
 
+@property NSMutableArray *events;
+
 @end

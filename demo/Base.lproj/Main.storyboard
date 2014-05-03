@@ -329,7 +329,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Map" id="672-2K-Kii">
                             <connections>
-                                <segue destination="wso-q4-QAE" kind="modal" modalTransitionStyle="flipHorizontal" id="0Ag-J7-tGk"/>
+                                <segue destination="SNW-Ha-TFg" kind="push" identifier="showEventOnMap" id="B4r-lB-ytq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2024,6 +2024,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="5Mb-gN-rvc"/>
+        <segue reference="B4r-lB-ytq"/>
         <segue reference="tlK-OA-wjf"/>
         <segue reference="Vk2-Wd-SH8"/>
         <segue reference="Y9Z-qR-AS5"/>

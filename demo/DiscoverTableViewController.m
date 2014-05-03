@@ -12,6 +12,7 @@
 #import "FilterTableViewController.h"
 #import "EventCustomCellTableViewCell.h"
 #import "NetWorkApi.h"
+#import "mapViewController.h"
 
 @interface DiscoverTableViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -219,6 +220,9 @@
         FilterTableViewController *destVC = [segue destinationViewController];
 		destVC.sortBy = self.sortBy;
 		destVC.subject = self.subject;
+    } else if ([segue.identifier isEqual:@"showEventOnMap"]){
+        mapViewController *destVC = [segue destinationViewController];
+        destVC.events = self.events;
 	}
 }
 
