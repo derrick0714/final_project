@@ -443,6 +443,10 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+//    if ([segue.identifier isEqualToString: @"annotateOnMap"]) {
+//        AddMeetingMapViewController *destVC = [segue destinationViewController];
+//        destVC.annotateTitle = self.titleText.text;
+//    }
     if (sender != self.saveButton) return;
     if (self.titleText.text.length > 0) {
 		
