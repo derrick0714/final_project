@@ -11,6 +11,7 @@
 #import "NetWorkApi.h"
 #import "EventCandidatesCollectionViewController.h"
 #import "AllCommentsTableViewController.h"
+#import "TPFloatRatingView.h"
 
 @interface MeTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *userCell;
@@ -23,6 +24,7 @@
 @property (nonatomic, retain) IBOutlet UITextView *secondCommentText;
 
 @property NSMutableArray *commentsList;
+@property (strong, nonatomic) IBOutlet TPFloatRatingView *rating;
 
 @property UIAlertView *alert;
 @end
@@ -79,6 +81,17 @@
 					 NSLog(@"Photo: %@", user.photo);
 				 }];
     
+	self.rating.delegate = self;
+    self.rating.emptySelectedImage = [UIImage imageNamed:@"star_empty"];
+    self.rating.fullSelectedImage = [UIImage imageNamed:@"star"];
+    self.rating.contentMode = UIViewContentModeScaleAspectFill;
+    self.rating.maxRating = 5;
+    self.rating.minRating = 1;
+    self.rating.rating = 5;
+    self.rating.editable = NO;
+    self.rating.halfRatings = NO;
+    self.rating.floatRatings = YES;
+	
     // API for getting comments photo and text
     [NetWorkApi getComments:self.userid completion:^(NSMutableArray *commentList) {
         self.commentsList = commentList;
@@ -90,6 +103,7 @@
                 [NetWorkApi getUserInfo:self.firstCommentUserId
                              completion:^(User *user) {
                                  self.firstCommentImage.image = user.photo;
+								 self.rating.rating = user.userRating;
                              }];
 //                self.secondCommentUserId = (int)[[commentList objectAtIndex:2] userID];
 //                self.firstCommentText.text = [[commentList objectAtIndex:2] content];
@@ -97,6 +111,8 @@
         }
     }];
     
+
+	
 }
 
 - (void)didReceiveMemoryWarning
@@ -116,8 +132,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if(section ==0)
-        return 1;
     return 2;
 }
 
