@@ -17,7 +17,8 @@
 - (IBAction)onFilterClick:(id)sender;
 @property discoverMapAnnotation *mapAnnotation;
 @property NSMutableArray *annotationArray;
-@property NSMutableArray* events;
+@property MKPointAnnotation* annotation;
+
 @end
 
 @implementation mapViewController
@@ -35,17 +36,24 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     [self.mapView setDelegate: self];
     [self.mapView setShowsUserLocation:YES];
-    self.events = [[NSMutableArray alloc] init];
+    //self.events = [[NSMutableArray alloc] init];
     self.annotationArray = [[NSMutableArray alloc] init];
-    [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     // add multiple map Annotations to the mapview
     self.sortBy = BESTMATCH;
 	self.subject = @"All";
     
+    for (Event *event in self.events) {
+        discoverMapAnnotation *toAdd = [[discoverMapAnnotation alloc] init];
+        toAdd.coordinate = CLLocationCoordinate2DMake(event.latitude, event.longitude);
+        toAdd.title = event.title;
+        toAdd.subtitle = event.subject;
+        [self.mapView addAnnotation:toAdd];
+    }
 }
 
 - (void)didReceiveMemoryWarning
