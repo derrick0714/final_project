@@ -194,16 +194,29 @@
         NSIndexPath *b = [NSIndexPath indexPathForRow:0 inSection:0]; // I wanted to update this cell specifically
         UITableViewCell *cell2 = [detailViewController.tableView cellForRowAtIndexPath:b];
         cell2.imageView.image = cell.imageView.image;
-    }
-    
-    if ([[segue identifier] isEqualToString:@"SeeAllComments"]) {
+    } else if ([[segue identifier] isEqualToString:@"SeeAllComments"]) {
         AllCommentsTableViewController *destVC = [segue destinationViewController];
         
         destVC.userIdComment = self.userid;
-        
-    }
+    } else if ([[segue identifier] isEqualToString:@"segue_edit_profile"]) {
+		EditProfileTableViewController *destVC = [segue destinationViewController];
+		destVC.userid = self.userid;
+	}
 }
 
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+	if([identifier isEqualToString:@"segue_edit_profile"])
+		return NO;
+	else
+		return YES;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	if(self.userid == [NetWorkApi getSelfId]) {
+		[self performSegueWithIdentifier:@"segue_edit_profile" sender:self];
+	}
+	[tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 
 - (IBAction)unwindToMe:(UIStoryboardSegue*)sender
 {

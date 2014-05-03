@@ -1470,7 +1470,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="S4g-PP-Fez" kind="push" id="X5g-GL-hAV"/>
+                                            <segue destination="S4g-PP-Fez" kind="push" identifier="segue_edit_profile" id="X5g-GL-hAV"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1814,7 +1814,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="gender" destination="jJA-X1-93p" id="wWQ-xj-EsR"/>
                         <outlet property="myPhoto" destination="e60-IP-6iN" id="2jO-8t-D0M"/>
+                        <outlet property="name" destination="0Al-cf-NB4" id="KW3-8R-1PZ"/>
+                        <outlet property="photo" destination="gYu-iO-PUk" id="Ldi-MP-vyj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUZ-R6-gH4" userLabel="First Responder" sceneMemberID="firstResponder"/>
