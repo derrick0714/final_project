@@ -17,4 +17,9 @@
 @property double latitude;
 @property double longitude;
 
+@property NSString *eventTitle;
+@property NSString *eventSubtitle;
+
+@property int eventID;
+
 @end
