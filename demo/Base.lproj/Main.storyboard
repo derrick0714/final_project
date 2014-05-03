@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7Bs-Y5-wE3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7Bs-Y5-wE3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -1422,7 +1422,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="529" y="719"/>
         </scene>
-        <!--Me Table View Controller - Me-->
+        <!--Me Table View Controller - Profile-->
         <scene sceneID="fAG-gb-70b">
             <objects>
                 <tableViewController id="go0-ZR-daN" customClass="MeTableViewController" sceneMemberID="viewController">
@@ -1527,7 +1527,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="go0-ZR-daN" id="QHB-o3-UpI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Me" id="3aT-b2-ySV">
+                    <navigationItem key="navigationItem" title="Profile" id="3aT-b2-ySV">
                         <barButtonItem key="rightBarButtonItem" title="Accept" id="ksd-f1-4hN">
                             <connections>
                                 <action selector="acceptButton:" destination="go0-ZR-daN" id="H50-yP-4NB"/>
@@ -1992,9 +1992,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="7RF-8X-Xej"/>
-        <segue reference="tlK-OA-wjf"/>
         <segue reference="5Mb-gN-rvc"/>
+        <segue reference="tlK-OA-wjf"/>
+        <segue reference="Vk2-Wd-SH8"/>
         <segue reference="Y9Z-qR-AS5"/>
     </inferredMetricsTieBreakers>
 </document>

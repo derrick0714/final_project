@@ -21,6 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *acceptButton;
 @property BOOL isApplicantToMe;
+@property BOOL isCandidate;
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *meTableViewTitle;
 
