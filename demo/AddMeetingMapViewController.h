@@ -20,10 +20,13 @@
 @interface AddMeetingMapViewController : UIViewController<MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet UISearchBar *mapSearchBar;
+// @property (weak, nonatomic) IBOutlet UISearchBar *mapSearchBar;
 @property (nonatomic, weak)id addEventMapDelegate;
 
 @property double latitudeToPass;
 @property double longitudeToPass;
+
+@property NSString *annotateTitle;
+@property NSString *annotateSubtitle;
 
 @end
