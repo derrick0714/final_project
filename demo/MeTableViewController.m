@@ -56,17 +56,21 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     NSLog(@"Me: viewDidLoad");
     
+//	self.isCandidate = false;
+	
     if (!self.isNotSelf) {
         self.userid = [NetWorkApi getSelfId];
     }
     
-    meTableViewTitle.title = @"Applicant";
+//    meTableViewTitle.title = @"Applicant";
     if (!self.isApplicantToMe) {
         acceptButton.customView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         [acceptButton setEnabled:NO];
         acceptButton.customView.alpha = 0.0f;
-        meTableViewTitle.title = @"My Profile";
-    }
+//        meTableViewTitle.title = @"My Profile";
+    } else if(self.isCandidate) {
+//		meTableViewTitle.title = @"Candidate";
+	}
     
 	[NetWorkApi getUserInfo:self.userid
 				 completion:^(User *user) {

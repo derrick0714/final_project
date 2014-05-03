@@ -72,6 +72,8 @@
 	destVC.userid = (int)u.userID;
 	destVC.eventID = self.eventid;
 	destVC.isApplicantToMe = self.isSelfEvent;
+	destVC.isNotSelf = true;
+	destVC.isCandidate = true;
 }
 
 /*
