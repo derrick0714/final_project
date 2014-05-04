@@ -289,7 +289,7 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="IpD-AY-kPq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <searchBar key="tableHeaderView" alpha="0.84999999999999998" contentMode="redraw" id="KFf-Sr-JSp">
+                        <searchBar key="tableHeaderView" alpha="0.84999999999999998" contentMode="redraw" placeholder="search for you want to teach" id="KFf-Sr-JSp">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -392,7 +392,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2875" y="719"/>
+            <point key="canvasLocation" x="1912" y="2901"/>
         </scene>
         <!--Filter Table View Controller - Settings-->
         <scene sceneID="hws-BE-N7Q">
@@ -1284,11 +1284,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New Event" id="FWc-qn-P8y">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="3XW-wa-gPU">
-                            <connections>
-                                <segue destination="KwR-cR-hUL" kind="unwind" unwindAction="unwindEventTableView:" id="sbD-un-l8y"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Save" id="rnk-Um-qsM">
                             <connections>
                                 <segue destination="KwR-cR-hUL" kind="unwind" unwindAction="unwindEventTableView:" id="vsg-Jr-0CG"/>
@@ -1296,7 +1291,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelButton" destination="3XW-wa-gPU" id="Fcz-uC-md3"/>
                         <outlet property="endDatePicker" destination="yVc-zL-XEa" id="ulX-us-AJP"/>
                         <outlet property="endDatePickerCell" destination="25k-sl-vKM" id="bzm-2Z-tWv"/>
                         <outlet property="endTime" destination="Yoo-iL-IC5" id="P82-y8-yb1"/>
@@ -1314,7 +1308,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htt-f4-e85" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KwR-cR-hUL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1912" y="719"/>
+            <point key="canvasLocation" x="992" y="2901"/>
         </scene>
         <!--Event Table View Controller-->
         <scene sceneID="L1V-Kb-Ms5">
@@ -1325,15 +1319,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeetingScheduleData" textLabel="IYy-C4-qXj" detailTextLabel="M1u-KS-U4Q" imageView="FlD-zO-HCa" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="ZEx-DS-Bfg">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MeetingScheduleData" textLabel="IYy-C4-qXj" detailTextLabel="M1u-KS-U4Q" imageView="FlD-zO-HCa" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="ZEx-DS-Bfg">
                                 <rect key="frame" x="0.0" y="86" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZEx-DS-Bfg" id="VNk-CN-2r8">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="253" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Discuss IOS Project" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IYy-C4-qXj">
-                                            <rect key="frame" x="109" y="21" width="161" height="22"/>
+                                            <rect key="frame" x="109" y="21" width="144" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1354,6 +1348,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="nwW-Ib-Ns4" kind="push" identifier="segueEventDetail" id="3lY-OP-8BW"/>
+                                    <segue destination="Vxh-Zr-bVV" kind="push" identifier="SugueRating" trigger="accessoryAction" id="niS-rc-Ghx"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1367,22 +1362,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="XIi-dV-1uV">
                             <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" id="GSl-4I-e9c">
-                                <rect key="frame" x="16" y="7" width="250" height="30"/>
+                                <rect key="frame" x="16" y="7" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Coming"/>
                                     <segment title="Pending"/>
-                                    <segment title="InitByMe"/>
+                                    <segment title="Review"/>
                                 </segments>
                                 <connections>
                                     <action selector="threeEventSelector" destination="ROn-Bw-q9E" eventType="valueChanged" id="BjO-CD-S5i"/>
                                 </connections>
                             </segmentedControl>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MM9-aV-kDg">
-                            <connections>
-                                <segue destination="B7g-51-aAf" kind="modal" id="Ssx-7f-MD1"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="jGF-Q3-bAJ">
@@ -1396,11 +1386,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="987" y="719"/>
         </scene>
-        <!--Navigation Controller - Meeting-->
+        <!--Navigation Controller - Meetings-->
         <scene sceneID="aV5-rh-GjO">
             <objects>
                 <navigationController definesPresentationContext="YES" id="26k-oB-izo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Meeting" image="bar_event.png" id="qCH-EW-dPE"/>
+                    <tabBarItem key="tabBarItem" title="Meetings" image="bar_event.png" id="qCH-EW-dPE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wVN-zA-P0V">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1473,9 +1463,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qhr-ln-wrL" customClass="TPFloatRatingView">
                                                     <rect key="frame" x="20" y="0.0" width="280" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -1500,11 +1491,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nla-Gl-pzt">
-                                                    <rect key="frame" x="90" y="45" width="144" height="57"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1601,64 +1587,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="987" y="2179"/>
         </scene>
-        <!--Rating List Table View Controller-->
-        <scene sceneID="7OA-Wv-7en">
-            <objects>
-                <tableViewController id="gKu-N7-1JX" customClass="RatingListTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lAH-fx-A3U">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="event_cell" rowHeight="80" id="5yB-3a-fQ7" customClass="EventCustomCellTableViewCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="80"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5yB-3a-fQ7" id="GHD-yc-9Ec">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="79"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Vxh-Zr-bVV" kind="push" identifier="segue_rating" id="61y-bR-qGs"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="gKu-N7-1JX" id="KEA-sg-rco"/>
-                            <outlet property="delegate" destination="gKu-N7-1JX" id="gLO-vQ-lKp"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="klk-AJ-GV2">
-                        <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="yLE-cw-KZo">
-                            <rect key="frame" x="40" y="7" width="240" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Unrated"/>
-                                <segment title="Rated"/>
-                            </segments>
-                            <connections>
-                                <action selector="segCtrlTapped:" destination="gKu-N7-1JX" eventType="valueChanged" id="AkJ-FH-V9S"/>
-                            </connections>
-                        </segmentedControl>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="segCtrl" destination="yLE-cw-KZo" id="qes-1A-9Ze"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kln-uW-7Qq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="987" y="2901"/>
-        </scene>
-        <!--Navigation Controller - Review-->
+        <!--Navigation Controller - Ask-->
         <scene sceneID="d7Q-qs-RHX">
             <objects>
                 <navigationController definesPresentationContext="YES" id="7Uu-Rc-gwT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Review" image="bar_launch.png" id="xoG-oc-BQd"/>
+                    <tabBarItem key="tabBarItem" title="Ask" image="bar_launch.png" id="xoG-oc-BQd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kan-AP-zop">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="gKu-N7-1JX" kind="relationship" relationship="rootViewController" id="gd0-aj-idv"/>
+                        <segue destination="3Pi-BP-cAq" kind="relationship" relationship="rootViewController" id="dfE-bL-laD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydx-Vy-T45" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1680,7 +1618,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E26-YD-Ixj" customClass="TPFloatRatingView">
                                 <rect key="frame" x="20" y="120" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYm-V4-Leq">
                                 <rect key="frame" x="20" y="91" width="280" height="21"/>
@@ -1699,24 +1637,29 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gib-Ha-xGP">
                                 <rect key="frame" x="20" y="201" width="280" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="irM-2F-Vpq">
-                        <barButtonItem key="rightBarButtonItem" title="Submit" id="t11-qC-f0n"/>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="t11-qC-f0n">
+                            <connections>
+                                <action selector="submit:" destination="Vxh-Zr-bVV" id="RwL-K4-t6k"/>
+                                <segue destination="SmQ-3T-q8P" kind="unwind" unwindAction="unwindEventTableView:" id="aTu-P2-XDb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="content" destination="gib-Ha-xGP" id="u3g-11-0Kj"/>
                         <outlet property="ratingView" destination="E26-YD-Ixj" id="4Y2-HG-lJh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2z3-kU-Kgr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="SmQ-3T-q8P" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1458" y="2901"/>
+            <point key="canvasLocation" x="1459" y="725"/>
         </scene>
         <!--Edit Profile Table View Controller - Profile-->
         <scene sceneID="Dwz-Pf-igg">
@@ -1953,25 +1896,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="1001" y="-28"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="5up-fm-uUl">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B7g-51-aAf" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="5aD-oW-ZVS"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GgS-4y-TDO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="3Pi-BP-cAq" kind="relationship" relationship="rootViewController" id="pqw-Ak-ure"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pI8-KK-ln8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1458" y="719"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="wlz-RD-JzP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jxA-60-jj3" sceneMemberID="viewController">
@@ -1987,7 +1911,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGg-Zc-TCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2353" y="719"/>
+            <point key="canvasLocation" x="1449" y="2901"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Rx3-o4-I3c">
@@ -2024,6 +1948,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="3lY-OP-8BW"/>
         <segue reference="5Mb-gN-rvc"/>
         <segue reference="tlK-OA-wjf"/>
         <segue reference="Vk2-Wd-SH8"/>

@@ -17,6 +17,7 @@
 #import "EventDetailTableViewController.h"
 #import "NetWorkApi.h"
 #import "Helper.h"
+#import "RatingViewController.h"
 
 @interface EventTableViewController ()
 
@@ -100,7 +101,7 @@
 		self.eventSelectID = (EventsSelector)1;
 	}
     if(Segment.selectedSegmentIndex == 2){
-		self.eventSelectID = (EventsSelector)2;
+		self.eventSelectID = UNREVIEW;
 	}
     
     [self loadInitialData];
@@ -161,8 +162,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(Segment.selectedSegmentIndex != 2){
 	[self performSegueWithIdentifier:@"segueEventDetail"
 							  sender:[self.tableView cellForRowAtIndexPath:indexPath]];
+    }
+    else{
+        [self performSegueWithIdentifier:@"SugueRating"
+                                  sender:[self.tableView cellForRowAtIndexPath:indexPath]];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -179,18 +186,29 @@
         if(Segment.selectedSegmentIndex == 2)
             destVC.isSelfEvent = true;
     }
+    if([segue.identifier isEqual:@"SugueRating"]){
+        RatingViewController *destVC = (RatingViewController *) [segue destinationViewController];
+        NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
+        Event *e = [self.events objectAtIndex:ip.row];
+        destVC.fromUserId = [NetWorkApi getSelfId];
+        if(e.creatorID == destVC.fromUserId){
+            destVC.toUserId = e.canidateID;
+        }else{
+            destVC.toUserId = e.creatorID;
+        }
+        destVC.eventID = e.eventID;
+    }
     
 }
 
 - (IBAction)unwindEventTableView:(UIStoryboardSegue *) segue
 {
-    AddEventTableViewController *srcVC = [segue sourceViewController];
-//    MeetingScheduleData *item = srcVC.scheduleData;
-	if (srcVC.event!=nil) {
-        Event *e = [Event initWithEvent:srcVC.event];
-        [self.events addObject:e];
-        
-    }
+//    AddEventTableViewController *srcVC = [segue sourceViewController];
+////    MeetingScheduleData *item = srcVC.scheduleData;
+//	if (srcVC.event!=nil) {
+//        Event *e = [Event initWithEvent:srcVC.event];
+//        [self.events addObject:e];
+//    }
 	[self.tableView reloadData];
 }
 

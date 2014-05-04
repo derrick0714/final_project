@@ -53,7 +53,7 @@
     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"star_bg"]];
     [tempImageView setFrame:self.tableView.frame];
     
-    self.tableView.backgroundView = tempImageView;
+    //self.tableView.backgroundView = tempImageView;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -63,10 +63,13 @@
 		 forCellReuseIdentifier:@"CustomEventTableCell"];
 	
 	UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    
 	[refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    
+  //  refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"pull to update"];
 	self.refreshControl = refreshControl;
-    [self.refreshControl setTintColor:[UIColor whiteColor]];
-    [self.refreshControl tintColorDidChange];
+   // [self.refreshControl setTintColor:[UIColor whiteColor]];
+   // [self.refreshControl tintColorDidChange];
 
 	
     
