@@ -1646,7 +1646,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" id="irM-2F-Vpq">
                         <barButtonItem key="rightBarButtonItem" title="Submit" id="t11-qC-f0n">
                             <connections>
-                                <action selector="submit:" destination="Vxh-Zr-bVV" id="RwL-K4-t6k"/>
                                 <segue destination="SmQ-3T-q8P" kind="unwind" unwindAction="unwindEventTableView:" id="aTu-P2-XDb"/>
                             </connections>
                         </barButtonItem>
@@ -1654,6 +1653,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <connections>
                         <outlet property="content" destination="gib-Ha-xGP" id="u3g-11-0Kj"/>
                         <outlet property="ratingView" destination="E26-YD-Ixj" id="4Y2-HG-lJh"/>
+                        <outlet property="submitButton" destination="t11-qC-f0n" id="SfF-BH-cKh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2z3-kU-Kgr" userLabel="First Responder" sceneMemberID="firstResponder"/>

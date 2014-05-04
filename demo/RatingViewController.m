@@ -8,8 +8,10 @@
 
 #import "RatingViewController.h"
 #import "TPFloatRatingView.h"
+#import "NetWorkApi.h"
 
 @interface RatingViewController ()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *submitButton;
 - (IBAction)submit:(id)sender;
 @property (strong, nonatomic) IBOutlet TPFloatRatingView *ratingView;
 @property (weak, nonatomic) IBOutlet UITextView *content;
@@ -81,13 +83,22 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if(sender == self.submitButton){
+        NSLog(@"from id:%d",_fromUserId);
+        NSLog(@"to id:%d",_toUserId);
+        NSLog(@"eventId:%d",_eventID);
+        NSLog(@"rating:%f",self.ratingView.rating);
+        NSLog(@":%@",_content.text);
+        [NetWorkApi addComment:_toUserId content:_content.text rating:self.ratingView.rating eventId:_eventID completion:^(BOOL result, NSString *desc) {
+            NSLog(@"%d",result);
+        }];
+
+    }
+}
+
 
 - (IBAction)submit:(id)sender {
-//    NSLog(@"from id:%d",_fromUserId);
-//    NSLog(@"to id:%d",_toUserId);
-//    NSLog(@"eventId:%d",_eventID);
-//    NSLog(@"rating:%f",self.ratingView.rating);
-//    NSLog(@":%@",_content.text);
     
 }
 @end

@@ -12,6 +12,7 @@
 #import "EventCandidatesCollectionViewController.h"
 #import "AllCommentsTableViewController.h"
 #import "TPFloatRatingView.h"
+#import "Comment.h"
 
 @interface MeTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *userCell;
@@ -58,7 +59,6 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     NSLog(@"Me: viewDidLoad");
     
-//	self.isCandidate = false;
 	
     if (!self.isNotSelf) {
         self.userid = [NetWorkApi getSelfId];
@@ -81,37 +81,51 @@
 					 NSLog(@"Photo: %@", user.photo);
 				 }];
     
-	self.rating.delegate = self;
+//	self.rating.delegate = self;
     self.rating.emptySelectedImage = [UIImage imageNamed:@"star_empty"];
     self.rating.fullSelectedImage = [UIImage imageNamed:@"star"];
     self.rating.contentMode = UIViewContentModeScaleAspectFill;
     self.rating.maxRating = 5;
-    self.rating.minRating = 1;
-    self.rating.rating = 5;
+    self.rating.minRating = 0;
+    
     self.rating.editable = NO;
-    self.rating.halfRatings = NO;
+    self.rating.halfRatings = YES;
     self.rating.floatRatings = YES;
 	
     // API for getting comments photo and text
     [NetWorkApi getComments:self.userid completion:^(NSMutableArray *commentList) {
         self.commentsList = commentList;
-        if ([self.commentsList count]>0) {
-            for (int i=0; i<[self.commentsList count] && i<2; i++) {
-                self.firstCommentUserId = (int)[[commentList objectAtIndex:i] userID];
-                self.firstCommentText.text = [[commentList objectAtIndex:i] content];
-                
+        float all_rating = 0;
+            for (int i=0; i<[self.commentsList count]; i++) {
+                Comment *comment = [commentList objectAtIndex:i];
+                if(i ==0){
+                self.firstCommentUserId = comment.userID;
+                self.firstCommentText.text = comment.content;
                 [NetWorkApi getUserInfo:self.firstCommentUserId
-                             completion:^(User *user) {
-                                 self.firstCommentImage.image = user.photo;
-								 self.rating.rating = user.userRating;
-                             }];
+                                 completion:^(User *user) {
+                                     self.firstCommentImage.image = user.photo;
+                                     // self.rating.rating = user.userRating;
+                                 }];
+                }
+                if(i ==1){
+                    self.secondCommentUserId = comment.userID;
+                    self.secondCommentText.text = comment.content;
+                    [NetWorkApi getUserInfo:self.secondCommentUserId
+                                 completion:^(User *user) {
+                                     self.secondCommentImage.image = user.photo;
+                                     // self.rating.rating = user.userRating;
+                                 }];
+                }
+                all_rating += comment.rating;
+                
 //                self.secondCommentUserId = (int)[[commentList objectAtIndex:2] userID];
 //                self.firstCommentText.text = [[commentList objectAtIndex:2] content];
             }
-        }
+        
+        self.rating.rating = all_rating/[commentList count];
     }];
     
-
+    
 	
 }
 

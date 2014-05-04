@@ -51,7 +51,7 @@
 + (void)candidatesList:(int) eventId
     completion:(void (^)(NSMutableArray *candidates))completionBlock;
 
-+ (void)addComment:(int) commenterId
++ (void)addComment:(int) toUid
            content:(NSString*) content
             rating:(float)rating
            eventId:(int)eventId
