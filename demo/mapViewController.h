@@ -16,9 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
-@property SortBy sortBy;
-@property NSString *subject;
-
-@property NSMutableArray *events;
+- (void)refresh:(id)sender;
 
 @end

@@ -13,6 +13,7 @@
 #import "EventCustomCellTableViewCell.h"
 #import "NetWorkApi.h"
 #import "mapViewController.h"
+#import "FilterStaticClass.h"
 
 @interface DiscoverTableViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -76,6 +77,7 @@
 	self.subject = @"All";
     self.events = [[NSMutableArray alloc] init];
 	self.currentEventIndexPath = nil;
+    
     [self refresh:nil];
 }
 
@@ -219,29 +221,18 @@
 		destVC.event = [Event initWithEvent:e];
 		destVC.isSelfEvent = (e.creatorID == [NetWorkApi getSelfId]);
 		self.currentEventIndexPath = ip;
-    } else if([segue.identifier isEqual:@"segue_filter"]) {
-        FilterTableViewController *destVC = [segue destinationViewController];
-		destVC.sortBy = self.sortBy;
-		destVC.subject = self.subject;
+//    } else if([segue.identifier isEqual:@"segue_filter"]) {
+//          FilterTableViewController *destVC = [segue destinationViewController];
+//          destVC.sortBy = self.sortBy;
+//          destVC.subject = self.subject;
     } else if ([segue.identifier isEqual:@"showEventOnMap"]){
-        mapViewController *destVC = [segue destinationViewController];
-        destVC.events = self.events;
+//        mapViewController *destVC = [segue destinationViewController];
+//        destVC.events = self.events;
 	}
 }
 
 - (IBAction)refresh:(id)sender {
-	// Placeholder: add a placeholder event
-	// should use self.sortBy and self.subject as parameters to get data remotely
-    //	Event *e = [Event initWithTitle:[NSString stringWithFormat:@"A %@ Event",
-    //									 self.subject]
-    //							  notes:[NSString stringWithFormat:@"Sort by %@",
-    //									 self.sortBy]
-    //						  startTime:[NSDate dateWithTimeIntervalSinceNow:0]
-    //							endTime:[NSDate dateWithTimeIntervalSinceNow:3600]
-    //						   location:@"Somewhere"];
-    //	[self.section addObject:e];
-    
-    
+
     // get user's current location:
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -258,9 +249,12 @@
     NSString* temp_keyword = self.searchBar.text;
     //
     
+    NSString* selfSubject = [FilterStaticClass getSubject];
+    SortBy selfSortBy = [FilterStaticClass getSortBy];
+    
     [NetWorkApi discoverEventByKeyworkd:temp_keyword
-                                subject:self.subject
-                                 sortBy:self.sortBy
+                                subject:selfSubject
+                                 sortBy:selfSortBy
                                latitude:tempLatitude
                               longitude:tempLongitude
                              completion:^( NSMutableArray* events) {
@@ -283,9 +277,11 @@
 
 - (IBAction)unwindToDiscover	:(UIStoryboardSegue *)segue {
 	if([[segue sourceViewController] isKindOfClass:[FilterTableViewController class]]) {
-		FilterTableViewController *filterVC = [segue sourceViewController];
-		self.sortBy = filterVC.sortBy;
-		self.subject = filterVC.subject;
+//		FilterTableViewController *filterVC = [segue sourceViewController];
+//		self.sortBy = filterVC.sortBy;
+//		self.subject = filterVC.subject;
+        self.sortBy = [FilterStaticClass getSortBy];
+        self.subject = [FilterStaticClass getSubject];
 		[self refresh];
 	} else if([[segue sourceViewController] isKindOfClass:[EventDetailTableViewController class]]) {
 		EventDetailTableViewController *detailVC = [segue sourceViewController];
@@ -326,8 +322,11 @@
 
 - (IBAction)onClickSetting:(id)sender {
     NSLog(@"setting clicked");
-    FilterTableViewController* menu =  (FilterTableViewController*)self.frostedViewController.menuViewController;
-    menu.discover = self;
+//    FilterTableViewController* menu =  (FilterTableViewController*)self.frostedViewController.menuViewController;
+    //menu.discover = self;
+    
+    [FilterStaticClass  setIsDiscoverList:true];
+    [FilterStaticClass setDiscoverList:self];
     [self.frostedViewController presentMenuViewController];
 
 }

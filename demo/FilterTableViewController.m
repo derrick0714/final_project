@@ -9,6 +9,7 @@
 #import "FilterTableViewController.h"
 #import "EventCustomCellTableViewCell.h"
 #import "rootViewController.h"
+#import "DiscoverTableViewController.h"
 
 @interface FilterTableViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *view;
@@ -35,12 +36,13 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.subject = @"All";
+    
 	int section = 1;
 	for (int row = 0; row < [self.tableView numberOfRowsInSection:section]; row++) {
 		NSIndexPath *cellPath = [NSIndexPath indexPathForRow:row inSection:section];
 		UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:cellPath];
-		if (row == self.sortBy) {
+        SortBy selfSortBy = [FilterStaticClass getSortBy];
+		if (row == selfSortBy) {
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
 		} else {
 			cell.accessoryType = UITableViewCellAccessoryNone;
@@ -50,7 +52,9 @@
 	for (int row = 0; row < [self.tableView numberOfRowsInSection:section]; row++) {
 		NSIndexPath *cellPath = [NSIndexPath indexPathForRow:row inSection:section];
 		UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:cellPath];
-		if ([cell.textLabel.text isEqual:self.subject]) {
+        
+        NSString* selfSubject = [FilterStaticClass getSubject];
+		if ([cell.textLabel.text isEqual:selfSubject]) {
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
 		} else {
 			cell.accessoryType = UITableViewCellAccessoryNone;
@@ -174,24 +178,26 @@
 	cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	switch(section) {
 		case 1: // sort by
-			self.sortBy = (SortBy)indexPath.row;
+            [FilterStaticClass setSortBy:(SortBy)indexPath.row];
           //  ((DiscoverTableViewCont*)self.frostedViewController.menuViewController).sortBy = DISTANCE;
 			break;
 		case 2: // subject
-			self.subject = cell.textLabel.text;
+            [FilterStaticClass setSubject:(NSString *) cell.textLabel.text];
 			break;
 	}
     }
     if(section == 3){
         [self.frostedViewController hideMenuViewController];
-        _discover.sortBy = self.sortBy;
-        _discover.subject = self.subject;
-        [_discover reload_data];
-       // rootViewController* a = (rootViewController*)self.frostedViewController.contentViewController;
-
-        //        content.subject =self.subject;
-//        content.sortBy = self.sortBy;
-       // [content.reload_data];
+        
+        BOOL isList = [FilterStaticClass getIsDiscoverList];
+        
+        if (isList) {
+            DiscoverTableViewController* discoverList = [FilterStaticClass getDiscoverTableViewController];
+            [discoverList reload_data];
+        } else {
+            mapViewController* annotatedMap = [FilterStaticClass getMapViewController];
+            [annotatedMap refresh:nil];
+        }
     }
 }
 
@@ -203,7 +209,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 	if(sender == self.doneButton) {
-		NSLog(@"%d %@", self.sortBy, self.subject);
+		//NSLog(@"%d %@", self.sortBy, self.subject);
 	}
 }
 
