@@ -12,6 +12,7 @@
 #import "discoverMapAnnotation.h"
 #import "NetWorkApi.h"
 #import "Event.h"
+#import "FilterStaticClass.h"
 
 @interface mapViewController ()
 - (IBAction)onFilterClick:(id)sender;

@@ -10,10 +10,12 @@
 #import "Event.h"
 #import "REFrostedViewController.h"
 #import "DiscoverTableViewController.h"
+#import "FilterStaticClass.h"
 
 @interface FilterTableViewController : UITableViewController
-@property SortBy sortBy;
-@property NSString *subject;
-@property DiscoverTableViewController* discover;
+
+//@property SortBy sortBy;
+//@property NSString *subject;
+//@property DiscoverTableViewController* discover;
 
 @end

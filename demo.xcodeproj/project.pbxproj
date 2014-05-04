@@ -90,6 +90,7 @@
 		95E5E524190ED9B4001A0BA6 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E5E523190ED9B4001A0BA6 /* Notification.m */; };
 		AC2A4CFE18E8C71000A002DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */; };
 		AC6FE0D918F8ABC3006424C0 /* AddEventMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6FE0D818F8ABC3006424C0 /* AddEventMapAnnotation.m */; };
+		AC6FF6CC1916AFF300CBCCDA /* FilterStaticClass.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6FF6CB1916AFF300CBCCDA /* FilterStaticClass.m */; };
 		AC7876101907023A0079437A /* AllCommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC78760F1907023A0079437A /* AllCommentsTableViewController.m */; };
 		AC78761219070CBD0079437A /* CustomCommentTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC78761119070CBD0079437A /* CustomCommentTableCell.xib */; };
 		AC8DE76C190762BB00D20324 /* CustomCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8DE76B190762BB00D20324 /* CustomCommentTableViewCell.m */; };
@@ -265,6 +266,8 @@
 		AC2A4CFD18E8C71000A002DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AC6FE0D718F8ABC3006424C0 /* AddEventMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEventMapAnnotation.h; sourceTree = "<group>"; };
 		AC6FE0D818F8ABC3006424C0 /* AddEventMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEventMapAnnotation.m; sourceTree = "<group>"; };
+		AC6FF6CA1916AFF300CBCCDA /* FilterStaticClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterStaticClass.h; sourceTree = "<group>"; };
+		AC6FF6CB1916AFF300CBCCDA /* FilterStaticClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterStaticClass.m; sourceTree = "<group>"; };
 		AC78760E1907023A0079437A /* AllCommentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllCommentsTableViewController.h; sourceTree = "<group>"; };
 		AC78760F1907023A0079437A /* AllCommentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllCommentsTableViewController.m; sourceTree = "<group>"; };
 		AC78761119070CBD0079437A /* CustomCommentTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCommentTableCell.xib; sourceTree = "<group>"; };
@@ -518,6 +521,8 @@
 				95A68DF31906CE28000A2FB0 /* Comment.m */,
 				95E5E522190ED9B4001A0BA6 /* Notification.h */,
 				95E5E523190ED9B4001A0BA6 /* Notification.m */,
+				AC6FF6CA1916AFF300CBCCDA /* FilterStaticClass.h */,
+				AC6FF6CB1916AFF300CBCCDA /* FilterStaticClass.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -911,6 +916,7 @@
 				958CC76118F37DAE0042E395 /* UIWebView+AFNetworking.m in Sources */,
 				95AB12C618EB1710009E583B /* UIImage+Rotate.m in Sources */,
 				958CC74718F37D2E0042E395 /* AFURLSessionManager.m in Sources */,
+				AC6FF6CC1916AFF300CBCCDA /* FilterStaticClass.m in Sources */,
 				956FA87A18EB3700009A106E /* MeTableViewController.m in Sources */,
 				95DD929318E8B98200016E6B /* AddMeetingMapViewController.m in Sources */,
 				AC8DE76C190762BB00D20324 /* CustomCommentTableViewCell.m in Sources */,

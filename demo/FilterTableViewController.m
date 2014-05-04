@@ -35,12 +35,14 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.subject = @"All";
+    
+    [FilterStaticClass setSubject: @"All"];
 	int section = 1;
 	for (int row = 0; row < [self.tableView numberOfRowsInSection:section]; row++) {
 		NSIndexPath *cellPath = [NSIndexPath indexPathForRow:row inSection:section];
 		UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:cellPath];
-		if (row == self.sortBy) {
+        SortBy selfSortBy = [FilterStaticClass getSortBy];
+		if (row == selfSortBy) {
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
 		} else {
 			cell.accessoryType = UITableViewCellAccessoryNone;
@@ -50,6 +52,8 @@
 	for (int row = 0; row < [self.tableView numberOfRowsInSection:section]; row++) {
 		NSIndexPath *cellPath = [NSIndexPath indexPathForRow:row inSection:section];
 		UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:cellPath];
+        
+        
 		if ([cell.textLabel.text isEqual:self.subject]) {
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
 		} else {

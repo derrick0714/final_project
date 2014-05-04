@@ -13,6 +13,7 @@
 #import "EventCustomCellTableViewCell.h"
 #import "NetWorkApi.h"
 #import "mapViewController.h"
+#import "FilterStaticClass.h"
 
 @interface DiscoverTableViewController ()
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;

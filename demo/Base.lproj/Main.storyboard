@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7Bs-Y5-wE3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="7Bs-Y5-wE3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -226,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4nM-E7-DaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="395" y="-967"/>
+            <point key="canvasLocation" x="535" y="-977"/>
         </scene>
         <!--Map Navigation View Controller-->
         <scene sceneID="lba-Us-niB">
@@ -241,7 +241,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WwO-EG-0sz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="987" y="-977"/>
+            <point key="canvasLocation" x="1001" y="-977"/>
         </scene>
         <!--Map View Controller - Map-->
         <scene sceneID="x6G-xb-VLO">
@@ -329,7 +329,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Map" id="672-2K-Kii">
                             <connections>
-                                <segue destination="SNW-Ha-TFg" kind="push" identifier="showEventOnMap" id="B4r-lB-ytq"/>
+                                <segue destination="wso-q4-QAE" kind="modal" id="evM-UO-guA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2005,6 +2005,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tp3-AN-Dhw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2030" y="-977"/>
         </scene>
     </scenes>
     <resources>
@@ -2024,7 +2025,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="5Mb-gN-rvc"/>
-        <segue reference="B4r-lB-ytq"/>
         <segue reference="tlK-OA-wjf"/>
         <segue reference="Vk2-Wd-SH8"/>
         <segue reference="Y9Z-qR-AS5"/>
