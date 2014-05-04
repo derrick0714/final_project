@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface RatingViewController : UIViewController
-@property int mode;
+@property int eventID;
+@property int toUserId;
+@property int fromUserId;
 @end
