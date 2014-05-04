@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Helper.h"
+#import "mapViewController.h"
+#import "DiscoverTableViewController.h"
 
 @interface FilterStaticClass : NSObject
+
+
++(BOOL) isDiscoverList;
 
 +(NSString*) keyWord;
 +(NSString*) subject;
@@ -22,11 +27,17 @@
 +(SortBy) getSortBy;
 +(float) getLatitude;
 +(float) getLongitude;
++(BOOL) getIsDiscoverList;
++(mapViewController*) getMapViewController;
++(DiscoverTableViewController*) getDiscoverTableViewController;
 
 +(void) setKeyWord:(NSString*) keyWordValue;
 +(void) setSubject:(NSString*) subjectValue;
 +(void) setSortBy: (SortBy) sortByValue;
 +(void) setCoordinate: (float)latitudeValue
             longitude: (float)longitudeValue;
++(void) setIsDiscoverList: (BOOL) isDiscoverListValue;
++(void) setDiscoverList: (DiscoverTableViewController*) discoverController;
++(void) setMapView: (mapViewController*) mapViewControllerSet;
 
 @end

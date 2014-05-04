@@ -9,6 +9,7 @@
 #import "FilterTableViewController.h"
 #import "EventCustomCellTableViewCell.h"
 #import "rootViewController.h"
+#import "DiscoverTableViewController.h"
 
 @interface FilterTableViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *view;
@@ -36,7 +37,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [FilterStaticClass setSubject: @"All"];
 	int section = 1;
 	for (int row = 0; row < [self.tableView numberOfRowsInSection:section]; row++) {
 		NSIndexPath *cellPath = [NSIndexPath indexPathForRow:row inSection:section];
@@ -188,14 +188,16 @@
     }
     if(section == 3){
         [self.frostedViewController hideMenuViewController];
-        // _discover.sortBy = self.sortBy;
-        //_discover.subject = self.subject;
-        //[_discover reload_data];
-        // rootViewController* a = (rootViewController*)self.frostedViewController.contentViewController;
-
-        //        content.subject =self.subject;
-//        content.sortBy = self.sortBy;
-       // [content.reload_data];
+        
+        BOOL isList = [FilterStaticClass getIsDiscoverList];
+        
+        if (isList) {
+            DiscoverTableViewController* discoverList = [FilterStaticClass getDiscoverTableViewController];
+            [discoverList reload_data];
+        } else {
+            mapViewController* annotatedMap = [FilterStaticClass getMapViewController];
+            [annotatedMap refresh:nil];
+        }
     }
 }
 

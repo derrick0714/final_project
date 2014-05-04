@@ -14,8 +14,4 @@
 
 @interface FilterTableViewController : UITableViewController
 
-//@property SortBy sortBy;
-//@property NSString *subject;
-//@property DiscoverTableViewController* discover;
-
 @end

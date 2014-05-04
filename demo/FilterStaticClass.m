@@ -13,8 +13,13 @@
 static NSString* keyWord=@"";
 static NSString* subject=@"All";
 static SortBy sortBy=BESTMATCH;
+static BOOL isDiscoverList=true;
+
 static float latitude;
 static float longitude;
+
+static mapViewController* selfMapViewController;
+static DiscoverTableViewController* selfDiscoverTableViewController;
 
 +(NSString*) getKeyWord{
     return keyWord;
@@ -31,6 +36,22 @@ static float longitude;
 +(float) getLongitude{
     return longitude;
 }
++(BOOL) getIsDiscoverList{
+    return isDiscoverList;
+}
++(mapViewController*) getMapViewController{
+    return selfMapViewController;
+}
++(DiscoverTableViewController*) getDiscoverTableViewController{
+    return selfDiscoverTableViewController;
+}
+
++(void) setDiscoverList: (DiscoverTableViewController*) discoverController{
+    selfDiscoverTableViewController = discoverController;
+}
++(void) setMapView: (mapViewController*) mapViewControllerSet{
+    selfMapViewController = mapViewControllerSet;
+}
 
 +(void) setKeyWord:(NSString *)keyWordValue{
     keyWord = keyWordValue;
@@ -45,6 +66,9 @@ static float longitude;
             longitude:(float)longitudeValue{
     latitude = latitudeValue;
     longitude = longitudeValue;
+}
++(void) setIsDiscoverList:(BOOL)isDiscoverListValue{
+    isDiscoverList = isDiscoverListValue;
 }
 
 

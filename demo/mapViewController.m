@@ -19,6 +19,8 @@
 @property discoverMapAnnotation *mapAnnotation;
 @property NSMutableArray *annotationArray;
 @property MKPointAnnotation* annotation;
+@property NSMutableArray* events;
+@property CLLocationManager *locationManager;
 
 @end
 
@@ -37,25 +39,49 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
     [self.mapView setDelegate: self];
     [self.mapView setShowsUserLocation:YES];
     //self.events = [[NSMutableArray alloc] init];
     self.annotationArray = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
-
-    // add multiple map Annotations to the mapview
-    self.sortBy = BESTMATCH;
-	self.subject = @"All";
     
-    for (Event *event in self.events) {
-        discoverMapAnnotation *toAdd = [[discoverMapAnnotation alloc] init];
-        toAdd.coordinate = CLLocationCoordinate2DMake(event.latitude, event.longitude);
-        toAdd.title = event.title;
-        toAdd.subtitle = event.subject;
-        [self.mapView addAnnotation:toAdd];
-    }
+    [self refresh:nil];
+    [super viewDidLoad];
 }
+
+
+- (void)refresh:(id)sender {
+    
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    // get user's current location:
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+
+    
+//    NSLog(@"the latitude is %f", tempLatitude);
+//    NSLog(@"the longitude is %f", tempLongitude);
+    
+    
+    NSString* selfKeyWord = [FilterStaticClass getKeyWord];
+    NSString* selfSubject = [FilterStaticClass getSubject];
+    SortBy selfSortBy = [FilterStaticClass getSortBy];
+    
+    //get current location:
+    double selfLatitude = self.locationManager.location.coordinate.latitude;
+    double selfLongitude = self.locationManager.location.coordinate.longitude;
+    
+    [NetWorkApi discoverEventByKeyworkd:selfKeyWord subject:selfSubject sortBy:selfSortBy latitude:selfLatitude longitude:selfLongitude completion:^(NSMutableArray *events) {
+        for (Event *event in events) {
+            discoverMapAnnotation *toAdd = [[discoverMapAnnotation alloc] init];
+            toAdd.coordinate = CLLocationCoordinate2DMake(event.latitude, event.longitude);
+            toAdd.title = event.title;
+            toAdd.subtitle = event.subject;
+            [self.mapView addAnnotation:toAdd];
+        }
+    }];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -83,7 +109,9 @@
 }
 
 - (IBAction)onFilterClick:(id)sender {
+    [FilterStaticClass setMapView:self];
+    [FilterStaticClass setIsDiscoverList:false];
     [self.frostedViewController presentMenuViewController];
-
+    
 }
 @end
