@@ -12,4 +12,5 @@
 @class GKImagePicker;
 @interface EditProfileTableViewController : UITableViewController
 @property UIImage *myphoto;
+@property int userid;
 @end

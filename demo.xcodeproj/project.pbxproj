@@ -462,8 +462,6 @@
 				ACDE5AB019108855008F1EED /* MapView */,
 				957F33561910029F00E98D6F /* rootViewController.h */,
 				957F33571910029F00E98D6F /* rootViewController.m */,
-				9591879B18E5EED300538439 /* EventDetailTableViewController.h */,
-				9591879C18E5EED300538439 /* EventDetailTableViewController.m */,
 				956B1C2E18E8ACAD003E782D /* FilterTableViewController.h */,
 				956B1C2F18E8ACAD003E782D /* FilterTableViewController.m */,
 				9591879518E5E81200538439 /* DiscoverTableViewController.h */,
@@ -705,6 +703,8 @@
 		ACC3B78618F61235007B90E1 /* Event */ = {
 			isa = PBXGroup;
 			children = (
+				9591879B18E5EED300538439 /* EventDetailTableViewController.h */,
+				9591879C18E5EED300538439 /* EventDetailTableViewController.m */,
 				E29F236518F8D445002798F5 /* EventCandidatesCollectionViewController.h */,
 				E29F236618F8D445002798F5 /* EventCandidatesCollectionViewController.m */,
 				E29F236218F8CD8A002798F5 /* CandidateCollectionViewCell.h */,

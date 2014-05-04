@@ -11,6 +11,7 @@
 #import "NetWorkApi.h"
 #import "EventCandidatesCollectionViewController.h"
 #import "AllCommentsTableViewController.h"
+#import "TPFloatRatingView.h"
 
 @interface MeTableViewController ()
 @property (weak, nonatomic) IBOutlet UITableViewCell *userCell;
@@ -23,6 +24,7 @@
 @property (nonatomic, retain) IBOutlet UITextView *secondCommentText;
 
 @property NSMutableArray *commentsList;
+@property (strong, nonatomic) IBOutlet TPFloatRatingView *rating;
 
 @property UIAlertView *alert;
 @end
@@ -56,17 +58,21 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     NSLog(@"Me: viewDidLoad");
     
+//	self.isCandidate = false;
+	
     if (!self.isNotSelf) {
         self.userid = [NetWorkApi getSelfId];
     }
     
-    meTableViewTitle.title = @"Applicant";
+//    meTableViewTitle.title = @"Applicant";
     if (!self.isApplicantToMe) {
         acceptButton.customView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         [acceptButton setEnabled:NO];
         acceptButton.customView.alpha = 0.0f;
-        meTableViewTitle.title = @"My Profile";
-    }
+//        meTableViewTitle.title = @"My Profile";
+    } else if(self.isCandidate) {
+//		meTableViewTitle.title = @"Candidate";
+	}
     
 	[NetWorkApi getUserInfo:self.userid
 				 completion:^(User *user) {
@@ -75,6 +81,17 @@
 					 NSLog(@"Photo: %@", user.photo);
 				 }];
     
+	self.rating.delegate = self;
+    self.rating.emptySelectedImage = [UIImage imageNamed:@"star_empty"];
+    self.rating.fullSelectedImage = [UIImage imageNamed:@"star"];
+    self.rating.contentMode = UIViewContentModeScaleAspectFill;
+    self.rating.maxRating = 5;
+    self.rating.minRating = 1;
+    self.rating.rating = 5;
+    self.rating.editable = NO;
+    self.rating.halfRatings = NO;
+    self.rating.floatRatings = YES;
+	
     // API for getting comments photo and text
     [NetWorkApi getComments:self.userid completion:^(NSMutableArray *commentList) {
         self.commentsList = commentList;
@@ -86,6 +103,7 @@
                 [NetWorkApi getUserInfo:self.firstCommentUserId
                              completion:^(User *user) {
                                  self.firstCommentImage.image = user.photo;
+								 self.rating.rating = user.userRating;
                              }];
 //                self.secondCommentUserId = (int)[[commentList objectAtIndex:2] userID];
 //                self.firstCommentText.text = [[commentList objectAtIndex:2] content];
@@ -93,6 +111,8 @@
         }
     }];
     
+
+	
 }
 
 - (void)didReceiveMemoryWarning
@@ -112,8 +132,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if(section ==0)
-        return 1;
     return 2;
 }
 
@@ -190,16 +208,29 @@
         NSIndexPath *b = [NSIndexPath indexPathForRow:0 inSection:0]; // I wanted to update this cell specifically
         UITableViewCell *cell2 = [detailViewController.tableView cellForRowAtIndexPath:b];
         cell2.imageView.image = cell.imageView.image;
-    }
-    
-    if ([[segue identifier] isEqualToString:@"SeeAllComments"]) {
+    } else if ([[segue identifier] isEqualToString:@"SeeAllComments"]) {
         AllCommentsTableViewController *destVC = [segue destinationViewController];
         
         destVC.userIdComment = self.userid;
-        
-    }
+    } else if ([[segue identifier] isEqualToString:@"segue_edit_profile"]) {
+		EditProfileTableViewController *destVC = [segue destinationViewController];
+		destVC.userid = self.userid;
+	}
 }
 
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+	if([identifier isEqualToString:@"segue_edit_profile"])
+		return NO;
+	else
+		return YES;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	if(self.userid == [NetWorkApi getSelfId]) {
+		[self performSegueWithIdentifier:@"segue_edit_profile" sender:self];
+	}
+	[tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 
 - (IBAction)unwindToMe:(UIStoryboardSegue*)sender
 {

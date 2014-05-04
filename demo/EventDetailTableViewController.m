@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *locationCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *candidatesCell;
 @property User *creator;
+@property NSString *eventCreatorName;
 @end
 
 @implementation EventDetailTableViewController
@@ -71,6 +72,7 @@
 	[NetWorkApi getUserInfo:self.event.creatorID completion:^(User *user) {
 		self.userCell.imageView.image = user.photo;
 		self.userCell.textLabel.text = user.userName;
+        self.eventCreatorName = user.userName;
 	}];
 }
 
@@ -106,6 +108,8 @@
         EventMapViewController *destVC = (EventMapViewController *)segue.destinationViewController;
         destVC.latitude = self.event.latitude;
         destVC.longitude = self.event.longitude;
+        destVC.eventTitle = self.event.title;
+        destVC.eventSubtitle = self.eventCreatorName;
     } else if([segue.identifier isEqualToString:@"segue_show_creator_detail"]) {
 		MeTableViewController *destVC = (MeTableViewController *)segue.destinationViewController;
 		destVC.userid = self.event.creatorID;

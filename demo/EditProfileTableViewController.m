@@ -16,6 +16,9 @@
 }
 @property (nonatomic, retain) GKImagePicker *picker;
 @property (weak, nonatomic) IBOutlet UIView *myPhoto;
+@property (strong, nonatomic) IBOutlet UIImageView *photo;
+@property (strong, nonatomic) IBOutlet UILabel *name;
+@property (strong, nonatomic) IBOutlet UILabel *gender;
 
 @end
 
@@ -40,7 +43,16 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
+	if(self.userid != [NetWorkApi getSelfId]) {
+		// disable buttons, etc.
+	}
+	__block User *u;
+	[NetWorkApi getUserInfo:self.userid completion:^(User *user) {
+		u = user;
+		self.photo.image = user.photo;
+		self.name.text = user.userName;
+		self.gender.text = user.gender;
+	}];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,10 +63,10 @@
 - (void)tableView: (UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath
 {
 	
-    if( indexPath.section == 0 && indexPath.row ==0 ){
+    if(indexPath.section == 0 && indexPath.row ==0) {
         self.picker = [[GKImagePicker alloc] init];
         self.picker.delegate = self;
-        self.picker.cropper.cropSize = CGSizeMake(320.,320.);   // (Optional) Default: CGSizeMake(320., 320.)
+        self.picker.cropper.cropSize = CGSizeMake(320,320);   // (Optional) Default: CGSizeMake(320., 320.)
         self.picker.cropper.rescaleImage = YES;                // (Optional) Default: YES
         self.picker.cropper.rescaleFactor = 2.0;               // (Optional) Default: 1.0
         self.picker.cropper.dismissAnimated = YES;              // (Optional) Default: YES
@@ -76,10 +88,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if( section == 0)
-        return 1;
-    else
-        return 2;
+	switch(section) {
+		case 0: return 1;
+		case 1: return 2;
+		default: return 0;
+	}
 }
 
 - (void)imagePickerDidFinish:(GKImagePicker *)imagePicker withImage:(UIImage *)image {
