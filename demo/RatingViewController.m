@@ -15,6 +15,7 @@
 - (IBAction)submit:(id)sender;
 @property (strong, nonatomic) IBOutlet TPFloatRatingView *ratingView;
 @property (weak, nonatomic) IBOutlet UITextView *content;
+
 @end
 
 @implementation RatingViewController
