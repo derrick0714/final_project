@@ -220,10 +220,10 @@
 		destVC.event = [Event initWithEvent:e];
 		destVC.isSelfEvent = (e.creatorID == [NetWorkApi getSelfId]);
 		self.currentEventIndexPath = ip;
-    } else if([segue.identifier isEqual:@"segue_filter"]) {
-        FilterTableViewController *destVC = [segue destinationViewController];
-		destVC.sortBy = self.sortBy;
-		destVC.subject = self.subject;
+//    } else if([segue.identifier isEqual:@"segue_filter"]) {
+//          FilterTableViewController *destVC = [segue destinationViewController];
+//          destVC.sortBy = self.sortBy;
+//          destVC.subject = self.subject;
     } else if ([segue.identifier isEqual:@"showEventOnMap"]){
         mapViewController *destVC = [segue destinationViewController];
         destVC.events = self.events;
@@ -284,9 +284,11 @@
 
 - (IBAction)unwindToDiscover	:(UIStoryboardSegue *)segue {
 	if([[segue sourceViewController] isKindOfClass:[FilterTableViewController class]]) {
-		FilterTableViewController *filterVC = [segue sourceViewController];
-		self.sortBy = filterVC.sortBy;
-		self.subject = filterVC.subject;
+//		FilterTableViewController *filterVC = [segue sourceViewController];
+//		self.sortBy = filterVC.sortBy;
+//		self.subject = filterVC.subject;
+        self.sortBy = [FilterStaticClass getSortBy];
+        self.subject = [FilterStaticClass getSubject];
 		[self refresh];
 	} else if([[segue sourceViewController] isKindOfClass:[EventDetailTableViewController class]]) {
 		EventDetailTableViewController *detailVC = [segue sourceViewController];
@@ -327,8 +329,8 @@
 
 - (IBAction)onClickSetting:(id)sender {
     NSLog(@"setting clicked");
-    FilterTableViewController* menu =  (FilterTableViewController*)self.frostedViewController.menuViewController;
-    menu.discover = self;
+//    FilterTableViewController* menu =  (FilterTableViewController*)self.frostedViewController.menuViewController;
+    //menu.discover = self;
     [self.frostedViewController presentMenuViewController];
 
 }

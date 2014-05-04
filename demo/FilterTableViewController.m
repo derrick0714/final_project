@@ -53,8 +53,8 @@
 		NSIndexPath *cellPath = [NSIndexPath indexPathForRow:row inSection:section];
 		UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:cellPath];
         
-        
-		if ([cell.textLabel.text isEqual:self.subject]) {
+        NSString* selfSubject = [FilterStaticClass getSubject];
+		if ([cell.textLabel.text isEqual:selfSubject]) {
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
 		} else {
 			cell.accessoryType = UITableViewCellAccessoryNone;
@@ -178,20 +178,20 @@
 	cell.accessoryType = UITableViewCellAccessoryCheckmark;
 	switch(section) {
 		case 1: // sort by
-			self.sortBy = (SortBy)indexPath.row;
+            [FilterStaticClass setSortBy:(SortBy)indexPath.row];
           //  ((DiscoverTableViewCont*)self.frostedViewController.menuViewController).sortBy = DISTANCE;
 			break;
 		case 2: // subject
-			self.subject = cell.textLabel.text;
+            [FilterStaticClass setSubject:(NSString *) cell.textLabel.text];
 			break;
 	}
     }
     if(section == 3){
         [self.frostedViewController hideMenuViewController];
-        _discover.sortBy = self.sortBy;
-        _discover.subject = self.subject;
-        [_discover reload_data];
-       // rootViewController* a = (rootViewController*)self.frostedViewController.contentViewController;
+        // _discover.sortBy = self.sortBy;
+        //_discover.subject = self.subject;
+        //[_discover reload_data];
+        // rootViewController* a = (rootViewController*)self.frostedViewController.contentViewController;
 
         //        content.subject =self.subject;
 //        content.sortBy = self.sortBy;
@@ -207,7 +207,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 	if(sender == self.doneButton) {
-		NSLog(@"%d %@", self.sortBy, self.subject);
+		//NSLog(@"%d %@", self.sortBy, self.subject);
 	}
 }
 
