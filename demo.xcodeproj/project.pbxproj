@@ -30,7 +30,6 @@
 		9505A85918E136EA006F1CA2 /* history.png in Resources */ = {isa = PBXBuildFile; fileRef = 9505A85718E136EA006F1CA2 /* history.png */; };
 		9505A85A18E136EA006F1CA2 /* pending.png in Resources */ = {isa = PBXBuildFile; fileRef = 9505A85818E136EA006F1CA2 /* pending.png */; };
 		9505A85C18E1B3C8006F1CA2 /* photo.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 9505A85B18E1B3C8006F1CA2 /* photo.PNG */; };
-		9505A85E18E1BBE2006F1CA2 /* facebook_blank_face3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9505A85D18E1BBE2006F1CA2 /* facebook_blank_face3.png */; };
 		9505A86018E1C2A9006F1CA2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9505A85F18E1C2A9006F1CA2 /* MapKit.framework */; };
 		954B9D4118F8CE7800E38315 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 954B9D4018F8CE7800E38315 /* logo.png */; };
 		954F381019102872006433B2 /* FBShimmeringLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 954F380D19102872006433B2 /* FBShimmeringLayer.m */; };
@@ -41,6 +40,7 @@
 		954F381D19106765006433B2 /* mapNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954F381C19106765006433B2 /* mapNavigationViewController.m */; };
 		954F3820191067FD006433B2 /* mapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954F381F191067FD006433B2 /* mapViewController.m */; };
 		956B1C3018E8ACAD003E782D /* FilterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 956B1C2F18E8ACAD003E782D /* FilterTableViewController.m */; };
+		956EBCA11918101500A7EF57 /* face1.png in Resources */ = {isa = PBXBuildFile; fileRef = 956EBCA01918101500A7EF57 /* face1.png */; };
 		956ECC2B19172210003C017B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 956ECB2B19172210003C017B /* .gitignore */; };
 		956ECC2C19172210003C017B /* .htaccess in Resources */ = {isa = PBXBuildFile; fileRef = 956ECB2C19172210003C017B /* .htaccess */; };
 		956ECC2D19172210003C017B /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 956ECB2D19172210003C017B /* .travis.yml */; };
@@ -362,7 +362,6 @@
 		9505A85718E136EA006F1CA2 /* history.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = history.png; sourceTree = "<group>"; };
 		9505A85818E136EA006F1CA2 /* pending.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pending.png; sourceTree = "<group>"; };
 		9505A85B18E1B3C8006F1CA2 /* photo.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo.PNG; sourceTree = "<group>"; };
-		9505A85D18E1BBE2006F1CA2 /* facebook_blank_face3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_blank_face3.png; sourceTree = "<group>"; };
 		9505A85F18E1C2A9006F1CA2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		954B9D4018F8CE7800E38315 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		954F380A19102872006433B2 /* FBShimmering-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FBShimmering-Prefix.pch"; sourceTree = "<group>"; };
@@ -381,6 +380,7 @@
 		954F381F191067FD006433B2 /* mapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mapViewController.m; sourceTree = "<group>"; };
 		956B1C2E18E8ACAD003E782D /* FilterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterTableViewController.h; sourceTree = "<group>"; };
 		956B1C2F18E8ACAD003E782D /* FilterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterTableViewController.m; sourceTree = "<group>"; };
+		956EBCA01918101500A7EF57 /* face1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face1.png; sourceTree = "<group>"; };
 		956ECB2B19172210003C017B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		956ECB2C19172210003C017B /* .htaccess */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .htaccess; sourceTree = "<group>"; };
 		956ECB2D19172210003C017B /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
@@ -844,10 +844,10 @@
 		9505A84818E12DE5006F1CA2 /* Imgs */ = {
 			isa = PBXGroup;
 			children = (
+				956EBCA01918101500A7EF57 /* face1.png */,
 				954F38161910361A006433B2 /* logo2.png */,
 				954F381419103152006433B2 /* star_bg.png */,
 				954B9D4018F8CE7800E38315 /* logo.png */,
-				9505A85D18E1BBE2006F1CA2 /* facebook_blank_face3.png */,
 				9505A85B18E1B3C8006F1CA2 /* photo.PNG */,
 				9505A85718E136EA006F1CA2 /* history.png */,
 				9505A85818E136EA006F1CA2 /* pending.png */,
@@ -1966,7 +1966,6 @@
 				956ECCF919172210003C017B /* Typography.php in Resources */,
 				956ECCDF19172210003C017B /* index.html in Resources */,
 				956ECCD419172210003C017B /* db_lang.php in Resources */,
-				9505A85E18E1BBE2006F1CA2 /* facebook_blank_face3.png in Resources */,
 				956ECCF419172210003C017B /* Profiler.php in Resources */,
 				956ECC6A19172210003C017B /* index.php in Resources */,
 				956ECC5D19172210003C017B /* bootstrap.css.map in Resources */,
@@ -2016,6 +2015,7 @@
 				956ECCA619172210003C017B /* pdo_forge.php in Resources */,
 				956ECCC619172210003C017B /* inflector_helper.php in Resources */,
 				956ECC4C19172210003C017B /* index.html in Resources */,
+				956EBCA11918101500A7EF57 /* face1.png in Resources */,
 				956ECCFC19172210003C017B /* User_agent.php in Resources */,
 				956ECC3E19172210003C017B /* user_agents.php in Resources */,
 				9505A85518E131A4006F1CA2 /* tom.png in Resources */,
