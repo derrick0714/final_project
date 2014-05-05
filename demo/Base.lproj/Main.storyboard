@@ -1799,7 +1799,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" title="Profile" id="LOq-fT-38Z">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="cK6-2P-u4t">
                             <connections>
-                                <action selector="backTo:" destination="S4g-PP-Fez" id="eUx-hQ-zEm"/>
                                 <segue destination="J8C-at-fWD" kind="unwind" unwindAction="unwindToMe:" id="dYx-b6-JX8"/>
                             </connections>
                         </barButtonItem>
