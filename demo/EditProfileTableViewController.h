@@ -10,7 +10,7 @@
 
 
 @class GKImagePicker;
-@interface EditProfileTableViewController : UITableViewController
+@interface EditProfileTableViewController : UITableViewController<UIPickerViewDelegate,UIPickerViewDataSource,UITextViewDelegate>
 @property UIImage *myphoto;
 @property int userid;
 @end
