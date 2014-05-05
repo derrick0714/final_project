@@ -10,6 +10,7 @@
 #import "GKImagePicker.h"
 #import "MeTableViewController.h"
 #import "NetWorkApi.h"
+#import "User.h"
 
 @interface EditProfileTableViewController()<GKImagePickerDelegate>{
   GKImagePicker *picker;
@@ -17,8 +18,23 @@
 @property (nonatomic, retain) GKImagePicker *picker;
 @property (weak, nonatomic) IBOutlet UIView *myPhoto;
 @property (strong, nonatomic) IBOutlet UIImageView *photo;
-@property (strong, nonatomic) IBOutlet UILabel *name;
-@property (strong, nonatomic) IBOutlet UILabel *gender;
+
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UILabel *genderTextField;
+@property (weak, nonatomic) IBOutlet UILabel *majorTextField;
+
+
+@property (weak, nonatomic) IBOutlet UIPickerView *genderPickerView;
+@property (weak, nonatomic) IBOutlet UIPickerView *majorPickerView;
+
+@property (strong, nonatomic) NSArray *genderArray;
+@property (strong, nonatomic) NSArray *majorArray;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *genderPickerCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *majorPickerCell;
+
+@property BOOL genderPickerIsShowing;
+@property BOOL majorPickerIsShowing;
 
 @end
 
@@ -38,6 +54,19 @@
 {
     [super viewDidLoad];
     
+    [self.genderPickerView setDelegate:self];
+    [self.majorPickerView setDelegate:self];
+    self.genderArray = [[NSArray alloc] initWithObjects:@"Male",@"Female", nil];
+    
+    self.majorArray  = [[NSArray alloc]         initWithObjects:@"Math",@"Physics",@"ComputerScience",@"Biology",@"Economics",@"E.E." , nil];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    tap.cancelsTouchesInView = NO;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -50,9 +79,131 @@
 	[NetWorkApi getUserInfo:self.userid completion:^(User *user) {
 		u = user;
 		self.photo.image = user.photo;
-		self.name.text = user.userName;
-		self.gender.text = user.gender;
-	}];
+        self.nameTextField.placeholder = user.userName;
+        self.genderTextField.text = user.gender;
+        self.majorTextField.text = user.subject;
+    }];
+}
+
+//Implement the subject picker
+// returns the number of 'columns' to display.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+// returns the # of rows in each component..
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component
+{
+    if (pickerView == self.genderPickerView) {
+        return 2;
+    }
+    return 6;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    if (pickerView == self.genderPickerView) {
+        return [self.genderArray objectAtIndex:row];
+    }
+    return [self.majorArray objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component
+{
+    if (pickerView == self.genderPickerView) {
+        self.genderTextField.text = [self.genderArray objectAtIndex: row];
+    }
+    else if (pickerView == self.majorPickerView){
+             self.majorTextField.text = [self.majorArray objectAtIndex: row];
+    }
+}
+
+
+-(void)dismissKeyboard {
+    [self.view endEditing:YES]; //make the view end editing!
+}
+
+//below code is used to hide the date pciker cell
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGFloat height = self.tableView.rowHeight;
+    
+    if (indexPath.section==0) {
+        return 80;
+    }
+    
+    if (indexPath.section==1 && indexPath.row==2){
+        height = self.genderPickerIsShowing ? 185 : 0.0f;
+    }
+    if (indexPath.section==1 && indexPath.row==4){
+        height = self.majorPickerIsShowing ? 185 : 0.0f;
+    }
+    
+    return height;
+}
+
+
+//methods for showing and hiding date picker cells
+- (void)showGenderPickerCell {
+    
+    self.genderPickerIsShowing = YES;
+    
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    
+    self.genderPickerView.hidden = NO;
+    self.genderPickerView.alpha = 0.0f;
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        self.genderPickerView.alpha = 1.0f;
+    }];
+}
+
+- (void)hideGenderPickerCell {
+    
+    self.genderPickerIsShowing = NO;
+    
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         self.genderPickerView.alpha = 0.0f;
+                     }
+                     completion:^(BOOL finished){
+                         self.genderPickerView.hidden = YES;
+                     }];
+}
+
+- (void)showMajorPickerCell {
+    
+    self.majorPickerIsShowing = YES;
+    
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    
+    self.majorPickerView.hidden = NO;
+    self.majorPickerView.alpha = 0.0f;
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        self.majorPickerView.alpha = 1.0f;
+    }];
+}
+
+- (void)hideMajorPickerCell {
+    
+    self.majorPickerIsShowing = NO;
+    
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         self.majorPickerView.alpha = 0.0f;
+                     }
+                     completion:^(BOOL finished){
+                         self.majorPickerView.hidden = YES;
+                     }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,7 +224,21 @@
         self.picker.cropper.overlayColor = [UIColor colorWithRed:0/255. green:0/255. blue:0/255. alpha:0.7];  // (Optional) Default: [UIColor colorWithRed:0/255. green:0/255. blue:0/255. alpha:0.7]
         self.picker.cropper.innerBorderColor = [UIColor colorWithRed:255./255. green:255./255. blue:255./255. alpha:0.7];   // (Optional) Default: [UIColor colorWithRed:0/255. green:0/255. blue:0/255. alpha:0.7]
         [self.picker presentPicker];
+    } else if (indexPath.section==1 && indexPath.row==1) {
+        if (self.genderPickerIsShowing){
+            [self hideGenderPickerCell];
+        }else {
+            [self showGenderPickerCell];
+        }
+    } else if (indexPath.section==1 && indexPath.row==3) {
+        if (self.majorPickerIsShowing){
+            [self hideMajorPickerCell];
+        }else {
+            [self showMajorPickerCell];
+        }
     }
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 
 }
 
@@ -90,7 +255,7 @@
     // Return the number of rows in the section.
 	switch(section) {
 		case 0: return 1;
-		case 1: return 2;
+		case 1: return 5;
 		default: return 0;
 	}
 }

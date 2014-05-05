@@ -13,7 +13,6 @@
 
 @interface AddEventTableViewController ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 
 @property (weak, nonatomic) IBOutlet UITextField *titleText;
 //locationText will not be presented on the events table view, but will bu stored in database
