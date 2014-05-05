@@ -18,6 +18,7 @@
 #import "NetWorkApi.h"
 #import "Helper.h"
 #import "RatingViewController.h"
+#import "NetWorkApi.h"
 
 @interface EventTableViewController ()
 
@@ -178,13 +179,18 @@
         NSIndexPath *ip = [self.tableView indexPathForSelectedRow];
 		Event *e = [self.events objectAtIndex:ip.row];
 		destVC.event = [Event initWithEvent:e];
-
+        
         if(Segment.selectedSegmentIndex == 0)
             destVC.isComingEvent = true;
-        if(Segment.selectedSegmentIndex == 1)
+        if(Segment.selectedSegmentIndex == 1 ){
+            if(e.creatorID == [NetWorkApi getSelfId])
+                destVC.isSelfEvent = true;
+            else
+                destVC.isPendingEvent = true;
+        }
+        if(Segment.selectedSegmentIndex == 2){
             destVC.isPendingEvent = true;
-        if(Segment.selectedSegmentIndex == 2)
-            destVC.isSelfEvent = true;
+        }
     }
     if([segue.identifier isEqual:@"SugueRating"]){
         RatingViewController *destVC = (RatingViewController *) [segue destinationViewController];
@@ -209,6 +215,7 @@
 //        Event *e = [Event initWithEvent:srcVC.event];
 //        [self.events addObject:e];
 //    }
+    [self loadInitialData];
 	[self.tableView reloadData];
 }
 
