@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *password2;
 - (IBAction)clickSignUp:(id)sender;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *gender;
+@property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 
 @end
 
@@ -59,6 +60,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.signUpButton.layer.cornerRadius = 8;
+    
     UIColor *myColor = [[UIColor alloc]initWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1];
     
     self.view.backgroundColor = myColor;
