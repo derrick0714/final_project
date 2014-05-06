@@ -97,6 +97,10 @@
         self.nameTextField.placeholder = user.userName;
         self.genderTextField.text = user.gender ? @"Male" : @"Female";
         self.majorTextField.text = user.subject;
+        
+        self.genderFromPicker = user.gender;
+        self.majorFromPicker = user.subject == nil? @"" : user.subject ;
+        self.nameToBeUpdated = user.userName;
     }];
 }
 
@@ -368,24 +372,24 @@
         
         //update name, gender and Major
         
-        //name: "self.nameTextField.text"  NSString type,
+        //name: "self.nameToBeUpdated"  NSString type,
         //gender: "self.genderFromPicker"  BOOL type,
         //major: "self.majorFromPicker"  NSString type.
         
         User* user = [[User alloc] init];
-        user.userName =self.nameTextField.text;
+        user.userName =[self.nameTextField.text  isEqual: @""]? self.nameToBeUpdated : self.nameTextField.text;
         user.gender =self.genderFromPicker;
-        user.subject =self.majorFromPicker == nil ? @"" : self.majorFromPicker;
+        user.subject =self.majorFromPicker;
         
         [NetWorkApi updateUserInfo:user completion:^(BOOL result) {
             NSLog(@"upload user info success");
         }];
         
-        
-        [NetWorkApi updateImage:data completion:^(BOOL result) {
-            NSLog(@"upload image success");
-        }];
-
+//        
+//        [NetWorkApi updateImage:data completion:^(BOOL result) {
+//            NSLog(@"upload image success");
+//        }];
+//
 
     }
 }
