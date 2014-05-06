@@ -80,7 +80,7 @@
     new.userName = [dict objectForKey:@"userName"];
     new.subject = [dict objectForKey:@"subject"];
     new.userRating = [(NSNumber*)[dict objectForKey:@"userRating"] floatValue];
-    
+    new.gender = [(NSNumber*)[dict objectForKey:@"gender"] boolValue];
     NSString* photo_name = @"face1.png";
     if([new.userName isEqual:@"derrick"])
         photo_name = @"xu.png";
