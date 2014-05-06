@@ -261,7 +261,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -270,6 +270,7 @@
 	switch(section) {
 		case 0: return 1;
 		case 1: return 5;
+        case 2: return 1;
 		default: return 0;
 	}
 }
@@ -342,7 +343,10 @@
     if ([[segue identifier] isEqualToString:@"segueEditProfile"]) {
         NSLog(@"1");
     }
-    else{
+    else if([[segue identifier] isEqualToString:@"segueToLogin"]) {
+        
+    }
+    else {
         NSIndexPath *a = [NSIndexPath indexPathForRow:0 inSection:0]; // I wanted to update this cell specifically
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:a];
         
