@@ -57,6 +57,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.title = @"Settings";
     
     [self.genderPickerView setDelegate:self];
     [self.majorPickerView setDelegate:self];
