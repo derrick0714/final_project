@@ -95,7 +95,7 @@
 		u = user;
 		self.photo.image = user.photo;
         self.nameTextField.placeholder = user.userName;
-        self.genderTextField.text = user.gender ? @"Male" : @"Female";
+        self.genderTextField.text = user.gender ? @"Female" : @"Male";
         self.majorTextField.text = user.subject;
         
         self.genderFromPicker = user.gender;
@@ -133,10 +133,10 @@
     if (pickerView == self.genderPickerView) {
         self.genderTextField.text = [self.genderArray objectAtIndex: row];
         if ([self.genderTextField.text  isEqual: @"Male"]) {
-            self.genderFromPicker = 0;
+            self.genderFromPicker = false;
         }
         else{
-            self.genderFromPicker = 1;
+            self.genderFromPicker = true;
         }
     }
     else if (pickerView == self.majorPickerView){
