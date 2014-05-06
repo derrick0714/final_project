@@ -10,11 +10,13 @@
 #import "NetWorkApi.h"
 #import "Helper.h"
 #import "FBShimmeringView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface LoginViewController ()
 - (IBAction)login:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *uname;
 @property (weak, nonatomic) IBOutlet UITextField *password;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -39,6 +41,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.loginButton.layer.cornerRadius = 8;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self

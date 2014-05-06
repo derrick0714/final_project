@@ -64,7 +64,13 @@
     [self.majorPickerView setDelegate:self];
     self.genderArray = [[NSArray alloc] initWithObjects:@"Male",@"Female", nil];
     
-    self.majorArray  = [[NSArray alloc]         initWithObjects:@"Math",@"Physics",@"ComputerScience",@"Biology",@"Economics",@"E.E." , nil];
+    self.majorArray  = [[NSArray alloc] initWithObjects:
+                        @"Math",
+                        @"Physics",
+                        @"Computer Science",
+                        @"Biology",
+                        @"Economics",
+                        @"E.E." , nil];
     
     self.genderPickerView.hidden = YES;
     self.majorPickerView.hidden = YES;

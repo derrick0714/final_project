@@ -78,9 +78,13 @@
     
     [self.subjectPicker setDelegate: self];
     
-    self.subjectArray  = [[NSArray alloc]         initWithObjects:@"Math",@"Physics",@"ComputerScience",@"Biology",@"Economics",@"E.E." , nil];
-
-
+    self.subjectArray  = [[NSArray alloc] initWithObjects:
+                          @"Math",
+                          @"Physics",
+                          @"Computer Science",
+                          @"Biology",
+                          @"Economics",
+                          @"E.E." , nil];
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
