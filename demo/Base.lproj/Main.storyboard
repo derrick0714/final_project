@@ -718,7 +718,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h5z-oz-QDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2825" y="-710"/>
+            <point key="canvasLocation" x="2886" y="-722"/>
         </scene>
         <!--Event Detail Table View Controller - Detail-->
         <scene sceneID="kcd-3q-dgL">
