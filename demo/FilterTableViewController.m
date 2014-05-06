@@ -10,13 +10,19 @@
 #import "EventCustomCellTableViewCell.h"
 #import "rootViewController.h"
 #import "DiscoverTableViewController.h"
+#import "FBShimmeringView.h"
 
 @interface FilterTableViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *view;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (weak, nonatomic) IBOutlet UIView *logo;
+
 @end
 
 @implementation FilterTableViewController
+FBShimmeringView *_shimmeringView;
+UILabel *_logoLabel;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -64,7 +70,36 @@
     self.tableView.separatorColor = [UIColor colorWithRed:150/255.0f green:161/255.0f blue:177/255.0f alpha:1.0f];
     self.tableView.opaque = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
+    
+    
+    _shimmeringView = [[FBShimmeringView alloc] init];
+    _shimmeringView.shimmering = YES;
+    _shimmeringView.shimmeringBeginFadeDuration = 0.3;
+    _shimmeringView.shimmeringOpacity = 0.3;
+    [self.view addSubview:_shimmeringView];
+    
+    _logoLabel = [[UILabel alloc] initWithFrame:_shimmeringView.bounds];
+    _logoLabel.text = @"Tutor Me";
+    _logoLabel.font = [UIFont fontWithName:@"HelveticaNeue-light" size:40.0];
+    _logoLabel.textColor = [UIColor whiteColor];
+    _logoLabel.textAlignment = NSTextAlignmentCenter;
+    _logoLabel.backgroundColor = [UIColor clearColor];
+    _shimmeringView.contentView = _logoLabel;
+    
+    UIColor *myColor = [[UIColor alloc]initWithRed:59.0/255.0 green:89.0/255.0 blue:152.0/255.0 alpha:1];
+    
+    self.logo.backgroundColor = myColor;
 
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+    CGRect shimmeringFrame = self.view.bounds;
+    shimmeringFrame.origin.y = shimmeringFrame.size.height * 0.02;
+    shimmeringFrame.size.height = shimmeringFrame.size.height * 0.17;
+    _shimmeringView.frame = shimmeringFrame;
 }
 
 - (void)didReceiveMemoryWarning
