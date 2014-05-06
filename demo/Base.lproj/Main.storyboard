@@ -167,10 +167,6 @@
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </segmentedControl>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="BfA-xY-a15">
-                                <rect key="frame" x="45" y="67" width="240" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1921,7 +1917,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="bar_event.png" width="24" height="24"/>
         <image name="bar_launch.png" width="24" height="24"/>
         <image name="bar_me.png" width="24" height="24"/>
-        <image name="logo.png" width="469" height="134"/>
         <image name="luming.png" width="460" height="460"/>
         <image name="xu.png" width="600" height="600"/>
     </resources>
