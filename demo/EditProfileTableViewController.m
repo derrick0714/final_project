@@ -372,7 +372,14 @@
         //gender: "self.genderFromPicker"  BOOL type,
         //major: "self.majorFromPicker"  NSString type.
         
+        User* user = [[User alloc] init];
+        user.userName =self.nameTextField.text;
+        user.gender =self.genderFromPicker;
+        user.subject =self.majorFromPicker == nil ? @"" : self.majorFromPicker;
         
+        [NetWorkApi updateUserInfo:user completion:^(BOOL result) {
+            NSLog(@"upload user info success");
+        }];
         
         
         [NetWorkApi updateImage:data completion:^(BOOL result) {
