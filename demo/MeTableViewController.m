@@ -59,7 +59,13 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     NSLog(@"Me: viewDidLoad");
     
-	
+	UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    
+	[refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    
+	//  refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"pull to update"];
+	self.refreshControl = refreshControl;
+
     if (!self.isNotSelf) {
         self.userid = [NetWorkApi getSelfId];
     }
@@ -92,41 +98,45 @@
     self.rating.halfRatings = YES;
     self.rating.floatRatings = YES;
 	
-    // API for getting comments photo and text
+    [self refresh];
+    
+	
+}
+
+- (void)refresh {
+	// API for getting comments photo and text
     [NetWorkApi getComments:self.userid completion:^(NSMutableArray *commentList) {
         self.commentsList = commentList;
         float all_rating = 0;
-            for (int i=0; i<[self.commentsList count]; i++) {
-                Comment *comment = [commentList objectAtIndex:i];
-                if(i ==0){
+		for (int i=0; i<[self.commentsList count]; i++) {
+			Comment *comment = [commentList objectAtIndex:i];
+			if(i ==0){
                 self.firstCommentUserId = comment.userID;
                 self.firstCommentText.text = comment.content;
                 [NetWorkApi getUserInfo:self.firstCommentUserId
-                                 completion:^(User *user) {
-                                     self.firstCommentImage.image = user.photo;
-                                     // self.rating.rating = user.userRating;
-                                 }];
-                }
-                if(i ==1){
-                    self.secondCommentUserId = comment.userID;
-                    self.secondCommentText.text = comment.content;
-                    [NetWorkApi getUserInfo:self.secondCommentUserId
-                                 completion:^(User *user) {
-                                     self.secondCommentImage.image = user.photo;
-                                     // self.rating.rating = user.userRating;
-                                 }];
-                }
-                all_rating += comment.rating;
-                
-//                self.secondCommentUserId = (int)[[commentList objectAtIndex:2] userID];
-//                self.firstCommentText.text = [[commentList objectAtIndex:2] content];
-            }
+							 completion:^(User *user) {
+								 self.firstCommentImage.image = user.photo;
+								 // self.rating.rating = user.userRating;
+							 }];
+			}
+			if(i ==1){
+				self.secondCommentUserId = comment.userID;
+				self.secondCommentText.text = comment.content;
+				[NetWorkApi getUserInfo:self.secondCommentUserId
+							 completion:^(User *user) {
+								 self.secondCommentImage.image = user.photo;
+								 // self.rating.rating = user.userRating;
+							 }];
+			}
+			all_rating += comment.rating;
+			
+			//                self.secondCommentUserId = (int)[[commentList objectAtIndex:2] userID];
+			//                self.firstCommentText.text = [[commentList objectAtIndex:2] content];
+		}
         
         self.rating.rating = all_rating/[commentList count];
+		[self.refreshControl endRefreshing];
     }];
-    
-    
-	
 }
 
 - (void)didReceiveMemoryWarning
