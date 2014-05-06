@@ -70,10 +70,10 @@
     self.view.backgroundColor = myColor;
     
     _wallpaperView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    _wallpaperView.image = [UIImage imageNamed:@"star_bg"];
+    _wallpaperView.image = [UIImage imageNamed:@"bg"];
     _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
-    //[self.view addSubview:_wallpaperView];
-   // [self.view insertSubview:_wallpaperView atIndex:0];
+    [self.view addSubview:_wallpaperView];
+    [self.view insertSubview:_wallpaperView atIndex:0];
 
  
     _shimmeringView = [[FBShimmeringView alloc] init];
