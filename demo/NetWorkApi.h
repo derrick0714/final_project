@@ -46,6 +46,9 @@
 + (void)updateImage:(NSData*) data
          completion:(void (^)(BOOL result))completionBlock;
 
++ (void)updateUserInfo:(User*) user
+         completion:(void (^)(BOOL result))completionBlock;
+
 + (int)getSelfId;
 
 + (void)candidatesList:(int) eventId

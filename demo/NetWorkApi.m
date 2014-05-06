@@ -203,6 +203,21 @@ static NSNumber* uid;
              }];
 
 }
++ (void)updateUserInfo:(User*) user
+            completion:(void (^)(BOOL result))completionBlock{
+    
+    NSString *apiName = @"updateUserInfo";
+    NSDictionary *params = @{ @"uid":uid,
+                              @"name":user.userName,
+                              @"subject":user.subject,
+                              @"gender": [NSNumber numberWithBool:user.gender]};
+    
+    [self networkDealer:apiName
+                 params:params
+             completion:^(NSDictionary *response) {
+                 completionBlock([[response objectForKey:@"result"] boolValue] );
+             }];
+}
 
 
 //upload image
