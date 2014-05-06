@@ -53,7 +53,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIw-Ek-cEz">
-                                <rect key="frame" x="91" y="518" width="139" height="30"/>
+                                <rect key="frame" x="91" y="449" width="139" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Up for TutorMe">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -64,7 +64,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfb-A9-cnP">
-                                <rect key="frame" x="107" y="334" width="106" height="30"/>
+                                <rect key="frame" x="107" y="518" width="106" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="sign in trouble?">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,6 +75,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="pCT-so-uQo"/>
                     <connections>
+                        <outlet property="loginButton" destination="G4E-dg-xkB" id="Fzq-PN-omH"/>
                         <outlet property="password" destination="co3-xg-jQ2" id="vSO-sj-Aat"/>
                         <outlet property="uname" destination="Fzq-uZ-QHM" id="hHF-0z-hhZ"/>
                         <segue destination="qZK-L5-Kf0" kind="modal" identifier="segue_login" id="hSW-qI-v1D"/>
@@ -181,6 +182,7 @@
                         <outlet property="gender" destination="B3T-Q1-z2S" id="1p0-SL-iPX"/>
                         <outlet property="password1" destination="o7f-BN-nNX" id="NFQ-1q-e0z"/>
                         <outlet property="password2" destination="Zdy-4D-ttV" id="LU4-jk-sD2"/>
+                        <outlet property="signUpButton" destination="PKp-FC-ieW" id="e9h-uS-Qg8"/>
                         <outlet property="userName" destination="Hns-s0-mfI" id="5a0-qt-HuG"/>
                     </connections>
                 </viewController>
@@ -1929,9 +1931,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="CtO-TT-QhB"/>
         <segue reference="hSW-qI-v1D"/>
-        <segue reference="2zD-Hc-pcc"/>
-        <segue reference="7RF-8X-Xej"/>
         <segue reference="3lY-OP-8BW"/>
+        <segue reference="7RF-8X-Xej"/>
     </inferredMetricsTieBreakers>
 </document>
