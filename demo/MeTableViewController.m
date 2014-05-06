@@ -240,7 +240,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	if(self.userid == [NetWorkApi getSelfId]) {
+	if(self.userid == [NetWorkApi getSelfId] && indexPath.section == 0) {
 		[self performSegueWithIdentifier:@"segue_edit_profile" sender:self];
 	}
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];
