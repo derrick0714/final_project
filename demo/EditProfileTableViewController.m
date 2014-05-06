@@ -36,6 +36,10 @@
 @property BOOL genderPickerIsShowing;
 @property BOOL majorPickerIsShowing;
 
+@property BOOL genderFromPicker;
+@property NSString* majorFromPicker;
+@property NSString* nameToBeUpdated;
+
 @end
 
 @implementation EditProfileTableViewController
@@ -60,6 +64,9 @@
     
     self.majorArray  = [[NSArray alloc]         initWithObjects:@"Math",@"Physics",@"ComputerScience",@"Biology",@"Economics",@"E.E." , nil];
     
+    self.genderPickerView.hidden = YES;
+    self.majorPickerView.hidden = YES;
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -80,7 +87,7 @@
 		u = user;
 		self.photo.image = user.photo;
         self.nameTextField.placeholder = user.userName;
-        self.genderTextField.text = user.gender;
+        self.genderTextField.text = user.gender ? @"Male" : @"Female";
         self.majorTextField.text = user.subject;
     }];
 }
@@ -113,9 +120,16 @@
 {
     if (pickerView == self.genderPickerView) {
         self.genderTextField.text = [self.genderArray objectAtIndex: row];
+        if ([self.genderTextField.text  isEqual: @"Male"]) {
+            self.genderFromPicker = 0;
+        }
+        else{
+            self.genderFromPicker = 1;
+        }
     }
     else if (pickerView == self.majorPickerView){
-             self.majorTextField.text = [self.majorArray objectAtIndex: row];
+        self.majorTextField.text = [self.majorArray objectAtIndex: row];
+        self.majorFromPicker = [self.majorArray objectAtIndex: row];
     }
 }
 
@@ -337,6 +351,16 @@
         
         CGDataProviderRef provider = CGImageGetDataProvider(cell.imageView.image.CGImage);
         NSData* data = (id)CFBridgingRelease(CGDataProviderCopyData(provider));
+        
+
+        
+        //update name, gender and Major
+        
+        //name: "self.nameTextField.text"  NSString type,
+        //gender: "self.genderFromPicker"  BOOL type,
+        //major: "self.majorFromPicker"  NSString type.
+        
+        
         
         
         [NetWorkApi updateImage:data completion:^(BOOL result) {

@@ -12,7 +12,7 @@
 
 @property NSInteger userID;
 @property NSString* userName;
-@property NSString* gender;
+@property BOOL gender;
 //subject is "Major" in user profile selection
 @property NSString* subject;
 @property NSInteger age;
