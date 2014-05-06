@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0510"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -18,6 +18,20 @@
                BuildableName = "demo.app"
                BlueprintName = "demo"
                ReferencedContainer = "container:demo.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9505A80F18E12CAD006F1CA2"
+               BuildableName = "Tutor Me.app"
+               BlueprintName = "Tutor Me"
+               ReferencedContainer = "container:Tutor Me.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -43,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9505A80F18E12CAD006F1CA2"
-            BuildableName = "demo.app"
-            BlueprintName = "demo"
-            ReferencedContainer = "container:demo.xcodeproj">
+            BuildableName = "Tutor Me.app"
+            BlueprintName = "Tutor Me"
+            ReferencedContainer = "container:Tutor Me.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,13 +76,17 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9505A80F18E12CAD006F1CA2"
-            BuildableName = "demo.app"
-            BlueprintName = "demo"
-            ReferencedContainer = "container:demo.xcodeproj">
+            BuildableName = "Tutor Me.app"
+            BlueprintName = "Tutor Me"
+            ReferencedContainer = "container:Tutor Me.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
+      <LocationScenarioReference
+         identifier = "New York, NY, USA"
+         referenceType = "1">
+      </LocationScenarioReference>
    </LaunchAction>
    <ProfileAction
       shouldUseLaunchSchemeArgsEnv = "YES"
