@@ -310,6 +310,13 @@
 		AC93E5D718EDF25000510883 /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC93E5D618EDF25000510883 /* DatePickerViewController.m */; };
 		AC99F65A18ED13C400E7D1FC /* MeetingScheduleData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC99F65918ED13C400E7D1FC /* MeetingScheduleData.m */; };
 		AC99F65D18ED259B00E7D1FC /* MeData.m in Sources */ = {isa = PBXBuildFile; fileRef = AC99F65C18ED259B00E7D1FC /* MeData.m */; };
+		ACAD88DB1921A19300BDDEC0 /* AddMeeting.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAD88D41921A19300BDDEC0 /* AddMeeting.png */; };
+		ACAD88DC1921A19300BDDEC0 /* DiscoverList.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAD88D51921A19300BDDEC0 /* DiscoverList.png */; };
+		ACAD88DD1921A19300BDDEC0 /* Filter.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAD88D61921A19300BDDEC0 /* Filter.png */; };
+		ACAD88DE1921A19300BDDEC0 /* Login.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAD88D71921A19300BDDEC0 /* Login.png */; };
+		ACAD88DF1921A19300BDDEC0 /* MapView.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAD88D81921A19300BDDEC0 /* MapView.png */; };
+		ACAD88E01921A19300BDDEC0 /* Me.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAD88D91921A19300BDDEC0 /* Me.png */; };
+		ACAD88E11921A19300BDDEC0 /* Meetings.png in Resources */ = {isa = PBXBuildFile; fileRef = ACAD88DA1921A19300BDDEC0 /* Meetings.png */; };
 		ACC3B78A18F612C0007B90E1 /* EventMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC3B78918F612C0007B90E1 /* EventMapViewController.m */; };
 		ACC7C0C018F9E43600019EB8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC7C0BF18F9E43600019EB8 /* QuartzCore.framework */; };
 		ACD0344518EE7B8900E4EE1A /* EventCustomCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD0344418EE7B8900E4EE1A /* EventCustomCellTableViewCell.m */; };
@@ -705,6 +712,13 @@
 		AC99F65918ED13C400E7D1FC /* MeetingScheduleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeetingScheduleData.m; sourceTree = "<group>"; };
 		AC99F65B18ED259B00E7D1FC /* MeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeData.h; sourceTree = "<group>"; };
 		AC99F65C18ED259B00E7D1FC /* MeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeData.m; sourceTree = "<group>"; };
+		ACAD88D41921A19300BDDEC0 /* AddMeeting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AddMeeting.png; path = "../../NYU/Courses/14spring/Mobile Application Programming/FinalPresentation/AddMeeting.png"; sourceTree = "<group>"; };
+		ACAD88D51921A19300BDDEC0 /* DiscoverList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DiscoverList.png; path = "../../NYU/Courses/14spring/Mobile Application Programming/FinalPresentation/DiscoverList.png"; sourceTree = "<group>"; };
+		ACAD88D61921A19300BDDEC0 /* Filter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Filter.png; path = "../../NYU/Courses/14spring/Mobile Application Programming/FinalPresentation/Filter.png"; sourceTree = "<group>"; };
+		ACAD88D71921A19300BDDEC0 /* Login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Login.png; path = "../../NYU/Courses/14spring/Mobile Application Programming/FinalPresentation/Login.png"; sourceTree = "<group>"; };
+		ACAD88D81921A19300BDDEC0 /* MapView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MapView.png; path = "../../NYU/Courses/14spring/Mobile Application Programming/FinalPresentation/MapView.png"; sourceTree = "<group>"; };
+		ACAD88D91921A19300BDDEC0 /* Me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Me.png; path = "../../NYU/Courses/14spring/Mobile Application Programming/FinalPresentation/Me.png"; sourceTree = "<group>"; };
+		ACAD88DA1921A19300BDDEC0 /* Meetings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Meetings.png; path = "../../NYU/Courses/14spring/Mobile Application Programming/FinalPresentation/Meetings.png"; sourceTree = "<group>"; };
 		ACC3B78818F612C0007B90E1 /* EventMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventMapViewController.h; sourceTree = "<group>"; };
 		ACC3B78918F612C0007B90E1 /* EventMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventMapViewController.m; sourceTree = "<group>"; };
 		ACC7C0BF18F9E43600019EB8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1652,6 +1666,13 @@
 		95CC3DE1191431B400378CFA /* screenshot */ = {
 			isa = PBXGroup;
 			children = (
+				ACAD88D41921A19300BDDEC0 /* AddMeeting.png */,
+				ACAD88D51921A19300BDDEC0 /* DiscoverList.png */,
+				ACAD88D61921A19300BDDEC0 /* Filter.png */,
+				ACAD88D71921A19300BDDEC0 /* Login.png */,
+				ACAD88D81921A19300BDDEC0 /* MapView.png */,
+				ACAD88D91921A19300BDDEC0 /* Me.png */,
+				ACAD88DA1921A19300BDDEC0 /* Meetings.png */,
 				95CC3DE2191431B400378CFA /* screenshot1.png */,
 			);
 			path = screenshot;
@@ -1936,6 +1957,7 @@
 				956ECC7119172210003C017B /* Controller.php in Resources */,
 				956ECC4B19172210003C017B /* index.html in Resources */,
 				956ECC3419172210003C017B /* database.php in Resources */,
+				ACAD88E11921A19300BDDEC0 /* Meetings.png in Resources */,
 				956ECC6319172210003C017B /* glyphicons-halflings-regular.woff in Resources */,
 				956ECC9519172210003C017B /* index.html in Resources */,
 				956ECC7D19172210003C017B /* Utf8.php in Resources */,
@@ -1963,6 +1985,7 @@
 				956ECCC119172210003C017B /* email_helper.php in Resources */,
 				956ECCD819172210003C017B /* imglib_lang.php in Resources */,
 				956ECCA719172210003C017B /* pdo_result.php in Resources */,
+				ACAD88DC1921A19300BDDEC0 /* DiscoverList.png in Resources */,
 				956ECCF919172210003C017B /* Typography.php in Resources */,
 				956ECCDF19172210003C017B /* index.html in Resources */,
 				956ECCD419172210003C017B /* db_lang.php in Resources */,
@@ -1992,6 +2015,7 @@
 				95CC3DE3191431B400378CFA /* screenshot1.png in Resources */,
 				9505A82718E12CAD006F1CA2 /* Main.storyboard in Resources */,
 				956ECC3919172210003C017B /* migration.php in Resources */,
+				ACAD88DF1921A19300BDDEC0 /* MapView.png in Resources */,
 				956ECC6E19172210003C017B /* CodeIgniter.php in Resources */,
 				956ECCEE19172210003C017B /* Jquery.php in Resources */,
 				956ECCDD19172210003C017B /* unit_test_lang.php in Resources */,
@@ -2008,6 +2032,7 @@
 				9505A85A18E136EA006F1CA2 /* pending.png in Resources */,
 				956ECC6D19172210003C017B /* Benchmark.php in Resources */,
 				956ECC4819172210003C017B /* index.html in Resources */,
+				ACAD88DB1921A19300BDDEC0 /* AddMeeting.png in Resources */,
 				956ECC7A19172210003C017B /* Router.php in Resources */,
 				956ECCB719172210003C017B /* sqlsrv_utility.php in Resources */,
 				956ECC5F19172210003C017B /* cover.css in Resources */,
@@ -2021,9 +2046,11 @@
 				9505A85518E131A4006F1CA2 /* tom.png in Resources */,
 				956ECCEF19172210003C017B /* Javascript.php in Resources */,
 				956ECC4619172210003C017B /* error_php.php in Resources */,
+				ACAD88E01921A19300BDDEC0 /* Me.png in Resources */,
 				956ECCDE19172210003C017B /* upload_lang.php in Resources */,
 				956ECCCA19172210003C017B /* security_helper.php in Resources */,
 				956ECCA319172210003C017B /* odbc_utility.php in Resources */,
+				ACAD88DD1921A19300BDDEC0 /* Filter.png in Resources */,
 				956ECC5219172210003C017B /* index.html in Resources */,
 				9505A85418E131A4006F1CA2 /* xu.png in Resources */,
 				956ECCC419172210003C017B /* html_helper.php in Resources */,
@@ -2043,6 +2070,7 @@
 				956ECCB319172210003C017B /* index.html in Resources */,
 				956ECC2F19172210003C017B /* .htaccess in Resources */,
 				956ECC5719172210003C017B /* index.html in Resources */,
+				ACAD88DE1921A19300BDDEC0 /* Login.png in Resources */,
 				956ECC5419172210003C017B /* user.php in Resources */,
 				956ECCF319172210003C017B /* Parser.php in Resources */,
 				956ECCD719172210003C017B /* ftp_lang.php in Resources */,
